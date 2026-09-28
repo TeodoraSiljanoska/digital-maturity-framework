@@ -225,7 +225,11 @@ def main() -> int:
     print(f"Snapshot: {destination}")
     print(version.read_text(encoding="utf-8"))
     if not args.keep:
-        shutil.rmtree(workspace)
+        # The orchestrator's log handler still holds outputs/audit/pipeline.log open.
+        import logging
+
+        logging.shutdown()
+        shutil.rmtree(workspace, ignore_errors=True)
     return 0
 
 
