@@ -474,6 +474,58 @@ def run(project_root: Path | str, config: Any = None) -> Dict[str, Any]:
             summary["artifacts"]["validation"] = str(agg_path.relative_to(root))
             registry.register("imputation_validation", agg, category="imputation")
 
+        # --- 2b. Same benchmark restricted to published (official) cells ------
+        # Carried-forward cells copy a neighbouring publication, so hiding them
+        # tests little; this variant hides official values only. The mask is
+        # joined on (country_iso3, year) so row order cannot misalign it.
+        if provenance_path.exists():
+            keyed = preimp[["country_iso3", "year"]].merge(
+                read_df(provenance_path), on=["country_iso3", "year"], how="left"
+            )
+            official_cells = pd.DataFrame(
+                {c: (keyed[c] == "official").to_numpy() for c in DEFAULT_INDICATORS if c in keyed.columns}
+            )
+            logger.info("Running masked-cell benchmark on official cells only")
+            validation_official = validate_imputation(
+                preimp,
+                DEFAULT_INDICATORS,
+                mask_fraction=float(val_cfg.get("mask_fraction", 0.15)),
+                n_repeats=int(val_cfg.get("n_repeats", 5)),
+                seed=seed,
+                base_kwargs=imp_kwargs,
+                eligible=official_cells,
+            )
+            if not validation_official.empty:
+                raw_path = write_df(
+                    validation_official, results_dir / "imputation_validation_official_raw.csv"
+                )
+                agg_official = (
+                    validation_official.groupby(["configuration", "variable"])
+                    .agg(rmse=("rmse", "mean"), mae=("mae", "mean"), nrmse_sd=("nrmse_sd", "mean"))
+                    .reset_index()
+                )
+                agg_official_path = write_df(
+                    agg_official, results_dir / "imputation_validation_official.csv"
+                )
+                write_df(agg_official, tables_dir / "imputation_validation_official.csv")
+                overall_official = (
+                    validation_official.groupby("configuration")["nrmse_sd"].mean().sort_values()
+                )
+                summary["validation_official"] = {
+                    "overall_nrmse_by_configuration": {
+                        k: float(v) for k, v in overall_official.items()
+                    },
+                    "best_configuration": str(overall_official.index[0]),
+                    "mask_pool": "official",
+                }
+                summary["artifacts"]["validation_official_raw"] = str(raw_path.relative_to(root))
+                summary["artifacts"]["validation_official"] = str(
+                    agg_official_path.relative_to(root)
+                )
+                registry.register(
+                    "imputation_validation_official", agg_official, category="imputation"
+                )
+
     # --- 3. Multiple imputation + Rubin pooling ------------------------------
     mi_cfg = imp_cfg.get("multiple_imputation") or {}
     if bool(mi_cfg.get("enabled", True)):

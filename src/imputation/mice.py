@@ -406,17 +406,26 @@ def validate_imputation(
     seed: int = 42,
     configurations: Optional[Dict[str, Dict[str, Any]]] = None,
     base_kwargs: Optional[Dict[str, Any]] = None,
+    eligible: Optional[pd.DataFrame] = None,
 ) -> pd.DataFrame:
     """
-    Masked-cell benchmark: hide observed official cells, re-impute, score error.
+    Masked-cell benchmark: hide observed cells, re-impute, score error.
 
     Returns a tidy frame with one row per (configuration, variable, repeat)
     holding RMSE / MAE / normalised RMSE against the hidden true values, plus
     the same metrics for naive baselines evaluated on identical cells.
+
+    By default any non-missing cell of ``df`` may be hidden, which on the
+    pre-imputation panel includes carried-forward copies of neighbouring
+    publications. ``eligible`` (boolean per indicator, same row order as
+    ``df``) narrows the pool; passing the official-cell mask scores the
+    reconstruction on published values only.
     """
     rng = np.random.default_rng(seed)
     df = df.reset_index(drop=True)
     cols = [c for c in value_cols if c in df.columns]
+    if eligible is not None:
+        eligible = eligible.reset_index(drop=True)
     base_kwargs = dict(base_kwargs or {})
     base_kwargs.pop("seed", None)
     configurations = configurations or {
@@ -429,7 +438,10 @@ def validate_imputation(
         holdout: Dict[str, np.ndarray] = {}
         masked = df.copy()
         for c in cols:
-            observed_idx = np.flatnonzero(pd.to_numeric(df[c], errors="coerce").notna().to_numpy())
+            observed = pd.to_numeric(df[c], errors="coerce").notna().to_numpy()
+            if eligible is not None and c in eligible.columns:
+                observed &= eligible[c].fillna(False).to_numpy(dtype=bool)
+            observed_idx = np.flatnonzero(observed)
             # Never blind a column so heavily that the imputer loses its anchor
             n_hide = int(np.floor(len(observed_idx) * float(mask_fraction)))
             if n_hide < 3 or len(observed_idx) - n_hide < 10:

@@ -12,6 +12,12 @@ from common.io import ensure_dir, read_df, write_df
 from common.logging_utils import get_logger
 from lineage.tracker import LineageTracker
 from pipeline.pipeline_config import PipelineConfig
+from validation.edition_breaks import (
+    DEFAULT_EDITION_INDICATORS,
+    check_variables,
+    detect_edition_breaks,
+    write_break_report,
+)
 
 INDICATOR_COLS: List[str] = [
     "X1",
@@ -134,6 +140,70 @@ def _harmonize_scales(
     return out, applied
 
 
+def _apply_edition_filter(
+    df: pd.DataFrame, editions_cfg: Dict[str, Any]
+) -> tuple[pd.DataFrame, List[Dict[str, Any]]]:
+    """
+    Blank out published values from editions outside an indicator's family.
+
+    A family groups the editions a publisher built with one framework and one
+    scale. Values from other editions are real publications, but splicing them
+    into the same series would turn a change of method into apparent
+    within-country movement, so they are removed before provenance is
+    recorded and the gap is handled like any other missing cell.
+    """
+    out = df.copy()
+    applied: List[Dict[str, Any]] = []
+    for var, spec in ((editions_cfg or {}).get("indicators") or {}).items():
+        if var not in out.columns:
+            continue
+        years = [int(y) for y in ((spec or {}).get("exclude_reference_years") or [])]
+        if not years:
+            continue
+        selector = out["year"].astype(int).isin(years) & out[var].notna()
+        n = int(selector.sum())
+        out.loc[selector, var] = np.nan
+        applied.append(
+            {
+                "variable": var,
+                "family": (spec or {}).get("family"),
+                "excluded_reference_years": years,
+                "n_values_excluded": n,
+                "reason": (spec or {}).get("exclusion_reason"),
+            }
+        )
+    return out, applied
+
+
+def _reconstruction_scope(
+    provenance: pd.DataFrame, official_mask: pd.DataFrame, countries: pd.Series
+) -> pd.DataFrame:
+    """
+    Locate every reconstructed cell within its own country series.
+
+    ``interior`` cells lie between two published observations of the same
+    country and are interpolations; ``backcast`` cells precede the first
+    publication and ``forecast`` cells follow the last one, so both
+    extrapolate beyond anything the publisher reported; ``unobserved_series``
+    marks a country that has no publication of the indicator at all. Rows
+    must be ordered by (country_iso3, year).
+    """
+    scope = pd.DataFrame("", index=provenance.index, columns=INDICATOR_COLS)
+    countries = pd.Series(countries.to_numpy(), index=provenance.index)
+    for col in INDICATOR_COLS:
+        if col not in provenance.columns:
+            continue
+        observed = official_mask[col].astype(int)
+        seen_before = observed.groupby(countries).cummax()
+        seen_after = observed.iloc[::-1].groupby(countries.iloc[::-1]).cummax().iloc[::-1]
+        rebuilt = provenance[col] == "mice_imputed"
+        scope.loc[rebuilt & (seen_before == 1) & (seen_after == 1), col] = "interior"
+        scope.loc[rebuilt & (seen_before == 0) & (seen_after == 1), col] = "backcast"
+        scope.loc[rebuilt & (seen_before == 1) & (seen_after == 0), col] = "forecast"
+        scope.loc[rebuilt & (seen_before == 0) & (seen_after == 0), col] = "unobserved_series"
+    return scope
+
+
 def _gap_limited_fill_series(s: pd.Series, max_gap: int) -> pd.Series:
     """Forward/backward fill only across gaps of at most ``max_gap`` years."""
     if max_gap <= 0:
@@ -222,6 +292,31 @@ def run(project_root: Path | str, config: PipelineConfig) -> Dict[str, Any]:
                 entry["n_values_rescaled"],
             )
 
+    editions_cfg = getattr(config, "editions", None) or {}
+    excluded_editions: List[Dict[str, Any]] = []
+    if editions_cfg.get("indicators"):
+        wide, excluded_editions = _apply_edition_filter(wide, editions_cfg)
+        for entry in excluded_editions:
+            logger.info(
+                "Edition filter: %s dropped %s published values (years %s)",
+                entry["variable"],
+                entry["n_values_excluded"],
+                entry["excluded_reference_years"],
+            )
+
+    # Every mask below is combined cell by cell with the frame that
+    # _impute_missing returns in (country_iso3, year) order, so the frame must
+    # already be in that order when the first mask is taken; otherwise the
+    # labels land on another country's rows.
+    wide = wide.sort_values(["country_iso3", "year"]).reset_index(drop=True)
+
+    breaks = detect_edition_breaks(
+        wide,
+        check_variables(editions_cfg, DEFAULT_EDITION_INDICATORS),
+        editions_cfg=editions_cfg,
+    )
+    break_summary = write_break_report(project_root, breaks, label="filtered")
+
     # Cell provenance: distinguish published observations from carried-forward
     # values and (later) reconstructed values, so authenticity claims can be
     # quantified rather than asserted.
@@ -294,8 +389,18 @@ def run(project_root: Path | str, config: PipelineConfig) -> Dict[str, Any]:
             provenance.to_numpy() == "missing"
         )
         provenance = provenance.mask(pd.DataFrame(reconstructed, columns=INDICATOR_COLS, index=wide.index), "mice_imputed")
+    scope = _reconstruction_scope(provenance, official_mask, wide["country_iso3"])
     provenance.insert(0, "country_iso3", wide["country_iso3"].values)
     provenance.insert(1, "year", wide["year"].values)
+    scope.insert(0, "country_iso3", wide["country_iso3"].values)
+    scope.insert(1, "year", wide["year"].values)
+    scope_path = write_df(
+        scope, project_root / "data" / "processed" / "cell_reconstruction_scope.parquet"
+    )
+    scope_counts = {
+        state: int((scope[INDICATOR_COLS].to_numpy() == state).sum())
+        for state in ("interior", "backcast", "forecast", "unobserved_series")
+    }
     provenance_path = write_df(
         provenance,
         project_root
@@ -374,8 +479,15 @@ def run(project_root: Path | str, config: PipelineConfig) -> Dict[str, Any]:
         "shape": [int(wide.shape[0]), int(wide.shape[1])],
         "mice": mice_report,
         "scale_harmonization": harmonized,
+        "edition_filter": excluded_editions,
+        "edition_breaks_filtered": {
+            "n_boundaries": break_summary["n_boundaries"],
+            "n_flagged": break_summary["n_flagged"],
+        },
         "provenance_path": str(provenance_path.relative_to(project_root)),
         "provenance_shares": provenance_shares,
+        "reconstruction_scope_path": str(scope_path.relative_to(project_root)),
+        "reconstruction_scope_counts": scope_counts,
     }
     logger.info(
         "Preprocessing complete: rows=%s countries=%s path=%s",

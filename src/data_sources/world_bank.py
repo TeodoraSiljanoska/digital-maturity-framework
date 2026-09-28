@@ -1,8 +1,14 @@
-"""World Bank API v2 adapter with pagination and retries."""
+"""World Bank API v2 adapter with pagination and retries.
+
+With ``use_cached_raw: true`` the adapter serves a previously retrieved WDI
+vintage from disk instead of calling the API, so a re-run reproduces the same
+official values even after the World Bank revises its series.
+"""
 
 from __future__ import annotations
 
 import time
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
 
 import pandas as pd
@@ -26,6 +32,51 @@ class WorldBankAdapter(DataSourceAdapter):
         self.timeout = int(self.config.get("timeout_seconds", 60))
         self.retry = int(self.config.get("retry", 3))
         self.per_page = int(self.config.get("per_page", 20000))
+        self.use_cached_raw = bool(self.config.get("use_cached_raw", False))
+        self.cached_raw_path = str(
+            self.config.get("cached_raw_path", "data/raw/world_bank/wdi_vintage.parquet")
+        )
+
+    def _cached_path(self) -> Path:
+        path = Path(self.cached_raw_path)
+        if not path.is_absolute():
+            root = Path(self.project_root) if self.project_root is not None else Path.cwd()
+            path = root / path
+        return path
+
+    def _from_cache(
+        self,
+        codes: Sequence[str],
+        countries: Sequence[str],
+        start_year: int,
+        end_year: int,
+        id_map: Dict[str, str],
+    ) -> pd.DataFrame:
+        """Serve the stored vintage; its retrieved_at stamps are kept as recorded."""
+        path = self._cached_path()
+        if not path.exists():
+            raise DataSourceError(
+                "World Bank cached vintage not found",
+                details={"path": str(path)},
+            )
+        cached = pd.read_parquet(path) if path.suffix == ".parquet" else pd.read_csv(path)
+        wanted = set(normalize_iso3_list(countries))
+        out = cached.loc[
+            cached["indicator_code"].astype(str).isin([str(c) for c in codes])
+            & cached["country_iso3"].astype(str).str.upper().isin(wanted)
+            & pd.to_numeric(cached["year"], errors="coerce").between(int(start_year), int(end_year))
+        ].copy()
+        if out.empty:
+            raise DataSourceError(
+                "World Bank cached vintage holds none of the requested cells",
+                details={"path": str(path), "codes": list(codes)},
+            )
+        out["indicator_id"] = out["indicator_code"].map(id_map).fillna(out.get("indicator_id"))
+        out["source"] = self.name
+        out = ensure_standard_columns(out)
+        out["country_iso3"] = out["country_iso3"].astype(str).str.upper()
+        out["year"] = pd.to_numeric(out["year"], errors="coerce").astype(int)
+        return out
 
     def _request_json(self, url: str) -> Any:
         last_err: Optional[Exception] = None
@@ -114,6 +165,8 @@ class WorldBankAdapter(DataSourceAdapter):
     ) -> pd.DataFrame:
         codes = [str(c) for c in indicator_codes]
         id_map: Dict[str, str] = dict(kwargs.get("indicator_id_map") or {})
+        if self.use_cached_raw:
+            return self._from_cache(codes, countries, start_year, end_year, id_map)
         retrieved_at = utc_now_iso()
         frames: List[pd.DataFrame] = []
         errors: List[str] = []
@@ -152,6 +205,15 @@ class WorldBankAdapter(DataSourceAdapter):
                 "timeout_seconds": self.timeout,
                 "retry": self.retry,
                 "api": "World Bank API v2",
+                "mode": "cached_vintage" if self.use_cached_raw else "live_api",
             }
         )
+        if self.use_cached_raw:
+            meta["cached_raw_path"] = self.cached_raw_path
+            path = self._cached_path()
+            if path.exists():
+                cached = pd.read_parquet(path) if path.suffix == ".parquet" else pd.read_csv(path)
+                meta["vintage_retrieved_at"] = sorted(
+                    str(v) for v in cached["retrieved_at"].dropna().unique()
+                )
         return meta

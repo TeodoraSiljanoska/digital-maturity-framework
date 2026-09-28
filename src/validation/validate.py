@@ -5,8 +5,16 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict
 
+import pandas as pd
+
 from common.io import ensure_dir, read_df, write_df, write_json
 from pipeline.pipeline_config import PipelineConfig
+from validation.edition_breaks import (
+    DEFAULT_EDITION_INDICATORS,
+    check_variables,
+    detect_edition_breaks,
+    write_break_report,
+)
 from validation.validator import DataValidator
 
 
@@ -40,10 +48,30 @@ def run(project_root: Path | str, config: PipelineConfig) -> Dict[str, Any]:
     interim_dir = ensure_dir(project_root / "data" / "interim")
     validated_path = write_df(df, interim_dir / "validated_raw.parquet")
 
+    # Edition-boundary diagnostic on the values exactly as published (before any
+    # rescaling or edition filter); non-blocking, it documents what the
+    # preprocessing stage has to reconcile.
+    published = (
+        df.assign(value=pd.to_numeric(df["value"], errors="coerce"))
+        .pivot_table(index=["country_iso3", "year"], columns="indicator_id", values="value", aggfunc="last")
+        .reset_index()
+    )
+    editions_cfg = getattr(config, "editions", None) or {}
+    breaks = detect_edition_breaks(
+        published,
+        check_variables(editions_cfg, DEFAULT_EDITION_INDICATORS),
+        editions_cfg=editions_cfg,
+    )
+    break_summary = write_break_report(project_root, breaks, label="raw")
+
     return {
         "report_path": str(report_path),
         "validated_path": str(validated_path),
         "ok": bool(report.get("ok", False)),
         "rows": int(len(df)),
         "warnings": list(report.get("warnings") or []),
+        "edition_breaks_raw": {
+            "n_boundaries": break_summary["n_boundaries"],
+            "n_flagged": break_summary["n_flagged"],
+        },
     }

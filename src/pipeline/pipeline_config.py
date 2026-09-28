@@ -26,6 +26,11 @@ CONFIG_FILES = {
     "dashboard": "dashboard.yaml",
 }
 
+# Configs introduced after v2; older configuration sets simply lack them.
+OPTIONAL_CONFIG_FILES = {
+    "editions": "editions.yaml",
+}
+
 
 def _load_yaml(path: Path) -> Dict[str, Any]:
     if not path.exists():
@@ -53,6 +58,7 @@ class PipelineConfig:
     convergence: Dict[str, Any] = field(default_factory=dict)
     visualization: Dict[str, Any] = field(default_factory=dict)
     dashboard: Dict[str, Any] = field(default_factory=dict)
+    editions: Dict[str, Any] = field(default_factory=dict)
 
     @classmethod
     def load(cls, project_root: Path) -> "PipelineConfig":
@@ -64,6 +70,9 @@ class PipelineConfig:
         loaded: Dict[str, Dict[str, Any]] = {}
         for attr, filename in CONFIG_FILES.items():
             loaded[attr] = _load_yaml(config_dir / filename)
+        for attr, filename in OPTIONAL_CONFIG_FILES.items():
+            path = config_dir / filename
+            loaded[attr] = _load_yaml(path) if path.exists() else {}
 
         return cls(project_root=project_root, **loaded)
 
@@ -130,4 +139,5 @@ class PipelineConfig:
             "convergence": self.convergence,
             "visualization": self.visualization,
             "dashboard": self.dashboard,
+            "editions": self.editions,
         }
