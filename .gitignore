@@ -38,3 +38,6 @@ versions/*/outputs/pipeline_state.json
 **/outputs/reports/*_ACADEMIC.md
 **/outputs/reports/DATA_AUTHENTICITY_AND_COVERAGE.md
 scripts/build_*docx.py
+
+# Downloaded source files (reports, spreadsheets); only extracted values and checksums are versioned
+data/external_cache/

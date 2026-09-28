@@ -87,13 +87,13 @@ indicators:
     research_variable: X5
     uri: http://purl.org/dmi-framework#Ind_X5
     name: National Cyber Security Index
-    definition: NCSI overall score
+    definition: NCSI 3.0 overall score in force on 31 December (dated version history)
     source: ncsi
     dataset: NCSI
     indicator_code: NCSI_SCORE
     same_as: https://ncsi.ega.ee/
     unit: score_0_100
-    frequency: irregular
+    frequency: continuous
     transformation: none
     availability_status: sparse
     pillar: trust_innovation
@@ -108,7 +108,7 @@ indicators:
     research_variable: X6
     uri: http://purl.org/dmi-framework#Ind_X6
     name: Global Innovation Index
-    definition: WIPO Global Innovation Index overall score
+    definition: WIPO Global Innovation Index overall score, editions 2012-2025
     source: gii
     dataset: GII
     indicator_code: GII_SCORE
@@ -129,7 +129,7 @@ indicators:
     research_variable: X7
     uri: http://purl.org/dmi-framework#Ind_X7
     name: Government AI Readiness Index
-    definition: Oxford Insights Government AI Readiness Index score
+    definition: Oxford Insights Government AI Readiness Index score, three-pillar editions 2020-2024
     source: oxford_insights
     dataset: AI_READINESS
     indicator_code: AI_READY
@@ -234,7 +234,7 @@ indicators:
     research_variable: C2
     uri: http://purl.org/dmi-framework#Ind_C2
     name: Education Index
-    definition: UNDP Human Development Report Education Index
+    definition: UNDP education index from the HDR 2025 time series (single vintage)
     source: undp
     dataset: HDR
     indicator_code: EDU_INDEX

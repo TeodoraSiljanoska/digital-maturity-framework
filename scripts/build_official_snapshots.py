@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Build curated official snapshot CSVs for non-API research indicators.
 
+Superseded by scripts/build_snapshots_v3.py from v3 onwards; kept so that the
+v1/v2 snapshots (tag v2-frozen) remain reproducible.
+
 Prefer downloading from official/public sources when available. Where direct
 machine-readable downloads are unreliable, embed carefully researched published
 scores from UN E-Government Survey (via QoG UN egov series), WIPO GII reports,

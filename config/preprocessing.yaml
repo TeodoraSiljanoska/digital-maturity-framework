@@ -10,9 +10,12 @@ missing_values:
     config_file: imputation.yaml
 
 # Editions of the same index that were published on different scales must be
-# spliced onto a common scale before any modelling.
+# spliced onto a common scale before any modelling. Since v3 the 2019 AI
+# Readiness edition is excluded by config/editions.yaml (it differs in
+# construction, not only in scale), so this rescaling is switched off; the
+# mechanism stays for future sources.
 scale_harmonization:
-  enabled: true
+  enabled: false
   rules:
     - variable: X7
       apply_to_years_before: 2020

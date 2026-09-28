@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Extend curated snapshots to 2025 with official values only.
 
+Superseded by scripts/build_snapshots_v3.py from v3 onwards; kept so that the
+v2 snapshots (tag v2-frozen) remain reproducible.
+
 - Adds years 2024–2025 to all snapshot panels.
 - Inserts UN EGDI/OSI 2024 from UN E-Government Survey 2024 (official).
 - Leaves 2025 EGDI/OSI empty (no survey).
