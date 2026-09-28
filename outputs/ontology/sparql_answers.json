@@ -1,0 +1,260 @@
+{
+  "consistency": {
+    "reasoner": "none",
+    "note": "HermiT is not run. The TBox is RDFS-plus; this check is structural.",
+    "n_indicators": 13,
+    "n_countries": 12,
+    "n_score_entries": 2184,
+    "indicators_missing_obtainedBy": [],
+    "passed": true
+  },
+  "CQ1": {
+    "id": "CQ1",
+    "answer": [
+      {
+        "id": "DMI",
+        "method": "Constructed composite"
+      },
+      {
+        "id": "C2",
+        "method": "Curated published snapshot"
+      },
+      {
+        "id": "X10",
+        "method": "Curated published snapshot"
+      },
+      {
+        "id": "X3",
+        "method": "Curated published snapshot"
+      },
+      {
+        "id": "X5",
+        "method": "Curated published snapshot"
+      },
+      {
+        "id": "X6",
+        "method": "Curated published snapshot"
+      },
+      {
+        "id": "X7",
+        "method": "Curated published snapshot"
+      },
+      {
+        "id": "C1",
+        "method": "Official statistical API"
+      },
+      {
+        "id": "X1",
+        "method": "Official statistical API"
+      },
+      {
+        "id": "X2",
+        "method": "Official statistical API"
+      },
+      {
+        "id": "X4",
+        "method": "Official statistical API"
+      },
+      {
+        "id": "X8",
+        "method": "Official statistical API"
+      },
+      {
+        "id": "X9",
+        "method": "Official statistical API"
+      }
+    ],
+    "passed": true,
+    "engine": "rdflib SPARQL"
+  },
+  "CQ2": {
+    "id": "CQ2",
+    "answer": [
+      {
+        "prov": "carried_forward",
+        "n": 9
+      },
+      {
+        "prov": "official",
+        "n": 2
+      },
+      {
+        "prov": "mice_imputed",
+        "n": 1
+      },
+      {
+        "prov": "constructed",
+        "n": 1
+      }
+    ],
+    "passed": true,
+    "engine": "rdflib SPARQL"
+  },
+  "CQ3": {
+    "id": "CQ3",
+    "answer": [
+      {
+        "phase": "Predict",
+        "purpose": "Non-linear prediction of DMI"
+      }
+    ],
+    "passed": true,
+    "engine": "rdflib SPARQL"
+  },
+  "CQ4": {
+    "id": "CQ4",
+    "answer": [
+      {
+        "id": "X2",
+        "shap": "2.5516899764311445"
+      },
+      {
+        "id": "X3",
+        "shap": "2.5331390297819816"
+      },
+      {
+        "id": "C2",
+        "shap": "1.872550726747607"
+      },
+      {
+        "id": "X6",
+        "shap": "1.7846094793368306"
+      },
+      {
+        "id": "X4",
+        "shap": "1.75160215407221"
+      },
+      {
+        "id": "C1",
+        "shap": "1.4334343010138235"
+      },
+      {
+        "id": "X5",
+        "shap": "1.2458249099456198"
+      },
+      {
+        "id": "X8",
+        "shap": "1.0126492870218191"
+      },
+      {
+        "id": "X10",
+        "shap": "0.8543390999414356"
+      },
+      {
+        "id": "X1",
+        "shap": "0.8427850420338263"
+      }
+    ],
+    "passed": true,
+    "engine": "rdflib SPARQL"
+  },
+  "CQ5": {
+    "id": "CQ5",
+    "answer": [
+      {
+        "id": "C1",
+        "value": "10.130408859167302",
+        "prov": "official",
+        "phase": "Acquire",
+        "source": "world_bank"
+      },
+      {
+        "id": "C2",
+        "value": "0.7785119999999999",
+        "prov": "mice_imputed",
+        "phase": "Acquire",
+        "source": "undp"
+      },
+      {
+        "id": "DMI",
+        "value": "53.515173314162446",
+        "prov": "constructed",
+        "phase": "Index",
+        "source": "constructed"
+      },
+      {
+        "id": "X1",
+        "value": "108.38712260883",
+        "prov": "carried_forward",
+        "phase": "Acquire",
+        "source": "world_bank"
+      },
+      {
+        "id": "X10",
+        "value": "0.6642",
+        "prov": "carried_forward",
+        "phase": "Acquire",
+        "source": "un_egdi"
+      },
+      {
+        "id": "X2",
+        "value": "29.8921727758887",
+        "prov": "carried_forward",
+        "phase": "Acquire",
+        "source": "world_bank"
+      },
+      {
+        "id": "X3",
+        "value": "0.707",
+        "prov": "carried_forward",
+        "phase": "Acquire",
+        "source": "un_egdi"
+      },
+      {
+        "id": "X4",
+        "value": "93.1",
+        "prov": "carried_forward",
+        "phase": "Acquire",
+        "source": "world_bank"
+      },
+      {
+        "id": "X5",
+        "value": "84.17",
+        "prov": "carried_forward",
+        "phase": "Acquire",
+        "source": "ncsi"
+      },
+      {
+        "id": "X6",
+        "value": "33.0",
+        "prov": "carried_forward",
+        "phase": "Acquire",
+        "source": "gii"
+      },
+      {
+        "id": "X7",
+        "value": "45.4",
+        "prov": "carried_forward",
+        "phase": "Acquire",
+        "source": "oxford_insights"
+      },
+      {
+        "id": "X8",
+        "value": "0.37363",
+        "prov": "carried_forward",
+        "phase": "Acquire",
+        "source": "world_bank"
+      },
+      {
+        "id": "X9",
+        "value": "21.5247930087355",
+        "prov": "official",
+        "phase": "Acquire",
+        "source": "world_bank"
+      }
+    ],
+    "passed": true,
+    "engine": "rdflib SPARQL"
+  },
+  "CQ6": {
+    "id": "CQ6",
+    "answer": [
+      {
+        "n_countries": 12,
+        "n_indicators": 13
+      }
+    ],
+    "passed": true,
+    "engine": "rdflib SPARQL"
+  }
+}

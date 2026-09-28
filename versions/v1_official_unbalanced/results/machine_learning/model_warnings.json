@@ -1,0 +1,17 @@
+[
+  {
+    "model_type": "xgboost",
+    "status": "skipped",
+    "warning": "xgboost unavailable: No module named 'xgboost'"
+  },
+  {
+    "model_type": "lightgbm",
+    "status": "skipped",
+    "warning": "lightgbm unavailable: No module named 'lightgbm'"
+  },
+  {
+    "model_type": "catboost",
+    "status": "skipped",
+    "warning": "catboost unavailable: No module named 'catboost'"
+  }
+]

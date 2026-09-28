@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "checks": {
+    "raw_data": true,
+    "analysis_panel": true,
+    "model_comparison": true,
+    "econometrics_coefficients": true,
+    "figures_dir": true,
+    "dashboard_dir": true,
+    "framework_status": true
+  },
+  "best_model_present": true,
+  "timestamp": "2026-08-11T13:23:46.861786+00:00"
+}

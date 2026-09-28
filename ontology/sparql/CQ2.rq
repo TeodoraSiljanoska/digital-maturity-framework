@@ -1,0 +1,11 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+PREFIX dmi: <http://purl.org/dmi-framework#>
+SELECT ?prov (COUNT(*) AS ?n) WHERE {
+  ?se a dmi:ScoreEntry ;
+      dmi:entryCountry dmi:Country_MKD ;
+      dmi:year 2025 ;
+      dmi:hasProvenance ?p .
+  ?p rdfs:label ?prov .
+}
+GROUP BY ?prov

@@ -1,0 +1,946 @@
+{
+  "namespace": "http://purl.org/dmi-framework#",
+  "generated_at": "2026-09-01T10:35:06.433220+00:00",
+  "layers": [
+    "Ctax",
+    "Cdec",
+    "Ceval"
+  ],
+  "indicators": [
+    {
+      "indicator_id": "X1",
+      "uri": "http://purl.org/dmi-framework#Ind_X1",
+      "name": "Mobile cellular subscriptions",
+      "definition": "Mobile cellular subscriptions per 100 people",
+      "role": "independent",
+      "pillar": "infrastructure",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_infrastructure",
+      "unit": "per_100_people",
+      "polarity": "positive",
+      "collection_method": "official_api",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_official_api",
+      "source": "world_bank",
+      "source_uri": "http://purl.org/dmi-framework#Source_world_bank",
+      "indicator_code": "IT.CEL.SETS.P2",
+      "same_as": "https://data.worldbank.org/indicator/IT.CEL.SETS.P2",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "X2",
+      "uri": "http://purl.org/dmi-framework#Ind_X2",
+      "name": "Fixed broadband subscriptions",
+      "definition": "Fixed broadband subscriptions per 100 people",
+      "role": "independent",
+      "pillar": "infrastructure",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_infrastructure",
+      "unit": "per_100_people",
+      "polarity": "positive",
+      "collection_method": "official_api",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_official_api",
+      "source": "world_bank",
+      "source_uri": "http://purl.org/dmi-framework#Source_world_bank",
+      "indicator_code": "IT.NET.BBND.P2",
+      "same_as": "https://data.worldbank.org/indicator/IT.NET.BBND.P2",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "X3",
+      "uri": "http://purl.org/dmi-framework#Ind_X3",
+      "name": "E-Government Development Index",
+      "definition": "UN EGDI composite index of online services, telecom infrastructure and human capital",
+      "role": "independent",
+      "pillar": "e_government",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_e_government",
+      "unit": "index_0_1",
+      "polarity": "positive",
+      "collection_method": "curated_snapshot",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_curated_snapshot",
+      "source": "un_egdi",
+      "source_uri": "http://purl.org/dmi-framework#Source_un_egdi",
+      "indicator_code": "EGDI",
+      "same_as": "https://publicadministration.un.org/egovkb/",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "X4",
+      "uri": "http://purl.org/dmi-framework#Ind_X4",
+      "name": "Digital skills proxy (Internet users)",
+      "definition": "Individuals using the Internet (% of population) as global digital skills proxy",
+      "role": "independent",
+      "pillar": "skills",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_skills",
+      "unit": "percent",
+      "polarity": "positive",
+      "collection_method": "official_api",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_official_api",
+      "source": "world_bank",
+      "source_uri": "http://purl.org/dmi-framework#Source_world_bank",
+      "indicator_code": "IT.NET.USER.ZS",
+      "same_as": "https://data.worldbank.org/indicator/IT.NET.USER.ZS",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "X5",
+      "uri": "http://purl.org/dmi-framework#Ind_X5",
+      "name": "National Cyber Security Index",
+      "definition": "NCSI overall score",
+      "role": "independent",
+      "pillar": "trust_innovation",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_trust_innovation",
+      "unit": "score_0_100",
+      "polarity": "positive",
+      "collection_method": "curated_snapshot",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_curated_snapshot",
+      "source": "ncsi",
+      "source_uri": "http://purl.org/dmi-framework#Source_ncsi",
+      "indicator_code": "NCSI_SCORE",
+      "same_as": "https://ncsi.ega.ee/",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "X6",
+      "uri": "http://purl.org/dmi-framework#Ind_X6",
+      "name": "Global Innovation Index",
+      "definition": "WIPO Global Innovation Index overall score",
+      "role": "independent",
+      "pillar": "trust_innovation",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_trust_innovation",
+      "unit": "score",
+      "polarity": "positive",
+      "collection_method": "curated_snapshot",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_curated_snapshot",
+      "source": "gii",
+      "source_uri": "http://purl.org/dmi-framework#Source_gii",
+      "indicator_code": "GII_SCORE",
+      "same_as": "https://www.wipo.int/global_innovation_index/",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "X7",
+      "uri": "http://purl.org/dmi-framework#Ind_X7",
+      "name": "Government AI Readiness Index",
+      "definition": "Oxford Insights Government AI Readiness Index score",
+      "role": "independent",
+      "pillar": "trust_innovation",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_trust_innovation",
+      "unit": "score",
+      "polarity": "positive",
+      "collection_method": "curated_snapshot",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_curated_snapshot",
+      "source": "oxford_insights",
+      "source_uri": "http://purl.org/dmi-framework#Source_oxford_insights",
+      "indicator_code": "AI_READY",
+      "same_as": "https://oxfordinsights.com/ai-readiness/",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "X8",
+      "uri": "http://purl.org/dmi-framework#Ind_X8",
+      "name": "Research and development expenditure",
+      "definition": "R&D expenditure as % of GDP",
+      "role": "independent",
+      "pillar": "digital_economy",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_digital_economy",
+      "unit": "percent_gdp",
+      "polarity": "positive",
+      "collection_method": "official_api",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_official_api",
+      "source": "world_bank",
+      "source_uri": "http://purl.org/dmi-framework#Source_world_bank",
+      "indicator_code": "GB.XPD.RSDV.GD.ZS",
+      "same_as": "https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "X9",
+      "uri": "http://purl.org/dmi-framework#Ind_X9",
+      "name": "ICT service exports",
+      "definition": "ICT service exports (% of service exports) as ICT sector intensity proxy",
+      "role": "independent",
+      "pillar": "digital_economy",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_digital_economy",
+      "unit": "percent",
+      "polarity": "positive",
+      "collection_method": "official_api",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_official_api",
+      "source": "world_bank",
+      "source_uri": "http://purl.org/dmi-framework#Source_world_bank",
+      "indicator_code": "BX.GSR.CCIS.ZS",
+      "same_as": "https://data.worldbank.org/indicator/BX.GSR.CCIS.ZS",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "X10",
+      "uri": "http://purl.org/dmi-framework#Ind_X10",
+      "name": "Online Service Index",
+      "definition": "UN EGDI Online Service Index component for digital public services",
+      "role": "independent",
+      "pillar": "digital_economy",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_digital_economy",
+      "unit": "index_0_1",
+      "polarity": "positive",
+      "collection_method": "curated_snapshot",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_curated_snapshot",
+      "source": "un_egdi",
+      "source_uri": "http://purl.org/dmi-framework#Source_un_egdi",
+      "indicator_code": "OSI",
+      "same_as": "https://publicadministration.un.org/egovkb/",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "C1",
+      "uri": "http://purl.org/dmi-framework#Ind_C1",
+      "name": "GDP per capita PPP",
+      "definition": "GDP per capita, PPP (constant 2017 international $)",
+      "role": "control",
+      "pillar": "control",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_control",
+      "unit": "constant_ppp_usd",
+      "polarity": "positive",
+      "collection_method": "official_api",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_official_api",
+      "source": "world_bank",
+      "source_uri": "http://purl.org/dmi-framework#Source_world_bank",
+      "indicator_code": "NY.GDP.PCAP.PP.KD",
+      "same_as": "https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD",
+      "process_phases": [
+        "acquire",
+        "process",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "C2",
+      "uri": "http://purl.org/dmi-framework#Ind_C2",
+      "name": "Education Index",
+      "definition": "UNDP Human Development Report Education Index",
+      "role": "control",
+      "pillar": "control",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_control",
+      "unit": "index_0_1",
+      "polarity": "positive",
+      "collection_method": "curated_snapshot",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_curated_snapshot",
+      "source": "undp",
+      "source_uri": "http://purl.org/dmi-framework#Source_undp",
+      "indicator_code": "EDU_INDEX",
+      "same_as": "https://hdr.undp.org/",
+      "process_phases": [
+        "acquire",
+        "process",
+        "analyse",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Acquire",
+        "http://purl.org/dmi-framework#Phase_Process",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    },
+    {
+      "indicator_id": "DMI",
+      "uri": "http://purl.org/dmi-framework#Ind_DMI",
+      "name": "Digital Maturity Index",
+      "definition": "Composite 0\u2013100 index of five equally weighted pillars constructed in this study",
+      "role": "dependent",
+      "pillar": "composite",
+      "pillar_uri": "http://purl.org/dmi-framework#Pillar_composite",
+      "unit": "index_0_100",
+      "polarity": "positive",
+      "collection_method": "constructed",
+      "collection_method_uri": "http://purl.org/dmi-framework#Method_constructed",
+      "source": "constructed",
+      "source_uri": "http://purl.org/dmi-framework#Source_constructed",
+      "indicator_code": "DMI",
+      "same_as": "http://purl.org/dmi-framework#Ind_DMI",
+      "process_phases": [
+        "index",
+        "analyse",
+        "predict",
+        "explain",
+        "visualize"
+      ],
+      "process_phase_uris": [
+        "http://purl.org/dmi-framework#Phase_Index",
+        "http://purl.org/dmi-framework#Phase_Analyse",
+        "http://purl.org/dmi-framework#Phase_Predict",
+        "http://purl.org/dmi-framework#Phase_Explain",
+        "http://purl.org/dmi-framework#Phase_Visualize"
+      ]
+    }
+  ],
+  "countries": [
+    {
+      "iso3": "MKD",
+      "iso2": "MK",
+      "name": "North Macedonia",
+      "name_mk": "\u0421\u0435\u0432\u0435\u0440\u043d\u0430 \u041c\u0430\u043a\u0435\u0434\u043e\u043d\u0438\u0458\u0430",
+      "group_id": "balkan",
+      "group_name": "Balkan countries",
+      "uri": "http://purl.org/dmi-framework#Country_MKD",
+      "group_uri": "http://purl.org/dmi-framework#Group_balkan"
+    },
+    {
+      "iso3": "SRB",
+      "iso2": "RS",
+      "name": "Serbia",
+      "name_mk": "\u0421\u0440\u0431\u0438\u0458\u0430",
+      "group_id": "balkan",
+      "group_name": "Balkan countries",
+      "uri": "http://purl.org/dmi-framework#Country_SRB",
+      "group_uri": "http://purl.org/dmi-framework#Group_balkan"
+    },
+    {
+      "iso3": "SVN",
+      "iso2": "SI",
+      "name": "Slovenia",
+      "name_mk": "\u0421\u043b\u043e\u0432\u0435\u043d\u0438\u0458\u0430",
+      "group_id": "balkan",
+      "group_name": "Balkan countries",
+      "uri": "http://purl.org/dmi-framework#Country_SVN",
+      "group_uri": "http://purl.org/dmi-framework#Group_balkan"
+    },
+    {
+      "iso3": "FRA",
+      "iso2": "FR",
+      "name": "France",
+      "name_mk": "\u0424\u0440\u0430\u043d\u0446\u0438\u0458\u0430",
+      "group_id": "developed_eu",
+      "group_name": "Developed European countries",
+      "uri": "http://purl.org/dmi-framework#Country_FRA",
+      "group_uri": "http://purl.org/dmi-framework#Group_developed_eu"
+    },
+    {
+      "iso3": "GBR",
+      "iso2": "GB",
+      "name": "United Kingdom",
+      "name_mk": "\u0412\u0435\u043b\u0438\u043a\u0430 \u0411\u0440\u0438\u0442\u0430\u043d\u0438\u0458\u0430",
+      "group_id": "developed_eu",
+      "group_name": "Developed European countries",
+      "uri": "http://purl.org/dmi-framework#Country_GBR",
+      "group_uri": "http://purl.org/dmi-framework#Group_developed_eu"
+    },
+    {
+      "iso3": "DEU",
+      "iso2": "DE",
+      "name": "Germany",
+      "name_mk": "\u0413\u0435\u0440\u043c\u0430\u043d\u0438\u0458\u0430",
+      "group_id": "developed_eu",
+      "group_name": "Developed European countries",
+      "uri": "http://purl.org/dmi-framework#Country_DEU",
+      "group_uri": "http://purl.org/dmi-framework#Group_developed_eu"
+    },
+    {
+      "iso3": "USA",
+      "iso2": "US",
+      "name": "United States",
+      "name_mk": "\u0421\u0410\u0414",
+      "group_id": "developed_non_eu",
+      "group_name": "Developed non-European countries",
+      "uri": "http://purl.org/dmi-framework#Country_USA",
+      "group_uri": "http://purl.org/dmi-framework#Group_developed_non_eu"
+    },
+    {
+      "iso3": "CAN",
+      "iso2": "CA",
+      "name": "Canada",
+      "name_mk": "\u041a\u0430\u043d\u0430\u0434\u0430",
+      "group_id": "developed_non_eu",
+      "group_name": "Developed non-European countries",
+      "uri": "http://purl.org/dmi-framework#Country_CAN",
+      "group_uri": "http://purl.org/dmi-framework#Group_developed_non_eu"
+    },
+    {
+      "iso3": "AUS",
+      "iso2": "AU",
+      "name": "Australia",
+      "name_mk": "\u0410\u0432\u0441\u0442\u0440\u0430\u043b\u0438\u0458\u0430",
+      "group_id": "developed_non_eu",
+      "group_name": "Developed non-European countries",
+      "uri": "http://purl.org/dmi-framework#Country_AUS",
+      "group_uri": "http://purl.org/dmi-framework#Group_developed_non_eu"
+    },
+    {
+      "iso3": "BRA",
+      "iso2": "BR",
+      "name": "Brazil",
+      "name_mk": "\u0411\u0440\u0430\u0437\u0438\u043b",
+      "group_id": "developing",
+      "group_name": "Developing countries",
+      "uri": "http://purl.org/dmi-framework#Country_BRA",
+      "group_uri": "http://purl.org/dmi-framework#Group_developing"
+    },
+    {
+      "iso3": "ARG",
+      "iso2": "AR",
+      "name": "Argentina",
+      "name_mk": "\u0410\u0440\u0433\u0435\u043d\u0442\u0438\u043d\u0430",
+      "group_id": "developing",
+      "group_name": "Developing countries",
+      "uri": "http://purl.org/dmi-framework#Country_ARG",
+      "group_uri": "http://purl.org/dmi-framework#Group_developing"
+    },
+    {
+      "iso3": "IND",
+      "iso2": "IN",
+      "name": "India",
+      "name_mk": "\u0418\u043d\u0434\u0438\u0458\u0430",
+      "group_id": "developing",
+      "group_name": "Developing countries",
+      "uri": "http://purl.org/dmi-framework#Country_IND",
+      "group_uri": "http://purl.org/dmi-framework#Group_developing"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "world_bank",
+      "uri": "http://purl.org/dmi-framework#Source_world_bank",
+      "adapter": "world_bank",
+      "base_url": "https://api.worldbank.org/v2",
+      "snapshot_file": null
+    },
+    {
+      "source_id": "un_egdi",
+      "uri": "http://purl.org/dmi-framework#Source_un_egdi",
+      "adapter": "un",
+      "base_url": null,
+      "snapshot_file": "data/raw/un_egdi/egdi_panel.csv"
+    },
+    {
+      "source_id": "ncsi",
+      "uri": "http://purl.org/dmi-framework#Source_ncsi",
+      "adapter": "ncsi",
+      "base_url": null,
+      "snapshot_file": "data/raw/ncsi/ncsi_panel.csv"
+    },
+    {
+      "source_id": "gii",
+      "uri": "http://purl.org/dmi-framework#Source_gii",
+      "adapter": "gii",
+      "base_url": null,
+      "snapshot_file": "data/raw/gii/gii_panel.csv"
+    },
+    {
+      "source_id": "oxford_insights",
+      "uri": "http://purl.org/dmi-framework#Source_oxford_insights",
+      "adapter": "oxford",
+      "base_url": null,
+      "snapshot_file": "data/raw/oxford/ai_readiness_panel.csv"
+    },
+    {
+      "source_id": "undp",
+      "uri": "http://purl.org/dmi-framework#Source_undp",
+      "adapter": "undp",
+      "base_url": null,
+      "snapshot_file": "data/raw/undp/education_index_panel.csv"
+    },
+    {
+      "source_id": "oecd",
+      "uri": "http://purl.org/dmi-framework#Source_oecd",
+      "adapter": "oecd",
+      "base_url": "https://stats.oecd.org/SDMX-JSON",
+      "snapshot_file": null
+    },
+    {
+      "source_id": "eurostat",
+      "uri": "http://purl.org/dmi-framework#Source_eurostat",
+      "adapter": "eurostat",
+      "base_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0",
+      "snapshot_file": null
+    },
+    {
+      "source_id": "itu",
+      "uri": "http://purl.org/dmi-framework#Source_itu",
+      "adapter": "itu",
+      "base_url": null,
+      "snapshot_file": "data/raw/itu/itu_panel.csv"
+    },
+    {
+      "source_id": "constructed",
+      "uri": "http://purl.org/dmi-framework#Source_constructed",
+      "adapter": null,
+      "base_url": null,
+      "snapshot_file": null
+    }
+  ],
+  "pillars": [
+    {
+      "id": "infrastructure",
+      "uri": "http://purl.org/dmi-framework#Pillar_infrastructure",
+      "weight": 0.2
+    },
+    {
+      "id": "e_government",
+      "uri": "http://purl.org/dmi-framework#Pillar_e_government",
+      "weight": 0.2
+    },
+    {
+      "id": "skills",
+      "uri": "http://purl.org/dmi-framework#Pillar_skills",
+      "weight": 0.2
+    },
+    {
+      "id": "trust_innovation",
+      "uri": "http://purl.org/dmi-framework#Pillar_trust_innovation",
+      "weight": 0.2
+    },
+    {
+      "id": "digital_economy",
+      "uri": "http://purl.org/dmi-framework#Pillar_digital_economy",
+      "weight": 0.2
+    },
+    {
+      "id": "control",
+      "uri": "http://purl.org/dmi-framework#Pillar_control",
+      "weight": null
+    },
+    {
+      "id": "composite",
+      "uri": "http://purl.org/dmi-framework#Pillar_composite",
+      "weight": null
+    }
+  ],
+  "phases": [
+    {
+      "id": "acquire",
+      "uri": "http://purl.org/dmi-framework#Phase_Acquire"
+    },
+    {
+      "id": "validate",
+      "uri": "http://purl.org/dmi-framework#Phase_Validate"
+    },
+    {
+      "id": "process",
+      "uri": "http://purl.org/dmi-framework#Phase_Process"
+    },
+    {
+      "id": "index",
+      "uri": "http://purl.org/dmi-framework#Phase_Index"
+    },
+    {
+      "id": "analyse",
+      "uri": "http://purl.org/dmi-framework#Phase_Analyse"
+    },
+    {
+      "id": "predict",
+      "uri": "http://purl.org/dmi-framework#Phase_Predict"
+    },
+    {
+      "id": "explain",
+      "uri": "http://purl.org/dmi-framework#Phase_Explain"
+    },
+    {
+      "id": "visualize",
+      "uri": "http://purl.org/dmi-framework#Phase_Visualize"
+    }
+  ],
+  "collection_methods": [
+    {
+      "id": "official_api",
+      "uri": "http://purl.org/dmi-framework#Method_official_api"
+    },
+    {
+      "id": "curated_snapshot",
+      "uri": "http://purl.org/dmi-framework#Method_curated_snapshot"
+    },
+    {
+      "id": "primary_survey",
+      "uri": "http://purl.org/dmi-framework#Method_primary_survey"
+    },
+    {
+      "id": "sensor_automated",
+      "uri": "http://purl.org/dmi-framework#Method_sensor_automated"
+    },
+    {
+      "id": "constructed",
+      "uri": "http://purl.org/dmi-framework#Method_constructed"
+    }
+  ],
+  "model_phase_map": {
+    "world_bank_api": {
+      "phase": "acquire",
+      "purpose": "Obtain official World Bank WDI series via HTTP API"
+    },
+    "curated_snapshot_loaders": {
+      "phase": "acquire",
+      "purpose": "Load versioned UN EGDI, NCSI, GII, Oxford, UNDP snapshots"
+    },
+    "mice": {
+      "phase": "process",
+      "purpose": "Complete remaining missing cells; never overwrite official values"
+    },
+    "dmi_weighted_pillars": {
+      "phase": "index",
+      "purpose": "Construct dependent variable Y"
+    },
+    "ols": {
+      "phase": "predict",
+      "purpose": "Linear baseline for H1.6"
+    },
+    "ridge": {
+      "phase": "predict",
+      "purpose": "Regularised linear baseline for H1.6"
+    },
+    "linear_regression": {
+      "phase": "predict",
+      "purpose": "Linear baseline for H1.6"
+    },
+    "random_forest": {
+      "phase": "predict",
+      "purpose": "Non-linear prediction of DMI"
+    },
+    "xgboost": {
+      "phase": "predict",
+      "purpose": "Non-linear prediction of DMI"
+    },
+    "lightgbm": {
+      "phase": "predict",
+      "purpose": "Non-linear prediction of DMI"
+    },
+    "catboost": {
+      "phase": "predict",
+      "purpose": "Non-linear prediction of DMI"
+    },
+    "svr": {
+      "phase": "predict",
+      "purpose": "Non-linear prediction of DMI"
+    },
+    "mlp": {
+      "phase": "predict",
+      "purpose": "Non-linear prediction of DMI (unstable on this n)"
+    },
+    "shap": {
+      "phase": "explain",
+      "purpose": "Global and local factor attribution"
+    },
+    "lime": {
+      "phase": "explain",
+      "purpose": "Local model-agnostic explanation"
+    },
+    "pdp": {
+      "phase": "explain",
+      "purpose": "Marginal response of predicted DMI"
+    },
+    "streamlit": {
+      "phase": "visualize",
+      "purpose": "Interactive VDA by country/indicator/phase"
+    },
+    "power_bi": {
+      "phase": "visualize",
+      "purpose": "Star-schema VDA surface"
+    }
+  },
+  "explanations": [
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X2_0",
+      "indicator_id": "X2",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X2",
+      "method": "SHAP",
+      "mean_abs_shap": 2.5516899764311445,
+      "rank": 1,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X3_1",
+      "indicator_id": "X3",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X3",
+      "method": "SHAP",
+      "mean_abs_shap": 2.5331390297819816,
+      "rank": 2,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_C2_2",
+      "indicator_id": "C2",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_C2",
+      "method": "SHAP",
+      "mean_abs_shap": 1.872550726747607,
+      "rank": 3,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X6_3",
+      "indicator_id": "X6",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X6",
+      "method": "SHAP",
+      "mean_abs_shap": 1.7846094793368306,
+      "rank": 4,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X4_4",
+      "indicator_id": "X4",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X4",
+      "method": "SHAP",
+      "mean_abs_shap": 1.75160215407221,
+      "rank": 5,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_C1_5",
+      "indicator_id": "C1",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_C1",
+      "method": "SHAP",
+      "mean_abs_shap": 1.4334343010138235,
+      "rank": 6,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X5_6",
+      "indicator_id": "X5",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X5",
+      "method": "SHAP",
+      "mean_abs_shap": 1.2458249099456198,
+      "rank": 7,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X8_7",
+      "indicator_id": "X8",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X8",
+      "method": "SHAP",
+      "mean_abs_shap": 1.0126492870218191,
+      "rank": 8,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X10_8",
+      "indicator_id": "X10",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X10",
+      "method": "SHAP",
+      "mean_abs_shap": 0.8543390999414356,
+      "rank": 9,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X1_9",
+      "indicator_id": "X1",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X1",
+      "method": "SHAP",
+      "mean_abs_shap": 0.8427850420338263,
+      "rank": 10,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X7_10",
+      "indicator_id": "X7",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X7",
+      "method": "SHAP",
+      "mean_abs_shap": 0.8166618289725008,
+      "rank": 11,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X9_11",
+      "indicator_id": "X9",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X9",
+      "method": "SHAP",
+      "mean_abs_shap": 0.4501467276224241,
+      "rank": 12,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "balkan_north_macedonia",
+      "country_iso3": "MKD",
+      "year": 2025,
+      "DMI": 53.515173314162446,
+      "group_id": "balkan",
+      "binding_indicators": [
+        {
+          "indicator_id": "X2",
+          "value": 29.8921727758887
+        },
+        {
+          "indicator_id": "X3",
+          "value": 0.707
+        },
+        {
+          "indicator_id": "C2",
+          "value": 0.7785119999999999
+        },
+        {
+          "indicator_id": "X6",
+          "value": 33.0
+        },
+        {
+          "indicator_id": "X4",
+          "value": 93.1
+        }
+      ],
+      "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"
+    },
+    {
+      "id": "developed_eu_germany",
+      "country_iso3": "DEU",
+      "year": 2025,
+      "DMI": 83.99789112646609,
+      "group_id": "developed_eu",
+      "binding_indicators": [
+        {
+          "indicator_id": "X2",
+          "value": 45.6069242965787
+        },
+        {
+          "indicator_id": "X3",
+          "value": 0.9382
+        },
+        {
+          "indicator_id": "C2",
+          "value": 0.9418066666666663
+        },
+        {
+          "indicator_id": "X6",
+          "value": 58.8
+        },
+        {
+          "indicator_id": "X4",
+          "value": 93.49999579
+        }
+      ],
+      "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"
+    }
+  ],
+  "score_entry_n": 2184,
+  "tbox": "ontology/dmi-framework.ttl",
+  "sigma": "ontology/sigma.md"
+}

@@ -1,0 +1,97 @@
+{
+  "model_id": "catboost_20260811T132151Z",
+  "model_type": "catboost",
+  "model_source": "best_model.json",
+  "artifact_path": "outputs/models/catboost_20260811T132151Z/catboost_20260811T132151Z.joblib",
+  "rmse": 1.9438235361441458,
+  "target": "DMI",
+  "predictors": [
+    "X1_lag1",
+    "X2_lag1",
+    "X3_lag1",
+    "X4_lag1",
+    "X5_lag1",
+    "X6_lag1",
+    "X7_lag1",
+    "X8_lag1",
+    "X9_lag1",
+    "X10_lag1",
+    "C1_lag1",
+    "C2_lag1"
+  ],
+  "n_rows": 156,
+  "methods_requested": [
+    "shap",
+    "lime",
+    "feature_importance",
+    "pdp"
+  ],
+  "artifacts": {
+    "feature_importance": "outputs/xai/feature_importance.csv",
+    "shap": {
+      "global": "outputs/xai/shap_global_importance.csv",
+      "local": "outputs/xai/shap_local_explanations.json",
+      "plot": "outputs/xai/shap_summary.png"
+    },
+    "lime": "outputs/xai/lime_explanations.json",
+    "pdp": {
+      "csv": "outputs/xai/partial_dependence.csv",
+      "plot": "outputs/xai/partial_dependence.png"
+    }
+  },
+  "warnings": [],
+  "n_produced": 4,
+  "seed": 42,
+  "source": "outputs/xai/xai_summary.json",
+  "top_factors": [
+    {
+      "feature": "X2_lag1",
+      "importance": 2.5516899764311445
+    },
+    {
+      "feature": "X3_lag1",
+      "importance": 2.5331390297819816
+    },
+    {
+      "feature": "C2_lag1",
+      "importance": 1.872550726747607
+    },
+    {
+      "feature": "X6_lag1",
+      "importance": 1.7846094793368306
+    },
+    {
+      "feature": "X4_lag1",
+      "importance": 1.75160215407221
+    },
+    {
+      "feature": "C1_lag1",
+      "importance": 1.4334343010138235
+    },
+    {
+      "feature": "X5_lag1",
+      "importance": 1.2458249099456198
+    },
+    {
+      "feature": "X8_lag1",
+      "importance": 1.0126492870218191
+    },
+    {
+      "feature": "X10_lag1",
+      "importance": 0.8543390999414356
+    },
+    {
+      "feature": "X1_lag1",
+      "importance": 0.8427850420338263
+    },
+    {
+      "feature": "X7_lag1",
+      "importance": 0.8166618289725008
+    },
+    {
+      "feature": "X9_lag1",
+      "importance": 0.4501467276224241
+    }
+  ],
+  "importance_source": "outputs/xai/shap_global_importance.csv"
+}

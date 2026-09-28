@@ -1,0 +1,45 @@
+result_id,category,format,created_at,artifact_path,meta
+descriptive_full_sample,descriptive,csv,2026-08-11T13:21:50.703296+00:00,results/descriptive/descriptive_full_sample.csv,{'sample': 'full_sample'}
+descriptive_by_group,descriptive,csv,2026-08-11T13:21:50.772419+00:00,results/descriptive/descriptive_by_group.csv,{'sample': 'by_group'}
+correlation_matrix,descriptive,csv,2026-08-11T13:21:50.776172+00:00,results/descriptive/correlation_matrix.csv,"{'variables': ['DMI', 'X1_lag1', 'X2_lag1', 'X3_lag1', 'X4_lag1', 'X5_lag1', 'X6_lag1', 'X7_lag1', 'X8_lag1', 'X9_lag1', 'X10_lag1', 'C1_lag1', 'C2_lag1']}"
+dmi_distribution_moments,descriptive,json,2026-08-09T18:55:19.218528+00:00,results/descriptive/dmi_distribution_moments.json,{'target': 'DMI'}
+dmi_moments_by_group,descriptive,csv,2026-08-11T13:21:50.784373+00:00,results/descriptive/dmi_moments_by_group.csv,{}
+vif_predictors,descriptive,csv,2026-08-11T13:21:50.820493+00:00,results/descriptive/vif_predictors.csv,"{'predictors': ['X1_lag1', 'X2_lag1', 'X3_lag1', 'X4_lag1', 'X5_lag1', 'X6_lag1', 'X7_lag1', 'X8_lag1', 'X9_lag1', 'X10_lag1', 'C1_lag1', 'C2_lag1'], 'use_lagged': True}"
+descriptive_summary,descriptive,json,2026-08-09T18:55:19.286608+00:00,results/descriptive/descriptive_summary.json,{}
+hausman_test,econometrics,json,2026-08-09T18:55:23.116996+00:00,results/econometrics/hausman_test.json,{}
+adf_dmi_by_country,econometrics,csv,2026-08-11T13:21:51.320757+00:00,results/econometrics/adf_dmi_by_country.csv,{}
+econometrics_diagnostics,econometrics,json,2026-08-09T18:55:23.140535+00:00,results/econometrics/econometrics_diagnostics.json,{}
+econometrics_coefficients,econometrics,csv,2026-08-11T13:21:51.445374+00:00,results/econometrics/econometrics_coefficients.csv,{}
+econometrics_pvalues,econometrics,csv,2026-08-11T13:21:51.452501+00:00,results/econometrics/econometrics_pvalues.csv,{}
+econometrics_metrics,econometrics,csv,2026-08-11T13:21:51.455394+00:00,results/econometrics/econometrics_metrics.csv,{}
+econometrics_applicability,econometrics,csv,2026-08-11T13:21:51.457580+00:00,results/econometrics/econometrics_applicability.csv,{}
+econometrics_summary,econometrics,json,2026-08-09T18:55:23.189768+00:00,results/econometrics/econometrics_summary.json,{}
+ml_model_warnings,machine_learning,json,2026-08-09T18:55:36.336245+00:00,results/machine_learning/ml_model_warnings.json,{}
+ml_model_comparison,machine_learning,csv,2026-08-11T13:22:00.427213+00:00,results/machine_learning/ml_model_comparison.csv,{'best_model': 'catboost'}
+ml_model_selection,machine_learning,json,2026-08-11T13:22:00.430297+00:00,results/machine_learning/ml_model_selection.json,{}
+ml_training_summary,machine_learning,json,2026-08-11T13:22:00.432406+00:00,results/machine_learning/ml_training_summary.json,{}
+dmi_distribution_moments_result,descriptive,json,2026-08-11T13:21:50.779835+00:00,results/descriptive/dmi_distribution_moments_result.json,"{'target': 'DMI', 'path': 'results/descriptive/dmi_distribution_moments.json'}"
+descriptive_summary_result,descriptive,json,2026-08-11T13:21:50.822462+00:00,results/descriptive/descriptive_summary_result.json,{'path': 'results/descriptive/descriptive_summary.json'}
+hausman_test_result,econometrics,json,2026-08-11T13:21:51.300488+00:00,results/econometrics/hausman_test_result.json,{'path': 'results/econometrics/hausman_test.json'}
+econometrics_diagnostics_result,econometrics,json,2026-08-11T13:21:51.326170+00:00,results/econometrics/econometrics_diagnostics_result.json,{'path': 'results/econometrics/diagnostics.json'}
+econometrics_summary_result,econometrics,json,2026-08-11T13:21:51.459507+00:00,results/econometrics/econometrics_summary_result.json,{'path': 'results/econometrics/econometrics_summary.json'}
+sigma_convergence,convergence,csv,2026-08-11T13:22:02.332241+00:00,results/convergence/sigma_convergence.csv,"{'also_cv': True, 'by_group': True}"
+beta_endpoints,convergence,csv,2026-08-11T13:22:02.353463+00:00,results/convergence/beta_endpoints.csv,{}
+beta_convergence,convergence,json,2026-08-11T13:22:02.355369+00:00,results/convergence/beta_convergence.json,{}
+beta_coefficients,convergence,csv,2026-08-11T13:22:02.357173+00:00,results/convergence/beta_coefficients.csv,{}
+convergence_summary,convergence,json,2026-08-11T13:22:02.359543+00:00,results/convergence/convergence_summary.json,{}
+xai_feature_importance,xai,csv,2026-08-11T13:22:00.451312+00:00,results/xai/xai_feature_importance.csv,"{'method': 'native_feature_importances', 'model_id': 'catboost_20260811T132151Z'}"
+xai_partial_dependence,xai,csv,2026-08-11T13:22:02.310989+00:00,results/xai/xai_partial_dependence.csv,"{'features': ['X3_lag1', 'X2_lag1', 'C2_lag1', 'C1_lag1'], 'model_id': 'catboost_20260811T132151Z'}"
+xai_summary,xai,json,2026-08-11T13:22:02.313278+00:00,results/xai/xai_summary.json,{}
+xai_warnings,xai,json,2026-08-09T18:58:42.400685+00:00,results/xai/xai_warnings.json,{}
+xai_shap_global,xai,csv,2026-08-11T13:22:01.282952+00:00,results/xai/xai_shap_global.csv,"{'explainer': 'TreeExplainer', 'model_id': 'catboost_20260811T132151Z'}"
+xai_lime,xai,json,2026-08-11T13:22:01.944352+00:00,results/xai/xai_lime.json,{'model_id': 'catboost_20260811T132151Z'}
+hypothesis_evaluation,hypotheses,json,2026-08-11T13:23:46.736276+00:00,results/hypotheses/hypothesis_evaluation.json,{'alpha': 0.05}
+comparative_group_summary,comparative,json,2026-08-11T13:23:46.752478+00:00,results/comparative/comparative_group_summary.json,{}
+comparative_group_comparison,comparative,csv,2026-08-11T13:23:46.754733+00:00,results/comparative/comparative_group_comparison.csv,{}
+imputation_validation,imputation,csv,2026-08-11T13:23:35.998850+00:00,results/imputation/imputation_validation.csv,{}
+mi_pooled_fe,imputation,csv,2026-08-11T13:23:42.744072+00:00,results/imputation/mi_pooled_fe.csv,{}
+complete_case_fe,imputation,csv,2026-08-11T13:23:42.833391+00:00,results/imputation/complete_case_fe.csv,{}
+leakage_safe_ml,imputation,csv,2026-08-11T13:23:46.470179+00:00,results/imputation/leakage_safe_ml.csv,{}
+imputation_robustness,imputation,json,2026-08-11T13:23:46.702611+00:00,results/imputation/imputation_robustness.json,{}
+cell_provenance,imputation,csv,2026-08-11T13:22:03.606958+00:00,results/imputation/cell_provenance.csv,{}

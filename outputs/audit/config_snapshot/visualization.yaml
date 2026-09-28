@@ -1,0 +1,13 @@
+backend: matplotlib
+interactive: plotly
+figures:
+  - dmi_trends
+  - group_comparison
+  - correlation_heatmap
+  - choropleth_latest
+  - model_comparison
+  - shap_summary
+  - convergence_sigma
+output_dir: outputs/figures
+dpi: 150
+style: seaborn-v0_8-whitegrid

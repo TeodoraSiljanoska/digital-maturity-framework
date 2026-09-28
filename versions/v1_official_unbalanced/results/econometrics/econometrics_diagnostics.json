@@ -1,0 +1,22 @@
+{
+  "result_id": "econometrics_diagnostics",
+  "category": "econometrics",
+  "meta": {},
+  "data": {
+    "heteroskedasticity": {
+      "test": "breusch_pagan",
+      "lm_stat": 11.357791424999776,
+      "lm_pvalue": 0.4985300915501,
+      "f_stat": 0.9335988868375839,
+      "f_pvalue": 0.5161936445612572
+    },
+    "durbin_watson": {
+      "statistic": 2.237167184776413
+    },
+    "stationarity_summary": {
+      "n_countries": 12,
+      "n_ok": 12
+    }
+  },
+  "created_at": "2026-08-09T18:55:23.140359+00:00"
+}

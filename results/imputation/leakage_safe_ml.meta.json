@@ -1,0 +1,8 @@
+{
+  "result_id": "leakage_safe_ml",
+  "category": "imputation",
+  "format": "csv",
+  "created_at": "2026-08-11T13:23:46.470179+00:00",
+  "artifact_path": "results/imputation/leakage_safe_ml.csv",
+  "meta": {}
+}

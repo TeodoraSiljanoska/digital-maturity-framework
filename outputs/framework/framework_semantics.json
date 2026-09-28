@@ -1,0 +1,208 @@
+[
+  {
+    "indicator_id": "X1",
+    "uri": "http://purl.org/dmi-framework#Ind_X1",
+    "pillar": "infrastructure",
+    "collection_method": "official_api",
+    "source": "world_bank",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X1 \u2192 pillar infrastructure \u2192 method official_api"
+  },
+  {
+    "indicator_id": "X2",
+    "uri": "http://purl.org/dmi-framework#Ind_X2",
+    "pillar": "infrastructure",
+    "collection_method": "official_api",
+    "source": "world_bank",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X2 \u2192 pillar infrastructure \u2192 method official_api"
+  },
+  {
+    "indicator_id": "X3",
+    "uri": "http://purl.org/dmi-framework#Ind_X3",
+    "pillar": "e_government",
+    "collection_method": "curated_snapshot",
+    "source": "un_egdi",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X3 \u2192 pillar e_government \u2192 method curated_snapshot"
+  },
+  {
+    "indicator_id": "X4",
+    "uri": "http://purl.org/dmi-framework#Ind_X4",
+    "pillar": "skills",
+    "collection_method": "official_api",
+    "source": "world_bank",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X4 \u2192 pillar skills \u2192 method official_api"
+  },
+  {
+    "indicator_id": "X5",
+    "uri": "http://purl.org/dmi-framework#Ind_X5",
+    "pillar": "trust_innovation",
+    "collection_method": "curated_snapshot",
+    "source": "ncsi",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X5 \u2192 pillar trust_innovation \u2192 method curated_snapshot"
+  },
+  {
+    "indicator_id": "X6",
+    "uri": "http://purl.org/dmi-framework#Ind_X6",
+    "pillar": "trust_innovation",
+    "collection_method": "curated_snapshot",
+    "source": "gii",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X6 \u2192 pillar trust_innovation \u2192 method curated_snapshot"
+  },
+  {
+    "indicator_id": "X7",
+    "uri": "http://purl.org/dmi-framework#Ind_X7",
+    "pillar": "trust_innovation",
+    "collection_method": "curated_snapshot",
+    "source": "oxford_insights",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X7 \u2192 pillar trust_innovation \u2192 method curated_snapshot"
+  },
+  {
+    "indicator_id": "X8",
+    "uri": "http://purl.org/dmi-framework#Ind_X8",
+    "pillar": "digital_economy",
+    "collection_method": "official_api",
+    "source": "world_bank",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X8 \u2192 pillar digital_economy \u2192 method official_api"
+  },
+  {
+    "indicator_id": "X9",
+    "uri": "http://purl.org/dmi-framework#Ind_X9",
+    "pillar": "digital_economy",
+    "collection_method": "official_api",
+    "source": "world_bank",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X9 \u2192 pillar digital_economy \u2192 method official_api"
+  },
+  {
+    "indicator_id": "X10",
+    "uri": "http://purl.org/dmi-framework#Ind_X10",
+    "pillar": "digital_economy",
+    "collection_method": "curated_snapshot",
+    "source": "un_egdi",
+    "process_phases": [
+      "acquire",
+      "process",
+      "index",
+      "analyse",
+      "visualize"
+    ],
+    "role": "independent",
+    "sigma": "X10 \u2192 pillar digital_economy \u2192 method curated_snapshot"
+  },
+  {
+    "indicator_id": "C1",
+    "uri": "http://purl.org/dmi-framework#Ind_C1",
+    "pillar": "control",
+    "collection_method": "official_api",
+    "source": "world_bank",
+    "process_phases": [
+      "acquire",
+      "process",
+      "analyse",
+      "visualize"
+    ],
+    "role": "control",
+    "sigma": "C1 \u2192 pillar control \u2192 method official_api"
+  },
+  {
+    "indicator_id": "C2",
+    "uri": "http://purl.org/dmi-framework#Ind_C2",
+    "pillar": "control",
+    "collection_method": "curated_snapshot",
+    "source": "undp",
+    "process_phases": [
+      "acquire",
+      "process",
+      "analyse",
+      "visualize"
+    ],
+    "role": "control",
+    "sigma": "C2 \u2192 pillar control \u2192 method curated_snapshot"
+  },
+  {
+    "indicator_id": "DMI",
+    "uri": "http://purl.org/dmi-framework#Ind_DMI",
+    "pillar": "composite",
+    "collection_method": "constructed",
+    "source": "constructed",
+    "process_phases": [
+      "index",
+      "analyse",
+      "predict",
+      "explain",
+      "visualize"
+    ],
+    "role": "dependent",
+    "sigma": "DMI \u2192 pillar composite \u2192 method constructed"
+  }
+]

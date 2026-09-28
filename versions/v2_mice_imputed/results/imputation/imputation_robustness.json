@@ -1,0 +1,143 @@
+{
+  "result_id": "imputation_robustness",
+  "category": "imputation",
+  "meta": {},
+  "data": {
+    "status": "ok",
+    "generated_at": "2026-08-11T13:22:03.601723+00:00",
+    "seed": 42,
+    "artifacts": {
+      "provenance": "results/imputation/cell_provenance_by_variable.csv",
+      "share_by_variable": "results/imputation/imputation_share_by_variable.csv",
+      "share_by_country": "results/imputation/imputation_share_by_country.csv",
+      "share_by_year": "results/imputation/imputation_share_by_year.csv",
+      "validation_raw": "results/imputation/imputation_validation_raw.csv",
+      "validation": "results/imputation/imputation_validation.csv",
+      "mi_pooled_fe": "results/imputation/mi_pooled_fe.csv",
+      "complete_case_fe": "results/imputation/complete_case_fe.csv",
+      "leakage_safe_ml": "results/imputation/leakage_safe_ml.csv",
+      "figure": "outputs/figures/imputation_diagnostics.png"
+    },
+    "provenance": {
+      "by_state_share": {
+        "official": 0.6577380952380952,
+        "carried_forward": 0.251984126984127,
+        "mice_imputed": 0.09027777777777778,
+        "missing": 0.0
+      },
+      "n_cells": 2016
+    },
+    "most_reconstructed": [
+      {
+        "variable": "X5",
+        "n_imputed": 96,
+        "n_rows": 168,
+        "share_imputed": 0.5714285714285714
+      },
+      {
+        "variable": "X7",
+        "n_imputed": 60,
+        "n_rows": 168,
+        "share_imputed": 0.35714285714285715
+      },
+      {
+        "variable": "X6",
+        "n_imputed": 12,
+        "n_rows": 168,
+        "share_imputed": 0.07142857142857142
+      }
+    ],
+    "validation": {
+      "overall_nrmse_by_configuration": {
+        "mice_country_aware": 0.22437283122043913,
+        "mice_group_only": 0.2486615801139053,
+        "baseline_country_mean": 0.40550559099358735,
+        "baseline_group_year_mean": 0.8226794534500127,
+        "baseline_global_median": 1.0421494521727601
+      },
+      "best_configuration": "mice_country_aware",
+      "mask_fraction": 0.15,
+      "n_repeats": 5
+    },
+    "multiple_imputation": {
+      "n_imputations": 10,
+      "draw_type": "predictive_mean_matching_bootstrap",
+      "base_seed": 42,
+      "n_draws_estimated": 10,
+      "mean_fraction_missing_information": 0.17083712801026402,
+      "significant_terms": [
+        "C1_lag1",
+        "C2_lag1",
+        "X2_lag1",
+        "X4_lag1",
+        "X7_lag1",
+        "const"
+      ]
+    },
+    "complete_case": {
+      "nobs": 57,
+      "significant_terms": [
+        "X4_lag1",
+        "X7_lag1",
+        "X10_lag1"
+      ]
+    },
+    "leakage_safe_ml": {
+      "n_train": 132,
+      "n_test": 24,
+      "test_years": [
+        2024,
+        2025
+      ],
+      "imputer": {
+        "method": "mice_iterative_rf_train_only",
+        "n_train_rows": 144,
+        "n_rows": 168,
+        "aux_features": [
+          "year",
+          "grp_balkan",
+          "grp_developed_eu",
+          "grp_developed_non_eu",
+          "grp_developing",
+          "cty_ARG",
+          "cty_AUS",
+          "cty_BRA",
+          "cty_CAN",
+          "cty_DEU",
+          "cty_FRA",
+          "cty_GBR",
+          "cty_IND",
+          "cty_MKD",
+          "cty_SRB",
+          "cty_SVN",
+          "cty_USA"
+        ],
+        "cells_imputed": {
+          "X1": 0,
+          "X2": 0,
+          "X3": 0,
+          "X4": 0,
+          "X5": 96,
+          "X6": 12,
+          "X7": 60,
+          "X8": 5,
+          "X9": 0,
+          "X10": 0,
+          "C1": 0,
+          "C2": 12
+        }
+      },
+      "best_ml": {
+        "model_type": "catboost",
+        "rmse": 2.040058105140579
+      },
+      "best_baseline": {
+        "model_type": "linear_regression",
+        "rmse": 1.1686865961444874
+      },
+      "status": "not_supported",
+      "relative_improvement": -0.7455989585837279
+    }
+  },
+  "created_at": "2026-08-11T13:23:46.702395+00:00"
+}

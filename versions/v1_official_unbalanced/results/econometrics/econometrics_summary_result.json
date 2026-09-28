@@ -1,0 +1,28 @@
+{
+  "result_id": "econometrics_summary_result",
+  "category": "econometrics",
+  "meta": {
+    "path": "results/econometrics/econometrics_summary.json"
+  },
+  "data": {
+    "formula": "DMI ~ X1_lag1 + X2_lag1 + X3_lag1 + X4_lag1 + X5_lag1 + X6_lag1 + X7_lag1 + X8_lag1 + X9_lag1 + X10_lag1 + C1_lag1 + C2_lag1",
+    "nobs": 84,
+    "has_linearmodels": true,
+    "hausman": {
+      "method": "hausman_fe_vs_re",
+      "statistic": -40.42432610430197,
+      "pvalue": 1.0,
+      "note": null,
+      "df": 12,
+      "prefer": "RE"
+    },
+    "n_models_ok": 6,
+    "artifacts": {
+      "coefficients": "results/econometrics/coefficients.csv",
+      "metrics": "results/econometrics/model_metrics.csv",
+      "diagnostics": "results/econometrics/diagnostics.json",
+      "hausman": "results/econometrics/hausman_test.json"
+    }
+  },
+  "created_at": "2026-08-09T20:18:31.965129+00:00"
+}

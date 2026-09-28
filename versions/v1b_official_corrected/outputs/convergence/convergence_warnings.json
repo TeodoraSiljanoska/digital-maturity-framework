@@ -1,0 +1,22 @@
+[
+  {
+    "method": "conditional_beta",
+    "sample": "balkan",
+    "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+  },
+  {
+    "method": "conditional_beta",
+    "sample": "developed_eu",
+    "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+  },
+  {
+    "method": "conditional_beta",
+    "sample": "developed_non_eu",
+    "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+  },
+  {
+    "method": "conditional_beta",
+    "sample": "developing",
+    "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+  }
+]

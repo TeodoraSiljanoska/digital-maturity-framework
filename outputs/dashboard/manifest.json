@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-09-01T10:35:08.572347+00:00",
+  "data_dir": "outputs/dashboard",
+  "artifacts": {
+    "panel": "outputs/dashboard/panel.parquet",
+    "predictions": "outputs/dashboard/predictions.parquet",
+    "xai_summary": "outputs/dashboard/xai_summary.json",
+    "model_comparison": "outputs/dashboard/model_comparison.parquet",
+    "convergence": "outputs/dashboard/convergence.parquet",
+    "coefficients": "outputs/dashboard/coefficients.csv",
+    "vif": "outputs/dashboard/vif_predictors.csv",
+    "correlation": "outputs/dashboard/correlation_matrix.csv",
+    "group_comparison": "outputs/dashboard/group_comparison.csv",
+    "sparql_answers": "outputs/dashboard/sparql_answers.json",
+    "competency_answers": "outputs/dashboard/competency_answers.json",
+    "hypothesis_evaluation": "outputs/dashboard/hypothesis_evaluation.json",
+    "leakage_safe_verdict": "outputs/dashboard/leakage_safe_ml_verdict.json",
+    "sigma_mapping": "outputs/dashboard/sigma.md",
+    "choropleth": "outputs/dashboard/choropleth_latest.html",
+    "provenance": "outputs/dashboard/provenance.parquet",
+    "indicator_catalog": "outputs/dashboard/indicator_catalog.csv",
+    "ontology_graph": "outputs/dashboard/ontology_graph.json",
+    "framework_status": "outputs/dashboard/framework_status.json"
+  },
+  "title": "Digital Maturity Monitoring Dashboard"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "balkan_north_macedonia",
+    "country_iso3": "MKD",
+    "year": 2025,
+    "DMI": 53.515173314162446,
+    "group_id": "balkan",
+    "binding_indicators": [
+      {
+        "indicator_id": "X2",
+        "value": 29.8921727758887
+      },
+      {
+        "indicator_id": "X3",
+        "value": 0.707
+      },
+      {
+        "indicator_id": "C2",
+        "value": 0.7785119999999999
+      },
+      {
+        "indicator_id": "X6",
+        "value": 33.0
+      },
+      {
+        "indicator_id": "X4",
+        "value": 93.1
+      }
+    ],
+    "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"
+  },
+  {
+    "id": "developed_eu_germany",
+    "country_iso3": "DEU",
+    "year": 2025,
+    "DMI": 83.99789112646609,
+    "group_id": "developed_eu",
+    "binding_indicators": [
+      {
+        "indicator_id": "X2",
+        "value": 45.6069242965787
+      },
+      {
+        "indicator_id": "X3",
+        "value": 0.9382
+      },
+      {
+        "indicator_id": "C2",
+        "value": 0.9418066666666663
+      },
+      {
+        "indicator_id": "X6",
+        "value": 58.8
+      },
+      {
+        "indicator_id": "X4",
+        "value": 93.49999579
+      }
+    ],
+    "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"
+  }
+]

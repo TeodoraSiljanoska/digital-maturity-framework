@@ -1,0 +1,32 @@
+{
+  "output_dir": "outputs/figures",
+  "figures_requested": [
+    "dmi_trends",
+    "group_comparison",
+    "correlation_heatmap",
+    "choropleth_latest",
+    "model_comparison",
+    "shap_summary",
+    "convergence_sigma"
+  ],
+  "artifacts": [
+    "outputs/figures/dmi_trends_by_country.png",
+    "outputs/figures/dmi_trends_by_country.html",
+    "outputs/figures/dmi_trends_by_group.png",
+    "outputs/figures/dmi_trends_by_group.html",
+    "outputs/figures/group_comparison_box.png",
+    "outputs/figures/group_comparison_bar.png",
+    "outputs/figures/group_comparison_box.html",
+    "outputs/figures/correlation_heatmap.png",
+    "outputs/figures/correlation_heatmap.html",
+    "outputs/figures/choropleth_latest.html",
+    "outputs/figures/model_comparison.png",
+    "outputs/figures/model_comparison.html",
+    "outputs/figures/shap_importance.png",
+    "outputs/figures/shap_importance.html",
+    "outputs/figures/convergence_sigma.png",
+    "outputs/figures/convergence_sigma.html"
+  ],
+  "skipped_or_empty": [],
+  "plotly_available": true
+}

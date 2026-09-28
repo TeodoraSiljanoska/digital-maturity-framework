@@ -1,0 +1,50 @@
+{
+  "result_id": "xai_summary",
+  "category": "xai",
+  "meta": {},
+  "data": {
+    "model_id": "ridge_20260811T134949Z",
+    "model_type": "ridge",
+    "model_source": "best_model.json",
+    "artifact_path": "outputs/models/ridge_20260811T134949Z/ridge_20260811T134949Z.joblib",
+    "rmse": 2.0234825057568893,
+    "target": "DMI",
+    "predictors": [
+      "X1_lag1",
+      "X2_lag1",
+      "X3_lag1",
+      "X4_lag1",
+      "X6_lag1",
+      "X7_lag1",
+      "X8_lag1",
+      "X9_lag1",
+      "X10_lag1",
+      "C1_lag1",
+      "C2_lag1"
+    ],
+    "n_rows": 93,
+    "methods_requested": [
+      "shap",
+      "lime",
+      "feature_importance",
+      "pdp"
+    ],
+    "artifacts": {
+      "feature_importance": "outputs/xai/feature_importance.csv",
+      "shap": {
+        "global": "outputs/xai/shap_global_importance.csv",
+        "local": "outputs/xai/shap_local_explanations.json",
+        "plot": "outputs/xai/shap_summary.png"
+      },
+      "lime": "outputs/xai/lime_explanations.json",
+      "pdp": {
+        "csv": "outputs/xai/partial_dependence.csv",
+        "plot": "outputs/xai/partial_dependence.png"
+      }
+    },
+    "warnings": [],
+    "n_produced": 4,
+    "seed": 42
+  },
+  "created_at": "2026-08-11T13:50:02.110471+00:00"
+}

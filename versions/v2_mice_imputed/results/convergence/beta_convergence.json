@@ -1,0 +1,206 @@
+{
+  "result_id": "beta_convergence",
+  "category": "convergence",
+  "meta": {},
+  "data": [
+    {
+      "model": "beta",
+      "sample": "full",
+      "status": "ok",
+      "n": 12,
+      "beta": -0.5726447934743772,
+      "beta_pvalue": 1.0105476303647403e-08,
+      "beta_std_error": 0.03357053362451586,
+      "supports_convergence": true,
+      "r_squared": 0.9667745356467105,
+      "adj_r_squared": 0.9634519892113815,
+      "regressors": [
+        "log_DMI_0"
+      ],
+      "params": {
+        "const": 2.5537659616742614,
+        "log_DMI_0": -0.5726447934743772
+      },
+      "pvalues": {
+        "const": 2.819473507930315e-09,
+        "log_DMI_0": 1.0105476303647403e-08
+      },
+      "std_errors": {
+        "const": 0.1313053758103461,
+        "log_DMI_0": 0.03357053362451586
+      }
+    },
+    {
+      "model": "conditional_beta",
+      "sample": "full",
+      "status": "ok",
+      "n": 12,
+      "beta": -0.3985754629704824,
+      "beta_pvalue": 0.07672433196611307,
+      "beta_std_error": 0.1962347529426868,
+      "supports_convergence": true,
+      "r_squared": 0.9722210133334354,
+      "adj_r_squared": 0.9618038933334736,
+      "regressors": [
+        "log_DMI_0",
+        "C1",
+        "C2"
+      ],
+      "params": {
+        "const": 3.2860046661033198,
+        "log_DMI_0": -0.3985754629704824,
+        "C1": -0.16173421754221923,
+        "C2": 0.3281783117530138
+      },
+      "pvalues": {
+        "const": 0.000596082652762453,
+        "log_DMI_0": 0.07672433196611307,
+        "C1": 0.2590640662387679,
+        "C2": 0.41525188031332805
+      },
+      "std_errors": {
+        "const": 0.600986899337668,
+        "log_DMI_0": 0.1962347529426868,
+        "C1": 0.13313225709612966,
+        "C2": 0.38197490526682326
+      }
+    },
+    {
+      "model": "beta",
+      "sample": "balkan",
+      "status": "ok",
+      "n": 3,
+      "beta": -0.5092968329635225,
+      "beta_pvalue": 0.27401818414289775,
+      "beta_std_error": 0.2338373474573022,
+      "supports_convergence": true,
+      "r_squared": 0.8258952005837048,
+      "adj_r_squared": 0.6517904011674096,
+      "regressors": [
+        "log_DMI_0"
+      ],
+      "params": {
+        "const": 2.307275079734974,
+        "log_DMI_0": -0.5092968329635225
+      },
+      "pvalues": {
+        "const": 0.23055426251875924,
+        "log_DMI_0": 0.27401818414289775
+      },
+      "std_errors": {
+        "const": 0.8741429721830851,
+        "log_DMI_0": 0.2338373474573022
+      }
+    },
+    {
+      "model": "conditional_beta",
+      "sample": "balkan",
+      "status": "skipped",
+      "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']",
+      "n": 3
+    },
+    {
+      "model": "beta",
+      "sample": "developed_eu",
+      "status": "ok",
+      "n": 3,
+      "beta": -0.30870267632146803,
+      "beta_pvalue": 0.8140417978703309,
+      "beta_std_error": 1.0266001312192474,
+      "supports_convergence": true,
+      "r_squared": 0.08292456796014891,
+      "adj_r_squared": -0.8341508640797022,
+      "regressors": [
+        "log_DMI_0"
+      ],
+      "params": {
+        "const": 1.4472968496316838,
+        "log_DMI_0": -0.30870267632146803
+      },
+      "pvalues": {
+        "const": 0.7963433757776252,
+        "log_DMI_0": 0.8140417978703309
+      },
+      "std_errors": {
+        "const": 4.36877808023906,
+        "log_DMI_0": 1.0266001312192474
+      }
+    },
+    {
+      "model": "conditional_beta",
+      "sample": "developed_eu",
+      "status": "skipped",
+      "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']",
+      "n": 3
+    },
+    {
+      "model": "beta",
+      "sample": "developed_non_eu",
+      "status": "ok",
+      "n": 3,
+      "beta": 0.15841156179140578,
+      "beta_pvalue": 0.9135118233190285,
+      "beta_std_error": 1.158848904542032,
+      "supports_convergence": false,
+      "r_squared": 0.018343394887195053,
+      "adj_r_squared": -0.9633132102256099,
+      "regressors": [
+        "log_DMI_0"
+      ],
+      "params": {
+        "const": -0.5017696046580185,
+        "log_DMI_0": 0.15841156179140578
+      },
+      "pvalues": {
+        "const": 0.9343321579968706,
+        "log_DMI_0": 0.9135118233190285
+      },
+      "std_errors": {
+        "const": 4.847162527138211,
+        "log_DMI_0": 1.158848904542032
+      }
+    },
+    {
+      "model": "conditional_beta",
+      "sample": "developed_non_eu",
+      "status": "skipped",
+      "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']",
+      "n": 3
+    },
+    {
+      "model": "beta",
+      "sample": "developing",
+      "status": "ok",
+      "n": 3,
+      "beta": -0.68493578134526,
+      "beta_pvalue": 0.003948811824487075,
+      "beta_std_error": 0.0042485598427766105,
+      "supports_convergence": true,
+      "r_squared": 0.9999615260247493,
+      "adj_r_squared": 0.9999230520494986,
+      "regressors": [
+        "log_DMI_0"
+      ],
+      "params": {
+        "const": 2.9251389620090844,
+        "log_DMI_0": -0.68493578134526
+      },
+      "pvalues": {
+        "const": 0.0031511263506199447,
+        "log_DMI_0": 0.003948811824487075
+      },
+      "std_errors": {
+        "const": 0.014478905840288086,
+        "log_DMI_0": 0.0042485598427766105
+      }
+    },
+    {
+      "model": "conditional_beta",
+      "sample": "developing",
+      "status": "skipped",
+      "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']",
+      "n": 3
+    }
+  ],
+  "created_at": "2026-08-11T13:22:02.355082+00:00"
+}

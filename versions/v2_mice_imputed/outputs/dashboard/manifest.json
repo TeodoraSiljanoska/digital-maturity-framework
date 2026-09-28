@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-08-11T13:23:46.849294+00:00",
+  "data_dir": "outputs/dashboard",
+  "artifacts": {
+    "panel": "outputs/dashboard/panel.parquet",
+    "predictions": "outputs/dashboard/predictions.parquet",
+    "xai_summary": "outputs/dashboard/xai_summary.json",
+    "model_comparison": "outputs/dashboard/model_comparison.parquet",
+    "convergence": "outputs/dashboard/convergence.parquet",
+    "framework_status": "outputs/dashboard/framework_status.json"
+  },
+  "title": "Digital Maturity Monitoring Dashboard"
+}

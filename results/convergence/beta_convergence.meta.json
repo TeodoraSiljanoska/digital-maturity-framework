@@ -1,0 +1,8 @@
+{
+  "result_id": "beta_convergence",
+  "category": "convergence",
+  "format": "json",
+  "created_at": "2026-08-11T13:22:02.355369+00:00",
+  "artifact_path": "results/convergence/beta_convergence.json",
+  "meta": {}
+}

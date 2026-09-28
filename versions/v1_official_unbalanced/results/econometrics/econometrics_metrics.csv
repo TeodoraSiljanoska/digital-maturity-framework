@@ -1,0 +1,7 @@
+model,backend,nobs,rsquared,rsquared_within,f_statistic,rsquared_overall,group_id
+FE,linearmodels,84,0.8347983431386699,0.8347983431386696,25.26604027462622,,
+RE,linearmodels,84,0.975293436788492,,,0.975293436788492,
+FE_group:balkan,linearmodels,21,0.9441654524757017,0.944165452475702,8.455029138230378,,balkan
+FE_group:developed_eu,linearmodels,21,0.8670472500761948,0.8670472500761907,3.2607345488269215,,developed_eu
+FE_group:developed_non_eu,linearmodels,21,0.9202207259965253,0.9202207259965297,5.767291928204594,,developed_non_eu
+FE_group:developing,linearmodels,21,0.9596481642802432,0.9596481642802431,11.891010001936383,,developing

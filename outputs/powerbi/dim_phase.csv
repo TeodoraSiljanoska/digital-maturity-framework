@@ -1,0 +1,9 @@
+phase_id,phase_name,sort
+acquire,Acquire,1
+validate,Validate,2
+process,Process,3
+index,Index,4
+analyse,Analyse,5
+predict,Predict,6
+explain,Explain,7
+visualize,Visualize,8

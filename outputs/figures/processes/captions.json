@@ -1,0 +1,9 @@
+{
+  "construction_p1_p8.png": "Eight-phase ontology construction. P1\u2013P8 follow the design-science pipeline in Savoska & Loshkovska (2026, Fig. 1), applied here to digital-maturity indicators.",
+  "assessment_pipeline.png": "Twelve PipelineStage boxes from src/pipeline/pipeline_state.py, each with an I/O artifact. The TBox class ProcessPhase has eight occurrent phases (Acquire\u2026Visualize); the extra four stages are code (descriptives, econometrics, converge, audit), not OWL individuals.",
+  "acquisition_methods.png": "Five CollectionMethod individuals. Green = used: official API and curated snapshot (HiTEc traditional official series) plus constructed composite (DMI, 168 cells). Red = unused (primary survey, sensors). COST Action CA21163 names data kinds in the MoU; it does not publish a numbered list of four obtaining methods, and this panel does not invent one.",
+  "missing_data_workflow.png": "Missing-data workflow. Official cells are preserved. Gaps of at most two years are carried; remaining holes are MICE-imputed on v2 and left empty on v1b.",
+  "model_to_phase.png": "Every method is assigned to one process phase. Ensemble learners belong to Predict, not Collect.",
+  "correlation_vif_process.png": "Correlation matrix is Pearson r on the lagged design. VIF is computed after adding an intercept column. Read VIF>10 as collinearity, not as a DMI score.",
+  "ontology_layers.png": "Ctax / Cdec / Ceval classes and TBox arrows parsed from ontology/dmi-framework.ttl (rdflib). Box positions are in process_diagrams.py, not an automatic layout. aboutIndicator is labelled on Explanation. Not a HermiT run."
+}

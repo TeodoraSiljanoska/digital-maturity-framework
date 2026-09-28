@@ -1,0 +1,22 @@
+{
+  "formula": "DMI ~ X1_lag1 + X2_lag1 + X3_lag1 + X4_lag1 + X5_lag1 + X6_lag1 + X7_lag1 + X8_lag1 + X9_lag1 + X10_lag1 + C1_lag1 + C2_lag1",
+  "target": "DMI",
+  "predictors": [
+    "X1_lag1",
+    "X2_lag1",
+    "X3_lag1",
+    "X4_lag1",
+    "X5_lag1",
+    "X6_lag1",
+    "X7_lag1",
+    "X8_lag1",
+    "X9_lag1",
+    "X10_lag1",
+    "C1_lag1",
+    "C2_lag1"
+  ],
+  "entity_col": "country_iso3",
+  "time_col": "year",
+  "nobs": 84,
+  "has_linearmodels": true
+}

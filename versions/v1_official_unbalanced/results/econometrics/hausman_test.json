@@ -1,0 +1,8 @@
+{
+  "method": "hausman_fe_vs_re",
+  "statistic": -40.42432610430197,
+  "pvalue": 1.0,
+  "note": null,
+  "df": 12,
+  "prefer": "RE"
+}

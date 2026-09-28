@@ -1,0 +1,41 @@
+{
+  "dataset": "UN_EGOV",
+  "indicators": [
+    "EGDI",
+    "OSI"
+  ],
+  "source_url": "https://publicadministration.un.org/egovkb/",
+  "secondary_source_url": "https://desapublications.un.org/publications/un-e-government-survey-2024",
+  "notes": "Biennial UN E-Government Survey EGDI/OSI. 2024 values from UN E-Government Survey 2024 official tables/Data Center. 2025 left empty (no survey). Non-survey years remain NaN.",
+  "publication_years": [
+    2012,
+    2014,
+    2016,
+    2018,
+    2020,
+    2022,
+    2024
+  ],
+  "panel_years": [
+    2012,
+    2025
+  ],
+  "countries": [
+    "MKD",
+    "SRB",
+    "SVN",
+    "FRA",
+    "GBR",
+    "DEU",
+    "USA",
+    "CAN",
+    "AUS",
+    "BRA",
+    "ARG",
+    "IND"
+  ],
+  "rows": 168,
+  "path": "data/raw/un_egdi/egdi_panel.csv",
+  "egdi_2024_non_null": 12,
+  "written_at": "2026-08-09T20:18:23.446989+00:00"
+}

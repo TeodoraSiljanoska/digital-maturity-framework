@@ -1,0 +1,38 @@
+sources:
+  world_bank:
+    adapter: world_bank
+    base_url: https://api.worldbank.org/v2
+    timeout_seconds: 60
+    retry: 3
+  un_egdi:
+    adapter: un
+    timeout_seconds: 60
+    snapshot_file: data/raw/un_egdi/egdi_panel.csv
+  ncsi:
+    adapter: ncsi
+    timeout_seconds: 60
+    snapshot_file: data/raw/ncsi/ncsi_panel.csv
+  gii:
+    adapter: gii
+    timeout_seconds: 60
+    snapshot_file: data/raw/gii/gii_panel.csv
+  oxford_insights:
+    adapter: oxford
+    timeout_seconds: 60
+    snapshot_file: data/raw/oxford/ai_readiness_panel.csv
+  undp:
+    adapter: undp
+    timeout_seconds: 60
+    snapshot_file: data/raw/undp/education_index_panel.csv
+  oecd:
+    adapter: oecd
+    base_url: https://stats.oecd.org/SDMX-JSON
+    timeout_seconds: 60
+  eurostat:
+    adapter: eurostat
+    base_url: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0
+    timeout_seconds: 60
+  itu:
+    adapter: itu
+    timeout_seconds: 60
+    snapshot_file: data/raw/itu/itu_panel.csv

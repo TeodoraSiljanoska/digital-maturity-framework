@@ -1,0 +1,8 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+PREFIX dmi: <http://purl.org/dmi-framework#>
+SELECT ?phase ?purpose WHERE {
+  dmi:Model_catboost dmi:assignedToPhase ?ph ;
+                     rdfs:comment ?purpose .
+  ?ph rdfs:label ?phase .
+}

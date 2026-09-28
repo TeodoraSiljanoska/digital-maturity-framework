@@ -1,0 +1,214 @@
+@prefix dmi:  <http://purl.org/dmi-framework#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Digital Maturity Framework ontology (lightweight OWL RL / RDFS-plus).
+# Layer names Ctax / Cdec / Ceval follow Savoska & Loshkovska (Informatics 2026, 13:135, §4.1).
+# Backbone classes here are Indicator, Country, DataSource, ProcessPhase — not their
+# visualization-technique classes (MDMV_techniques, Tax4UIVB, InteractionPoss, UserGroups).
+# OWL stores structure. Python computes DMI, coefficients, and SHAP.
+
+dmi: a owl:Ontology ;
+    rdfs:label "Digital Maturity Index Framework Ontology" ;
+    rdfs:comment "Process-oriented reusable-indicator ontology for cross-country digital maturity assessment and visual data analysis." ;
+    owl:versionInfo "1.0.0" .
+
+# ---------------------------------------------------------------------------
+# Ctax — backbone
+# ---------------------------------------------------------------------------
+
+dmi:Indicator a owl:Class ;
+    rdfs:label "Indicator" ;
+    rdfs:comment "Reusable measured or constructed variable with a project IRI (http://purl.org/dmi-framework#Ind_*), not a registered PURL." ;
+    rdfs:subClassOf dmi:Ctax .
+
+dmi:Pillar a owl:Class ; rdfs:label "Pillar" ; rdfs:subClassOf dmi:Ctax .
+dmi:Country a owl:Class ; rdfs:label "Country" ; rdfs:subClassOf dmi:Ctax .
+dmi:CountryGroup a owl:Class ; rdfs:label "Country group" ; rdfs:subClassOf dmi:Ctax .
+dmi:DataSource a owl:Class ; rdfs:label "Data source" ; rdfs:subClassOf dmi:Ctax .
+dmi:CollectionMethod a owl:Class ; rdfs:label "Collection method" ; rdfs:subClassOf dmi:Ctax .
+dmi:ProcessPhase a owl:Class ;
+    rdfs:label "Process phase" ;
+    rdfs:comment "Occurrent stage of DigitalMaturityAssessmentProcess." ;
+    rdfs:subClassOf dmi:Ctax .
+dmi:ProvenanceState a owl:Class ; rdfs:label "Provenance state" ; rdfs:subClassOf dmi:Ctax .
+dmi:Ctax a owl:Class ; rdfs:label "Taxonomy backbone class" .
+dmi:DigitalMaturityAssessmentProcess a owl:Class ;
+    rdfs:label "Digital maturity assessment process" ;
+    rdfs:comment "Occurrent covering acquire → validate → process → index → analyse → predict → explain → visualize." .
+
+# ---------------------------------------------------------------------------
+# Cdec — decision support
+# ---------------------------------------------------------------------------
+
+dmi:Cdec a owl:Class ; rdfs:label "Decision-support class" .
+dmi:DecisionContext a owl:Class ; rdfs:subClassOf dmi:Cdec ;
+    rdfs:comment "Typed tuple: research question × phase × country-set × method family × VDA task." .
+dmi:ScoreEntry a owl:Class ; rdfs:subClassOf dmi:Cdec ;
+    rdfs:comment "Reified cell of M : Indicator × Phase × Country × Source → Value." .
+dmi:Recommendation a owl:Class ; rdfs:subClassOf dmi:Cdec ;
+    rdfs:comment "Cdec slot for a policy recommendation. Unused in this study: VDA is filter and slider, not a recommender, so no Recommendation individuals are asserted." .
+dmi:Explanation a owl:Class ; rdfs:subClassOf dmi:Cdec ;
+    rdfs:comment "Reified SHAP/LIME/PDP attribution linked to a model output." .
+dmi:ModelOutput a owl:Class ; rdfs:subClassOf dmi:Cdec .
+
+# ---------------------------------------------------------------------------
+# Ceval — evaluation
+# ---------------------------------------------------------------------------
+
+dmi:Ceval a owl:Class ; rdfs:label "Evaluation class" .
+dmi:CompetencyQuestion a owl:Class ; rdfs:subClassOf dmi:Ceval .
+dmi:ValidationQuery a owl:Class ; rdfs:subClassOf dmi:Ceval .
+dmi:EvaluationRun a owl:Class ; rdfs:subClassOf dmi:Ceval ;
+    rdfs:comment "One rdflib SPARQL execution of a competency question. Not a DL reasoner run." .
+
+# ---------------------------------------------------------------------------
+# Object properties
+# ---------------------------------------------------------------------------
+
+dmi:belongsToPillar a owl:ObjectProperty ; rdfs:domain dmi:Indicator ; rdfs:range dmi:Pillar .
+dmi:obtainedBy a owl:ObjectProperty ; rdfs:domain dmi:Indicator ; rdfs:range dmi:CollectionMethod .
+dmi:hasSource a owl:ObjectProperty ; rdfs:domain dmi:Indicator ; rdfs:range dmi:DataSource .
+dmi:usedInPhase a owl:ObjectProperty ; rdfs:domain dmi:Indicator ; rdfs:range dmi:ProcessPhase .
+dmi:memberOf a owl:ObjectProperty ; rdfs:domain dmi:Country ; rdfs:range dmi:CountryGroup .
+dmi:precedes a owl:ObjectProperty ; rdfs:domain dmi:ProcessPhase ; rdfs:range dmi:ProcessPhase .
+dmi:entryIndicator a owl:ObjectProperty ; rdfs:domain dmi:ScoreEntry ; rdfs:range dmi:Indicator .
+dmi:entryCountry a owl:ObjectProperty ; rdfs:domain dmi:ScoreEntry ; rdfs:range dmi:Country .
+dmi:entryPhase a owl:ObjectProperty ; rdfs:domain dmi:ScoreEntry ; rdfs:range dmi:ProcessPhase .
+dmi:entrySource a owl:ObjectProperty ; rdfs:domain dmi:ScoreEntry ; rdfs:range dmi:DataSource .
+dmi:hasProvenance a owl:ObjectProperty ; rdfs:domain dmi:ScoreEntry ; rdfs:range dmi:ProvenanceState .
+dmi:hasContext a owl:ObjectProperty ; rdfs:domain dmi:Recommendation ; rdfs:range dmi:DecisionContext .
+dmi:explainsOutput a owl:ObjectProperty ; rdfs:domain dmi:Explanation ; rdfs:range dmi:ModelOutput .
+dmi:aboutIndicator a owl:ObjectProperty ; rdfs:domain dmi:Explanation ; rdfs:range dmi:Indicator .
+dmi:usesValidationQuery a owl:ObjectProperty ; rdfs:domain dmi:CompetencyQuestion ; rdfs:range dmi:ValidationQuery .
+dmi:evaluates a owl:ObjectProperty ; rdfs:domain dmi:EvaluationRun ; rdfs:range dmi:CompetencyQuestion .
+dmi:evaluatedWith a owl:ObjectProperty ; rdfs:domain dmi:EvaluationRun ; rdfs:range dmi:ValidationQuery .
+dmi:assignedToPhase a owl:ObjectProperty ; rdfs:domain dmi:ModelOutput ; rdfs:range dmi:ProcessPhase .
+dmi:realizesKind a owl:ObjectProperty ; rdfs:domain dmi:CollectionMethod ; rdfs:range dmi:HiTEcDataKind .
+
+dmi:HiTEcDataKind a owl:Class ;
+    rdfs:label "HiTEc CA21163 data kind" ;
+    rdfs:comment "Data kinds named in the HiTEc MoU (COST Action CA21163): text, functional, perceptions/imprecise, traditional; sensor data is an additional emphasis." ;
+    rdfs:subClassOf dmi:Ctax .
+
+# ---------------------------------------------------------------------------
+# Data properties
+# ---------------------------------------------------------------------------
+
+dmi:indicatorId a owl:DatatypeProperty ; rdfs:range xsd:string .
+dmi:iso3 a owl:DatatypeProperty ; rdfs:range xsd:string .
+dmi:year a owl:DatatypeProperty ; rdfs:range xsd:integer .
+dmi:matrixValue a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+dmi:pillarWeight a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+dmi:unit a owl:DatatypeProperty ; rdfs:range xsd:string .
+dmi:polarity a owl:DatatypeProperty ; rdfs:range xsd:string .
+dmi:role a owl:DatatypeProperty ; rdfs:range xsd:string .
+dmi:questionText a owl:DatatypeProperty ; rdfs:range xsd:string .
+dmi:expectedAnswerText a owl:DatatypeProperty ; rdfs:range xsd:string .
+dmi:queryText a owl:DatatypeProperty ; rdfs:range xsd:string .
+dmi:validationPassed a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+dmi:meanAbsShap a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+dmi:sigmaReading a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+# ---------------------------------------------------------------------------
+# Named individuals — collection methods (four obtaining channels)
+# ---------------------------------------------------------------------------
+
+dmi:Kind_traditional a dmi:HiTEcDataKind ;
+    rdfs:label "Traditional official series" ;
+    rdfs:comment "HiTEc MoU: traditional data combined with complex sources. Used in this study." .
+dmi:Kind_text a dmi:HiTEcDataKind ;
+    rdfs:label "Text data" ;
+    rdfs:comment "HiTEc MoU: newspapers, articles, opinions. Unused in this study." .
+dmi:Kind_functional a dmi:HiTEcDataKind ;
+    rdfs:label "Functional data" ;
+    rdfs:comment "HiTEc MoU: functions, continuously recorded curves. Unused in this study." .
+dmi:Kind_perceptions a dmi:HiTEcDataKind ;
+    rdfs:label "Perceptions / imprecise data" ;
+    rdfs:comment "HiTEc MoU: polls, perceptions, non-precise values. Unused as primary collection." .
+dmi:Kind_sensor a dmi:HiTEcDataKind ;
+    rdfs:label "Sensor data" ;
+    rdfs:comment "HiTEc MoU emphasis (environmental/health streams). Unused in this study." .
+
+dmi:Method_official_api a dmi:CollectionMethod ;
+    rdfs:label "Official statistical API" ;
+    rdfs:comment "Retrieval procedure for traditional official series (World Bank WDI HTTP API)." ;
+    dmi:realizesKind dmi:Kind_traditional .
+dmi:Method_curated_snapshot a dmi:CollectionMethod ;
+    rdfs:label "Curated published snapshot" ;
+    rdfs:comment "Retrieval procedure for traditional published indices archived as versioned CSV." ;
+    dmi:realizesKind dmi:Kind_traditional .
+dmi:Method_primary_survey a dmi:CollectionMethod ;
+    rdfs:label "Primary field survey" ;
+    rdfs:comment "Not used. Closest HiTEc kind: perceptions/imprecise data." ;
+    dmi:realizesKind dmi:Kind_perceptions .
+dmi:Method_sensor_automated a dmi:CollectionMethod ;
+    rdfs:label "Automated / sensor capture" ;
+    rdfs:comment "Not used. HiTEc MoU emphasises sensor data; this panel has none." ;
+    dmi:realizesKind dmi:Kind_sensor .
+dmi:Method_constructed a dmi:CollectionMethod ;
+    rdfs:label "Constructed composite" ;
+    rdfs:comment "Derived inside the framework (DMI), not an external HiTEc source kind." .
+
+# ---------------------------------------------------------------------------
+# Process phases (occurrent chain)
+# ---------------------------------------------------------------------------
+
+dmi:Phase_Acquire a dmi:ProcessPhase ; rdfs:label "Acquire" .
+dmi:Phase_Validate a dmi:ProcessPhase ; rdfs:label "Validate" .
+dmi:Phase_Process a dmi:ProcessPhase ; rdfs:label "Process" .
+dmi:Phase_Index a dmi:ProcessPhase ; rdfs:label "Index" .
+dmi:Phase_Analyse a dmi:ProcessPhase ; rdfs:label "Analyse" .
+dmi:Phase_Predict a dmi:ProcessPhase ; rdfs:label "Predict" .
+dmi:Phase_Explain a dmi:ProcessPhase ; rdfs:label "Explain" .
+dmi:Phase_Visualize a dmi:ProcessPhase ; rdfs:label "Visualize" .
+
+dmi:Phase_Acquire dmi:precedes dmi:Phase_Validate .
+dmi:Phase_Validate dmi:precedes dmi:Phase_Process .
+dmi:Phase_Process dmi:precedes dmi:Phase_Index .
+dmi:Phase_Index dmi:precedes dmi:Phase_Analyse .
+dmi:Phase_Analyse dmi:precedes dmi:Phase_Predict .
+dmi:Phase_Predict dmi:precedes dmi:Phase_Explain .
+dmi:Phase_Explain dmi:precedes dmi:Phase_Visualize .
+
+# ---------------------------------------------------------------------------
+# Provenance states
+# ---------------------------------------------------------------------------
+
+dmi:Prov_official a dmi:ProvenanceState ; rdfs:label "official" .
+dmi:Prov_carried_forward a dmi:ProvenanceState ; rdfs:label "carried_forward" .
+dmi:Prov_mice_imputed a dmi:ProvenanceState ; rdfs:label "mice_imputed" .
+dmi:Prov_missing a dmi:ProvenanceState ; rdfs:label "missing" .
+dmi:Prov_constructed a dmi:ProvenanceState ; rdfs:label "constructed" .
+
+# ---------------------------------------------------------------------------
+# Pillars
+# ---------------------------------------------------------------------------
+
+dmi:Pillar_infrastructure a dmi:Pillar ; rdfs:label "Infrastructure" ; dmi:pillarWeight 0.20 .
+dmi:Pillar_e_government a dmi:Pillar ; rdfs:label "E-government" ; dmi:pillarWeight 0.20 .
+dmi:Pillar_skills a dmi:Pillar ; rdfs:label "Skills" ; dmi:pillarWeight 0.20 .
+dmi:Pillar_trust_innovation a dmi:Pillar ; rdfs:label "Trust and innovation" ; dmi:pillarWeight 0.20 .
+dmi:Pillar_digital_economy a dmi:Pillar ; rdfs:label "Digital economy" ; dmi:pillarWeight 0.20 .
+dmi:Pillar_control a dmi:Pillar ; rdfs:label "Control (not in DMI)" ; dmi:pillarWeight 0.00 .
+dmi:Pillar_composite a dmi:Pillar ; rdfs:label "Composite DMI" ; dmi:pillarWeight 1.00 .
+
+# Competency-question individuals (CQ1–CQ6, VQ_CQ1–VQ_CQ6) are asserted in the
+# generated ABox from SPARQL query text. They are not stubbed here, so the graph
+# has one questionText per CQ IRI.
+
+# ---------------------------------------------------------------------------
+# Decision contexts
+# ---------------------------------------------------------------------------
+
+dmi:CTX_overview_dashboard a dmi:DecisionContext ;
+    rdfs:label "Data overview for monitoring" ;
+    rdfs:comment "UL_DO analogue: country/group DMI overview → dashboards, line charts, sliders." .
+dmi:CTX_hypothesis_confirmation a dmi:DecisionContext ;
+    rdfs:label "Hypothesis confirmation" ;
+    rdfs:comment "UL_HC analogue: FE coefficients, VIF process, SHAP ranking." .
+dmi:CTX_prediction_xai a dmi:DecisionContext ;
+    rdfs:label "Prediction and explanation" ;
+    rdfs:comment "Hold-out prediction plus SHAP/LIME/PDP." .

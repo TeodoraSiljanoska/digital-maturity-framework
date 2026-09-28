@@ -1,0 +1,7 @@
+model,status,backend,group_id,nobs
+FE,ok,linearmodels,,
+RE,ok,linearmodels,,
+FE_group,ok,,balkan,21.0
+FE_group,ok,,developed_eu,21.0
+FE_group,ok,,developed_non_eu,21.0
+FE_group,ok,,developing,21.0

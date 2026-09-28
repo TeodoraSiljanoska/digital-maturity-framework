@@ -1,0 +1,64 @@
+{
+  "updated_at": "2026-08-11T13:49:48.298009+00:00",
+  "nodes": [
+    {
+      "node_id": "raw.integrated",
+      "node_type": "dataset",
+      "parent_ids": [],
+      "transform": "ingestion",
+      "path": "data/raw/integrated_raw.parquet",
+      "timestamp": "2026-08-11T13:49:47.564443+00:00"
+    },
+    {
+      "node_id": "interim.panel_clean",
+      "node_type": "dataset",
+      "parent_ids": [
+        "raw.integrated"
+      ],
+      "transform": "preprocess_pivot_impute",
+      "path": "data/interim/panel_clean.parquet",
+      "timestamp": "2026-08-11T13:49:47.564637+00:00"
+    },
+    {
+      "node_id": "processed.panel_wide",
+      "node_type": "dataset",
+      "parent_ids": [
+        "interim.panel_clean"
+      ],
+      "transform": "persist_wide_panel",
+      "path": "data/processed/panel_wide.parquet",
+      "timestamp": "2026-08-11T13:49:47.564772+00:00"
+    },
+    {
+      "node_id": "processed.panel_features",
+      "node_type": "dataset",
+      "parent_ids": [
+        "processed.panel_wide"
+      ],
+      "transform": "feature_engineering",
+      "path": "data/processed/panel_features.parquet",
+      "timestamp": "2026-08-11T13:49:47.579014+00:00"
+    },
+    {
+      "node_id": "processed.dmi_panel",
+      "node_type": "dataset",
+      "parent_ids": [
+        "processed.panel_features"
+      ],
+      "transform": "build_dmi",
+      "path": "data/processed/dmi_panel.parquet",
+      "timestamp": "2026-08-11T13:49:48.297702+00:00"
+    },
+    {
+      "node_id": "processed.analysis_panel",
+      "node_type": "dataset",
+      "parent_ids": [
+        "processed.dmi_panel",
+        "processed.panel_features"
+      ],
+      "transform": "merge_dmi_features",
+      "path": "data/processed/analysis_panel.parquet",
+      "timestamp": "2026-08-11T13:49:48.297993+00:00"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "result_id": "convergence_summary",
+  "category": "convergence",
+  "meta": {},
+  "data": {
+    "dependent": "DMI",
+    "methods": [
+      "sigma",
+      "beta",
+      "conditional_beta"
+    ],
+    "by_group": true,
+    "min_countries": 3,
+    "control_mode": "initial",
+    "controls": [
+      "C1",
+      "C2"
+    ],
+    "seed": 42,
+    "sigma_n_rows": 70,
+    "sigma_trend": {
+      "first_year_std": 19.952517623503958,
+      "last_year_std": 10.93710540048056,
+      "declining": true
+    },
+    "beta_n_ok": 6,
+    "beta_full": {
+      "model": "beta",
+      "sample": "full",
+      "status": "ok",
+      "n": 12,
+      "beta": -0.6984216762655306,
+      "beta_pvalue": 5.509298567130131e-09,
+      "beta_std_error": 0.03846503807497196,
+      "supports_convergence": true,
+      "r_squared": 0.9705612173399917,
+      "adj_r_squared": 0.9676173390739908,
+      "regressors": [
+        "log_DMI_0"
+      ],
+      "params": {
+        "const": 3.080478461509959,
+        "log_DMI_0": -0.6984216762655306
+      },
+      "pvalues": {
+        "const": 1.6864050737151305e-09,
+        "log_DMI_0": 5.509298567130131e-09
+      },
+      "std_errors": {
+        "const": 0.15027490702307023,
+        "log_DMI_0": 0.03846503807497196
+      }
+    },
+    "conditional_beta_full": {
+      "model": "conditional_beta",
+      "sample": "full",
+      "status": "ok",
+      "n": 12,
+      "beta": -0.6424586390797278,
+      "beta_pvalue": 0.02974905619433432,
+      "beta_std_error": 0.2434269284323484,
+      "supports_convergence": true,
+      "r_squared": 0.9722929149935603,
+      "adj_r_squared": 0.9619027581161455,
+      "regressors": [
+        "log_DMI_0",
+        "C1",
+        "C2"
+      ],
+      "params": {
+        "const": 3.6073591399358413,
+        "log_DMI_0": -0.6424586390797278,
+        "C1": -0.09941568500204295,
+        "C2": 0.35371218718913844
+      },
+      "pvalues": {
+        "const": 0.005055344851838727,
+        "log_DMI_0": 0.02974905619433432,
+        "C1": 0.6128019223985739,
+        "C2": 0.5196538197970582
+      },
+      "std_errors": {
+        "const": 0.9431574925645899,
+        "log_DMI_0": 0.2434269284323484,
+        "C1": 0.1888129903692523,
+        "C2": 0.5252430879826008
+      }
+    },
+    "artifacts": {
+      "sigma": "results/convergence/sigma_convergence.csv",
+      "beta": {
+        "endpoints": "results/convergence/beta_endpoints.csv",
+        "results": "results/convergence/beta_convergence.json",
+        "coefficients": "results/convergence/beta_coefficients.csv"
+      }
+    },
+    "warnings": [
+      {
+        "method": "conditional_beta",
+        "sample": "balkan",
+        "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+      },
+      {
+        "method": "conditional_beta",
+        "sample": "developed_eu",
+        "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+      },
+      {
+        "method": "conditional_beta",
+        "sample": "developed_non_eu",
+        "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+      },
+      {
+        "method": "conditional_beta",
+        "sample": "developing",
+        "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+      }
+    ],
+    "n_produced": 2,
+    "n_countries": 12,
+    "year_min": 2012,
+    "year_max": 2025
+  },
+  "created_at": "2026-08-09T20:19:00.600133+00:00"
+}

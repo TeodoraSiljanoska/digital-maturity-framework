@@ -1,0 +1,24 @@
+target: DMI
+robustness_target: X3
+features: [X1, X2, X3, X4, X5, X6, X7, X8, X9, X10, C1, C2]
+use_lagged_features: true
+models:
+  - random_forest
+  - xgboost
+  - lightgbm
+  - catboost
+  - svr
+  - mlp
+validation:
+  method: temporal
+  test_years: [2024, 2025]
+  cv_folds: 3
+hyperparameter_search:
+  method: randomized
+  n_iter: 8
+  scoring: neg_root_mean_squared_error
+metrics: [rmse, mae, mape, r2]
+random_seed: 42
+min_train_rows: 20
+impute_features: median
+drop_predictor_missing_ratio: 0.55

@@ -1,0 +1,13 @@
+dependent: DMI
+methods:
+  - sigma
+  - beta
+  - conditional_beta
+sigma:
+  statistic: std
+  also_cv: true
+beta:
+  growth_window: full_sample
+conditional_controls: [C1, C2]
+by_group: true
+min_countries: 3

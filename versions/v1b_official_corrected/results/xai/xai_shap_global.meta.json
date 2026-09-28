@@ -1,0 +1,11 @@
+{
+  "result_id": "xai_shap_global",
+  "category": "xai",
+  "format": "csv",
+  "created_at": "2026-08-11T13:50:01.196368+00:00",
+  "artifact_path": "results/xai/xai_shap_global.csv",
+  "meta": {
+    "explainer": "KernelExplainer",
+    "model_id": "ridge_20260811T134949Z"
+  }
+}

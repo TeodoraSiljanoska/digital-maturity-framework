@@ -1,0 +1,10 @@
+[
+  {
+    "method": "shap",
+    "warning": "shap unavailable: No module named 'shap'"
+  },
+  {
+    "method": "lime",
+    "warning": "lime unavailable: No module named 'lime'"
+  }
+]

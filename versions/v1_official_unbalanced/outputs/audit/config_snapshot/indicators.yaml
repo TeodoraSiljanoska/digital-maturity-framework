@@ -1,0 +1,192 @@
+indicators:
+  - indicator_id: X1
+    research_variable: X1
+    name: Mobile cellular subscriptions
+    definition: Mobile cellular subscriptions per 100 people
+    source: world_bank
+    dataset: WDI
+    indicator_code: IT.CEL.SETS.P2
+    unit: per_100_people
+    frequency: annual
+    transformation: none
+    availability_status: high
+    pillar: infrastructure
+    role: independent
+    source_url: https://data.worldbank.org/indicator/IT.CEL.SETS.P2
+    retrieval_method: api
+
+  - indicator_id: X2
+    research_variable: X2
+    name: Fixed broadband subscriptions
+    definition: Fixed broadband subscriptions per 100 people
+    source: world_bank
+    dataset: WDI
+    indicator_code: IT.NET.BBND.P2
+    unit: per_100_people
+    frequency: annual
+    transformation: none
+    availability_status: high
+    pillar: infrastructure
+    role: independent
+    source_url: https://data.worldbank.org/indicator/IT.NET.BBND.P2
+    retrieval_method: api
+
+  - indicator_id: X3
+    research_variable: X3
+    name: E-Government Development Index
+    definition: UN EGDI composite index of online services, telecom infrastructure and human capital
+    source: un_egdi
+    dataset: UN_EGOV
+    indicator_code: EGDI
+    unit: index_0_1
+    frequency: biennial
+    transformation: interpolate_linear_optional
+    availability_status: medium
+    pillar: e_government
+    role: independent
+    source_url: https://publicadministration.un.org/egovkb/
+    retrieval_method: curated_snapshot
+
+  - indicator_id: X4
+    research_variable: X4
+    name: Digital skills proxy (Internet users)
+    definition: Individuals using the Internet (% of population) as global digital skills proxy
+    source: world_bank
+    dataset: WDI
+    indicator_code: IT.NET.USER.ZS
+    unit: percent
+    frequency: annual
+    transformation: none
+    availability_status: high
+    pillar: skills
+    role: independent
+    source_url: https://data.worldbank.org/indicator/IT.NET.USER.ZS
+    retrieval_method: api
+
+  - indicator_id: X5
+    research_variable: X5
+    name: National Cyber Security Index
+    definition: NCSI overall score
+    source: ncsi
+    dataset: NCSI
+    indicator_code: NCSI_SCORE
+    unit: score_0_100
+    frequency: irregular
+    transformation: none
+    availability_status: sparse
+    pillar: trust_innovation
+    role: independent
+    source_url: https://ncsi.ega.ee/
+    retrieval_method: curated_snapshot
+
+  - indicator_id: X6
+    research_variable: X6
+    name: Global Innovation Index
+    definition: WIPO Global Innovation Index overall score
+    source: gii
+    dataset: GII
+    indicator_code: GII_SCORE
+    unit: score
+    frequency: annual
+    transformation: none
+    availability_status: medium
+    pillar: trust_innovation
+    role: independent
+    source_url: https://www.wipo.int/global_innovation_index/
+    retrieval_method: curated_snapshot
+
+  - indicator_id: X7
+    research_variable: X7
+    name: Government AI Readiness Index
+    definition: Oxford Insights Government AI Readiness Index score
+    source: oxford_insights
+    dataset: AI_READINESS
+    indicator_code: AI_READY
+    unit: score
+    frequency: annual
+    transformation: none
+    availability_status: sparse
+    pillar: trust_innovation
+    role: independent
+    source_url: https://oxfordinsights.com/ai-readiness/
+    retrieval_method: curated_snapshot
+
+  - indicator_id: X8
+    research_variable: X8
+    name: Research and development expenditure
+    definition: R&D expenditure as % of GDP
+    source: world_bank
+    dataset: WDI
+    indicator_code: GB.XPD.RSDV.GD.ZS
+    unit: percent_gdp
+    frequency: annual
+    transformation: none
+    availability_status: medium
+    pillar: digital_economy
+    role: independent
+    source_url: https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS
+    retrieval_method: api
+
+  - indicator_id: X9
+    research_variable: X9
+    name: ICT service exports
+    definition: ICT service exports (% of service exports) as ICT sector intensity proxy
+    source: world_bank
+    dataset: WDI
+    indicator_code: BX.GSR.CCIS.ZS
+    unit: percent
+    frequency: annual
+    transformation: none
+    availability_status: medium
+    pillar: digital_economy
+    role: independent
+    source_url: https://data.worldbank.org/indicator/BX.GSR.CCIS.ZS
+    retrieval_method: api
+
+  - indicator_id: X10
+    research_variable: X10
+    name: Online Service Index
+    definition: UN EGDI Online Service Index component for digital public services
+    source: un_egdi
+    dataset: UN_EGOV
+    indicator_code: OSI
+    unit: index_0_1
+    frequency: biennial
+    transformation: interpolate_linear_optional
+    availability_status: medium
+    pillar: digital_economy
+    role: independent
+    source_url: https://publicadministration.un.org/egovkb/
+    retrieval_method: curated_snapshot
+
+  - indicator_id: C1
+    research_variable: C1
+    name: GDP per capita PPP
+    definition: GDP per capita, PPP (constant 2017 international $)
+    source: world_bank
+    dataset: WDI
+    indicator_code: NY.GDP.PCAP.PP.KD
+    unit: constant_ppp_usd
+    frequency: annual
+    transformation: log
+    availability_status: high
+    pillar: control
+    role: control
+    source_url: https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD
+    retrieval_method: api
+
+  - indicator_id: C2
+    research_variable: C2
+    name: Education Index
+    definition: UNDP Human Development Report Education Index
+    source: undp
+    dataset: HDR
+    indicator_code: EDU_INDEX
+    unit: index_0_1
+    frequency: annual
+    transformation: none
+    availability_status: medium
+    pillar: control
+    role: control
+    source_url: https://hdr.undp.org/
+    retrieval_method: curated_snapshot

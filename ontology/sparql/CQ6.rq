@@ -1,0 +1,7 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+PREFIX dmi: <http://purl.org/dmi-framework#>
+SELECT (COUNT(DISTINCT ?c) AS ?n_countries) (COUNT(DISTINCT ?ind) AS ?n_indicators) WHERE {
+  ?c a dmi:Country .
+  ?ind a dmi:Indicator .
+}

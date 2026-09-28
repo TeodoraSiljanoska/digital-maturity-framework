@@ -1,0 +1,70 @@
+{
+  "ok": true,
+  "hard_failures": [],
+  "warnings": [],
+  "checks": {
+    "schema": {
+      "required": [
+        "country_iso3",
+        "year",
+        "indicator_id",
+        "indicator_code",
+        "value",
+        "source",
+        "retrieved_at"
+      ],
+      "missing": []
+    },
+    "countries": {
+      "allowed": [
+        "ARG",
+        "AUS",
+        "BRA",
+        "CAN",
+        "DEU",
+        "FRA",
+        "GBR",
+        "IND",
+        "MKD",
+        "SRB",
+        "SVN",
+        "USA"
+      ],
+      "present": [
+        "ARG",
+        "AUS",
+        "BRA",
+        "CAN",
+        "DEU",
+        "FRA",
+        "GBR",
+        "IND",
+        "MKD",
+        "SRB",
+        "SVN",
+        "USA"
+      ],
+      "unknown": []
+    },
+    "years": {
+      "min": 2012,
+      "max": 2025,
+      "out_of_range_rows": 0,
+      "expected_start": 2012,
+      "expected_end": 2025
+    },
+    "duplicates": {
+      "key_columns": [
+        "country_iso3",
+        "year",
+        "indicator_code"
+      ],
+      "duplicate_rows": 0
+    },
+    "non_null_ratio": {
+      "ratio": 0.6577380952380952,
+      "min_required": 0.35
+    }
+  },
+  "rows": 2016
+}

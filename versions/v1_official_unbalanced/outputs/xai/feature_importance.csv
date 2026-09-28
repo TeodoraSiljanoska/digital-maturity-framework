@@ -1,0 +1,13 @@
+feature,importance,method
+X3_lag1,22.239001795713293,native_feature_importances
+X2_lag1,17.881458429388083,native_feature_importances
+C1_lag1,14.148562173260364,native_feature_importances
+X4_lag1,8.91929739826205,native_feature_importances
+C2_lag1,7.771168408780307,native_feature_importances
+X7_lag1,7.3077872318033,native_feature_importances
+X6_lag1,5.275470070734385,native_feature_importances
+X1_lag1,3.6678856924234533,native_feature_importances
+X8_lag1,3.6488921065435163,native_feature_importances
+X10_lag1,3.377193874738955,native_feature_importances
+X5_lag1,3.248505991464272,native_feature_importances
+X9_lag1,2.5147768268880104,native_feature_importances

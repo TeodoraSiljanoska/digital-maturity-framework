@@ -1,0 +1,281 @@
+{
+  "generated_at": "2026-08-11T13:23:46.958179+00:00",
+  "project_root": "/Users/teodorasiljanoska/Desktop/digital-maturity-framework",
+  "definition_of_complete": {
+    "n_criteria": 24,
+    "n_pass": 24,
+    "n_fail": 0,
+    "pass_rate": 1.0,
+    "critical_failures": [],
+    "complete": true,
+    "critical_ok": true
+  },
+  "by_layer": {
+    "data": {
+      "pass": 3,
+      "fail": 0
+    },
+    "processing": {
+      "pass": 2,
+      "fail": 0
+    },
+    "index": {
+      "pass": 3,
+      "fail": 0
+    },
+    "statistics": {
+      "pass": 1,
+      "fail": 0
+    },
+    "econometric": {
+      "pass": 2,
+      "fail": 0
+    },
+    "ml": {
+      "pass": 3,
+      "fail": 0
+    },
+    "xai": {
+      "pass": 1,
+      "fail": 0
+    },
+    "convergence": {
+      "pass": 1,
+      "fail": 0
+    },
+    "visualization": {
+      "pass": 1,
+      "fail": 0
+    },
+    "framework": {
+      "pass": 4,
+      "fail": 0
+    },
+    "reporting": {
+      "pass": 1,
+      "fail": 0
+    },
+    "audit": {
+      "pass": 2,
+      "fail": 0
+    }
+  },
+  "criteria": [
+    {
+      "id": "DATA_RAW",
+      "layer": "data",
+      "description": "Integrated raw panel exists",
+      "status": "pass",
+      "critical": true,
+      "detail": null,
+      "artifact": "data/raw/integrated_raw.parquet"
+    },
+    {
+      "id": "DATA_VALIDATED",
+      "layer": "data",
+      "description": "Validation report produced",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/audit/validation_report.json"
+    },
+    {
+      "id": "DATA_INTERIM",
+      "layer": "data",
+      "description": "Validated interim parquet exists",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "data/interim/"
+    },
+    {
+      "id": "PROC_WIDE",
+      "layer": "processing",
+      "description": "Processed wide panel exists",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "data/processed/panel_wide.parquet"
+    },
+    {
+      "id": "PROC_FEATURES",
+      "layer": "processing",
+      "description": "Feature panel exists",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "data/processed/panel_features.parquet"
+    },
+    {
+      "id": "INDEX_DMI_PANEL",
+      "layer": "index",
+      "description": "DMI panel artifact exists",
+      "status": "pass",
+      "critical": true,
+      "detail": null,
+      "artifact": "data/processed/dmi_panel.parquet|outputs/data/dmi_panel.parquet"
+    },
+    {
+      "id": "INDEX_ANALYSIS_PANEL",
+      "layer": "index",
+      "description": "Analysis panel ready for modeling",
+      "status": "pass",
+      "critical": true,
+      "detail": null,
+      "artifact": "data/processed/analysis_panel.parquet"
+    },
+    {
+      "id": "INDEX_RELIABILITY",
+      "layer": "index",
+      "description": "DMI reliability / sensitivity artifacts",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/tables/dmi_*"
+    },
+    {
+      "id": "STATS_DESCRIPTIVE",
+      "layer": "statistics",
+      "description": "Descriptive statistics results present",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "results/descriptive/"
+    },
+    {
+      "id": "ECO_COEFFICIENTS",
+      "layer": "econometric",
+      "description": "Econometric coefficients table",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "results/econometrics/coefficients.csv"
+    },
+    {
+      "id": "ECO_DIAGNOSTICS",
+      "layer": "econometric",
+      "description": "Econometric diagnostics / Hausman",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "results/econometrics/"
+    },
+    {
+      "id": "ML_MODEL_COMPARISON",
+      "layer": "ml",
+      "description": "ML model comparison CSV",
+      "status": "pass",
+      "critical": true,
+      "detail": null,
+      "artifact": "results/machine_learning/model_comparison.csv"
+    },
+    {
+      "id": "ML_BEST_MODEL",
+      "layer": "ml",
+      "description": "Best model selection recorded",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/models/best_model.json"
+    },
+    {
+      "id": "ML_PREDICTIONS",
+      "layer": "ml",
+      "description": "Prediction artifacts exported",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/predictions/"
+    },
+    {
+      "id": "XAI_ARTIFACTS",
+      "layer": "xai",
+      "description": "Explainability artifacts under results/xai or outputs/xai",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "results/xai|outputs/xai"
+    },
+    {
+      "id": "CONV_ARTIFACTS",
+      "layer": "convergence",
+      "description": "Convergence results available (or sigma series derived)",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "results/convergence|outputs/figures/convergence_sigma.png"
+    },
+    {
+      "id": "VIZ_FIGURES",
+      "layer": "visualization",
+      "description": "Figures written to outputs/figures",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/figures/"
+    },
+    {
+      "id": "HYP_EVALUATION",
+      "layer": "framework",
+      "description": "Hypothesis evaluation JSON",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "results/hypotheses/hypothesis_evaluation.json"
+    },
+    {
+      "id": "COMPARATIVE",
+      "layer": "framework",
+      "description": "Comparative group analysis",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "results/comparative/"
+    },
+    {
+      "id": "DASHBOARD_EXPORT",
+      "layer": "framework",
+      "description": "Dashboard data package exported",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/dashboard/"
+    },
+    {
+      "id": "FRAMEWORK_STATUS",
+      "layer": "framework",
+      "description": "Intelligent framework status JSON",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/dashboard/framework_status.json"
+    },
+    {
+      "id": "REPORTS",
+      "layer": "reporting",
+      "description": "Markdown reports generated",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/reports/"
+    },
+    {
+      "id": "REPRODUCIBILITY",
+      "layer": "audit",
+      "description": "Reproducibility metadata captured",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/audit/reproducibility.json"
+    },
+    {
+      "id": "CONFIG_SNAPSHOT",
+      "layer": "audit",
+      "description": "Config snapshot stored",
+      "status": "pass",
+      "critical": false,
+      "detail": null,
+      "artifact": "outputs/audit/config_snapshot/"
+    }
+  ]
+}

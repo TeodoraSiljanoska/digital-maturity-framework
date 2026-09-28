@@ -1,0 +1,19 @@
+missing_values:
+  strategy: group_year_ffill_bfill
+  max_gap_years: 2
+  min_non_null_ratio: 0.35
+normalization:
+  method: min_max
+  feature_range: [0, 100]
+transforms:
+  log_controls: [C1]
+duplicates:
+  subset: [country_iso3, year, indicator_id]
+  keep: last
+outliers:
+  method: winsorize
+  limits: [0.01, 0.99]
+  enabled: false
+integration:
+  join_keys: [country_iso3, year]
+  how: outer

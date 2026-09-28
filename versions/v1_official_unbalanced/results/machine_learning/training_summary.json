@@ -1,0 +1,30 @@
+{
+  "experiment_id": "20260809T201832Z_98f9fc9f",
+  "n_train": 144,
+  "n_test": 24,
+  "predictors": [
+    "X1_lag1",
+    "X2_lag1",
+    "X3_lag1",
+    "X4_lag1",
+    "X5_lag1",
+    "X6_lag1",
+    "X7_lag1",
+    "X8_lag1",
+    "X9_lag1",
+    "X10_lag1",
+    "C1_lag1",
+    "C2_lag1"
+  ],
+  "target": "DMI",
+  "test_years": [
+    2024,
+    2025
+  ],
+  "successes": 8,
+  "failures": 0,
+  "best_model": "catboost",
+  "best_rmse": 2.080056193977556,
+  "comparison_path": "results/machine_learning/model_comparison.csv",
+  "seed": 42
+}

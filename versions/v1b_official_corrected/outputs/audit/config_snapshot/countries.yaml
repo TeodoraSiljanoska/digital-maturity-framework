@@ -1,0 +1,69 @@
+groups:
+  balkan:
+    name: "Balkan countries"
+    name_mk: "Балкански земји"
+    rationale: "Heterogeneous digitalisation levels and administrative/economic structures"
+    countries:
+      - iso3: MKD
+        iso2: MK
+        name: "North Macedonia"
+        name_mk: "Северна Македонија"
+      - iso3: SRB
+        iso2: RS
+        name: "Serbia"
+        name_mk: "Србија"
+      - iso3: SVN
+        iso2: SI
+        name: "Slovenia"
+        name_mk: "Словенија"
+  developed_eu:
+    name: "Developed European countries"
+    name_mk: "Развиени европски земји"
+    rationale: "Similar digital maturity and economic/administrative structures"
+    countries:
+      - iso3: FRA
+        iso2: FR
+        name: "France"
+        name_mk: "Франција"
+      - iso3: GBR
+        iso2: GB
+        name: "United Kingdom"
+        name_mk: "Велика Британија"
+      - iso3: DEU
+        iso2: DE
+        name: "Germany"
+        name_mk: "Германија"
+  developed_non_eu:
+    name: "Developed non-European countries"
+    name_mk: "Развиени воневропски земји"
+    rationale: "Similar institutional models and economic development"
+    countries:
+      - iso3: USA
+        iso2: US
+        name: "United States"
+        name_mk: "САД"
+      - iso3: CAN
+        iso2: CA
+        name: "Canada"
+        name_mk: "Канада"
+      - iso3: AUS
+        iso2: AU
+        name: "Australia"
+        name_mk: "Австралија"
+  developing:
+    name: "Developing countries"
+    name_mk: "Земји во развој"
+    rationale: "Similar economic conditions with different institutional models"
+    countries:
+      - iso3: BRA
+        iso2: BR
+        name: "Brazil"
+        name_mk: "Бразил"
+      - iso3: ARG
+        iso2: AR
+        name: "Argentina"
+        name_mk: "Аргентина"
+      - iso3: IND
+        iso2: IN
+        name: "India"
+        name_mk: "Индија"

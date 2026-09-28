@@ -1,0 +1,11 @@
+methods: [shap, lime, feature_importance, pdp]
+shap:
+  max_samples: 80
+  background_samples: 40
+lime:
+  n_samples: 20
+  num_features: 8
+pdp:
+  features_top_k: 4
+  grid_resolution: 20
+output_dir: outputs/xai

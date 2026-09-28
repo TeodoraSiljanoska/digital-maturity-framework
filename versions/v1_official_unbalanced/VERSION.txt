@@ -1,0 +1,5 @@
+version: v1_official_unbalanced
+period: 2012-2025
+missing_strategy: official gaps retained (no multivariate imputation)
+imputation: none (only limited group ffill/bfill max_gap=2 in preprocessing)
+preserved_at: 2026-08-10T20:22:28Z

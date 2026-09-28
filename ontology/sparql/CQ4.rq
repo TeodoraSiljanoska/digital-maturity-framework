@@ -1,0 +1,11 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+PREFIX dmi: <http://purl.org/dmi-framework#>
+SELECT ?id ?shap WHERE {
+  ?e a dmi:Explanation ;
+     dmi:aboutIndicator ?ind ;
+     dmi:meanAbsShap ?shap .
+  ?ind dmi:indicatorId ?id .
+}
+ORDER BY DESC(?shap)
+LIMIT 10

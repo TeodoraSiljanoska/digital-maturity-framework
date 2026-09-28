@@ -1,0 +1,31 @@
+version: v2_mice_imputed (revision 2)
+period: 2012-2025
+refreshed_at: 2026-08-11
+
+point_panel_method: MICE (sklearn IterativeImputer + RandomForestRegressor), country-aware
+inference_method: 10 predictive-mean-matching draws pooled with Rubin's rules
+validation: masked-cell benchmark vs country-mean / group-year-mean / global-median baselines
+leakage_control: separate ML horse-race with the imputer fitted on training years only
+
+cell_provenance (2016 indicator cells):
+  official        65.8%
+  carried_forward 25.2%   (own-country ffill/bfill, max 2 years each direction)
+  mice_imputed     9.0%
+  missing          0.0%
+
+data_corrections applied in this revision:
+  - X7 (Government AI Readiness) pre-2020 editions rescaled x10: Oxford Insights
+    reported 0-10 through the 2019 edition and 0-100 from 2020. Splicing them
+    unrescaled produced an artificial ~57-point jump in 2020 for every country.
+  - Carry-forward now runs once per country series; the previous double pass
+    (group then country) silently doubled the configured max_gap_years.
+  - VIF now computed with an intercept in the auxiliary regression.
+  - Negative Hausman statistics are reported as inconclusive and model choice
+    is decided by a Mundlak auxiliary regression.
+
+note: observed official values are never overwritten; imputed cells are
+      statistical reconstructions, not new official publications.
+key_artifacts:
+  results/imputation/            (provenance, validation, MI pooling, leakage-safe ML)
+  outputs/figures/imputation_diagnostics.png
+  outputs/audit/imputation_report.json

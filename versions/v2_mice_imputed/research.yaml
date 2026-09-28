@@ -1,0 +1,43 @@
+title: "Intelligent AI Framework for Visual Analytics, Monitoring and Prediction of Digital Transformation"
+title_mk: "ИНТЕЛИГЕНТНА РАМКА БАЗИРАНА НА МОДЕЛИ НА ВЕШТАЧКА ИНТЕЛИГЕНЦИЈА ЗА ВИЗУЕЛНА АНАЛИТИКА, МОНИТОРИНГ И ПРЕДИКАТИВНОСТ НА ДИГИТАЛНАТА ТРАНСФОРМАЦИЈА"
+panel:
+  start_year: 2012
+  end_year: 2025
+  frequency: annual
+  notes: "Unbalanced panel to 2025: use official non-null values only; leave NaN where unpublished (e.g. no UN EGDI 2025)."
+dependent_variable: DMI
+robustness_target: X3  # UN EGDI as external benchmark
+feature_lag: 1
+random_seed: 42
+hypotheses:
+  - id: H1
+    text: "Digital maturity and digital convergence are determined by digital infrastructure, e-government, digital skills, institutional quality and economic development; AI models enable more precise analysis and prediction."
+  - id: H1.1
+    text: "Digital infrastructure has a statistically significant positive effect on digital maturity."
+    variables: [X1, X2]
+  - id: H1.2
+    text: "Higher e-government development significantly contributes to digital maturity."
+    variables: [X3]
+  - id: H1.3
+    text: "Digital skills are among the most important factors for digital transformation."
+    variables: [X4]
+  - id: H1.4
+    text: "Higher economic development (GDP per capita) and education positively affect digital maturity and convergence."
+    variables: [C1, C2]
+  - id: H1.5
+    text: "There are statistically significant differences in digital maturity level and dynamics across the four country groups."
+  - id: H1.6
+    text: "Machine learning models provide higher accuracy than classical econometric models."
+  - id: H1.7
+    text: "Higher cybersecurity and innovation capacity positively affect digital maturity."
+    variables: [X5, X6]
+  - id: H1.8
+    text: "Explainable AI enables better interpretation of factor importance for digital maturity and convergence."
+paths:
+  data_raw: data/raw
+  data_interim: data/interim
+  data_processed: data/processed
+  results: results
+  experiments: experiments
+  outputs: outputs
+  config_snapshot: outputs/audit/config_snapshot

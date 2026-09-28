@@ -1,0 +1,18 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+PREFIX dmi: <http://purl.org/dmi-framework#>
+SELECT ?id ?value ?prov ?phase ?source WHERE {
+  ?se a dmi:ScoreEntry ;
+      dmi:entryCountry dmi:Country_MKD ;
+      dmi:year 2025 ;
+      dmi:entryIndicator ?ind ;
+      dmi:matrixValue ?value ;
+      dmi:hasProvenance ?p ;
+      dmi:entryPhase ?ph ;
+      dmi:entrySource ?src .
+  ?ind dmi:indicatorId ?id .
+  ?p rdfs:label ?prov .
+  ?ph rdfs:label ?phase .
+  ?src rdfs:label ?source .
+}
+ORDER BY ?id

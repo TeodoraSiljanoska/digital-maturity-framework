@@ -1,0 +1,7 @@
+{
+  "best_model": "catboost",
+  "model_id": "catboost_20260811T132151Z",
+  "rmse": 1.9438235361441458,
+  "experiment_id": "20260811T132151Z_91175af9",
+  "selected_at": "20260811T132200Z"
+}

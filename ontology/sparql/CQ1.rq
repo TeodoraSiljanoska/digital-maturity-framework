@@ -1,0 +1,10 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+PREFIX dmi: <http://purl.org/dmi-framework#>
+SELECT ?id ?method WHERE {
+  ?ind a dmi:Indicator ;
+       dmi:indicatorId ?id ;
+       dmi:obtainedBy ?m .
+  ?m rdfs:label ?method .
+}
+ORDER BY ?method ?id

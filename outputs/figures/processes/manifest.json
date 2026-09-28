@@ -1,0 +1,19 @@
+{
+  "artifacts": [
+    "outputs\\figures\\processes\\construction_p1_p8.png",
+    "outputs\\figures\\processes\\assessment_pipeline.png",
+    "outputs\\figures\\processes\\acquisition_methods.png",
+    "outputs\\figures\\processes\\missing_data_workflow.png",
+    "outputs\\figures\\processes\\model_to_phase.png",
+    "outputs\\figures\\processes\\correlation_vif_process.png",
+    "outputs\\figures\\processes\\ontology_layers.png",
+    "docs\\processes\\construction_p1_p8.md",
+    "docs\\processes\\assessment_pipeline.md",
+    "docs\\processes\\acquisition_methods.md",
+    "docs\\processes\\ontology_layers.md",
+    "docs\\processes\\missing_data_workflow.md",
+    "docs\\processes\\model_to_phase.md",
+    "docs\\processes\\correlation_vif_process.md"
+  ],
+  "n_stages": 12
+}

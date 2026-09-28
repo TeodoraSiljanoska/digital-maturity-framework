@@ -1,0 +1,23 @@
+{
+  "result_id": "ml_model_warnings",
+  "category": "machine_learning",
+  "meta": {},
+  "data": [
+    {
+      "model_type": "xgboost",
+      "status": "skipped",
+      "warning": "xgboost unavailable: No module named 'xgboost'"
+    },
+    {
+      "model_type": "lightgbm",
+      "status": "skipped",
+      "warning": "lightgbm unavailable: No module named 'lightgbm'"
+    },
+    {
+      "model_type": "catboost",
+      "status": "skipped",
+      "warning": "catboost unavailable: No module named 'catboost'"
+    }
+  ],
+  "created_at": "2026-08-09T18:55:36.336077+00:00"
+}

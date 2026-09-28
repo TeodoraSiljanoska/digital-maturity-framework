@@ -1,0 +1,16 @@
+{
+  "result_id": "hausman_test_result",
+  "category": "econometrics",
+  "meta": {
+    "path": "results/econometrics/hausman_test.json"
+  },
+  "data": {
+    "method": "hausman_fe_vs_re",
+    "statistic": -40.42432610430197,
+    "pvalue": 1.0,
+    "note": null,
+    "df": 12,
+    "prefer": "RE"
+  },
+  "created_at": "2026-08-09T20:18:31.559598+00:00"
+}

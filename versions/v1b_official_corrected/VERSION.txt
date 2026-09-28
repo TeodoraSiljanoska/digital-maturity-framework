@@ -1,0 +1,48 @@
+version: v1b_official_corrected
+period: 2012-2025
+created_at: 2026-08-11T13:38:17Z
+
+purpose: >-
+  Corrected counterpart of v1. Reproduces the "official data only" research track
+  with the v2 revision-2 data corrections applied, so that v1b and v2 differ in
+  exactly one respect - whether missing cells are reconstructed - and any
+  divergence between them is attributable to the missing-data policy alone.
+
+missing_strategy: official gaps retained
+imputation: none (single-pass country ffill/bfill, max_gap_years=2, then cells stay empty)
+corrections_applied:
+  - X7 (Government AI Readiness) pre-2020 editions rescaled x10 onto the 0-100 scale
+  - carry-forward runs once per country series (v1 ran it twice, doubling its reach)
+  - VIF computed with an intercept
+  - negative Hausman statistic reported as inconclusive; Mundlak regression decides FE vs RE
+  - cell provenance recorded for every indicator cell
+
+cell_provenance:
+  official: 0.658
+  carried_forward: 0.252
+  missing: 0.090
+  mice_imputed: 0.000
+
+coverage:
+  dmi_panel_rows: 168
+  countries: 12
+  complete_10_indicator_baskets: 67 of 168 (39.9%)
+  fixed_effects_estimation_sample: 57 of 168 rows (listwise deletion over 12 lagged regressors)
+  ml_sample: 144 train / 24 test (median feature imputation fitted on training rows only)
+
+audit: 24 of 24 criteria pass
+
+key_findings_vs_v2:
+  - DMI agrees closely with v2 (Pearson r = 0.996, mean absolute difference 0.98 index points),
+    so the index is not an artifact of imputation.
+  - Panel econometrics are not identified on official data alone: listwise deletion leaves
+    57 observations for 12 regressors plus 12 country effects, VIF reaches 70, and
+    coefficients become unstable (EGDI flips sign, GDP per capita collapses to p = 0.99).
+  - Predictive ranking matches the leakage-safe v2 protocol: Ridge (RMSE 2.023) and OLS
+    (2.228) beat every non-linear learner (best XGBoost 2.737), so H1.6 is not supported.
+  - Unconditional beta-convergence holds (beta = -0.677, p < 0.001); conditional
+    beta-convergence is significant here (beta = -0.635, p = 0.049) but not in v2 (p = 0.077).
+
+note: >-
+  v1b does not replace v1. The original v1 snapshot is preserved unchanged in
+  versions/v1_official_unbalanced/ and still contains the pre-correction data.

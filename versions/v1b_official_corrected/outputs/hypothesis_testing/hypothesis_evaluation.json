@@ -1,0 +1,269 @@
+{
+  "generated_at": "2026-08-11T13:50:03.501133+00:00",
+  "alpha": 0.05,
+  "hypotheses": {
+    "H1.1": {
+      "id": "H1.1",
+      "text": "Digital infrastructure has a statistically significant positive effect on digital maturity.",
+      "variables": [
+        "X1",
+        "X2"
+      ],
+      "status": "partially_supported",
+      "n_supported": 0,
+      "n_variables": 2,
+      "details": [
+        {
+          "variable": "X1",
+          "found": true,
+          "term": "X1_lag1",
+          "coefficient": 0.1152950735323565,
+          "pvalue": 0.2774521326505728,
+          "significant": false,
+          "sign_matches": true,
+          "supported": false
+        },
+        {
+          "variable": "X2",
+          "found": true,
+          "term": "X2_lag1",
+          "coefficient": 0.3551133863397835,
+          "pvalue": 0.4260232299387043,
+          "significant": false,
+          "sign_matches": true,
+          "supported": false
+        }
+      ],
+      "alpha": 0.05
+    },
+    "H1.2": {
+      "id": "H1.2",
+      "text": "Higher e-government development significantly contributes to digital maturity.",
+      "variables": [
+        "X3"
+      ],
+      "status": "not_supported",
+      "n_supported": 0,
+      "n_variables": 1,
+      "details": [
+        {
+          "variable": "X3",
+          "found": true,
+          "term": "X3_lag1",
+          "coefficient": -32.466731903122046,
+          "pvalue": 0.1612340143682429,
+          "significant": false,
+          "sign_matches": false,
+          "supported": false
+        }
+      ],
+      "alpha": 0.05
+    },
+    "H1.3": {
+      "id": "H1.3",
+      "text": "Digital skills are among the most important factors for digital transformation.",
+      "variables": [
+        "X4"
+      ],
+      "status": "supported",
+      "n_supported": 1,
+      "n_variables": 1,
+      "details": [
+        {
+          "variable": "X4",
+          "found": true,
+          "term": "X4_lag1",
+          "coefficient": 0.5314970565144593,
+          "pvalue": 0.0004032577600083,
+          "significant": true,
+          "sign_matches": true,
+          "supported": true
+        }
+      ],
+      "alpha": 0.05
+    },
+    "H1.4": {
+      "id": "H1.4",
+      "text": "Higher economic development (GDP per capita) and education positively affect digital maturity and convergence.",
+      "variables": [
+        "C1",
+        "C2"
+      ],
+      "status": "partially_supported",
+      "n_supported": 0,
+      "n_variables": 2,
+      "details": [
+        {
+          "variable": "C1",
+          "found": true,
+          "term": "C1_lag1",
+          "coefficient": 0.2007478677175661,
+          "pvalue": 0.986761853971616,
+          "significant": false,
+          "sign_matches": true,
+          "supported": false
+        },
+        {
+          "variable": "C2",
+          "found": true,
+          "term": "C2_lag1",
+          "coefficient": 60.97244717372869,
+          "pvalue": 0.4853751088153073,
+          "significant": false,
+          "sign_matches": true,
+          "supported": false
+        }
+      ],
+      "alpha": 0.05
+    },
+    "H1.7": {
+      "id": "H1.7",
+      "text": "Higher cybersecurity and innovation capacity positively affect digital maturity.",
+      "variables": [
+        "X5",
+        "X6"
+      ],
+      "status": "partially_supported",
+      "n_supported": 0,
+      "n_variables": 2,
+      "details": [
+        {
+          "variable": "X5",
+          "found": true,
+          "term": "X5_lag1",
+          "coefficient": 0.0224911370424739,
+          "pvalue": 0.519175808030039,
+          "significant": false,
+          "sign_matches": true,
+          "supported": false
+        },
+        {
+          "variable": "X6",
+          "found": true,
+          "term": "X6_lag1",
+          "coefficient": -0.1730228828071365,
+          "pvalue": 0.4902861184482998,
+          "significant": false,
+          "sign_matches": false,
+          "supported": false
+        }
+      ],
+      "alpha": 0.05
+    },
+    "H1.5": {
+      "id": "H1.5",
+      "text": "There are statistically significant differences in digital maturity level and dynamics across the four country groups.",
+      "variables": null,
+      "status": "supported",
+      "anova": {
+        "statistic": 136.71398445444035,
+        "pvalue": 2.0746951214373027e-44
+      },
+      "kruskal_wallis": {
+        "statistic": 128.3700237491446,
+        "pvalue": 1.2142828672450926e-27
+      },
+      "group_means": {
+        "balkan": 51.86509811601858,
+        "developed_eu": 76.80736017961918,
+        "developed_non_eu": 72.25017409146335,
+        "developing": 42.588914329760556
+      },
+      "groups": [
+        "balkan",
+        "developed_eu",
+        "developed_non_eu",
+        "developing"
+      ],
+      "alpha": 0.05
+    },
+    "H1.6": {
+      "id": "H1.6",
+      "text": "Machine learning models provide higher accuracy than classical econometric models.",
+      "variables": null,
+      "status": "not_supported",
+      "best_ml": {
+        "model_type": "xgboost",
+        "rmse": 2.737051359414317
+      },
+      "best_baseline": {
+        "model_type": "ridge",
+        "rmse": 2.0234825057568893
+      },
+      "rmse_improvement": -0.7135688536574278,
+      "relative_improvement": -0.3526439450933209
+    },
+    "H1.8": {
+      "id": "H1.8",
+      "text": "Explainable AI enables better interpretation of factor importance for digital maturity and convergence.",
+      "variables": null,
+      "status": "supported",
+      "top_features": [
+        "X2",
+        "X8",
+        "X6",
+        "X4",
+        "C1",
+        "X1",
+        "X9",
+        "X10",
+        "C2",
+        "X3"
+      ],
+      "overlap_with_hypothesized_drivers": [
+        "C1",
+        "C2",
+        "X1",
+        "X2",
+        "X3",
+        "X4",
+        "X6"
+      ],
+      "hypothesized_drivers": [
+        "C1",
+        "C2",
+        "X1",
+        "X2",
+        "X3",
+        "X4",
+        "X5",
+        "X6"
+      ],
+      "xai_artifacts_exist": true,
+      "artifact_count": 23,
+      "source": "results/xai/shap_global_importance.csv"
+    },
+    "H1": {
+      "id": "H1",
+      "text": "Digital maturity and digital convergence are determined by digital infrastructure, e-government, digital skills, institutional quality and economic development; AI models enable more precise analysis and prediction.",
+      "variables": null,
+      "status": "partially_supported",
+      "mean_support_score": 0.5625,
+      "n_supported": 3,
+      "n_partially_supported": 3,
+      "n_subhypotheses": 8,
+      "breakdown": {
+        "H1.1": "partially_supported",
+        "H1.2": "not_supported",
+        "H1.3": "supported",
+        "H1.4": "partially_supported",
+        "H1.5": "supported",
+        "H1.6": "not_supported",
+        "H1.7": "partially_supported",
+        "H1.8": "supported"
+      }
+    }
+  },
+  "summary": {
+    "H1": "partially_supported",
+    "H1.1": "partially_supported",
+    "H1.2": "not_supported",
+    "H1.3": "supported",
+    "H1.4": "partially_supported",
+    "H1.5": "supported",
+    "H1.6": "not_supported",
+    "H1.7": "partially_supported",
+    "H1.8": "supported"
+  },
+  "robustness_summary": {}
+}
