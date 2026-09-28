@@ -1,0 +1,10 @@
+{
+  "result_id": "descriptive_summary_result",
+  "category": "descriptive",
+  "format": "json",
+  "created_at": "2026-09-28T15:56:45.384306+00:00",
+  "artifact_path": "results\\descriptive\\descriptive_summary_result.json",
+  "meta": {
+    "path": "results\\descriptive\\descriptive_summary.json"
+  }
+}

@@ -1,0 +1,11 @@
+app: streamlit
+title: Digital Maturity Monitoring Dashboard
+data_dir: outputs/dashboard
+port: 8501
+pages:
+  - overview
+  - country_groups
+  - predictions
+  - explanations
+  - convergence
+refresh_from_pipeline: true

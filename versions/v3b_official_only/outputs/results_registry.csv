@@ -1,0 +1,32 @@
+result_id,category,format,created_at,artifact_path,meta
+descriptive_full_sample,descriptive,csv,2026-09-28T16:03:33.212955+00:00,results\descriptive\descriptive_full_sample.csv,{'sample': 'full_sample'}
+descriptive_by_group,descriptive,csv,2026-09-28T16:03:33.533032+00:00,results\descriptive\descriptive_by_group.csv,{'sample': 'by_group'}
+correlation_matrix,descriptive,csv,2026-09-28T16:03:33.555037+00:00,results\descriptive\correlation_matrix.csv,"{'variables': ['DMI', 'X1_lag1', 'X2_lag1', 'X3_lag1', 'X4_lag1', 'X5_lag1', 'X6_lag1', 'X7_lag1', 'X8_lag1', 'X9_lag1', 'X10_lag1', 'C1_lag1', 'C2_lag1']}"
+dmi_distribution_moments_result,descriptive,json,2026-09-28T16:03:33.571620+00:00,results\descriptive\dmi_distribution_moments_result.json,"{'target': 'DMI', 'path': 'results\\descriptive\\dmi_distribution_moments.json'}"
+dmi_moments_by_group,descriptive,csv,2026-09-28T16:03:33.593138+00:00,results\descriptive\dmi_moments_by_group.csv,{}
+vif_predictors,descriptive,csv,2026-09-28T16:03:33.943697+00:00,results\descriptive\vif_predictors.csv,"{'predictors': ['X1_lag1', 'X2_lag1', 'X3_lag1', 'X4_lag1', 'X5_lag1', 'X6_lag1', 'X7_lag1', 'X8_lag1', 'X9_lag1', 'X10_lag1', 'C1_lag1', 'C2_lag1'], 'use_lagged': True}"
+descriptive_summary_result,descriptive,json,2026-09-28T16:03:33.958695+00:00,results\descriptive\descriptive_summary_result.json,{'path': 'results\\descriptive\\descriptive_summary.json'}
+hausman_test_result,econometrics,json,2026-09-28T16:03:35.404492+00:00,results\econometrics\hausman_test_result.json,{'path': 'results\\econometrics\\hausman_test.json'}
+adf_dmi_by_country,econometrics,csv,2026-09-28T16:03:35.440021+00:00,results\econometrics\adf_dmi_by_country.csv,{}
+econometrics_diagnostics_result,econometrics,json,2026-09-28T16:03:35.450543+00:00,results\econometrics\econometrics_diagnostics_result.json,{'path': 'results\\econometrics\\diagnostics.json'}
+econometrics_coefficients,econometrics,csv,2026-09-28T16:03:35.466540+00:00,results\econometrics\econometrics_coefficients.csv,{}
+econometrics_pvalues,econometrics,csv,2026-09-28T16:03:35.487543+00:00,results\econometrics\econometrics_pvalues.csv,{}
+econometrics_metrics,econometrics,csv,2026-09-28T16:03:35.500542+00:00,results\econometrics\econometrics_metrics.csv,{}
+econometrics_applicability,econometrics,csv,2026-09-28T16:03:35.514539+00:00,results\econometrics\econometrics_applicability.csv,{}
+econometrics_summary_result,econometrics,json,2026-09-28T16:03:35.527540+00:00,results\econometrics\econometrics_summary_result.json,{'path': 'results\\econometrics\\econometrics_summary.json'}
+ml_model_comparison,machine_learning,csv,2026-09-28T16:04:15.927442+00:00,results\machine_learning\ml_model_comparison.csv,{'best_model': 'svr'}
+ml_model_selection,machine_learning,json,2026-09-28T16:04:15.942454+00:00,results\machine_learning\ml_model_selection.json,{}
+ml_training_summary,machine_learning,json,2026-09-28T16:04:15.957444+00:00,results\machine_learning\ml_training_summary.json,{}
+xai_feature_importance,xai,csv,2026-09-28T16:04:16.845119+00:00,results\xai\xai_feature_importance.csv,"{'method': 'permutation', 'model_id': 'svr_20260928T160335Z'}"
+xai_shap_global,xai,csv,2026-09-28T16:07:45.044683+00:00,results\xai\xai_shap_global.csv,"{'explainer': 'KernelExplainer', 'model_id': 'svr_20260928T160335Z'}"
+xai_lime,xai,json,2026-09-28T16:07:49.158671+00:00,results\xai\xai_lime.json,{'model_id': 'svr_20260928T160335Z'}
+xai_partial_dependence,xai,csv,2026-09-28T16:07:50.654390+00:00,results\xai\xai_partial_dependence.csv,"{'features': ['X6_lag1', 'X8_lag1', 'X4_lag1', 'X2_lag1'], 'model_id': 'svr_20260928T160335Z'}"
+xai_summary,xai,json,2026-09-28T16:07:50.668392+00:00,results\xai\xai_summary.json,{}
+sigma_convergence,convergence,csv,2026-09-28T16:07:50.740910+00:00,results\convergence\sigma_convergence.csv,"{'also_cv': True, 'by_group': True}"
+beta_endpoints,convergence,csv,2026-09-28T16:07:50.826909+00:00,results\convergence\beta_endpoints.csv,{}
+beta_convergence,convergence,json,2026-09-28T16:07:50.841913+00:00,results\convergence\beta_convergence.json,{}
+beta_coefficients,convergence,csv,2026-09-28T16:07:50.851912+00:00,results\convergence\beta_coefficients.csv,{}
+convergence_summary,convergence,json,2026-09-28T16:07:50.862912+00:00,results\convergence\convergence_summary.json,{}
+hypothesis_evaluation,hypotheses,json,2026-09-28T16:07:55.354838+00:00,results\hypotheses\hypothesis_evaluation.json,{'alpha': 0.05}
+comparative_group_summary,comparative,json,2026-09-28T16:07:55.418406+00:00,results\comparative\comparative_group_summary.json,{}
+comparative_group_comparison,comparative,csv,2026-09-28T16:07:55.430407+00:00,results\comparative\comparative_group_comparison.csv,{}

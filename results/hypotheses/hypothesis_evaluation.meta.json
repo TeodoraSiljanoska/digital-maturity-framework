@@ -2,8 +2,8 @@
   "result_id": "hypothesis_evaluation",
   "category": "hypotheses",
   "format": "json",
-  "created_at": "2026-08-11T13:23:46.736276+00:00",
-  "artifact_path": "results/hypotheses/hypothesis_evaluation.json",
+  "created_at": "2026-09-28T16:41:36.855902+00:00",
+  "artifact_path": "results\\hypotheses\\hypothesis_evaluation.json",
   "meta": {
     "alpha": 0.05
   }

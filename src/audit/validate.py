@@ -325,7 +325,7 @@ def build_audit(project_root: Path | str, config: Any = None) -> Dict[str, Any]:
 
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "project_root": str(root),
+        "project_root": Path(root).name,
         "definition_of_complete": {
             "n_criteria": len(criteria),
             "n_pass": n_pass,

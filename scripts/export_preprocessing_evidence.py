@@ -171,9 +171,14 @@ def retrieval_section() -> pd.DataFrame:
     used = prov.loc[~prov["indicator_code"].str.contains("LEGACY")]
     put("snapshot_values_by_method", used.groupby("method").size().to_dict(), "data_raw/*_value_provenance.csv")
     put("snapshot_values_total", int(len(used)), "data_raw/*_value_provenance.csv")
-    put("snapshot_values_cross_checked",
-        int(used["verification"].str.contains("match|reproduced|equals|rank", case=False).sum()),
-        "data_raw/*_value_provenance.csv verification column")
+    text = used["verification"].fillna("")
+    second_channel = text.str.contains("matches", case=False)
+    arithmetic = ~second_channel & text.str.contains("reproduced|equals", case=False)
+    put("snapshot_values_second_channel", int(second_channel.sum()), "verification: value matches another channel")
+    put("snapshot_values_arithmetic_check", int(arithmetic.sum()),
+        "verification: HDI reproduced / pillar mean / latest version equals headline")
+    put("snapshot_values_single_document", int((~second_channel & ~arithmetic).sum()),
+        "verification: one publisher document only")
     validation = json.loads((track("v3_edition_harmonised") / "outputs" / "audit" / "validation_report.json").read_text())
     put("validation_checks", validation["checks"], "versions/v3_edition_harmonised/outputs/audit/validation_report.json")
     return table
@@ -279,6 +284,13 @@ def dmi_section() -> pd.DataFrame:
     fe = coef["v2r_reproduction"].join(coef["v3_edition_harmonised"], lsuffix="_v2r", rsuffix="_v3")
     fe.to_csv(OUT / "tables" / "fe_coefficients_v2r_v3.csv")
     put("fe_v2r_v3", json.loads(fe.to_json(orient="index")), "results/econometrics/coefficients.csv (FE)")
+    pooled = {}
+    for name in ("v2r_reproduction", "v3_edition_harmonised"):
+        m = pd.read_csv(track(name) / "results" / "imputation" / "mi_pooled_fe.csv").set_index("term")
+        pooled[name] = m[["coefficient", "pvalue"]]
+    mi = pooled["v2r_reproduction"].join(pooled["v3_edition_harmonised"], lsuffix="_v2r", rsuffix="_v3")
+    mi.to_csv(OUT / "tables" / "mi_pooled_fe_v2r_v3.csv")
+    put("mi_fe_v2r_v3", json.loads(mi.to_json(orient="index")), "results/imputation/mi_pooled_fe.csv (Rubin, m = 10)")
     return table
 
 
@@ -305,23 +317,37 @@ def benchmark_section() -> pd.DataFrame:
 
 
 def protocol_section() -> pd.DataFrame:
+    """Hold-out RMSE for 2024-2025 under three protocols, for the v2 and v3 data."""
     rows = []
-    point = pd.read_csv(track("v3_edition_harmonised") / "outputs" / "tables" / "ml_model_comparison.csv")
-    safe = pd.read_csv(track("v3_edition_harmonised") / "results" / "imputation" / "leakage_safe_ml.csv")
-    verdict = json.loads((track("v3_edition_harmonised") / "results" / "imputation" / "leakage_safe_ml_verdict.json").read_text())
-    official = pd.read_csv(track("v3b_official_only") / "outputs" / "tables" / "ml_model_comparison.csv")
+    arms = {
+        "v2": ("v2r_reproduction", "v2rb_official_only"),
+        "v3": ("v3_edition_harmonised", "v3b_official_only"),
+    }
+    frames = {}
+    for label, (mice_track, official_track) in arms.items():
+        frames[label] = {
+            "before_split": pd.read_csv(track(mice_track) / "outputs" / "tables" / "ml_model_comparison.csv"),
+            "leakage_safe": pd.read_csv(track(mice_track) / "results" / "imputation" / "leakage_safe_ml.csv"),
+            "official_only": pd.read_csv(track(official_track) / "outputs" / "tables" / "ml_model_comparison.csv"),
+        }
     for model in ["linear_regression", "ridge", "random_forest", "xgboost", "lightgbm", "catboost", "svr", "mlp"]:
-        rows.append(
-            {
-                "model": model,
-                "imputation_before_split": _rmse(point, model),
-                "leakage_safe": _rmse(safe, model),
-                "official_only": _rmse(official, model),
-            }
-        )
+        row = {"model": model}
+        for label, protocols in frames.items():
+            for protocol, frame in protocols.items():
+                row[f"{label}_{protocol}"] = _rmse(frame, model)
+        rows.append(row)
     table = pd.DataFrame(rows)
     table.to_csv(OUT / "tables" / "protocol_comparison.csv", index=False)
-    put("protocol_rmse", table.to_dict("records"), "v3 ml_model_comparison.csv, leakage_safe_ml.csv; v3b ml_model_comparison.csv")
+    put("protocol_rmse", table.to_dict("records"), "ml_model_comparison.csv and leakage_safe_ml.csv of each track")
+    best = {}
+    for col in table.columns[1:]:
+        sub = table.dropna(subset=[col])
+        top = sub.loc[sub[col].idxmin()]
+        best[col] = [top["model"], float(top[col])]
+    put("protocol_best_model", best, "tables/protocol_comparison.csv")
+    verdict = json.loads((track("v3_edition_harmonised") / "results" / "imputation" / "leakage_safe_ml_verdict.json").read_text())
+    point = frames["v3"]["before_split"]
+    official = frames["v3"]["official_only"]
     put("protocol_n_train", {"imputation_before_split": int(point["n_train"].iloc[0]),
                              "leakage_safe": int(verdict.get("n_train", 0)),
                              "official_only": int(official["n_train"].iloc[0])}, "same files")
@@ -374,35 +400,35 @@ def figure_architecture() -> Path:
     ax.axis("off")
 
     stages = [
-        ("Acquire", "WDI API v2 (cached vintage)\nsnapshot adapters\n7-column long schema"),
-        ("Validate", "ISO-3 allow-list, years,\nduplicate keys, non-null\nedition-break check"),
-        ("Harmonise", "edition families\n(exclude other frameworks)\nannual 12×14 grid"),
-        ("Fill gaps", "carry ≤ 2 years\nMICE (RF) or none\nPMM draws, m = 10"),
-        ("Compute", "t−1 lags, growth\nDMI: min–max, 5 pillars\nreliability, VIF"),
-        ("Publish", "Streamlit package\nPower BI star schema\nRDF / SPARQL, DOI"),
+        ("Acquire", "WDI API vintage\npublisher files\n7-column format"),
+        ("Validate", "data contract\nISO-3, years, keys\nbreak diagnostic"),
+        ("Harmonise", "edition families\nforeign editions out\n12 × 14 grid"),
+        ("Fill gaps", "carry ≤ 2 years\nMICE-RF or none\nPMM, m = 10"),
+        ("Compute", "t−1 lags, growth\nDMI, 5 pillars\nα, PCA, VIF"),
+        ("Publish", "Streamlit package\nPower BI schema\nRDF / SPARQL"),
     ]
-    width, gap, top = 14.2, 2.8, 20.0
+    width, gap, top = 15.0, 1.8, 20.0
     for i, (name, body) in enumerate(stages):
-        x = 1.0 + i * (width + gap)
+        x = 0.5 + i * (width + gap)
         ax.add_patch(FancyBboxPatch((x, top), width, 15.5, boxstyle="round,pad=0.3,rounding_size=1.2",
                                     linewidth=0.8, edgecolor=BLUE, facecolor="#eef4fc"))
-        ax.text(x + width / 2, top + 13.0, name, ha="center", va="center", fontsize=8, fontweight="bold", color=INK)
-        ax.text(x + width / 2, top + 5.9, body, ha="center", va="center", fontsize=6.1, color=INK, linespacing=1.25)
+        ax.text(x + width / 2, top + 12.8, name, ha="center", va="center", fontsize=7.5, fontweight="bold", color=INK)
+        ax.text(x + width / 2, top + 5.6, body, ha="center", va="center", fontsize=5.6, color=INK, linespacing=1.3)
         if i < len(stages) - 1:
-            ax.add_patch(FancyArrowPatch((x + width + 0.35, top + 7.7), (x + width + gap - 0.35, top + 7.7),
-                                         arrowstyle="-|>", mutation_scale=7, linewidth=0.9, color=MUTED))
-    rail_y = 3.0
-    ax.add_patch(FancyBboxPatch((1.0, rail_y), 98.0, 11.0, boxstyle="round,pad=0.3,rounding_size=1.2",
+            ax.add_patch(FancyArrowPatch((x + width + 0.25, top + 7.7), (x + width + gap - 0.25, top + 7.7),
+                                         arrowstyle="-|>", mutation_scale=6, linewidth=0.9, color=MUTED))
+    rail_y = 2.0
+    ax.add_patch(FancyBboxPatch((0.5, rail_y), 99.0, 12.0, boxstyle="round,pad=0.3,rounding_size=1.2",
                                 linewidth=0.8, edgecolor=ORANGE, facecolor="#fdf1ea", linestyle=(0, (3, 2))))
-    ax.text(50.0, rail_y + 8.2, "Provenance rail (written by every stage)", ha="center", va="center",
-            fontsize=7, fontweight="bold", color=INK)
-    ax.text(50.0, rail_y + 3.4,
-            "per-value source record (edition, vintage, URL, SHA-256)  ·  validation and edition-break reports  ·  "
-            "cell state official / carried / reconstructed (interior, backcast, forecast)  ·  lineage graph  ·  config snapshot",
-            ha="center", va="center", fontsize=5.9, color=INK)
+    ax.text(50.0, rail_y + 9.4, "Provenance rail (written by every stage)", ha="center", va="center",
+            fontsize=6.8, fontweight="bold", color=INK)
+    ax.text(50.0, rail_y + 4.0,
+            "per-value source record (edition, vintage, URL, SHA-256)  ·  validation and edition-break reports\n"
+            "cell state: official / carried forward / reconstructed (interior, backcast, forecast)  ·  lineage graph  ·  config snapshot",
+            ha="center", va="center", fontsize=5.6, color=INK, linespacing=1.35)
     for i in range(len(stages)):
-        x = 1.0 + i * (width + gap) + width / 2
-        ax.add_patch(FancyArrowPatch((x, top - 0.3), (x, rail_y + 11.3), arrowstyle="-|>",
+        x = 0.5 + i * (width + gap) + width / 2
+        ax.add_patch(FancyArrowPatch((x, top - 0.3), (x, rail_y + 12.3), arrowstyle="-|>",
                                      mutation_scale=6, linewidth=0.7, color=ORANGE, linestyle=(0, (2, 1.5))))
     path = OUT / "figures" / "fig1_pipeline.png"
     fig.savefig(path, dpi=300, bbox_inches="tight", facecolor="white")
@@ -443,7 +469,18 @@ def figure_provenance_and_breaks() -> Path:
         spine.set_visible(False)
     cbar = fig.colorbar(im, ax=ax1, fraction=0.035, pad=0.02)
     cbar.ax.tick_params(labelsize=5.5)
+    cbar.set_label("countries with a published value", fontsize=5.8, color=MUTED)
     cbar.outline.set_visible(False)
+    from matplotlib.patches import Patch
+
+    ax1.legend(
+        handles=[
+            Patch(facecolor="white", edgecolor=ORANGE, hatch="////", linewidth=0, label="includes backcast reconstruction"),
+            Patch(facecolor="white", edgecolor=ORANGE, hatch="....", linewidth=0, label="includes forecast reconstruction"),
+        ],
+        loc="upper center", bbox_to_anchor=(0.45, -0.13), ncol=2, frameon=False, fontsize=5.8,
+        handlelength=2.2, handleheight=1.1,
+    )
 
     v2 = keyed(processed("v2r_reproduction", "panel_wide.parquet"))["X7"].unstack()
     v3x = keyed(processed("v3_edition_harmonised", "panel_wide.parquet"))["X7"].unstack()
@@ -452,7 +489,7 @@ def figure_provenance_and_breaks() -> Path:
         med = frame.median(axis=0)
         ax2.plot(med.index, med.values, color=color, linestyle=style, linewidth=1.6, label=label)
         ax2.fill_between(med.index, frame.quantile(0.25, axis=0), frame.quantile(0.75, axis=0),
-                         color=color, alpha=0.12, linewidth=0)
+                         color=color, alpha=0.07, linewidth=0)
     ax2.axvspan(2019.5, 2024.5, color=GRID, alpha=0.35, linewidth=0)
     ax2.text(2022.0, ax2.get_ylim()[0] + 1.0, "published\n2020–2024", ha="center", va="bottom", fontsize=5.5, color=MUTED)
     ax2.set_xlim(2012, 2025)

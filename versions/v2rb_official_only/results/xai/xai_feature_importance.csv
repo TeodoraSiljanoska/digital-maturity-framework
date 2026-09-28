@@ -1,0 +1,12 @@
+feature,importance,method
+X10_lag1,16.215060843308187,native_abs_coef
+C2_lag1,9.522584304335393,native_abs_coef
+X3_lag1,7.076614297662653,native_abs_coef
+X8_lag1,4.017759925603773,native_abs_coef
+C1_lag1,2.9109898128646874,native_abs_coef
+X2_lag1,0.370894710563548,native_abs_coef
+X4_lag1,0.314753919300147,native_abs_coef
+X6_lag1,0.3031256363156805,native_abs_coef
+X9_lag1,0.1836452603299674,native_abs_coef
+X1_lag1,0.11710528906426686,native_abs_coef
+X7_lag1,0.03920009944047404,native_abs_coef

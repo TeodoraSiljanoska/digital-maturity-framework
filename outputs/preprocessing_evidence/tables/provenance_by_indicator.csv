@@ -1,0 +1,13 @@
+indicator,label,official,carried_forward,reconstructed,backcast,interior,forecast,v2_official,v2_reconstructed
+X1,Mobile subscriptions,155,13,0,0,0,0,155,0
+X2,Fixed broadband,156,12,0,0,0,0,156,0
+X3,E-Government Dev. Index,84,84,0,0,0,0,84,0
+X4,Internet users,158,10,0,0,0,0,158,0
+X5,Cyber Security Index,21,24,123,123,0,0,24,96
+X6,Global Innovation Index,168,0,0,0,0,0,72,12
+X7,AI Readiness Index,60,36,72,72,0,0,48,60
+X8,R&D expenditure,137,26,5,0,0,5,137,5
+X9,ICT service exports,168,0,0,0,0,0,168,0
+X10,Online Service Index,84,84,0,0,0,0,84,0
+C1,GDP per capita (PPP),168,0,0,0,0,0,168,0
+C2,Education index,144,24,0,0,0,0,72,12

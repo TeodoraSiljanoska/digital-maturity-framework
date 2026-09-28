@@ -1,0 +1,42 @@
+missing_values:
+  # Light temporal fill for short gaps, then multivariate MICE (see imputation.yaml).
+  # The carry-forward pass runs once per country series, so max_gap_years is the
+  # true maximum reach of a single published observation in each direction.
+  strategy: country_ffill_bfill_then_mice
+  max_gap_years: 2
+  min_non_null_ratio: 0.35
+  multivariate:
+    enabled: true
+    config_file: imputation.yaml
+
+# Editions of the same index that were published on different scales must be
+# spliced onto a common scale before any modelling.
+scale_harmonization:
+  enabled: true
+  rules:
+    - variable: X7
+      apply_to_years_before: 2020
+      multiply_by: 10.0
+      reason: >-
+        Oxford Insights Government AI Readiness reported scores on a 0–10 scale
+        through the 2019 edition and on a 0–100 scale from the 2020 edition.
+        Splicing the editions unrescaled created an artificial ~57-point jump in
+        2020 for every country.
+
+provenance:
+  path: data/processed/cell_provenance.parquet
+normalization:
+  method: min_max
+  feature_range: [0, 100]
+transforms:
+  log_controls: [C1]
+duplicates:
+  subset: [country_iso3, year, indicator_id]
+  keep: last
+outliers:
+  method: winsorize
+  limits: [0.01, 0.99]
+  enabled: false
+integration:
+  join_keys: [country_iso3, year]
+  how: outer

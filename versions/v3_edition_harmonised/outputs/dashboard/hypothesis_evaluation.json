@@ -1,0 +1,617 @@
+{
+  "result_id": "hypothesis_evaluation",
+  "category": "hypotheses",
+  "meta": {
+    "alpha": 0.05
+  },
+  "data": {
+    "generated_at": "2026-09-28T16:08:49.997468+00:00",
+    "alpha": 0.05,
+    "hypotheses": {
+      "H1.1": {
+        "id": "H1.1",
+        "text": "Digital infrastructure has a statistically significant positive effect on digital maturity.",
+        "variables": [
+          "X1",
+          "X2"
+        ],
+        "status": "partially_supported",
+        "n_supported": 1,
+        "n_variables": 2,
+        "details": [
+          {
+            "variable": "X1",
+            "found": true,
+            "term": "X1_lag1",
+            "coefficient": 0.0204462874032316,
+            "pvalue": 0.4797250542556739,
+            "significant": false,
+            "sign_matches": true,
+            "supported": false
+          },
+          {
+            "variable": "X2",
+            "found": true,
+            "term": "X2_lag1",
+            "coefficient": 0.2867033414351425,
+            "pvalue": 0.0008285398262055,
+            "significant": true,
+            "sign_matches": true,
+            "supported": true
+          }
+        ],
+        "alpha": 0.05,
+        "robustness": {
+          "mi_pooled": {
+            "status": "partially_supported",
+            "details": [
+              {
+                "variable": "X1",
+                "found": true,
+                "term": "X1_lag1",
+                "coefficient": 0.030123015255062,
+                "pvalue": 0.3453070721909423,
+                "significant": false,
+                "sign_matches": true,
+                "supported": false
+              },
+              {
+                "variable": "X2",
+                "found": true,
+                "term": "X2_lag1",
+                "coefficient": 0.27879324666602,
+                "pvalue": 0.0023416535806541,
+                "significant": true,
+                "sign_matches": true,
+                "supported": true
+              }
+            ]
+          },
+          "complete_case": {
+            "status": "partially_supported",
+            "details": [
+              {
+                "variable": "X1",
+                "found": true,
+                "term": "X1_lag1",
+                "coefficient": -0.0373180557111932,
+                "pvalue": 0.7451218448769756,
+                "significant": false,
+                "sign_matches": false,
+                "supported": false
+              },
+              {
+                "variable": "X2",
+                "found": true,
+                "term": "X2_lag1",
+                "coefficient": 0.7722969793052945,
+                "pvalue": 0.1737574369225858,
+                "significant": false,
+                "sign_matches": true,
+                "supported": false
+              }
+            ]
+          },
+          "consistent_with_headline": true,
+          "statuses": {
+            "point_panel": "partially_supported",
+            "mi_pooled": "partially_supported",
+            "complete_case": "partially_supported"
+          }
+        }
+      },
+      "H1.2": {
+        "id": "H1.2",
+        "text": "Higher e-government development significantly contributes to digital maturity.",
+        "variables": [
+          "X3"
+        ],
+        "status": "supported",
+        "n_supported": 1,
+        "n_variables": 1,
+        "details": [
+          {
+            "variable": "X3",
+            "found": true,
+            "term": "X3_lag1",
+            "coefficient": 20.54426364552484,
+            "pvalue": 0.0185649026818661,
+            "significant": true,
+            "sign_matches": true,
+            "supported": true
+          }
+        ],
+        "alpha": 0.05,
+        "robustness": {
+          "mi_pooled": {
+            "status": "partially_supported",
+            "details": [
+              {
+                "variable": "X3",
+                "found": true,
+                "term": "X3_lag1",
+                "coefficient": 19.074032582769707,
+                "pvalue": 0.0601380910443238,
+                "significant": false,
+                "sign_matches": true,
+                "supported": false
+              }
+            ]
+          },
+          "complete_case": {
+            "status": "not_supported",
+            "details": [
+              {
+                "variable": "X3",
+                "found": true,
+                "term": "X3_lag1",
+                "coefficient": -4.902463023390978,
+                "pvalue": 0.8114770919502285,
+                "significant": false,
+                "sign_matches": false,
+                "supported": false
+              }
+            ]
+          },
+          "consistent_with_headline": false,
+          "statuses": {
+            "point_panel": "supported",
+            "mi_pooled": "partially_supported",
+            "complete_case": "not_supported"
+          }
+        }
+      },
+      "H1.3": {
+        "id": "H1.3",
+        "text": "Digital skills are among the most important factors for digital transformation.",
+        "variables": [
+          "X4"
+        ],
+        "status": "supported",
+        "n_supported": 1,
+        "n_variables": 1,
+        "details": [
+          {
+            "variable": "X4",
+            "found": true,
+            "term": "X4_lag1",
+            "coefficient": 0.2851034827762405,
+            "pvalue": 7.407392477176701e-10,
+            "significant": true,
+            "sign_matches": true,
+            "supported": true
+          }
+        ],
+        "alpha": 0.05,
+        "robustness": {
+          "mi_pooled": {
+            "status": "supported",
+            "details": [
+              {
+                "variable": "X4",
+                "found": true,
+                "term": "X4_lag1",
+                "coefficient": 0.2823347834984681,
+                "pvalue": 3.806741881677873e-09,
+                "significant": true,
+                "sign_matches": true,
+                "supported": true
+              }
+            ]
+          },
+          "complete_case": {
+            "status": "supported",
+            "details": [
+              {
+                "variable": "X4",
+                "found": true,
+                "term": "X4_lag1",
+                "coefficient": 0.2177288509202469,
+                "pvalue": 0.0260447453401457,
+                "significant": true,
+                "sign_matches": true,
+                "supported": true
+              }
+            ]
+          },
+          "consistent_with_headline": true,
+          "statuses": {
+            "point_panel": "supported",
+            "mi_pooled": "supported",
+            "complete_case": "supported"
+          }
+        }
+      },
+      "H1.4": {
+        "id": "H1.4",
+        "text": "Higher economic development (GDP per capita) and education positively affect digital maturity and convergence.",
+        "variables": [
+          "C1",
+          "C2"
+        ],
+        "status": "partially_supported",
+        "n_supported": 1,
+        "n_variables": 2,
+        "details": [
+          {
+            "variable": "C1",
+            "found": true,
+            "term": "C1_lag1",
+            "coefficient": 9.688069853861036,
+            "pvalue": 0.00052086440039,
+            "significant": true,
+            "sign_matches": true,
+            "supported": true
+          },
+          {
+            "variable": "C2",
+            "found": true,
+            "term": "C2_lag1",
+            "coefficient": 7.239223672111276,
+            "pvalue": 0.5533010685928974,
+            "significant": false,
+            "sign_matches": true,
+            "supported": false
+          }
+        ],
+        "alpha": 0.05,
+        "robustness": {
+          "mi_pooled": {
+            "status": "partially_supported",
+            "details": [
+              {
+                "variable": "C1",
+                "found": true,
+                "term": "C1_lag1",
+                "coefficient": 10.830893871733611,
+                "pvalue": 0.0040117025140785,
+                "significant": true,
+                "sign_matches": true,
+                "supported": true
+              },
+              {
+                "variable": "C2",
+                "found": true,
+                "term": "C2_lag1",
+                "coefficient": 7.142671608027911,
+                "pvalue": 0.6645025731849052,
+                "significant": false,
+                "sign_matches": true,
+                "supported": false
+              }
+            ]
+          },
+          "complete_case": {
+            "status": "partially_supported",
+            "details": [
+              {
+                "variable": "C1",
+                "found": true,
+                "term": "C1_lag1",
+                "coefficient": -16.870143047168263,
+                "pvalue": 0.3242487679330184,
+                "significant": false,
+                "sign_matches": false,
+                "supported": false
+              },
+              {
+                "variable": "C2",
+                "found": true,
+                "term": "C2_lag1",
+                "coefficient": 31.515426144370576,
+                "pvalue": 0.3713186944207667,
+                "significant": false,
+                "sign_matches": true,
+                "supported": false
+              }
+            ]
+          },
+          "consistent_with_headline": true,
+          "statuses": {
+            "point_panel": "partially_supported",
+            "mi_pooled": "partially_supported",
+            "complete_case": "partially_supported"
+          }
+        }
+      },
+      "H1.7": {
+        "id": "H1.7",
+        "text": "Higher cybersecurity and innovation capacity positively affect digital maturity.",
+        "variables": [
+          "X5",
+          "X6"
+        ],
+        "status": "partially_supported",
+        "n_supported": 1,
+        "n_variables": 2,
+        "details": [
+          {
+            "variable": "X5",
+            "found": true,
+            "term": "X5_lag1",
+            "coefficient": 0.0767576899191637,
+            "pvalue": 0.2056211083443528,
+            "significant": false,
+            "sign_matches": true,
+            "supported": false
+          },
+          {
+            "variable": "X6",
+            "found": true,
+            "term": "X6_lag1",
+            "coefficient": 0.1777128650120155,
+            "pvalue": 0.0112048710134167,
+            "significant": true,
+            "sign_matches": true,
+            "supported": true
+          }
+        ],
+        "alpha": 0.05,
+        "robustness": {
+          "mi_pooled": {
+            "status": "partially_supported",
+            "details": [
+              {
+                "variable": "X5",
+                "found": true,
+                "term": "X5_lag1",
+                "coefficient": 0.0217599038626849,
+                "pvalue": 0.76862321942173,
+                "significant": false,
+                "sign_matches": true,
+                "supported": false
+              },
+              {
+                "variable": "X6",
+                "found": true,
+                "term": "X6_lag1",
+                "coefficient": 0.172146543205579,
+                "pvalue": 0.0827318208945542,
+                "significant": false,
+                "sign_matches": true,
+                "supported": false
+              }
+            ]
+          },
+          "complete_case": {
+            "status": "partially_supported",
+            "details": [
+              {
+                "variable": "X5",
+                "found": false
+              },
+              {
+                "variable": "X6",
+                "found": true,
+                "term": "X6_lag1",
+                "coefficient": 0.0300869095018217,
+                "pvalue": 0.8640926262668533,
+                "significant": false,
+                "sign_matches": true,
+                "supported": false
+              }
+            ]
+          },
+          "consistent_with_headline": true,
+          "statuses": {
+            "point_panel": "partially_supported",
+            "mi_pooled": "partially_supported",
+            "complete_case": "partially_supported"
+          }
+        }
+      },
+      "H1.5": {
+        "id": "H1.5",
+        "text": "There are statistically significant differences in digital maturity level and dynamics across the four country groups.",
+        "variables": null,
+        "status": "supported",
+        "anova": {
+          "statistic": 133.82675390001273,
+          "pvalue": 7.194371391715174e-44
+        },
+        "kruskal_wallis": {
+          "statistic": 123.86742744435048,
+          "pvalue": 1.1334780854433303e-26
+        },
+        "group_means": {
+          "balkan": 51.354858905114334,
+          "developed_eu": 75.63383768833239,
+          "developed_non_eu": 72.48333971874243,
+          "developing": 41.74030537068876
+        },
+        "groups": [
+          "balkan",
+          "developed_eu",
+          "developed_non_eu",
+          "developing"
+        ],
+        "alpha": 0.05
+      },
+      "H1.6": {
+        "id": "H1.6",
+        "text": "Machine learning models provide higher accuracy than classical econometric models.",
+        "variables": null,
+        "status": "not_supported",
+        "best_ml": {
+          "model_type": "svr",
+          "rmse": 1.6415600966973565
+        },
+        "best_baseline": {
+          "model_type": "ridge",
+          "rmse": 1.5247633882885498
+        },
+        "rmse_improvement": -0.11679670840880663,
+        "relative_improvement": -0.07659989038686424,
+        "robustness": {
+          "leakage_safe": {
+            "n_train": 132,
+            "n_test": 24,
+            "test_years": [
+              2024,
+              2025
+            ],
+            "imputer": {
+              "method": "mice_iterative_rf_train_only",
+              "n_train_rows": 144,
+              "n_rows": 168,
+              "aux_features": [
+                "year",
+                "grp_balkan",
+                "grp_developed_eu",
+                "grp_developed_non_eu",
+                "grp_developing",
+                "cty_ARG",
+                "cty_AUS",
+                "cty_BRA",
+                "cty_CAN",
+                "cty_DEU",
+                "cty_FRA",
+                "cty_GBR",
+                "cty_IND",
+                "cty_MKD",
+                "cty_SRB",
+                "cty_SVN",
+                "cty_USA"
+              ],
+              "cells_imputed": {
+                "X1": 0,
+                "X2": 0,
+                "X3": 0,
+                "X4": 0,
+                "X5": 123,
+                "X6": 0,
+                "X7": 72,
+                "X8": 5,
+                "X9": 0,
+                "X10": 0,
+                "C1": 0,
+                "C2": 0
+              }
+            },
+            "best_ml": {
+              "model_type": "catboost",
+              "rmse": 2.0496625312355863
+            },
+            "best_baseline": {
+              "model_type": "linear_regression",
+              "rmse": 1.24627068051187
+            },
+            "status": "not_supported",
+            "relative_improvement": -0.6446367256218739
+          },
+          "consistent_with_headline": true,
+          "note": "Leakage-safe variant re-fits the imputer on training years only, so hold-out accuracy carries no look-ahead information."
+        }
+      },
+      "H1.8": {
+        "id": "H1.8",
+        "text": "Explainable AI enables better interpretation of factor importance for digital maturity and convergence.",
+        "variables": null,
+        "status": "supported",
+        "top_features": [
+          "X4",
+          "X2",
+          "C1",
+          "X6",
+          "X8",
+          "X1",
+          "X10",
+          "X3",
+          "X5",
+          "X7"
+        ],
+        "overlap_with_hypothesized_drivers": [
+          "C1",
+          "X1",
+          "X2",
+          "X3",
+          "X4",
+          "X5",
+          "X6"
+        ],
+        "hypothesized_drivers": [
+          "C1",
+          "C2",
+          "X1",
+          "X2",
+          "X3",
+          "X4",
+          "X5",
+          "X6"
+        ],
+        "xai_artifacts_exist": true,
+        "artifact_count": 23,
+        "source": "results\\xai\\shap_global_importance.csv"
+      },
+      "H1": {
+        "id": "H1",
+        "text": "Digital maturity and digital convergence are determined by digital infrastructure, e-government, digital skills, institutional quality and economic development; AI models enable more precise analysis and prediction.",
+        "variables": null,
+        "status": "partially_supported",
+        "mean_support_score": 0.6875,
+        "n_supported": 4,
+        "n_partially_supported": 3,
+        "n_subhypotheses": 8,
+        "breakdown": {
+          "H1.1": "partially_supported",
+          "H1.2": "supported",
+          "H1.3": "supported",
+          "H1.4": "partially_supported",
+          "H1.5": "supported",
+          "H1.6": "not_supported",
+          "H1.7": "partially_supported",
+          "H1.8": "supported"
+        }
+      }
+    },
+    "summary": {
+      "H1": "partially_supported",
+      "H1.1": "partially_supported",
+      "H1.2": "supported",
+      "H1.3": "supported",
+      "H1.4": "partially_supported",
+      "H1.5": "supported",
+      "H1.6": "not_supported",
+      "H1.7": "partially_supported",
+      "H1.8": "supported"
+    },
+    "robustness_summary": {
+      "H1.1": {
+        "point_panel": "partially_supported",
+        "mi_pooled": "partially_supported",
+        "complete_case": "partially_supported",
+        "consistent": true
+      },
+      "H1.2": {
+        "point_panel": "supported",
+        "mi_pooled": "partially_supported",
+        "complete_case": "not_supported",
+        "consistent": false
+      },
+      "H1.3": {
+        "point_panel": "supported",
+        "mi_pooled": "supported",
+        "complete_case": "supported",
+        "consistent": true
+      },
+      "H1.4": {
+        "point_panel": "partially_supported",
+        "mi_pooled": "partially_supported",
+        "complete_case": "partially_supported",
+        "consistent": true
+      },
+      "H1.7": {
+        "point_panel": "partially_supported",
+        "mi_pooled": "partially_supported",
+        "complete_case": "partially_supported",
+        "consistent": true
+      },
+      "H1.6": {
+        "point_panel": "not_supported",
+        "leakage_safe": "not_supported",
+        "consistent": true
+      }
+    }
+  },
+  "created_at": "2026-09-28T16:08:50.006455+00:00"
+}

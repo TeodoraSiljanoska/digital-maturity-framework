@@ -1,0 +1,29 @@
+{
+  "result_id": "comparative_group_summary",
+  "category": "comparative",
+  "meta": {},
+  "data": {
+    "generated_at": "2026-09-28T16:08:50.049996+00:00",
+    "configured_groups": [
+      "balkan",
+      "developed_eu",
+      "developed_non_eu",
+      "developing"
+    ],
+    "present_groups": [
+      "balkan",
+      "developed_eu",
+      "developed_non_eu",
+      "developing"
+    ],
+    "missing_groups": [],
+    "n_groups_present": 4,
+    "artifacts": {
+      "mean_dmi_by_group": "results/comparative/mean_dmi_by_group.csv",
+      "growth_by_group": "results/comparative/growth_by_group.csv",
+      "top_factors_by_group": "results/comparative/top_factors_by_group.csv",
+      "group_comparison": "results/comparative/group_comparison.csv"
+    }
+  },
+  "created_at": "2026-09-28T16:08:50.053037+00:00"
+}

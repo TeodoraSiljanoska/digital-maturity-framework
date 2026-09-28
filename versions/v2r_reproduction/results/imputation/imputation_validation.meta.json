@@ -1,0 +1,8 @@
+{
+  "result_id": "imputation_validation",
+  "category": "imputation",
+  "format": "csv",
+  "created_at": "2026-09-28T15:56:12.281417+00:00",
+  "artifact_path": "results\\imputation\\imputation_validation.csv",
+  "meta": {}
+}

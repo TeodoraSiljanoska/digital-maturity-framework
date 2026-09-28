@@ -2,7 +2,7 @@
   "result_id": "comparative_group_summary",
   "category": "comparative",
   "format": "json",
-  "created_at": "2026-08-11T13:23:46.752478+00:00",
-  "artifact_path": "results/comparative/comparative_group_summary.json",
+  "created_at": "2026-09-28T16:41:36.895901+00:00",
+  "artifact_path": "results\\comparative\\comparative_group_summary.json",
   "meta": {}
 }

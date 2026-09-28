@@ -2,7 +2,7 @@
   "result_id": "descriptive_summary_result",
   "category": "descriptive",
   "meta": {
-    "path": "results/descriptive/descriptive_summary.json"
+    "path": "results\\descriptive\\descriptive_summary.json"
   },
   "data": {
     "n_rows": 168,
@@ -40,12 +40,12 @@
     ],
     "use_lagged_features": true,
     "artifacts": {
-      "descriptive_full_sample": "results/descriptive/descriptive_full_sample.csv",
-      "descriptive_by_group": "results/descriptive/descriptive_by_group.csv",
-      "correlation_matrix": "results/descriptive/correlation_matrix.csv",
-      "dmi_moments": "results/descriptive/dmi_distribution_moments.json",
-      "vif": "results/descriptive/vif_predictors.csv"
+      "descriptive_full_sample": "results\\descriptive\\descriptive_full_sample.csv",
+      "descriptive_by_group": "results\\descriptive\\descriptive_by_group.csv",
+      "correlation_matrix": "results\\descriptive\\correlation_matrix.csv",
+      "dmi_moments": "results\\descriptive\\dmi_distribution_moments.json",
+      "vif": "results\\descriptive\\vif_predictors.csv"
     }
   },
-  "created_at": "2026-08-11T13:21:50.822344+00:00"
+  "created_at": "2026-09-28T16:31:48.278937+00:00"
 }

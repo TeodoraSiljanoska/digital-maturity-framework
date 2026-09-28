@@ -2,9 +2,9 @@
   "result_id": "xai_lime",
   "category": "xai",
   "format": "json",
-  "created_at": "2026-08-11T13:22:01.944352+00:00",
-  "artifact_path": "results/xai/xai_lime.json",
+  "created_at": "2026-09-28T16:32:33.204442+00:00",
+  "artifact_path": "results\\xai\\xai_lime.json",
   "meta": {
-    "model_id": "catboost_20260811T132151Z"
+    "model_id": "ridge_20260928T163149Z"
   }
 }

@@ -4,6 +4,45 @@ Intelligent AI framework for **visual analytics, monitoring, and prediction** of
 
 The project builds a multi-country panel (2012–2025), constructs a composite DMI, runs descriptive / econometric / ML analyses, evaluates research hypotheses, and exposes results through figures, reports, and a Streamlit dashboard.
 
+## Version 3: edition-aware, provenance-tracked data layer
+
+- Every value from a source without a statistical API is read from the publisher's
+  own files by `scripts/build_snapshots_v3.py` and stored with its edition,
+  reference year, vintage date, URL, retrieval channel, file checksum and a
+  verification note (`data/raw/<source>/*_value_provenance.csv`).
+- Editions built under different frameworks are kept apart
+  (`config/editions.yaml`); an edition-boundary diagnostic reports declared and
+  detected breaks (`outputs/audit/edition_breaks_{raw,filtered}.json`).
+- Every cell is labelled `official`, `carried_forward`, `mice_imputed` or
+  `missing` (`data/processed/cell_provenance.parquet`), and reconstructed cells are
+  located as interior, backcast or forecast (`cell_reconstruction_scope.parquet`).
+- The World Bank vintage of 2026-08-09 is frozen, so re-runs reproduce the same
+  values (`config/sources.yaml`, `use_cached_raw`).
+
+See `CHANGELOG.md`, `DATA_SOURCES.md` (publishers and terms of use) and
+`DATA_DICTIONARY.md` (columns, provenance states, tracks).
+
+### Reproduce the tracks
+
+```bash
+python scripts/build_snapshots_v3.py            # re-download and rebuild the snapshots (optional)
+python run_pipeline.py --from RAW_DATA_ACQUIRED  # v3 into outputs/ and results/
+python scripts/run_track.py --name v3_edition_harmonised
+python scripts/run_track.py --name v3b_official_only --arm official_only
+python scripts/run_track.py --name v2r_reproduction --config-ref v2-frozen --raw-ref v2-frozen --from DATA_VALIDATED
+python scripts/run_track.py --name v2rb_official_only --config-ref v2-frozen --raw-ref v2-frozen --arm official_only --from DATA_VALIDATED
+python scripts/export_preprocessing_evidence.py  # tables, figures and quoted numbers
+python -m pytest
+```
+
+### Licence and citation
+
+Code: MIT (`LICENSE`). Derived data: CC BY 4.0 (`LICENSE-DATA`); third-party
+values stay under their publishers' terms. Citation metadata: `CITATION.cff`.
+
+This work is based upon work from COST Action HiTEc, CA21163, supported by COST
+(European Cooperation in Science and Technology).
+
 ## Requirements
 
 - Python **3.9+** (Active/Maintenance LTS recommended: 3.10–3.12)
@@ -13,7 +52,7 @@ The project builds a multi-country panel (2012–2025), constructs a composite D
 ## Setup
 
 ```bash
-cd ~/Desktop/digital-maturity-framework
+cd digital-maturity-framework
 python3 -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
@@ -32,8 +71,11 @@ export PYTHONPATH=src
 | Version | Location | Missing data | Role |
 |---|---|---|---|
 | **v1 (preserved)** | [`versions/v1_official_unbalanced/`](versions/v1_official_unbalanced/) | Official gaps retained | Historical snapshot; predates the Aug-2026 corrections |
-| **v1b (robustness arm)** | [`versions/v1b_official_corrected/`](versions/v1b_official_corrected/) | Official gaps retained | Corrected official-only track; shows what survives with nothing reconstructed |
-| **v2 (inferential arm, active `outputs/`)** | project root + [`versions/v2_mice_imputed/`](versions/v2_mice_imputed/) | **MICE** (IterativeImputer + RandomForest) fills empties; observed official values unchanged | Primary results |
+| **v1b (robustness arm)** | [`versions/v1b_official_corrected/`](versions/v1b_official_corrected/) | Official gaps retained | Corrected official-only track of v2 |
+| **v2 (frozen)** | [`versions/v2_mice_imputed/`](versions/v2_mice_imputed/), git tag `v2-frozen` | MICE | Results of the doctoral project (August 2026) |
+| **v2r / v2rb** | [`versions/v2r_reproduction/`](versions/v2r_reproduction/), [`versions/v2rb_official_only/`](versions/v2rb_official_only/) | MICE / official only | v2 configuration and data re-run with the current code |
+| **v3 (primary, active `outputs/`)** | project root + [`versions/v3_edition_harmonised/`](versions/v3_edition_harmonised/) | MICE; observed values never overwritten | Edition-aware snapshots |
+| **v3b** | [`versions/v3b_official_only/`](versions/v3b_official_only/) | Official only | Robustness arm of v3 |
 
 v1b and v2 differ in exactly one respect — whether a missing cell is reconstructed — so
 any divergence between them is attributable to the missing-data policy alone. Reproduce
@@ -48,7 +90,7 @@ See [`versions/README.md`](versions/README.md).
 
 ## Run the pipeline
 
-End-to-end orchestration (writes **v2 / MICE** results into `outputs/`):
+End-to-end orchestration (writes **v3 / MICE** results into `outputs/`):
 
 ```bash
 python run_pipeline.py

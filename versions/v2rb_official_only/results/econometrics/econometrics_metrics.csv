@@ -1,0 +1,3 @@
+model,backend,nobs,rsquared,rsquared_within,f_statistic,rsquared_overall
+FE,linearmodels,57,0.8333982316733637,0.8333982316733639,13.756427438443525,
+RE,linearmodels,57,0.9892932339176197,,,0.9892932339176197

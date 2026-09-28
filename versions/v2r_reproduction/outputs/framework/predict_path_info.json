@@ -1,0 +1,26 @@
+{
+  "best_model": {
+    "best_model": "xgboost",
+    "model_id": "xgboost_20260928T155109Z",
+    "rmse": 2.1213009313702123,
+    "experiment_id": "20260928T155109Z_cd8f48d7",
+    "selected_at": "20260928T155141Z",
+    "mae": 1.731018149346245,
+    "mape": 0.0267209661241806,
+    "r2": 0.9684037676249214,
+    "comparison_n_ok": 8
+  },
+  "prediction_dir": "outputs/predictions",
+  "prediction_files": [
+    "outputs\\predictions\\catboost_20260928T155109Z.csv",
+    "outputs\\predictions\\lightgbm_20260928T155109Z.csv",
+    "outputs\\predictions\\linear_regression_20260928T155109Z.csv",
+    "outputs\\predictions\\mlp_20260928T155109Z.csv",
+    "outputs\\predictions\\random_forest_20260928T155109Z.csv",
+    "outputs\\predictions\\ridge_20260928T155109Z.csv",
+    "outputs\\predictions\\svr_20260928T155109Z.csv",
+    "outputs\\predictions\\xgboost_20260928T155109Z.csv"
+  ],
+  "best_prediction_path": "outputs\\predictions\\xgboost_20260928T155109Z.csv",
+  "n_prediction_files": 8
+}

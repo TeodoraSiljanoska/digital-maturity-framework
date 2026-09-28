@@ -33,24 +33,24 @@
       "X2": 0,
       "X3": 0,
       "X4": 0,
-      "X5": 96,
-      "X6": 12,
-      "X7": 60,
+      "X5": 123,
+      "X6": 0,
+      "X7": 72,
       "X8": 5,
       "X9": 0,
       "X10": 0,
       "C1": 0,
-      "C2": 12
+      "C2": 0
     }
   },
   "best_ml": {
     "model_type": "catboost",
-    "rmse": 2.040058105140579
+    "rmse": 2.0496625312355863
   },
   "best_baseline": {
     "model_type": "linear_regression",
-    "rmse": 1.1686865961444874
+    "rmse": 1.2462706805118706
   },
   "status": "not_supported",
-  "relative_improvement": -0.7455989585837279
+  "relative_improvement": -0.644636725621873
 }

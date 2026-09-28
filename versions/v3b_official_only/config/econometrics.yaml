@@ -1,0 +1,20 @@
+models:
+  - fixed_effects
+  - random_effects
+dependent: DMI
+independent: [X1, X2, X3, X4, X5, X6, X7, X8, X9, X10]
+controls: [C1, C2]
+entity_col: country_iso3
+time_col: year
+use_lagged_features: true
+diagnostics:
+  hausman: true
+  heteroskedasticity: true
+  autocorrelation: true
+  stationarity: true
+  vif: true
+robust_se: clustered
+cluster_entity: true
+min_observations: 30
+group_min_observations: 12
+group_stratified: true

@@ -1,0 +1,33 @@
+{
+  "dataset": "NCSI",
+  "indicators": [
+    "NCSI_SCORE"
+  ],
+  "publisher": "e-Governance Academy",
+  "source_url": "https://ncsi.ega.ee",
+  "notes": "NCSI_SCORE: NCSI 3.0 value in force on 31 December of each year, from the dated version history on each country page. NCSI_LEGACY_SCORE: legacy index as archived on 1 September 2023; different methodology, not read by the ingestion adapter.",
+  "written_at": "2026-09-28T15:48:06+00:00",
+  "rows": 168,
+  "values": 33,
+  "path": "data/raw/ncsi/ncsi_panel.csv",
+  "provenance_sidecar": "data/raw/ncsi/ncsi_panel_value_provenance.csv",
+  "countries": [
+    "MKD",
+    "SRB",
+    "SVN",
+    "FRA",
+    "GBR",
+    "DEU",
+    "USA",
+    "CAN",
+    "AUS",
+    "BRA",
+    "ARG",
+    "IND"
+  ],
+  "panel_years": [
+    2012,
+    2025
+  ],
+  "fabricated_values": false
+}

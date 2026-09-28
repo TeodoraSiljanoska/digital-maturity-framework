@@ -1,0 +1,32 @@
+{
+  "formula": "DMI ~ X1_lag1 + X2_lag1 + X3_lag1 + X4_lag1 + X5_lag1 + X6_lag1 + X7_lag1 + X8_lag1 + X9_lag1 + X10_lag1 + C1_lag1 + C2_lag1",
+  "nobs": 156,
+  "has_linearmodels": true,
+  "hausman": {
+    "method": "hausman_fe_vs_re",
+    "statistic": 113.90495264806847,
+    "pvalue": null,
+    "note": "Negative Hausman statistic / non-PSD covariance difference: the classical test is uninformative in this short panel. Model choice is decided by the Mundlak auxiliary regression.",
+    "df": 12,
+    "status": "inconclusive",
+    "min_eigenvalue_cov_diff": -0.5144903047231253,
+    "prefer": "FE",
+    "mundlak": {
+      "method": "mundlak_auxiliary_regression",
+      "status": "ok",
+      "statistic": 668.5210111131527,
+      "pvalue": 6.878794057050337e-14,
+      "df_num": 12,
+      "prefer": "FE",
+      "note": "Joint significance of entity means rejects the random-effects orthogonality assumption and favours fixed effects."
+    },
+    "preference_source": "mundlak_auxiliary_regression"
+  },
+  "n_models_ok": 6,
+  "artifacts": {
+    "coefficients": "results\\econometrics\\coefficients.csv",
+    "metrics": "results\\econometrics\\model_metrics.csv",
+    "diagnostics": "results\\econometrics\\diagnostics.json",
+    "hausman": "results\\econometrics\\hausman_test.json"
+  }
+}

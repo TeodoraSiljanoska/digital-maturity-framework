@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: "Digital Maturity Framework: edition-aware, provenance-tracked panel of digital-maturity indicators (2012-2025)"
+version: 3.0.0
+date-released: 2026-10-01
+license: MIT
+authors:
+  - family-names: Siljanoska Taskovska
+    given-names: Teodora
+    orcid: "https://orcid.org/0009-0008-9147-7408"
+    affiliation: "University St. Kliment Ohridski, Faculty of Information and Communication Technologies, Bitola"
+  - family-names: Savoska
+    given-names: Snezana
+    orcid: "https://orcid.org/0000-0002-0539-1771"
+    affiliation: "University St. Kliment Ohridski, Faculty of Information and Communication Technologies, Bitola"
+keywords:
+  - digital maturity
+  - data provenance
+  - data preprocessing
+  - edition harmonisation
+  - missing-data imputation
+  - visual data analytics

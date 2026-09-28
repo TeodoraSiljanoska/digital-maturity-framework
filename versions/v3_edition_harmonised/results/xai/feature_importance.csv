@@ -1,0 +1,13 @@
+feature,importance,method
+X10_lag1,14.803122051862184,native_abs_coef
+X3_lag1,11.764542386091811,native_abs_coef
+C2_lag1,5.269017688386376,native_abs_coef
+C1_lag1,5.188733083640974,native_abs_coef
+X8_lag1,3.4757656208122465,native_abs_coef
+X4_lag1,0.3340195551217184,native_abs_coef
+X2_lag1,0.3116530611815376,native_abs_coef
+X6_lag1,0.2701034820747562,native_abs_coef
+X5_lag1,0.15269763165874561,native_abs_coef
+X1_lag1,0.12831427588867475,native_abs_coef
+X9_lag1,0.11699222399217053,native_abs_coef
+X7_lag1,0.09908062430832953,native_abs_coef

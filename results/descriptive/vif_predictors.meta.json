@@ -2,8 +2,8 @@
   "result_id": "vif_predictors",
   "category": "descriptive",
   "format": "csv",
-  "created_at": "2026-08-11T13:21:50.820493+00:00",
-  "artifact_path": "results/descriptive/vif_predictors.csv",
+  "created_at": "2026-09-28T16:31:48.269943+00:00",
+  "artifact_path": "results\\descriptive\\vif_predictors.csv",
   "meta": {
     "predictors": [
       "X1_lag1",

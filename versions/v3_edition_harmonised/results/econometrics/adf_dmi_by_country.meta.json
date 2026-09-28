@@ -1,0 +1,8 @@
+{
+  "result_id": "adf_dmi_by_country",
+  "category": "econometrics",
+  "format": "csv",
+  "created_at": "2026-09-28T15:56:46.822964+00:00",
+  "artifact_path": "results\\econometrics\\adf_dmi_by_country.csv",
+  "meta": {}
+}

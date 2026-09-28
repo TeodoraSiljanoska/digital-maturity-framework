@@ -1,0 +1,44 @@
+{
+  "dataset": "UN_EGOV",
+  "indicators": [
+    "EGDI",
+    "OSI"
+  ],
+  "publisher": "UN DESA, Division for Public Institutions and Digital Government",
+  "source_url": "https://publicadministration.un.org/egovkb/en-us/data-center",
+  "cross_check": "https://data360api.worldbank.org/data360/data?DATABASE_ID=UN_EGDI",
+  "publication_years": [
+    2012,
+    2014,
+    2016,
+    2018,
+    2020,
+    2022,
+    2024
+  ],
+  "notes": "Biennial surveys; years between surveys are left empty.",
+  "written_at": "2026-09-28T15:45:44+00:00",
+  "rows": 168,
+  "values": 168,
+  "path": "data/raw/un_egdi/egdi_panel.csv",
+  "provenance_sidecar": "data/raw/un_egdi/egdi_panel_value_provenance.csv",
+  "countries": [
+    "MKD",
+    "SRB",
+    "SVN",
+    "FRA",
+    "GBR",
+    "DEU",
+    "USA",
+    "CAN",
+    "AUS",
+    "BRA",
+    "ARG",
+    "IND"
+  ],
+  "panel_years": [
+    2012,
+    2025
+  ],
+  "fabricated_values": false
+}

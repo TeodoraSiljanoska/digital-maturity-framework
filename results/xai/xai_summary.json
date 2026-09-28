@@ -3,11 +3,11 @@
   "category": "xai",
   "meta": {},
   "data": {
-    "model_id": "catboost_20260811T132151Z",
-    "model_type": "catboost",
+    "model_id": "ridge_20260928T163149Z",
+    "model_type": "ridge",
     "model_source": "best_model.json",
-    "artifact_path": "outputs/models/catboost_20260811T132151Z/catboost_20260811T132151Z.joblib",
-    "rmse": 1.9438235361441458,
+    "artifact_path": "outputs\\models\\ridge_20260928T163149Z\\ridge_20260928T163149Z.joblib",
+    "rmse": 1.5247633882885627,
     "target": "DMI",
     "predictors": [
       "X1_lag1",
@@ -31,21 +31,21 @@
       "pdp"
     ],
     "artifacts": {
-      "feature_importance": "outputs/xai/feature_importance.csv",
+      "feature_importance": "outputs\\xai\\feature_importance.csv",
       "shap": {
-        "global": "outputs/xai/shap_global_importance.csv",
-        "local": "outputs/xai/shap_local_explanations.json",
-        "plot": "outputs/xai/shap_summary.png"
+        "global": "outputs\\xai\\shap_global_importance.csv",
+        "local": "outputs\\xai\\shap_local_explanations.json",
+        "plot": "outputs\\xai\\shap_summary.png"
       },
-      "lime": "outputs/xai/lime_explanations.json",
+      "lime": "outputs\\xai\\lime_explanations.json",
       "pdp": {
-        "csv": "outputs/xai/partial_dependence.csv",
-        "plot": "outputs/xai/partial_dependence.png"
+        "csv": "outputs\\xai\\partial_dependence.csv",
+        "plot": "outputs\\xai\\partial_dependence.png"
       }
     },
     "warnings": [],
     "n_produced": 4,
     "seed": 42
   },
-  "created_at": "2026-08-11T13:22:02.313170+00:00"
+  "created_at": "2026-09-28T16:32:34.030527+00:00"
 }

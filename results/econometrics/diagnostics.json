@@ -1,13 +1,13 @@
 {
   "heteroskedasticity": {
     "test": "breusch_pagan",
-    "lm_stat": 48.02708127334454,
-    "lm_pvalue": 3.0919298414614357e-06,
-    "f_stat": 5.300613572892753,
-    "f_pvalue": 2.3279130695961565e-07
+    "lm_stat": 46.455195506589625,
+    "lm_pvalue": 5.790920285138736e-06,
+    "f_stat": 5.0535585174207025,
+    "f_pvalue": 5.586001771862199e-07
   },
   "durbin_watson": {
-    "statistic": 2.0276575591446426
+    "statistic": 2.0786288620916418
   },
   "stationarity_summary": {
     "n_countries": 12,

@@ -2,9 +2,9 @@
   "result_id": "ml_model_comparison",
   "category": "machine_learning",
   "format": "csv",
-  "created_at": "2026-08-11T13:22:00.427213+00:00",
-  "artifact_path": "results/machine_learning/ml_model_comparison.csv",
+  "created_at": "2026-09-28T16:32:24.058714+00:00",
+  "artifact_path": "results\\machine_learning\\ml_model_comparison.csv",
   "meta": {
-    "best_model": "catboost"
+    "best_model": "ridge"
   }
 }

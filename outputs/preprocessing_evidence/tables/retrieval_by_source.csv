@@ -1,0 +1,7 @@
+source,adapter_mode,rows,non_null_ratio,sha256
+gii,snapshot,168,1.0,be8433d39cfe
+ncsi,snapshot,168,0.125,a5037cacfe90
+oxford_insights,snapshot,168,0.429,f96b654271c0
+un_egdi,snapshot,336,0.5,f5a46eef6d93
+undp,snapshot,168,0.857,249110f69263
+world_bank,cached_vintage,1008,0.935,382fb50574b3

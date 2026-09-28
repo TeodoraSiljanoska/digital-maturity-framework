@@ -1,0 +1,61 @@
+# Multivariate missing-value imputation for v2 research track.
+# Chosen method (2024–2026 empirical / SE-adjacent literature):
+#   MICE via sklearn IterativeImputer (chained equations), with RandomForest
+#   estimators (tree-based MICE). MICE remains the dominant multivariate
+#   imputation family in recent empirical research (incl. ACM SIGMOD 2024
+#   in-database MICE; 2024 comparisons of MICE-RF / missRanger vs MICE-PMM).
+#   KNN imputation is also common in software-engineering defect/effort studies;
+#   MICE is preferred here because it models multivariate dependencies among
+#   digitalisation indicators better for panel research.
+enabled: true
+method: mice_iterative_rf
+random_seed: 42
+mice:
+  max_iter: 15
+  n_estimators: 50
+  min_samples_leaf: 2
+  sample_posterior: false
+# Features used as predictors during imputation (besides indicator columns)
+aux_features:
+  - year
+include_group_dummies: true
+# Country identity conditions each draw on the country's own level path.
+# Justified empirically by the masked-cell benchmark (results/imputation/).
+include_country_dummies: true
+# Do not invent values outside observed indicator ranges too aggressively
+clip_to_observed_range: true
+
+# --- Multiple imputation for inference (Rubin's rules) -----------------------
+# The point panel is a single conditional-mean completion; valid standard
+# errors additionally require between-draw variance, so FE inference is pooled
+# over m predictive-mean-matching draws.
+multiple_imputation:
+  enabled: true
+  n_imputations: 10
+pmm:
+  donors: 5
+
+# --- Reconstruction quality benchmark ---------------------------------------
+validation:
+  enabled: true
+  mask_fraction: 0.15
+  n_repeats: 5
+
+# --- Leakage-safe predictive evaluation --------------------------------------
+# The point panel is imputed on all years, so hold-out ML metrics computed on
+# it are optimistic. This re-runs the horse-race with the imputer fitted on
+# training years only.
+leakage_safe_ml:
+  enabled: true
+  models: [random_forest, xgboost, catboost, svr, linear_regression, ridge]
+
+output:
+  mask_path: data/processed/imputation_mask.parquet
+  report_path: outputs/audit/imputation_report.json
+  panel_path: data/processed/panel_wide_imputed.parquet
+  preimputation_path: data/processed/panel_wide_preimputation.parquet
+references:
+  - "Pereira et al., In-Database Data Imputation (MICE), Proc. ACM Manag. Data, 2024"
+  - "Tree-based imputation vs MICE PMM for inference, arXiv:2401.09602, 2024"
+  - "sklearn IterativeImputer (MICE-inspired chained equations)"
+  - "Rubin, Multiple Imputation for Nonresponse in Surveys, 1987 (pooling rules)"

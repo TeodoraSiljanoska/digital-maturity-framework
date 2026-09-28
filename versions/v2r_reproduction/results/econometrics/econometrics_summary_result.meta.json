@@ -1,0 +1,10 @@
+{
+  "result_id": "econometrics_summary_result",
+  "category": "econometrics",
+  "format": "json",
+  "created_at": "2026-09-28T15:51:09.510753+00:00",
+  "artifact_path": "results\\econometrics\\econometrics_summary_result.json",
+  "meta": {
+    "path": "results\\econometrics\\econometrics_summary.json"
+  }
+}

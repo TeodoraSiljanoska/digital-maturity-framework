@@ -1,0 +1,30 @@
+{
+  "dataset": "GII",
+  "indicators": [
+    "GII_SCORE"
+  ],
+  "notes": "WIPO GII overall scores. 2024\u20132025 left empty unless previously compiled official values exist.",
+  "panel_years": [
+    2012,
+    2025
+  ],
+  "countries": [
+    "MKD",
+    "SRB",
+    "SVN",
+    "FRA",
+    "GBR",
+    "DEU",
+    "USA",
+    "CAN",
+    "AUS",
+    "BRA",
+    "ARG",
+    "IND"
+  ],
+  "rows": 168,
+  "path": "data/raw/gii/gii_panel.csv",
+  "extended_to": 2025,
+  "fabricated_values": false,
+  "written_at": "2026-08-09T20:18:23.457219+00:00"
+}

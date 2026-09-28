@@ -1,8 +1,0 @@
-{
-  "code": "INSUFFICIENT_SAMPLE",
-  "message": "Training sample too small: 24 < 25",
-  "details": {
-    "n_train": 24,
-    "min_train_rows": 25
-  }
-}

@@ -1,138 +1,138 @@
 {
-  "generated_at": "2026-08-26T20:38:43.231170+00:00",
-  "project_root": "/Users/teodorasiljanoska/Desktop/digital-maturity-framework",
+  "generated_at": "2026-09-28T16:41:38.926198+00:00",
+  "project_root": "digital-maturity-framework",
   "latest_dmi_by_country": [
     {
       "year": 2025,
-      "DMI": 60.16688683225659,
+      "DMI": 57.73678580033339,
       "country_iso3": "ARG",
       "group_id": "developing"
     },
     {
       "year": 2025,
-      "DMI": 75.83229556762969,
+      "DMI": 76.57587952586267,
       "country_iso3": "AUS",
       "group_id": "developed_non_eu"
     },
     {
       "year": 2025,
-      "DMI": 57.788288670009194,
+      "DMI": 57.93809115933529,
       "country_iso3": "BRA",
       "group_id": "developing"
     },
     {
       "year": 2025,
-      "DMI": 73.55882665012467,
+      "DMI": 73.56927676260484,
       "country_iso3": "CAN",
       "group_id": "developed_non_eu"
     },
     {
       "year": 2025,
-      "DMI": 83.99789112646609,
+      "DMI": 83.82198562173569,
       "country_iso3": "DEU",
       "group_id": "developed_eu"
     },
     {
       "year": 2025,
-      "DMI": 75.8993758185406,
+      "DMI": 76.10358745655014,
       "country_iso3": "FRA",
       "group_id": "developed_eu"
     },
     {
       "year": 2025,
-      "DMI": 82.02332528601997,
+      "DMI": 81.46832805355278,
       "country_iso3": "GBR",
       "group_id": "developed_eu"
     },
     {
       "year": 2025,
-      "DMI": 45.698943858685155,
+      "DMI": 45.76954506615367,
       "country_iso3": "IND",
       "group_id": "developing"
     },
     {
       "year": 2025,
-      "DMI": 53.515173314162446,
+      "DMI": 50.022361110973485,
       "country_iso3": "MKD",
       "group_id": "balkan"
     },
     {
       "year": 2025,
-      "DMI": 65.04849505304954,
+      "DMI": 63.90924359962085,
       "country_iso3": "SRB",
       "group_id": "balkan"
     },
     {
       "year": 2025,
-      "DMI": 70.85538768278754,
+      "DMI": 71.14234847441686,
       "country_iso3": "SVN",
       "group_id": "balkan"
     },
     {
       "year": 2025,
-      "DMI": 81.75899623857697,
+      "DMI": 81.86264273981848,
       "country_iso3": "USA",
       "group_id": "developed_non_eu"
     }
   ],
   "best_model_metrics": {
-    "best_model": "catboost",
-    "model_id": "catboost_20260811T132151Z",
-    "rmse": 1.9438235361441458,
-    "experiment_id": "20260811T132151Z_91175af9",
-    "selected_at": "20260811T132200Z",
-    "mae": 1.455787525806422,
-    "mape": 0.023418022296266,
-    "r2": 0.9734685527825508,
+    "best_model": "ridge",
+    "model_id": "ridge_20260928T163149Z",
+    "rmse": 1.5247633882885627,
+    "experiment_id": "20260928T163149Z_5b5cb22a",
+    "selected_at": "20260928T163224Z",
+    "mae": 1.2144878313530434,
+    "mape": 0.0181042158926179,
+    "r2": 0.985359108075958,
     "comparison_n_ok": 8
   },
   "top_shap_factors": [
     {
-      "feature": "X2_lag1",
-      "importance": 2.5516899764311445,
-      "source": "results/xai/xai_shap_global.csv"
-    },
-    {
-      "feature": "X3_lag1",
-      "importance": 2.5331390297819816,
-      "source": "results/xai/xai_shap_global.csv"
-    },
-    {
-      "feature": "C2_lag1",
-      "importance": 1.872550726747607,
-      "source": "results/xai/xai_shap_global.csv"
-    },
-    {
-      "feature": "X6_lag1",
-      "importance": 1.7846094793368306,
-      "source": "results/xai/xai_shap_global.csv"
-    },
-    {
       "feature": "X4_lag1",
-      "importance": 1.75160215407221,
-      "source": "results/xai/xai_shap_global.csv"
+      "importance": 4.992827803694082,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X2_lag1",
+      "importance": 3.1500088024326565,
+      "source": "results\\xai\\xai_shap_global.csv"
     },
     {
       "feature": "C1_lag1",
-      "importance": 1.4334343010138235,
-      "source": "results/xai/xai_shap_global.csv"
+      "importance": 2.8658141289783146,
+      "source": "results\\xai\\xai_shap_global.csv"
     },
     {
-      "feature": "X5_lag1",
-      "importance": 1.2458249099456198,
-      "source": "results/xai/xai_shap_global.csv"
+      "feature": "X6_lag1",
+      "importance": 2.7617113764856414,
+      "source": "results\\xai\\xai_shap_global.csv"
     },
     {
       "feature": "X8_lag1",
-      "importance": 1.0126492870218191,
-      "source": "results/xai/xai_shap_global.csv"
+      "importance": 2.588756632899732,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X1_lag1",
+      "importance": 1.8137178691330076,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X10_lag1",
+      "importance": 1.5737216138929755,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X3_lag1",
+      "importance": 1.250434306690408,
+      "source": "results\\xai\\xai_shap_global.csv"
     }
   ],
   "convergence_summary": {
-    "source": "results/convergence/sigma_convergence.csv",
-    "sigma_start": 18.360480049568416,
-    "sigma_end": 7.75812865184048,
-    "sigma_change": -10.602351397727936,
+    "source": "results\\convergence\\sigma_convergence.csv",
+    "sigma_start": 18.84539697613312,
+    "sigma_end": 6.968128498854134,
+    "sigma_change": -11.877268477278985,
     "converging": true,
     "years": [
       2012,
@@ -145,6 +145,6 @@
     2025
   ],
   "n_countries": 12,
-  "result_registry_count": 44,
-  "model_registry_count": 70
+  "result_registry_count": 45,
+  "model_registry_count": 78
 }

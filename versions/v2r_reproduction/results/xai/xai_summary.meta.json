@@ -1,0 +1,8 @@
+{
+  "result_id": "xai_summary",
+  "category": "xai",
+  "format": "json",
+  "created_at": "2026-09-28T15:51:48.266468+00:00",
+  "artifact_path": "results\\xai\\xai_summary.json",
+  "meta": {}
+}

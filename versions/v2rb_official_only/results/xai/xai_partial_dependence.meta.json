@@ -1,0 +1,16 @@
+{
+  "result_id": "xai_partial_dependence",
+  "category": "xai",
+  "format": "csv",
+  "created_at": "2026-09-28T16:11:07.029887+00:00",
+  "artifact_path": "results\\xai\\xai_partial_dependence.csv",
+  "meta": {
+    "features": [
+      "X10_lag1",
+      "C2_lag1",
+      "X3_lag1",
+      "X8_lag1"
+    ],
+    "model_id": "ridge_20260928T161026Z"
+  }
+}

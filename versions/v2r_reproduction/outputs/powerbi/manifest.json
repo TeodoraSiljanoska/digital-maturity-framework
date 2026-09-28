@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-09-28T16:02:34.315995+00:00",
+  "n_fact_rows": 2184,
+  "files": [
+    "dim_indicator.csv",
+    "dim_country.csv",
+    "dim_phase.csv",
+    "dim_source.csv",
+    "fact_indicator_value.csv",
+    "POWERBI_README.md",
+    "LoadStarSchema.pq"
+  ]
+}

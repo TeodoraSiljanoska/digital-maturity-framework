@@ -1,0 +1,92 @@
+{
+  "model_id": "svr_20260928T160335Z",
+  "model_type": "svr",
+  "model_source": "best_model.json",
+  "artifact_path": "outputs\\models\\svr_20260928T160335Z\\svr_20260928T160335Z.joblib",
+  "rmse": 2.3487752745589026,
+  "target": "DMI",
+  "predictors": [
+    "X1_lag1",
+    "X2_lag1",
+    "X3_lag1",
+    "X4_lag1",
+    "X6_lag1",
+    "X7_lag1",
+    "X8_lag1",
+    "X9_lag1",
+    "X10_lag1",
+    "C1_lag1",
+    "C2_lag1"
+  ],
+  "n_rows": 81,
+  "methods_requested": [
+    "shap",
+    "lime",
+    "feature_importance",
+    "pdp"
+  ],
+  "artifacts": {
+    "feature_importance": "outputs\\xai\\feature_importance.csv",
+    "shap": {
+      "global": "outputs\\xai\\shap_global_importance.csv",
+      "local": "outputs\\xai\\shap_local_explanations.json",
+      "plot": "outputs\\xai\\shap_summary.png"
+    },
+    "lime": "outputs\\xai\\lime_explanations.json",
+    "pdp": {
+      "csv": "outputs\\xai\\partial_dependence.csv",
+      "plot": "outputs\\xai\\partial_dependence.png"
+    }
+  },
+  "warnings": [],
+  "n_produced": 4,
+  "seed": 42,
+  "source": "outputs\\xai\\xai_summary.json",
+  "top_factors": [
+    {
+      "feature": "X6_lag1",
+      "importance": 2.9737327449071467
+    },
+    {
+      "feature": "X8_lag1",
+      "importance": 2.4457157539764185
+    },
+    {
+      "feature": "X3_lag1",
+      "importance": 1.701097993627927
+    },
+    {
+      "feature": "X2_lag1",
+      "importance": 1.4755209051681084
+    },
+    {
+      "feature": "C1_lag1",
+      "importance": 1.0619166561265816
+    },
+    {
+      "feature": "X4_lag1",
+      "importance": 1.055029567827715
+    },
+    {
+      "feature": "C2_lag1",
+      "importance": 0.9795685837991892
+    },
+    {
+      "feature": "X7_lag1",
+      "importance": 0.846894368171359
+    },
+    {
+      "feature": "X1_lag1",
+      "importance": 0.5785142457611231
+    },
+    {
+      "feature": "X10_lag1",
+      "importance": 0.5339883143086588
+    },
+    {
+      "feature": "X9_lag1",
+      "importance": 0.3253576892500396
+    }
+  ],
+  "importance_source": "outputs\\xai\\shap_global_importance.csv"
+}

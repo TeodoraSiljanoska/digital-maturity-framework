@@ -198,7 +198,8 @@ class SnapshotCsvAdapter(DataSourceAdapter):
         meta = super().get_metadata()
         try:
             path = self.snapshot_path()
-            meta["snapshot_file"] = str(path)
+            # Configured (project-relative) path, so metadata carries no local directories.
+            meta["snapshot_file"] = str(self.config.get(self.default_snapshot_key)).replace("\\", "/")
             meta["snapshot_exists"] = bool(path.exists())
         except Exception as exc:  # noqa: BLE001
             meta["snapshot_error"] = repr(exc)

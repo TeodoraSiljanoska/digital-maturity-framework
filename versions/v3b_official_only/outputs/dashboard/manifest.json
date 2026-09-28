@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-28T16:07:55.923449+00:00",
+  "data_dir": "outputs/dashboard",
+  "artifacts": {
+    "panel": "outputs\\dashboard\\panel.parquet",
+    "predictions": "outputs\\dashboard\\predictions.parquet",
+    "xai_summary": "outputs\\dashboard\\xai_summary.json",
+    "model_comparison": "outputs\\dashboard\\model_comparison.parquet",
+    "convergence": "outputs\\dashboard\\convergence.parquet",
+    "coefficients": "outputs\\dashboard\\coefficients.csv",
+    "vif": "outputs\\dashboard\\vif_predictors.csv",
+    "correlation": "outputs\\dashboard\\correlation_matrix.csv",
+    "group_comparison": "outputs\\dashboard\\group_comparison.csv",
+    "competency_answers": "outputs\\dashboard\\competency_answers.json",
+    "hypothesis_evaluation": "outputs\\dashboard\\hypothesis_evaluation.json",
+    "choropleth": "outputs\\dashboard\\choropleth_latest.html",
+    "provenance": "outputs/dashboard/provenance.parquet",
+    "indicator_catalog": "outputs/dashboard/indicator_catalog.csv",
+    "ontology_graph": "outputs/dashboard/ontology_graph.json",
+    "framework_status": "outputs\\dashboard\\framework_status.json"
+  },
+  "title": "Digital Maturity Monitoring Dashboard"
+}

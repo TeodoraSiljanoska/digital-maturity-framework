@@ -1,8 +1,8 @@
 # Hypothesis evaluation
 
-Generated: 2026-08-11T13:23:46.731042+00:00
+Generated: 2026-09-28T16:41:36.844902+00:00
 
-## H1: **supported**
+## H1: **partially_supported**
 Digital maturity and digital convergence are determined by digital infrastructure, e-government, digital skills, institutional quality and economic development; AI models enable more precise analysis and prediction.
 
 ## H1.1: **partially_supported**
@@ -14,13 +14,13 @@ Higher e-government development significantly contributes to digital maturity.
 ## H1.3: **supported**
 Digital skills are among the most important factors for digital transformation.
 
-## H1.4: **supported**
+## H1.4: **partially_supported**
 Higher economic development (GDP per capita) and education positively affect digital maturity and convergence.
 
 ## H1.5: **supported**
 There are statistically significant differences in digital maturity level and dynamics across the four country groups.
 
-## H1.6: **supported**
+## H1.6: **not_supported**
 Machine learning models provide higher accuracy than classical econometric models.
 
 ## H1.7: **partially_supported**

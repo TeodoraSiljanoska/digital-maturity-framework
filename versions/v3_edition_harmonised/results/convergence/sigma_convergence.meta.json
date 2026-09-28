@@ -1,0 +1,11 @@
+{
+  "result_id": "sigma_convergence",
+  "category": "convergence",
+  "format": "csv",
+  "created_at": "2026-09-28T15:57:41.437803+00:00",
+  "artifact_path": "results\\convergence\\sigma_convergence.csv",
+  "meta": {
+    "also_cv": true,
+    "by_group": true
+  }
+}

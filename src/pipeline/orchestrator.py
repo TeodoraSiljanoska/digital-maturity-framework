@@ -119,11 +119,12 @@ class PipelineOrchestrator:
             "python_version": sys.version,
             "python_version_info": list(sys.version_info[:3]),
             "platform": sys.platform,
-            "executable": sys.executable,
+            # Names only: absolute paths would expose the local directory layout.
+            "executable": Path(sys.executable).name,
             "package_versions": versions,
             "seed": self.config.random_seed(),
             "timestamp": datetime.now(timezone.utc).isoformat(),
-            "project_root": str(self.project_root),
+            "project_root": Path(self.project_root).name,
         }
         path = self._audit_dir() / "reproducibility.json"
         write_json(path, payload)

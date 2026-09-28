@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-08-09T20:18:24+00:00",
+  "retrieved_at": "2026-09-28T16:31:44+00:00",
   "start_year": 2012,
   "end_year": 2025,
   "countries": [
@@ -23,9 +23,9 @@
       "indicator_codes": [
         "GII_SCORE"
       ],
-      "path": "data/raw/gii/raw_long.parquet",
-      "checksum_sha256": "74b9f0c6706f6a5df5b060c408b434c503543820ebefcfa499441f26f30326a0",
-      "retrieved_at": "2026-08-09T20:18:24+00:00",
+      "path": "data\\raw\\gii\\raw_long.parquet",
+      "checksum_sha256": "bed28b23f744df67046ce48925c1d9d9eabe5d3019976c2bc7d807f45168258e",
+      "retrieved_at": "2026-09-28T16:31:44+00:00",
       "adapter_metadata": {
         "name": "gii",
         "adapter": "GIIAdapter",
@@ -43,7 +43,7 @@
           "source",
           "retrieved_at"
         ],
-        "snapshot_file": "/Users/teodorasiljanoska/Desktop/digital-maturity-framework/data/raw/gii/gii_panel.csv",
+        "snapshot_file": "data/raw/gii/gii_panel.csv",
         "snapshot_exists": true,
         "value_columns": {
           "GII_SCORE": "GII_SCORE"
@@ -72,7 +72,7 @@
         "indicators": [
           "GII_SCORE"
         ],
-        "non_null_ratio": 0.42857142857142855,
+        "non_null_ratio": 1.0,
         "ok": true
       }
     },
@@ -82,9 +82,9 @@
       "indicator_codes": [
         "NCSI_SCORE"
       ],
-      "path": "data/raw/ncsi/raw_long.parquet",
-      "checksum_sha256": "d0498608cf63d735322e518438b1152223383b3fe2bf5620d27536998207fa9d",
-      "retrieved_at": "2026-08-09T20:18:24+00:00",
+      "path": "data\\raw\\ncsi\\raw_long.parquet",
+      "checksum_sha256": "44827f99b34b0de7bddd94a06fc1ffbf32aee36bf54696d7392a062440e968ff",
+      "retrieved_at": "2026-09-28T16:31:44+00:00",
       "adapter_metadata": {
         "name": "ncsi",
         "adapter": "NCSIAdapter",
@@ -102,7 +102,7 @@
           "source",
           "retrieved_at"
         ],
-        "snapshot_file": "/Users/teodorasiljanoska/Desktop/digital-maturity-framework/data/raw/ncsi/ncsi_panel.csv",
+        "snapshot_file": "data/raw/ncsi/ncsi_panel.csv",
         "snapshot_exists": true,
         "value_columns": {
           "NCSI_SCORE": "NCSI_SCORE"
@@ -131,7 +131,7 @@
         "indicators": [
           "NCSI_SCORE"
         ],
-        "non_null_ratio": 0.14285714285714285,
+        "non_null_ratio": 0.125,
         "ok": true
       }
     },
@@ -141,9 +141,9 @@
       "indicator_codes": [
         "AI_READY"
       ],
-      "path": "data/raw/oxford_insights/raw_long.parquet",
-      "checksum_sha256": "11af87a114041ad3e3035535b3fca2fdedf72497ad93fc719507460bd0afa7e8",
-      "retrieved_at": "2026-08-09T20:18:24+00:00",
+      "path": "data\\raw\\oxford_insights\\raw_long.parquet",
+      "checksum_sha256": "4cc4346aad23513529fca38dfc2c3d7ea9c76d9e793cd2c2a4d0d2b03c76749e",
+      "retrieved_at": "2026-09-28T16:31:44+00:00",
       "adapter_metadata": {
         "name": "oxford",
         "adapter": "OxfordAdapter",
@@ -161,7 +161,7 @@
           "source",
           "retrieved_at"
         ],
-        "snapshot_file": "/Users/teodorasiljanoska/Desktop/digital-maturity-framework/data/raw/oxford/ai_readiness_panel.csv",
+        "snapshot_file": "data/raw/oxford/ai_readiness_panel.csv",
         "snapshot_exists": true,
         "value_columns": {
           "AI_READY": "AI_READY"
@@ -190,7 +190,7 @@
         "indicators": [
           "AI_READY"
         ],
-        "non_null_ratio": 0.2857142857142857,
+        "non_null_ratio": 0.42857142857142855,
         "ok": true
       }
     },
@@ -201,9 +201,9 @@
         "EGDI",
         "OSI"
       ],
-      "path": "data/raw/un_egdi/raw_long.parquet",
-      "checksum_sha256": "32822e8513b53fb059baf9be74b90cdecc67c0270b0e3059c559efb31599d8e4",
-      "retrieved_at": "2026-08-09T20:18:24+00:00",
+      "path": "data\\raw\\un_egdi\\raw_long.parquet",
+      "checksum_sha256": "010c36c61231bb7029dc11d7b01030a10fe4007253a4154714b32a6bf7a95d39",
+      "retrieved_at": "2026-09-28T16:31:44+00:00",
       "adapter_metadata": {
         "name": "un",
         "adapter": "UNAdapter",
@@ -221,7 +221,7 @@
           "source",
           "retrieved_at"
         ],
-        "snapshot_file": "/Users/teodorasiljanoska/Desktop/digital-maturity-framework/data/raw/un_egdi/egdi_panel.csv",
+        "snapshot_file": "data/raw/un_egdi/egdi_panel.csv",
         "snapshot_exists": true,
         "value_columns": {
           "EGDI": "EGDI",
@@ -262,9 +262,9 @@
       "indicator_codes": [
         "EDU_INDEX"
       ],
-      "path": "data/raw/undp/raw_long.parquet",
-      "checksum_sha256": "956ab69e955cd1604fbe65fcfe11760df852e73acdcfdebdd2b5c9a6ab876850",
-      "retrieved_at": "2026-08-09T20:18:24+00:00",
+      "path": "data\\raw\\undp\\raw_long.parquet",
+      "checksum_sha256": "f2f9bfeee5a02d896db0af0d787abe785ce52521097be18df55e66ada52a2cb2",
+      "retrieved_at": "2026-09-28T16:31:44+00:00",
       "adapter_metadata": {
         "name": "undp",
         "adapter": "UNDPAdapter",
@@ -282,7 +282,7 @@
           "source",
           "retrieved_at"
         ],
-        "snapshot_file": "/Users/teodorasiljanoska/Desktop/digital-maturity-framework/data/raw/undp/education_index_panel.csv",
+        "snapshot_file": "data/raw/undp/education_index_panel.csv",
         "snapshot_exists": true,
         "value_columns": {
           "EDU_INDEX": "EDU_INDEX"
@@ -311,7 +311,7 @@
         "indicators": [
           "EDU_INDEX"
         ],
-        "non_null_ratio": 0.42857142857142855,
+        "non_null_ratio": 0.8571428571428571,
         "ok": true
       }
     },
@@ -326,17 +326,19 @@
         "BX.GSR.CCIS.ZS",
         "NY.GDP.PCAP.PP.KD"
       ],
-      "path": "data/raw/world_bank/raw_long.parquet",
-      "checksum_sha256": "61c6110747ab61f0fbe232d29a8cfe2c62c462992005356659ba24b1374c04c2",
-      "retrieved_at": "2026-08-09T20:18:24+00:00",
+      "path": "data\\raw\\world_bank\\raw_long.parquet",
+      "checksum_sha256": "382fb50574b3d060a89d329e86905443b0ef67df305e471f224700f113437eba",
+      "retrieved_at": "2026-09-28T16:31:44+00:00",
       "adapter_metadata": {
         "name": "world_bank",
         "adapter": "WorldBankAdapter",
         "config_keys": [
           "adapter",
           "base_url",
+          "cached_raw_path",
           "retry",
-          "timeout_seconds"
+          "timeout_seconds",
+          "use_cached_raw"
         ],
         "standard_columns": [
           "country_iso3",
@@ -350,7 +352,12 @@
         "base_url": "https://api.worldbank.org/v2",
         "timeout_seconds": 60,
         "retry": 3,
-        "api": "World Bank API v2"
+        "api": "World Bank API v2",
+        "mode": "cached_vintage",
+        "cached_raw_path": "data/raw/world_bank/wdi_vintage_20260809.parquet",
+        "vintage_retrieved_at": [
+          "2026-08-09T20:18:24+00:00"
+        ]
       },
       "validation": {
         "source": "world_bank",
@@ -449,15 +456,15 @@
         "duplicate_rows": 0
       },
       "non_null_ratio": {
-        "ratio": 0.6577380952380952,
+        "ratio": 0.7514880952380952,
         "min_required": 0.0
       }
     },
     "rows": 2016
   },
   "integrated": {
-    "path": "data/raw/integrated_raw.parquet",
-    "checksum_sha256": "dedec76e480e046ecf8e15e188204a791042f5cf60abe16bf8ba47e0ac349605",
+    "path": "data\\raw\\integrated_raw.parquet",
+    "checksum_sha256": "cf9eb773d35bbac9052dd0fdab43964be6a1e24b2af84c615c6bc761673546c6",
     "rows": 2016,
     "columns": [
       "country_iso3",

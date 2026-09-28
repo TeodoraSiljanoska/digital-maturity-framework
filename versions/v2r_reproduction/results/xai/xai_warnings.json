@@ -1,0 +1,12 @@
+{
+  "result_id": "xai_warnings",
+  "category": "xai",
+  "meta": {},
+  "data": [
+    {
+      "method": "shap",
+      "warning": "ValueError(\"could not convert string to float: '[5.906451E1]'\")"
+    }
+  ],
+  "created_at": "2026-09-28T15:51:48.275465+00:00"
+}

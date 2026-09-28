@@ -1,0 +1,12 @@
+country_iso3,n,adf_stat,pvalue,status,note,usedlag
+ARG,3,,,MODEL_NOT_APPLICABLE,series_too_short,
+AUS,2,,,MODEL_NOT_APPLICABLE,series_too_short,
+BRA,2,,,MODEL_NOT_APPLICABLE,series_too_short,
+CAN,3,,,MODEL_NOT_APPLICABLE,series_too_short,
+DEU,2,,,MODEL_NOT_APPLICABLE,series_too_short,
+FRA,2,,,MODEL_NOT_APPLICABLE,series_too_short,
+GBR,3,-0.45464841179378096,0.9005668776455904,ok,,0.0
+MKD,3,-0.15065642856383174,0.9441533258000732,ok,,0.0
+SRB,3,,,MODEL_NOT_APPLICABLE,series_too_short,
+SVN,2,,,MODEL_NOT_APPLICABLE,series_too_short,
+USA,3,,,MODEL_NOT_APPLICABLE,series_too_short,

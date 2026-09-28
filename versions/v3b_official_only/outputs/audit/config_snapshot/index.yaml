@@ -1,0 +1,29 @@
+name: Digital Maturity Index
+abbreviation: DMI
+scale: [0, 100]
+method: weighted_pillars
+normalization: min_max_sample
+default_weights:
+  infrastructure: 0.20
+  e_government: 0.20
+  skills: 0.20
+  trust_innovation: 0.20
+  digital_economy: 0.20
+pillars:
+  infrastructure:
+    indicators: [X1, X2]
+  e_government:
+    indicators: [X3]
+  skills:
+    indicators: [X4]
+  trust_innovation:
+    indicators: [X5, X6, X7]
+  digital_economy:
+    indicators: [X8, X9, X10]
+sensitivity:
+  pca: true
+  weight_shock_pct: 0.20
+  n_shocks: 20
+reliability:
+  cronbach_alpha: true
+  item_correlations: true

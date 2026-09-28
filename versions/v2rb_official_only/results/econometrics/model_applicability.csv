@@ -1,0 +1,7 @@
+model,status,backend,group_id,code,nobs,note
+FE,ok,linearmodels,,,,
+RE,ok,linearmodels,,,,
+FE_group,MODEL_NOT_APPLICABLE,,balkan,MODEL_NOT_APPLICABLE,15.0,ZeroDivisionError('float division by zero')
+FE_group,MODEL_NOT_APPLICABLE,,developed_eu,MODEL_NOT_APPLICABLE,15.0,ZeroDivisionError('float division by zero')
+FE_group,MODEL_NOT_APPLICABLE,,developed_non_eu,MODEL_NOT_APPLICABLE,14.0,ZeroDivisionError('float division by zero')
+FE_group,MODEL_NOT_APPLICABLE,,developing,MODEL_NOT_APPLICABLE,13.0,ZeroDivisionError('float division by zero')

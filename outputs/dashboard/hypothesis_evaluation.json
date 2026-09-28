@@ -5,7 +5,7 @@
     "alpha": 0.05
   },
   "data": {
-    "generated_at": "2026-08-11T13:23:46.731042+00:00",
+    "generated_at": "2026-09-28T16:41:36.844902+00:00",
     "alpha": 0.05,
     "hypotheses": {
       "H1.1": {
@@ -23,8 +23,8 @@
             "variable": "X1",
             "found": true,
             "term": "X1_lag1",
-            "coefficient": 0.0521679778455743,
-            "pvalue": 0.1275231027012187,
+            "coefficient": 0.0204462874032318,
+            "pvalue": 0.4797250542556863,
             "significant": false,
             "sign_matches": true,
             "supported": false
@@ -33,8 +33,8 @@
             "variable": "X2",
             "found": true,
             "term": "X2_lag1",
-            "coefficient": 0.3195567792330256,
-            "pvalue": 0.0006426284768437,
+            "coefficient": 0.2867033414351426,
+            "pvalue": 0.0008285398262057,
             "significant": true,
             "sign_matches": true,
             "supported": true
@@ -49,8 +49,8 @@
                 "variable": "X1",
                 "found": true,
                 "term": "X1_lag1",
-                "coefficient": 0.0537591606088819,
-                "pvalue": 0.1473524446536299,
+                "coefficient": 0.030123015255062,
+                "pvalue": 0.3453070721909423,
                 "significant": false,
                 "sign_matches": true,
                 "supported": false
@@ -59,8 +59,8 @@
                 "variable": "X2",
                 "found": true,
                 "term": "X2_lag1",
-                "coefficient": 0.3221475791513505,
-                "pvalue": 0.004211744200379,
+                "coefficient": 0.27879324666602,
+                "pvalue": 0.0023416535806541,
                 "significant": true,
                 "sign_matches": true,
                 "supported": true
@@ -74,18 +74,18 @@
                 "variable": "X1",
                 "found": true,
                 "term": "X1_lag1",
-                "coefficient": 0.1152950735323565,
-                "pvalue": 0.2774521326505728,
+                "coefficient": -0.0373180557111932,
+                "pvalue": 0.7451218448769756,
                 "significant": false,
-                "sign_matches": true,
+                "sign_matches": false,
                 "supported": false
               },
               {
                 "variable": "X2",
                 "found": true,
                 "term": "X2_lag1",
-                "coefficient": 0.3551133863397835,
-                "pvalue": 0.4260232299387043,
+                "coefficient": 0.7722969793052945,
+                "pvalue": 0.1737574369225858,
                 "significant": false,
                 "sign_matches": true,
                 "supported": false
@@ -114,8 +114,8 @@
             "variable": "X3",
             "found": true,
             "term": "X3_lag1",
-            "coefficient": 16.979788828656265,
-            "pvalue": 0.0296281749881546,
+            "coefficient": 20.54426364552483,
+            "pvalue": 0.0185649026818501,
             "significant": true,
             "sign_matches": true,
             "supported": true
@@ -130,8 +130,8 @@
                 "variable": "X3",
                 "found": true,
                 "term": "X3_lag1",
-                "coefficient": 15.971280783101662,
-                "pvalue": 0.0794356271297664,
+                "coefficient": 19.074032582769707,
+                "pvalue": 0.0601380910443238,
                 "significant": false,
                 "sign_matches": true,
                 "supported": false
@@ -145,8 +145,8 @@
                 "variable": "X3",
                 "found": true,
                 "term": "X3_lag1",
-                "coefficient": -32.466731903122046,
-                "pvalue": 0.1612340143682429,
+                "coefficient": -4.902463023390978,
+                "pvalue": 0.8114770919502285,
                 "significant": false,
                 "sign_matches": false,
                 "supported": false
@@ -175,8 +175,8 @@
             "variable": "X4",
             "found": true,
             "term": "X4_lag1",
-            "coefficient": 0.219337005771584,
-            "pvalue": 1.8178426333781417e-05,
+            "coefficient": 0.2851034827762403,
+            "pvalue": 7.407392477176701e-10,
             "significant": true,
             "sign_matches": true,
             "supported": true
@@ -191,8 +191,8 @@
                 "variable": "X4",
                 "found": true,
                 "term": "X4_lag1",
-                "coefficient": 0.2207475846045011,
-                "pvalue": 4.2736768638069485e-05,
+                "coefficient": 0.2823347834984681,
+                "pvalue": 3.806741881677873e-09,
                 "significant": true,
                 "sign_matches": true,
                 "supported": true
@@ -206,8 +206,8 @@
                 "variable": "X4",
                 "found": true,
                 "term": "X4_lag1",
-                "coefficient": 0.5314970565144593,
-                "pvalue": 0.0004032577600083,
+                "coefficient": 0.2177288509202469,
+                "pvalue": 0.0260447453401457,
                 "significant": true,
                 "sign_matches": true,
                 "supported": true
@@ -229,16 +229,16 @@
           "C1",
           "C2"
         ],
-        "status": "supported",
-        "n_supported": 2,
+        "status": "partially_supported",
+        "n_supported": 1,
         "n_variables": 2,
         "details": [
           {
             "variable": "C1",
             "found": true,
             "term": "C1_lag1",
-            "coefficient": 10.844026528576595,
-            "pvalue": 0.0016955798941005,
+            "coefficient": 9.68806985386105,
+            "pvalue": 0.0005208644003895,
             "significant": true,
             "sign_matches": true,
             "supported": true
@@ -247,24 +247,24 @@
             "variable": "C2",
             "found": true,
             "term": "C2_lag1",
-            "coefficient": 61.620111443564966,
-            "pvalue": 0.004179752972987,
-            "significant": true,
+            "coefficient": 7.239223672111248,
+            "pvalue": 0.5533010685929045,
+            "significant": false,
             "sign_matches": true,
-            "supported": true
+            "supported": false
           }
         ],
         "alpha": 0.05,
         "robustness": {
           "mi_pooled": {
-            "status": "supported",
+            "status": "partially_supported",
             "details": [
               {
                 "variable": "C1",
                 "found": true,
                 "term": "C1_lag1",
-                "coefficient": 11.04399099302728,
-                "pvalue": 0.0043218796966388,
+                "coefficient": 10.830893871733611,
+                "pvalue": 0.0040117025140785,
                 "significant": true,
                 "sign_matches": true,
                 "supported": true
@@ -273,11 +273,11 @@
                 "variable": "C2",
                 "found": true,
                 "term": "C2_lag1",
-                "coefficient": 58.65364928565568,
-                "pvalue": 0.0151459480160797,
-                "significant": true,
+                "coefficient": 7.142671608027911,
+                "pvalue": 0.6645025731849052,
+                "significant": false,
                 "sign_matches": true,
-                "supported": true
+                "supported": false
               }
             ]
           },
@@ -288,28 +288,28 @@
                 "variable": "C1",
                 "found": true,
                 "term": "C1_lag1",
-                "coefficient": 0.2007478677175661,
-                "pvalue": 0.986761853971616,
+                "coefficient": -16.870143047168263,
+                "pvalue": 0.3242487679330184,
                 "significant": false,
-                "sign_matches": true,
+                "sign_matches": false,
                 "supported": false
               },
               {
                 "variable": "C2",
                 "found": true,
                 "term": "C2_lag1",
-                "coefficient": 60.97244717372869,
-                "pvalue": 0.4853751088153073,
+                "coefficient": 31.515426144370576,
+                "pvalue": 0.3713186944207667,
                 "significant": false,
                 "sign_matches": true,
                 "supported": false
               }
             ]
           },
-          "consistent_with_headline": false,
+          "consistent_with_headline": true,
           "statuses": {
-            "point_panel": "supported",
-            "mi_pooled": "supported",
+            "point_panel": "partially_supported",
+            "mi_pooled": "partially_supported",
             "complete_case": "partially_supported"
           }
         }
@@ -329,21 +329,21 @@
             "variable": "X5",
             "found": true,
             "term": "X5_lag1",
-            "coefficient": 0.0547534009529267,
-            "pvalue": 0.0060412625229817,
-            "significant": true,
+            "coefficient": 0.0767576899191632,
+            "pvalue": 0.2056211083444199,
+            "significant": false,
             "sign_matches": true,
-            "supported": true
+            "supported": false
           },
           {
             "variable": "X6",
             "found": true,
             "term": "X6_lag1",
-            "coefficient": -0.0606199270618928,
-            "pvalue": 0.6939215517239492,
-            "significant": false,
-            "sign_matches": false,
-            "supported": false
+            "coefficient": 0.177712865012015,
+            "pvalue": 0.0112048710134202,
+            "significant": true,
+            "sign_matches": true,
+            "supported": true
           }
         ],
         "alpha": 0.05,
@@ -355,8 +355,8 @@
                 "variable": "X5",
                 "found": true,
                 "term": "X5_lag1",
-                "coefficient": 0.038416789469964,
-                "pvalue": 0.1517142455148084,
+                "coefficient": 0.0217599038626849,
+                "pvalue": 0.76862321942173,
                 "significant": false,
                 "sign_matches": true,
                 "supported": false
@@ -365,10 +365,10 @@
                 "variable": "X6",
                 "found": true,
                 "term": "X6_lag1",
-                "coefficient": -0.0351532556416979,
-                "pvalue": 0.8207726263770718,
+                "coefficient": 0.172146543205579,
+                "pvalue": 0.0827318208945542,
                 "significant": false,
-                "sign_matches": false,
+                "sign_matches": true,
                 "supported": false
               }
             ]
@@ -378,22 +378,16 @@
             "details": [
               {
                 "variable": "X5",
-                "found": true,
-                "term": "X5_lag1",
-                "coefficient": 0.0224911370424739,
-                "pvalue": 0.519175808030039,
-                "significant": false,
-                "sign_matches": true,
-                "supported": false
+                "found": false
               },
               {
                 "variable": "X6",
                 "found": true,
                 "term": "X6_lag1",
-                "coefficient": -0.1730228828071365,
-                "pvalue": 0.4902861184482998,
+                "coefficient": 0.0300869095018217,
+                "pvalue": 0.8640926262668533,
                 "significant": false,
-                "sign_matches": false,
+                "sign_matches": true,
                 "supported": false
               }
             ]
@@ -412,18 +406,18 @@
         "variables": null,
         "status": "supported",
         "anova": {
-          "statistic": 141.91984975493855,
-          "pvalue": 2.309064720437908e-45
+          "statistic": 133.82675390001273,
+          "pvalue": 7.194371391715174e-44
         },
         "kruskal_wallis": {
-          "statistic": 128.8397737793341,
-          "pvalue": 9.61824984101459e-28
+          "statistic": 123.86742744435048,
+          "pvalue": 1.1334780854433303e-26
         },
         "group_means": {
-          "balkan": 51.95860120374858,
-          "developed_eu": 76.314216503384,
-          "developed_non_eu": 71.09654165621906,
-          "developing": 42.492848989298
+          "balkan": 51.354858905114334,
+          "developed_eu": 75.63383768833239,
+          "developed_non_eu": 72.48333971874243,
+          "developing": 41.74030537068876
         },
         "groups": [
           "balkan",
@@ -437,17 +431,17 @@
         "id": "H1.6",
         "text": "Machine learning models provide higher accuracy than classical econometric models.",
         "variables": null,
-        "status": "supported",
+        "status": "not_supported",
         "best_ml": {
-          "model_type": "catboost",
-          "rmse": 1.9438235361441456
+          "model_type": "svr",
+          "rmse": 1.6415600966973676
         },
         "best_baseline": {
           "model_type": "ridge",
-          "rmse": 2.698418473980876
+          "rmse": 1.5247633882885627
         },
-        "rmse_improvement": 0.7545949378367305,
-        "relative_improvement": 0.2796434078378898,
+        "rmse_improvement": -0.11679670840880485,
+        "relative_improvement": -0.07659989038686242,
         "robustness": {
           "leakage_safe": {
             "n_train": 132,
@@ -484,28 +478,28 @@
                 "X2": 0,
                 "X3": 0,
                 "X4": 0,
-                "X5": 96,
-                "X6": 12,
-                "X7": 60,
+                "X5": 123,
+                "X6": 0,
+                "X7": 72,
                 "X8": 5,
                 "X9": 0,
                 "X10": 0,
                 "C1": 0,
-                "C2": 12
+                "C2": 0
               }
             },
             "best_ml": {
               "model_type": "catboost",
-              "rmse": 2.040058105140579
+              "rmse": 2.0496625312355863
             },
             "best_baseline": {
               "model_type": "linear_regression",
-              "rmse": 1.1686865961444874
+              "rmse": 1.2462706805118706
             },
             "status": "not_supported",
-            "relative_improvement": -0.7455989585837279
+            "relative_improvement": -0.644636725621873
           },
-          "consistent_with_headline": false,
+          "consistent_with_headline": true,
           "note": "Leakage-safe variant re-fits the imputer on training years only, so hold-out accuracy carries no look-ahead information."
         }
       },
@@ -515,20 +509,19 @@
         "variables": null,
         "status": "supported",
         "top_features": [
-          "X2",
-          "X3",
-          "C2",
-          "X6",
           "X4",
+          "X2",
           "C1",
-          "X5",
+          "X6",
           "X8",
+          "X1",
           "X10",
-          "X1"
+          "X3",
+          "X5",
+          "X7"
         ],
         "overlap_with_hypothesized_drivers": [
           "C1",
-          "C2",
           "X1",
           "X2",
           "X3",
@@ -548,37 +541,37 @@
         ],
         "xai_artifacts_exist": true,
         "artifact_count": 26,
-        "source": "results/xai/shap_global_importance.csv"
+        "source": "results\\xai\\shap_global_importance.csv"
       },
       "H1": {
         "id": "H1",
         "text": "Digital maturity and digital convergence are determined by digital infrastructure, e-government, digital skills, institutional quality and economic development; AI models enable more precise analysis and prediction.",
         "variables": null,
-        "status": "supported",
-        "mean_support_score": 0.875,
-        "n_supported": 6,
-        "n_partially_supported": 2,
+        "status": "partially_supported",
+        "mean_support_score": 0.6875,
+        "n_supported": 4,
+        "n_partially_supported": 3,
         "n_subhypotheses": 8,
         "breakdown": {
           "H1.1": "partially_supported",
           "H1.2": "supported",
           "H1.3": "supported",
-          "H1.4": "supported",
+          "H1.4": "partially_supported",
           "H1.5": "supported",
-          "H1.6": "supported",
+          "H1.6": "not_supported",
           "H1.7": "partially_supported",
           "H1.8": "supported"
         }
       }
     },
     "summary": {
-      "H1": "supported",
+      "H1": "partially_supported",
       "H1.1": "partially_supported",
       "H1.2": "supported",
       "H1.3": "supported",
-      "H1.4": "supported",
+      "H1.4": "partially_supported",
       "H1.5": "supported",
-      "H1.6": "supported",
+      "H1.6": "not_supported",
       "H1.7": "partially_supported",
       "H1.8": "supported"
     },
@@ -602,10 +595,10 @@
         "consistent": true
       },
       "H1.4": {
-        "point_panel": "supported",
-        "mi_pooled": "supported",
+        "point_panel": "partially_supported",
+        "mi_pooled": "partially_supported",
         "complete_case": "partially_supported",
-        "consistent": false
+        "consistent": true
       },
       "H1.7": {
         "point_panel": "partially_supported",
@@ -614,11 +607,11 @@
         "consistent": true
       },
       "H1.6": {
-        "point_panel": "supported",
+        "point_panel": "not_supported",
         "leakage_safe": "not_supported",
-        "consistent": false
+        "consistent": true
       }
     }
   },
-  "created_at": "2026-08-11T13:23:46.735304+00:00"
+  "created_at": "2026-09-28T16:41:36.854900+00:00"
 }

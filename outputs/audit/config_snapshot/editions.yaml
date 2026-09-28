@@ -1,0 +1,72 @@
+# Edition families of the composite indices that enter the panel.
+#
+# A family groups the editions a publisher built with one framework and one
+# scale. The preprocessing stage blanks published values from excluded
+# editions before provenance is recorded, so a change of method never appears
+# as movement within a country. Declared breaks are framework changes stated
+# by the publisher; the edition-boundary diagnostic reports them next to its
+# own level-shift test (outputs/audit/edition_breaks_*.json).
+#
+# Reference year: the edition label used by the publisher (for NCSI 3.0, the
+# version in force on 31 December). Values and their vintages are listed per
+# cell in data/raw/<source>/*_value_provenance.csv.
+
+reference_year_rule: publisher_edition_label
+
+indicators:
+  X3:
+    publisher: UN DESA
+    family: "UN E-Government Survey EGDI, biennial surveys 2012-2024"
+    exclude_reference_years: []
+    comparability_note: >-
+      EGDI is a relative index (normalised within each survey); movements mix
+      national change with change in the global distribution.
+
+  X10:
+    publisher: UN DESA
+    family: "UN E-Government Survey Online Service Index, biennial surveys 2012-2024"
+    exclude_reference_years: []
+    comparability_note: >-
+      The OSI questionnaire is revised between surveys; OSI is normalised
+      within each survey.
+
+  X5:
+    publisher: e-Governance Academy
+    family: "NCSI 3.0 (continuously updated; value in force on 31 December)"
+    exclude_reference_years: []
+    exclusion_reason: >-
+      The legacy index (2016-2023 methodology, archived on 1 September 2023) is
+      stored as NCSI_LEGACY_SCORE and never read into the series.
+    declared_breaks:
+      - between: [2022, 2023]
+        note: "legacy NCSI (archived 1 Sep 2023) replaced by NCSI 3.0 (first versions Nov 2023)"
+
+  X6:
+    publisher: WIPO
+    family: "Global Innovation Index editions 2012-2025"
+    exclude_reference_years: []
+    comparability_note: >-
+      WIPO revises the indicator set and data every edition and cautions
+      against reading score changes between editions as performance change.
+
+  X7:
+    publisher: Oxford Insights
+    family: "Government AI Readiness Index, three-pillar framework (2020-2024)"
+    exclude_reference_years: [2019, 2025]
+    exclusion_reason: >-
+      The 2019 edition scored eleven metrics in four clusters on a 0-10 scale;
+      the 2025 edition introduced a six-pillar framework. Neither shares the
+      2020-2024 construction.
+    declared_breaks:
+      - between: [2019, 2020]
+        note: "0-10 scale and four clusters replaced by 0-100 scale and three pillars"
+      - between: [2024, 2025]
+        note: "three pillars replaced by six pillars"
+
+  C2:
+    publisher: UNDP Human Development Report Office
+    family: "Education index, HDR 2025 time series (single vintage, data to 2023)"
+    exclude_reference_years: []
+    comparability_note: >-
+      Each HDR revises the whole back series; mixing vintages from different
+      reports creates spurious steps, so one vintage is used for all years.

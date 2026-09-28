@@ -1,0 +1,39 @@
+{
+  "label": "filtered",
+  "thresholds": {
+    "ratio": 3.0,
+    "share_same_sign": 0.75,
+    "min_countries": 6
+  },
+  "n_boundaries": 26,
+  "n_flagged": 2,
+  "flagged": [
+    {
+      "variable": "X7",
+      "from_year": 2019,
+      "to_year": 2020,
+      "n_countries": 12,
+      "median_change_per_year": -9.346,
+      "reference_abs_change_per_year": 1.236,
+      "ratio": 7.5614886731,
+      "share_same_sign": 1.0,
+      "statistical_flag": true,
+      "declared_note": null,
+      "status": "detected"
+    },
+    {
+      "variable": "X10",
+      "from_year": 2014,
+      "to_year": 2016,
+      "n_countries": 12,
+      "median_change_per_year": 0.073105,
+      "reference_abs_change_per_year": 0.0222725,
+      "ratio": 3.282298799,
+      "share_same_sign": 0.8333333333,
+      "statistical_flag": true,
+      "declared_note": null,
+      "status": "detected"
+    }
+  ],
+  "csv": "outputs\\audit\\edition_breaks_filtered.csv"
+}

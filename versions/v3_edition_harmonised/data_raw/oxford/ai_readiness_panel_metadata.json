@@ -1,0 +1,41 @@
+{
+  "dataset": "AI_READINESS",
+  "indicators": [
+    "AI_READY"
+  ],
+  "publisher": "Oxford Insights",
+  "source_url": "https://oxfordinsights.com/ai-readiness/",
+  "editions": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "notes": "2019 edition: 0-10 scale, four clusters. 2020-2024 editions: 0-100 scale, three pillars (Government, Technology Sector, Data and Infrastructure). 2025 edition (six pillars, no overall score in the report tables) not retrieved.",
+  "written_at": "2026-09-28T15:45:07+00:00",
+  "rows": 168,
+  "values": 72,
+  "path": "data/raw/oxford/ai_readiness_panel.csv",
+  "provenance_sidecar": "data/raw/oxford/ai_readiness_panel_value_provenance.csv",
+  "countries": [
+    "MKD",
+    "SRB",
+    "SVN",
+    "FRA",
+    "GBR",
+    "DEU",
+    "USA",
+    "CAN",
+    "AUS",
+    "BRA",
+    "ARG",
+    "IND"
+  ],
+  "panel_years": [
+    2012,
+    2025
+  ],
+  "fabricated_values": false
+}

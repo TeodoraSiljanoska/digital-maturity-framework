@@ -1,0 +1,23 @@
+{
+  "result_id": "dmi_distribution_moments_result",
+  "category": "descriptive",
+  "meta": {
+    "target": "DMI",
+    "path": "results\\descriptive\\dmi_distribution_moments.json"
+  },
+  "data": {
+    "n": 168,
+    "mean": 60.87788667921542,
+    "std": 16.76973990673373,
+    "variance": 281.2241765394978,
+    "skewness": -0.7269631239003883,
+    "kurtosis": -0.27099960921842037,
+    "min": 14.23921681535224,
+    "max": 83.99789112646609,
+    "shapiro_stat": 0.9265712169544599,
+    "shapiro_pvalue": 1.574983016213519e-07,
+    "shapiro_applied": true,
+    "shapiro_note": null
+  },
+  "created_at": "2026-09-28T16:10:24.363752+00:00"
+}

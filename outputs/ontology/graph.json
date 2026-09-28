@@ -1,6 +1,6 @@
 {
   "namespace": "http://purl.org/dmi-framework#",
-  "generated_at": "2026-09-10T20:58:16.419342+00:00",
+  "generated_at": "2026-09-28T16:41:36.985490+00:00",
   "layers": [
     "Ctax",
     "Cdec",
@@ -135,7 +135,7 @@
       "indicator_id": "X5",
       "uri": "http://purl.org/dmi-framework#Ind_X5",
       "name": "National Cyber Security Index",
-      "definition": "NCSI overall score",
+      "definition": "NCSI 3.0 overall score in force on 31 December (dated version history)",
       "role": "independent",
       "pillar": "trust_innovation",
       "pillar_uri": "http://purl.org/dmi-framework#Pillar_trust_innovation",
@@ -166,7 +166,7 @@
       "indicator_id": "X6",
       "uri": "http://purl.org/dmi-framework#Ind_X6",
       "name": "Global Innovation Index",
-      "definition": "WIPO Global Innovation Index overall score",
+      "definition": "WIPO Global Innovation Index overall score, editions 2012-2025",
       "role": "independent",
       "pillar": "trust_innovation",
       "pillar_uri": "http://purl.org/dmi-framework#Pillar_trust_innovation",
@@ -197,7 +197,7 @@
       "indicator_id": "X7",
       "uri": "http://purl.org/dmi-framework#Ind_X7",
       "name": "Government AI Readiness Index",
-      "definition": "Oxford Insights Government AI Readiness Index score",
+      "definition": "Oxford Insights Government AI Readiness Index score, three-pillar editions 2020-2024",
       "role": "independent",
       "pillar": "trust_innovation",
       "pillar_uri": "http://purl.org/dmi-framework#Pillar_trust_innovation",
@@ -350,7 +350,7 @@
       "indicator_id": "C2",
       "uri": "http://purl.org/dmi-framework#Ind_C2",
       "name": "Education Index",
-      "definition": "UNDP Human Development Report Education Index",
+      "definition": "UNDP education index from the HDR 2025 time series (single vintage)",
       "role": "control",
       "pillar": "control",
       "pillar_uri": "http://purl.org/dmi-framework#Pillar_control",
@@ -770,29 +770,29 @@
   },
   "explanations": [
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X2_0",
-      "indicator_id": "X2",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_X2",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X4_0",
+      "indicator_id": "X4",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X4",
       "method": "SHAP",
-      "mean_abs_shap": 2.5516899764311445,
+      "mean_abs_shap": 4.992827803694082,
       "rank": 1,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X3_1",
-      "indicator_id": "X3",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_X3",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X2_1",
+      "indicator_id": "X2",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X2",
       "method": "SHAP",
-      "mean_abs_shap": 2.5331390297819816,
+      "mean_abs_shap": 3.1500088024326565,
       "rank": 2,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_C2_2",
-      "indicator_id": "C2",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_C2",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_C1_2",
+      "indicator_id": "C1",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_C1",
       "method": "SHAP",
-      "mean_abs_shap": 1.872550726747607,
+      "mean_abs_shap": 2.8658141289783146,
       "rank": 3,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
@@ -801,79 +801,79 @@
       "indicator_id": "X6",
       "indicator_uri": "http://purl.org/dmi-framework#Ind_X6",
       "method": "SHAP",
-      "mean_abs_shap": 1.7846094793368306,
+      "mean_abs_shap": 2.7617113764856414,
       "rank": 4,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X4_4",
-      "indicator_id": "X4",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_X4",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X8_4",
+      "indicator_id": "X8",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X8",
       "method": "SHAP",
-      "mean_abs_shap": 1.75160215407221,
+      "mean_abs_shap": 2.588756632899732,
       "rank": 5,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_C1_5",
-      "indicator_id": "C1",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_C1",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X1_5",
+      "indicator_id": "X1",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X1",
       "method": "SHAP",
-      "mean_abs_shap": 1.4334343010138235,
+      "mean_abs_shap": 1.8137178691330076,
       "rank": 6,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X5_6",
-      "indicator_id": "X5",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_X5",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X10_6",
+      "indicator_id": "X10",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X10",
       "method": "SHAP",
-      "mean_abs_shap": 1.2458249099456198,
+      "mean_abs_shap": 1.5737216138929755,
       "rank": 7,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X8_7",
-      "indicator_id": "X8",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_X8",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X3_7",
+      "indicator_id": "X3",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X3",
       "method": "SHAP",
-      "mean_abs_shap": 1.0126492870218191,
+      "mean_abs_shap": 1.250434306690408,
       "rank": 8,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X10_8",
-      "indicator_id": "X10",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_X10",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X5_8",
+      "indicator_id": "X5",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X5",
       "method": "SHAP",
-      "mean_abs_shap": 0.8543390999414356,
+      "mean_abs_shap": 1.1199004772359908,
       "rank": 9,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X1_9",
-      "indicator_id": "X1",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_X1",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X7_9",
+      "indicator_id": "X7",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X7",
       "method": "SHAP",
-      "mean_abs_shap": 0.8427850420338263,
+      "mean_abs_shap": 0.9709899753157322,
       "rank": 10,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X7_10",
-      "indicator_id": "X7",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_X7",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X9_10",
+      "indicator_id": "X9",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X9",
       "method": "SHAP",
-      "mean_abs_shap": 0.8166618289725008,
+      "mean_abs_shap": 0.5435578280973765,
       "rank": 11,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     },
     {
-      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X9_11",
-      "indicator_id": "X9",
-      "indicator_uri": "http://purl.org/dmi-framework#Ind_X9",
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_C2_11",
+      "indicator_id": "C2",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_C2",
       "method": "SHAP",
-      "mean_abs_shap": 0.4501467276224241,
+      "mean_abs_shap": 0.3504457470024912,
       "rank": 12,
       "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
     }
@@ -883,28 +883,28 @@
       "id": "balkan_north_macedonia",
       "country_iso3": "MKD",
       "year": 2025,
-      "DMI": 53.515173314162446,
+      "DMI": 50.022361110973485,
       "group_id": "balkan",
       "binding_indicators": [
+        {
+          "indicator_id": "X4",
+          "value": 93.1
+        },
         {
           "indicator_id": "X2",
           "value": 29.8921727758887
         },
         {
-          "indicator_id": "X3",
-          "value": 0.707
-        },
-        {
-          "indicator_id": "C2",
-          "value": 0.7785119999999999
+          "indicator_id": "C1",
+          "value": 10.130408859167302
         },
         {
           "indicator_id": "X6",
-          "value": 33.0
+          "value": 29.7907
         },
         {
-          "indicator_id": "X4",
-          "value": 93.1
+          "indicator_id": "X8",
+          "value": 0.37363
         }
       ],
       "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"
@@ -913,28 +913,28 @@
       "id": "developed_eu_germany",
       "country_iso3": "DEU",
       "year": 2025,
-      "DMI": 83.99789112646609,
+      "DMI": 83.82198562173569,
       "group_id": "developed_eu",
       "binding_indicators": [
+        {
+          "indicator_id": "X4",
+          "value": 93.49999579
+        },
         {
           "indicator_id": "X2",
           "value": 45.6069242965787
         },
         {
-          "indicator_id": "X3",
-          "value": 0.9382
-        },
-        {
-          "indicator_id": "C2",
-          "value": 0.9418066666666663
+          "indicator_id": "C1",
+          "value": 11.048088842362658
         },
         {
           "indicator_id": "X6",
-          "value": 58.8
+          "value": 55.4554
         },
         {
-          "indicator_id": "X4",
-          "value": 93.49999579
+          "indicator_id": "X8",
+          "value": 3.1539
         }
       ],
       "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"

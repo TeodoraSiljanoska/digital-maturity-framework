@@ -1,0 +1,41 @@
+enabled: false
+method: mice_iterative_rf
+random_seed: 42
+mice:
+  max_iter: 15
+  n_estimators: 50
+  min_samples_leaf: 2
+  sample_posterior: false
+aux_features:
+- year
+include_group_dummies: true
+include_country_dummies: true
+clip_to_observed_range: true
+multiple_imputation:
+  enabled: true
+  n_imputations: 10
+pmm:
+  donors: 5
+validation:
+  enabled: true
+  mask_fraction: 0.15
+  n_repeats: 5
+leakage_safe_ml:
+  enabled: true
+  models:
+  - random_forest
+  - xgboost
+  - catboost
+  - svr
+  - linear_regression
+  - ridge
+output:
+  mask_path: data/processed/imputation_mask.parquet
+  report_path: outputs/audit/imputation_report.json
+  panel_path: data/processed/panel_wide_imputed.parquet
+  preimputation_path: data/processed/panel_wide_preimputation.parquet
+references:
+- Pereira et al., In-Database Data Imputation (MICE), Proc. ACM Manag. Data, 2024
+- Tree-based imputation vs MICE PMM for inference, arXiv:2401.09602, 2024
+- sklearn IterativeImputer (MICE-inspired chained equations)
+- Rubin, Multiple Imputation for Nonresponse in Surveys, 1987 (pooling rules)

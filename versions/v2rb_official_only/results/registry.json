@@ -1,0 +1,323 @@
+{
+  "updated_at": "2026-09-28T16:11:11.113102+00:00",
+  "results": {
+    "descriptive_full_sample": {
+      "result_id": "descriptive_full_sample",
+      "category": "descriptive",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:24.064106+00:00",
+      "artifact_path": "results\\descriptive\\descriptive_full_sample.csv",
+      "meta": {
+        "sample": "full_sample"
+      }
+    },
+    "descriptive_by_group": {
+      "result_id": "descriptive_by_group",
+      "category": "descriptive",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:24.329761+00:00",
+      "artifact_path": "results\\descriptive\\descriptive_by_group.csv",
+      "meta": {
+        "sample": "by_group"
+      }
+    },
+    "correlation_matrix": {
+      "result_id": "correlation_matrix",
+      "category": "descriptive",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:24.348762+00:00",
+      "artifact_path": "results\\descriptive\\correlation_matrix.csv",
+      "meta": {
+        "variables": [
+          "DMI",
+          "X1_lag1",
+          "X2_lag1",
+          "X3_lag1",
+          "X4_lag1",
+          "X5_lag1",
+          "X6_lag1",
+          "X7_lag1",
+          "X8_lag1",
+          "X9_lag1",
+          "X10_lag1",
+          "C1_lag1",
+          "C2_lag1"
+        ]
+      }
+    },
+    "dmi_distribution_moments_result": {
+      "result_id": "dmi_distribution_moments_result",
+      "category": "descriptive",
+      "format": "json",
+      "created_at": "2026-09-28T16:10:24.364762+00:00",
+      "artifact_path": "results\\descriptive\\dmi_distribution_moments_result.json",
+      "meta": {
+        "target": "DMI",
+        "path": "results\\descriptive\\dmi_distribution_moments.json"
+      }
+    },
+    "dmi_moments_by_group": {
+      "result_id": "dmi_moments_by_group",
+      "category": "descriptive",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:24.384762+00:00",
+      "artifact_path": "results\\descriptive\\dmi_moments_by_group.csv",
+      "meta": {}
+    },
+    "vif_predictors": {
+      "result_id": "vif_predictors",
+      "category": "descriptive",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:24.705754+00:00",
+      "artifact_path": "results\\descriptive\\vif_predictors.csv",
+      "meta": {
+        "predictors": [
+          "X1_lag1",
+          "X2_lag1",
+          "X3_lag1",
+          "X4_lag1",
+          "X5_lag1",
+          "X6_lag1",
+          "X7_lag1",
+          "X8_lag1",
+          "X9_lag1",
+          "X10_lag1",
+          "C1_lag1",
+          "C2_lag1"
+        ],
+        "use_lagged": true
+      }
+    },
+    "descriptive_summary_result": {
+      "result_id": "descriptive_summary_result",
+      "category": "descriptive",
+      "format": "json",
+      "created_at": "2026-09-28T16:10:24.717750+00:00",
+      "artifact_path": "results\\descriptive\\descriptive_summary_result.json",
+      "meta": {
+        "path": "results\\descriptive\\descriptive_summary.json"
+      }
+    },
+    "hausman_test_result": {
+      "result_id": "hausman_test_result",
+      "category": "econometrics",
+      "format": "json",
+      "created_at": "2026-09-28T16:10:25.682486+00:00",
+      "artifact_path": "results\\econometrics\\hausman_test_result.json",
+      "meta": {
+        "path": "results\\econometrics\\hausman_test.json"
+      }
+    },
+    "adf_dmi_by_country": {
+      "result_id": "adf_dmi_by_country",
+      "category": "econometrics",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:25.717497+00:00",
+      "artifact_path": "results\\econometrics\\adf_dmi_by_country.csv",
+      "meta": {}
+    },
+    "econometrics_diagnostics_result": {
+      "result_id": "econometrics_diagnostics_result",
+      "category": "econometrics",
+      "format": "json",
+      "created_at": "2026-09-28T16:10:25.732692+00:00",
+      "artifact_path": "results\\econometrics\\econometrics_diagnostics_result.json",
+      "meta": {
+        "path": "results\\econometrics\\diagnostics.json"
+      }
+    },
+    "econometrics_coefficients": {
+      "result_id": "econometrics_coefficients",
+      "category": "econometrics",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:25.826656+00:00",
+      "artifact_path": "results\\econometrics\\econometrics_coefficients.csv",
+      "meta": {}
+    },
+    "econometrics_pvalues": {
+      "result_id": "econometrics_pvalues",
+      "category": "econometrics",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:25.842691+00:00",
+      "artifact_path": "results\\econometrics\\econometrics_pvalues.csv",
+      "meta": {}
+    },
+    "econometrics_metrics": {
+      "result_id": "econometrics_metrics",
+      "category": "econometrics",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:25.852770+00:00",
+      "artifact_path": "results\\econometrics\\econometrics_metrics.csv",
+      "meta": {}
+    },
+    "econometrics_applicability": {
+      "result_id": "econometrics_applicability",
+      "category": "econometrics",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:25.864283+00:00",
+      "artifact_path": "results\\econometrics\\econometrics_applicability.csv",
+      "meta": {}
+    },
+    "econometrics_summary_result": {
+      "result_id": "econometrics_summary_result",
+      "category": "econometrics",
+      "format": "json",
+      "created_at": "2026-09-28T16:10:25.873282+00:00",
+      "artifact_path": "results\\econometrics\\econometrics_summary_result.json",
+      "meta": {
+        "path": "results\\econometrics\\econometrics_summary.json"
+      }
+    },
+    "ml_model_comparison": {
+      "result_id": "ml_model_comparison",
+      "category": "machine_learning",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:58.401055+00:00",
+      "artifact_path": "results\\machine_learning\\ml_model_comparison.csv",
+      "meta": {
+        "best_model": "ridge"
+      }
+    },
+    "ml_model_selection": {
+      "result_id": "ml_model_selection",
+      "category": "machine_learning",
+      "format": "json",
+      "created_at": "2026-09-28T16:10:58.415002+00:00",
+      "artifact_path": "results\\machine_learning\\ml_model_selection.json",
+      "meta": {}
+    },
+    "ml_training_summary": {
+      "result_id": "ml_training_summary",
+      "category": "machine_learning",
+      "format": "json",
+      "created_at": "2026-09-28T16:10:58.423996+00:00",
+      "artifact_path": "results\\machine_learning\\ml_training_summary.json",
+      "meta": {}
+    },
+    "xai_feature_importance": {
+      "result_id": "xai_feature_importance",
+      "category": "xai",
+      "format": "csv",
+      "created_at": "2026-09-28T16:10:58.466004+00:00",
+      "artifact_path": "results\\xai\\xai_feature_importance.csv",
+      "meta": {
+        "method": "native_abs_coef",
+        "model_id": "ridge_20260928T161026Z"
+      }
+    },
+    "xai_shap_global": {
+      "result_id": "xai_shap_global",
+      "category": "xai",
+      "format": "csv",
+      "created_at": "2026-09-28T16:11:05.236095+00:00",
+      "artifact_path": "results\\xai\\xai_shap_global.csv",
+      "meta": {
+        "explainer": "KernelExplainer",
+        "model_id": "ridge_20260928T161026Z"
+      }
+    },
+    "xai_lime": {
+      "result_id": "xai_lime",
+      "category": "xai",
+      "format": "json",
+      "created_at": "2026-09-28T16:11:06.231488+00:00",
+      "artifact_path": "results\\xai\\xai_lime.json",
+      "meta": {
+        "model_id": "ridge_20260928T161026Z"
+      }
+    },
+    "xai_partial_dependence": {
+      "result_id": "xai_partial_dependence",
+      "category": "xai",
+      "format": "csv",
+      "created_at": "2026-09-28T16:11:07.029887+00:00",
+      "artifact_path": "results\\xai\\xai_partial_dependence.csv",
+      "meta": {
+        "features": [
+          "X10_lag1",
+          "C2_lag1",
+          "X3_lag1",
+          "X8_lag1"
+        ],
+        "model_id": "ridge_20260928T161026Z"
+      }
+    },
+    "xai_summary": {
+      "result_id": "xai_summary",
+      "category": "xai",
+      "format": "json",
+      "created_at": "2026-09-28T16:11:07.039879+00:00",
+      "artifact_path": "results\\xai\\xai_summary.json",
+      "meta": {}
+    },
+    "sigma_convergence": {
+      "result_id": "sigma_convergence",
+      "category": "convergence",
+      "format": "csv",
+      "created_at": "2026-09-28T16:11:07.102857+00:00",
+      "artifact_path": "results\\convergence\\sigma_convergence.csv",
+      "meta": {
+        "also_cv": true,
+        "by_group": true
+      }
+    },
+    "beta_endpoints": {
+      "result_id": "beta_endpoints",
+      "category": "convergence",
+      "format": "csv",
+      "created_at": "2026-09-28T16:11:07.168891+00:00",
+      "artifact_path": "results\\convergence\\beta_endpoints.csv",
+      "meta": {}
+    },
+    "beta_convergence": {
+      "result_id": "beta_convergence",
+      "category": "convergence",
+      "format": "json",
+      "created_at": "2026-09-28T16:11:07.183892+00:00",
+      "artifact_path": "results\\convergence\\beta_convergence.json",
+      "meta": {}
+    },
+    "beta_coefficients": {
+      "result_id": "beta_coefficients",
+      "category": "convergence",
+      "format": "csv",
+      "created_at": "2026-09-28T16:11:07.192854+00:00",
+      "artifact_path": "results\\convergence\\beta_coefficients.csv",
+      "meta": {}
+    },
+    "convergence_summary": {
+      "result_id": "convergence_summary",
+      "category": "convergence",
+      "format": "json",
+      "created_at": "2026-09-28T16:11:07.203856+00:00",
+      "artifact_path": "results\\convergence\\convergence_summary.json",
+      "meta": {}
+    },
+    "hypothesis_evaluation": {
+      "result_id": "hypothesis_evaluation",
+      "category": "hypotheses",
+      "format": "json",
+      "created_at": "2026-09-28T16:11:11.058681+00:00",
+      "artifact_path": "results\\hypotheses\\hypothesis_evaluation.json",
+      "meta": {
+        "alpha": 0.05
+      }
+    },
+    "comparative_group_summary": {
+      "result_id": "comparative_group_summary",
+      "category": "comparative",
+      "format": "json",
+      "created_at": "2026-09-28T16:11:11.102507+00:00",
+      "artifact_path": "results\\comparative\\comparative_group_summary.json",
+      "meta": {}
+    },
+    "comparative_group_comparison": {
+      "result_id": "comparative_group_comparison",
+      "category": "comparative",
+      "format": "csv",
+      "created_at": "2026-09-28T16:11:11.112104+00:00",
+      "artifact_path": "results\\comparative\\comparative_group_comparison.csv",
+      "meta": {}
+    }
+  }
+}

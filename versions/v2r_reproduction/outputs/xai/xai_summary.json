@@ -1,0 +1,45 @@
+{
+  "model_id": "xgboost_20260928T155109Z",
+  "model_type": "xgboost",
+  "model_source": "best_model.json",
+  "artifact_path": "outputs\\models\\xgboost_20260928T155109Z\\xgboost_20260928T155109Z.joblib",
+  "rmse": 2.1213009313702123,
+  "target": "DMI",
+  "predictors": [
+    "X1_lag1",
+    "X2_lag1",
+    "X3_lag1",
+    "X4_lag1",
+    "X5_lag1",
+    "X6_lag1",
+    "X7_lag1",
+    "X8_lag1",
+    "X9_lag1",
+    "X10_lag1",
+    "C1_lag1",
+    "C2_lag1"
+  ],
+  "n_rows": 156,
+  "methods_requested": [
+    "shap",
+    "lime",
+    "feature_importance",
+    "pdp"
+  ],
+  "artifacts": {
+    "feature_importance": "outputs\\xai\\feature_importance.csv",
+    "lime": "outputs\\xai\\lime_explanations.json",
+    "pdp": {
+      "csv": "outputs\\xai\\partial_dependence.csv",
+      "plot": "outputs\\xai\\partial_dependence.png"
+    }
+  },
+  "warnings": [
+    {
+      "method": "shap",
+      "warning": "ValueError(\"could not convert string to float: '[5.906451E1]'\")"
+    }
+  ],
+  "n_produced": 3,
+  "seed": 42
+}

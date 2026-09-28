@@ -1,0 +1,8 @@
+{
+  "result_id": "convergence_summary",
+  "category": "convergence",
+  "format": "json",
+  "created_at": "2026-09-28T15:57:41.598848+00:00",
+  "artifact_path": "results\\convergence\\convergence_summary.json",
+  "meta": {}
+}

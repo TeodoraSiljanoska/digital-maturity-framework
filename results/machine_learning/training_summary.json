@@ -1,5 +1,5 @@
 {
-  "experiment_id": "20260811T132151Z_91175af9",
+  "experiment_id": "20260928T163149Z_5b5cb22a",
   "n_train": 144,
   "n_test": 24,
   "predictors": [
@@ -23,8 +23,8 @@
   ],
   "successes": 8,
   "failures": 0,
-  "best_model": "catboost",
-  "best_rmse": 1.9438235361441458,
-  "comparison_path": "results/machine_learning/model_comparison.csv",
+  "best_model": "ridge",
+  "best_rmse": 1.5247633882885627,
+  "comparison_path": "results\\machine_learning\\model_comparison.csv",
   "seed": 42
 }

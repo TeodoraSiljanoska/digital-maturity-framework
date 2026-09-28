@@ -1,0 +1,161 @@
+{
+  "CQ1": {
+    "id": "CQ1",
+    "answer": {
+      "official_api": [
+        "X1",
+        "X2",
+        "X4",
+        "X8",
+        "X9",
+        "C1"
+      ],
+      "curated_snapshot": [
+        "X3",
+        "X5",
+        "X6",
+        "X7",
+        "X10",
+        "C2"
+      ],
+      "constructed": [
+        "DMI"
+      ]
+    },
+    "passed": true
+  },
+  "CQ2": {
+    "id": "CQ2",
+    "answer": {
+      "country_iso3": "MKD",
+      "year": 2025,
+      "counts": {
+        "carried_forward": 8,
+        "constructed": 1,
+        "mice_imputed": 1,
+        "official": 3
+      }
+    },
+    "passed": true
+  },
+  "CQ3": {
+    "id": "CQ3",
+    "answer": {
+      "model": "catboost",
+      "phase": "predict",
+      "purpose": "Non-linear prediction of DMI"
+    },
+    "passed": true
+  },
+  "CQ4": {
+    "id": "CQ4",
+    "answer": [],
+    "passed": false
+  },
+  "CQ5": {
+    "id": "CQ5",
+    "answer": [
+      {
+        "indicator_id": "X1",
+        "value": 108.38712260883,
+        "provenance": "carried_forward",
+        "source_id": "world_bank",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "X2",
+        "value": 29.8921727758887,
+        "provenance": "carried_forward",
+        "source_id": "world_bank",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "X3",
+        "value": 0.707,
+        "provenance": "carried_forward",
+        "source_id": "un_egdi",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "X4",
+        "value": 93.1,
+        "provenance": "official",
+        "source_id": "world_bank",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "X5",
+        "value": 84.17,
+        "provenance": "carried_forward",
+        "source_id": "ncsi",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "X6",
+        "value": 33.0,
+        "provenance": "carried_forward",
+        "source_id": "gii",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "X7",
+        "value": 45.4,
+        "provenance": "carried_forward",
+        "source_id": "oxford_insights",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "X8",
+        "value": 0.37363,
+        "provenance": "carried_forward",
+        "source_id": "world_bank",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "X9",
+        "value": 21.5247930087355,
+        "provenance": "official",
+        "source_id": "world_bank",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "X10",
+        "value": 0.6642,
+        "provenance": "carried_forward",
+        "source_id": "un_egdi",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "C1",
+        "value": 10.130408859167302,
+        "provenance": "official",
+        "source_id": "world_bank",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "C2",
+        "value": 0.777212,
+        "provenance": "mice_imputed",
+        "source_id": "undp",
+        "phase_id": "acquire"
+      },
+      {
+        "indicator_id": "DMI",
+        "value": 53.515173314162446,
+        "provenance": "constructed",
+        "source_id": "constructed",
+        "phase_id": "index"
+      }
+    ],
+    "passed": true
+  },
+  "CQ6": {
+    "id": "CQ6",
+    "answer": {
+      "n_countries": 12,
+      "n_acquired_indicators": 12,
+      "n_all_indicators": 13
+    },
+    "passed": true
+  }
+}

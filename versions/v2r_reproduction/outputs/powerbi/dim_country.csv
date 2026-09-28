@@ -1,0 +1,13 @@
+country_iso3,country_iso2,country_name,group_id,group_name
+MKD,MK,North Macedonia,balkan,Balkan countries
+SRB,RS,Serbia,balkan,Balkan countries
+SVN,SI,Slovenia,balkan,Balkan countries
+FRA,FR,France,developed_eu,Developed European countries
+GBR,GB,United Kingdom,developed_eu,Developed European countries
+DEU,DE,Germany,developed_eu,Developed European countries
+USA,US,United States,developed_non_eu,Developed non-European countries
+CAN,CA,Canada,developed_non_eu,Developed non-European countries
+AUS,AU,Australia,developed_non_eu,Developed non-European countries
+BRA,BR,Brazil,developing,Developing countries
+ARG,AR,Argentina,developing,Developing countries
+IND,IN,India,developing,Developing countries

@@ -1,0 +1,51 @@
+{
+  "result_id": "descriptive_summary_result",
+  "category": "descriptive",
+  "meta": {
+    "path": "results\\descriptive\\descriptive_summary.json"
+  },
+  "data": {
+    "n_rows": 168,
+    "n_countries": 12,
+    "years": [
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "target": "DMI",
+    "predictors": [
+      "X1_lag1",
+      "X2_lag1",
+      "X3_lag1",
+      "X4_lag1",
+      "X5_lag1",
+      "X6_lag1",
+      "X7_lag1",
+      "X8_lag1",
+      "X9_lag1",
+      "X10_lag1",
+      "C1_lag1",
+      "C2_lag1"
+    ],
+    "use_lagged_features": true,
+    "artifacts": {
+      "descriptive_full_sample": "results\\descriptive\\descriptive_full_sample.csv",
+      "descriptive_by_group": "results\\descriptive\\descriptive_by_group.csv",
+      "correlation_matrix": "results\\descriptive\\correlation_matrix.csv",
+      "dmi_moments": "results\\descriptive\\dmi_distribution_moments.json",
+      "vif": "results\\descriptive\\vif_predictors.csv"
+    }
+  },
+  "created_at": "2026-09-28T15:51:07.509204+00:00"
+}

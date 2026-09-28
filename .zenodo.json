@@ -1,0 +1,13 @@
+{
+  "title": "Digital Maturity Framework: edition-aware, provenance-tracked panel of digital-maturity indicators (2012-2025)",
+  "upload_type": "software",
+  "description": "Code, configuration, source snapshots with per-value provenance, processed panels and result tracks of a retrieval and preprocessing pipeline for digital-maturity indicators of 12 countries over 2012-2025 (World Bank WDI, UN EGDI/OSI, WIPO GII, Oxford Insights Government AI Readiness, e-Governance Academy NCSI, UNDP education index). Third-party values remain under their publishers' terms (DATA_SOURCES.md).",
+  "creators": [
+    {"name": "Siljanoska Taskovska, Teodora", "orcid": "0009-0008-9147-7408", "affiliation": "University St. Kliment Ohridski, Bitola"},
+    {"name": "Savoska, Snezana", "orcid": "0000-0002-0539-1771", "affiliation": "University St. Kliment Ohridski, Bitola"}
+  ],
+  "license": "MIT",
+  "keywords": ["digital maturity", "data provenance", "data preprocessing", "edition harmonisation", "imputation", "visual data analytics"],
+  "grants": [],
+  "notes": "This work is based upon work from COST Action HiTEc, CA21163, supported by COST (European Cooperation in Science and Technology)."
+}

@@ -1,6 +1,6 @@
 # Discussion evidence (hypothesis-linked)
 
-_Generated: 2026-08-11T13:23:46.876405+00:00_
+_Generated: 2026-09-28T16:41:39.021743+00:00_
 
 Evidence statements below are derived from `results/hypotheses/hypothesis_evaluation.json`.
 

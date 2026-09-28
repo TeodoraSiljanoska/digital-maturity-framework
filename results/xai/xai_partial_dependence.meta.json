@@ -2,15 +2,15 @@
   "result_id": "xai_partial_dependence",
   "category": "xai",
   "format": "csv",
-  "created_at": "2026-08-11T13:22:02.310989+00:00",
-  "artifact_path": "results/xai/xai_partial_dependence.csv",
+  "created_at": "2026-09-28T16:32:34.017524+00:00",
+  "artifact_path": "results\\xai\\xai_partial_dependence.csv",
   "meta": {
     "features": [
+      "X10_lag1",
       "X3_lag1",
-      "X2_lag1",
       "C2_lag1",
       "C1_lag1"
     ],
-    "model_id": "catboost_20260811T132151Z"
+    "model_id": "ridge_20260928T163149Z"
   }
 }

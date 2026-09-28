@@ -1,0 +1,479 @@
+{
+  "retrieved_at": "2026-09-28T15:56:39+00:00",
+  "start_year": 2012,
+  "end_year": 2025,
+  "countries": [
+    "MKD",
+    "SRB",
+    "SVN",
+    "FRA",
+    "GBR",
+    "DEU",
+    "USA",
+    "CAN",
+    "AUS",
+    "BRA",
+    "ARG",
+    "IND"
+  ],
+  "sources": {
+    "gii": {
+      "adapter": "gii",
+      "rows": 168,
+      "indicator_codes": [
+        "GII_SCORE"
+      ],
+      "path": "data\\raw\\gii\\raw_long.parquet",
+      "checksum_sha256": "be8433d39cfea0d02f8536ea92b89ff0dd8f8296ee4dd14d7f0238a3e14d2389",
+      "retrieved_at": "2026-09-28T15:56:39+00:00",
+      "adapter_metadata": {
+        "name": "gii",
+        "adapter": "GIIAdapter",
+        "config_keys": [
+          "adapter",
+          "snapshot_file",
+          "timeout_seconds"
+        ],
+        "standard_columns": [
+          "country_iso3",
+          "year",
+          "indicator_id",
+          "indicator_code",
+          "value",
+          "source",
+          "retrieved_at"
+        ],
+        "snapshot_file": "data/raw/gii/gii_panel.csv",
+        "snapshot_exists": true,
+        "value_columns": {
+          "GII_SCORE": "GII_SCORE"
+        }
+      },
+      "validation": {
+        "source": "gii",
+        "rows": 168,
+        "countries": 12,
+        "years": [
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "indicators": [
+          "GII_SCORE"
+        ],
+        "non_null_ratio": 1.0,
+        "ok": true
+      }
+    },
+    "ncsi": {
+      "adapter": "ncsi",
+      "rows": 168,
+      "indicator_codes": [
+        "NCSI_SCORE"
+      ],
+      "path": "data\\raw\\ncsi\\raw_long.parquet",
+      "checksum_sha256": "a5037cacfe90fee242112c3e899f573ef6ca07a05a1e82ddeaeb817182b36fd6",
+      "retrieved_at": "2026-09-28T15:56:39+00:00",
+      "adapter_metadata": {
+        "name": "ncsi",
+        "adapter": "NCSIAdapter",
+        "config_keys": [
+          "adapter",
+          "snapshot_file",
+          "timeout_seconds"
+        ],
+        "standard_columns": [
+          "country_iso3",
+          "year",
+          "indicator_id",
+          "indicator_code",
+          "value",
+          "source",
+          "retrieved_at"
+        ],
+        "snapshot_file": "data/raw/ncsi/ncsi_panel.csv",
+        "snapshot_exists": true,
+        "value_columns": {
+          "NCSI_SCORE": "NCSI_SCORE"
+        }
+      },
+      "validation": {
+        "source": "ncsi",
+        "rows": 168,
+        "countries": 12,
+        "years": [
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "indicators": [
+          "NCSI_SCORE"
+        ],
+        "non_null_ratio": 0.125,
+        "ok": true
+      }
+    },
+    "oxford_insights": {
+      "adapter": "oxford",
+      "rows": 168,
+      "indicator_codes": [
+        "AI_READY"
+      ],
+      "path": "data\\raw\\oxford_insights\\raw_long.parquet",
+      "checksum_sha256": "f96b654271c0f6c978c87e9b105e43ef59a5c36f747830374af4c394229f45bc",
+      "retrieved_at": "2026-09-28T15:56:39+00:00",
+      "adapter_metadata": {
+        "name": "oxford",
+        "adapter": "OxfordAdapter",
+        "config_keys": [
+          "adapter",
+          "snapshot_file",
+          "timeout_seconds"
+        ],
+        "standard_columns": [
+          "country_iso3",
+          "year",
+          "indicator_id",
+          "indicator_code",
+          "value",
+          "source",
+          "retrieved_at"
+        ],
+        "snapshot_file": "data/raw/oxford/ai_readiness_panel.csv",
+        "snapshot_exists": true,
+        "value_columns": {
+          "AI_READY": "AI_READY"
+        }
+      },
+      "validation": {
+        "source": "oxford",
+        "rows": 168,
+        "countries": 12,
+        "years": [
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "indicators": [
+          "AI_READY"
+        ],
+        "non_null_ratio": 0.42857142857142855,
+        "ok": true
+      }
+    },
+    "un_egdi": {
+      "adapter": "un",
+      "rows": 336,
+      "indicator_codes": [
+        "EGDI",
+        "OSI"
+      ],
+      "path": "data\\raw\\un_egdi\\raw_long.parquet",
+      "checksum_sha256": "f5a46eef6d93736712e5a81a3c8bf1f1d8ed32cfc5e9fd11e342a4ec108a1199",
+      "retrieved_at": "2026-09-28T15:56:39+00:00",
+      "adapter_metadata": {
+        "name": "un",
+        "adapter": "UNAdapter",
+        "config_keys": [
+          "adapter",
+          "snapshot_file",
+          "timeout_seconds"
+        ],
+        "standard_columns": [
+          "country_iso3",
+          "year",
+          "indicator_id",
+          "indicator_code",
+          "value",
+          "source",
+          "retrieved_at"
+        ],
+        "snapshot_file": "data/raw/un_egdi/egdi_panel.csv",
+        "snapshot_exists": true,
+        "value_columns": {
+          "EGDI": "EGDI",
+          "OSI": "OSI"
+        }
+      },
+      "validation": {
+        "source": "un",
+        "rows": 336,
+        "countries": 12,
+        "years": [
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "indicators": [
+          "EGDI",
+          "OSI"
+        ],
+        "non_null_ratio": 0.5,
+        "ok": true
+      }
+    },
+    "undp": {
+      "adapter": "undp",
+      "rows": 168,
+      "indicator_codes": [
+        "EDU_INDEX"
+      ],
+      "path": "data\\raw\\undp\\raw_long.parquet",
+      "checksum_sha256": "249110f69263a1139dee29514ae78dfaf04209652a8818ab026b9cfabde57c88",
+      "retrieved_at": "2026-09-28T15:56:39+00:00",
+      "adapter_metadata": {
+        "name": "undp",
+        "adapter": "UNDPAdapter",
+        "config_keys": [
+          "adapter",
+          "snapshot_file",
+          "timeout_seconds"
+        ],
+        "standard_columns": [
+          "country_iso3",
+          "year",
+          "indicator_id",
+          "indicator_code",
+          "value",
+          "source",
+          "retrieved_at"
+        ],
+        "snapshot_file": "data/raw/undp/education_index_panel.csv",
+        "snapshot_exists": true,
+        "value_columns": {
+          "EDU_INDEX": "EDU_INDEX"
+        }
+      },
+      "validation": {
+        "source": "undp",
+        "rows": 168,
+        "countries": 12,
+        "years": [
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "indicators": [
+          "EDU_INDEX"
+        ],
+        "non_null_ratio": 0.8571428571428571,
+        "ok": true
+      }
+    },
+    "world_bank": {
+      "adapter": "world_bank",
+      "rows": 1008,
+      "indicator_codes": [
+        "IT.CEL.SETS.P2",
+        "IT.NET.BBND.P2",
+        "IT.NET.USER.ZS",
+        "GB.XPD.RSDV.GD.ZS",
+        "BX.GSR.CCIS.ZS",
+        "NY.GDP.PCAP.PP.KD"
+      ],
+      "path": "data\\raw\\world_bank\\raw_long.parquet",
+      "checksum_sha256": "382fb50574b3d060a89d329e86905443b0ef67df305e471f224700f113437eba",
+      "retrieved_at": "2026-09-28T15:56:39+00:00",
+      "adapter_metadata": {
+        "name": "world_bank",
+        "adapter": "WorldBankAdapter",
+        "config_keys": [
+          "adapter",
+          "base_url",
+          "cached_raw_path",
+          "retry",
+          "timeout_seconds",
+          "use_cached_raw"
+        ],
+        "standard_columns": [
+          "country_iso3",
+          "year",
+          "indicator_id",
+          "indicator_code",
+          "value",
+          "source",
+          "retrieved_at"
+        ],
+        "base_url": "https://api.worldbank.org/v2",
+        "timeout_seconds": 60,
+        "retry": 3,
+        "api": "World Bank API v2",
+        "mode": "cached_vintage",
+        "cached_raw_path": "data/raw/world_bank/wdi_vintage_20260809.parquet",
+        "vintage_retrieved_at": [
+          "2026-08-09T20:18:24+00:00"
+        ]
+      },
+      "validation": {
+        "source": "world_bank",
+        "rows": 1008,
+        "countries": 12,
+        "years": [
+          2012,
+          2013,
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "indicators": [
+          "BX.GSR.CCIS.ZS",
+          "GB.XPD.RSDV.GD.ZS",
+          "IT.CEL.SETS.P2",
+          "IT.NET.BBND.P2",
+          "IT.NET.USER.ZS",
+          "NY.GDP.PCAP.PP.KD"
+        ],
+        "non_null_ratio": 0.9345238095238095,
+        "ok": true
+      }
+    }
+  },
+  "combined_validation": {
+    "ok": true,
+    "hard_failures": [],
+    "warnings": [],
+    "checks": {
+      "schema": {
+        "required": [
+          "country_iso3",
+          "year",
+          "indicator_id",
+          "indicator_code",
+          "value",
+          "source",
+          "retrieved_at"
+        ],
+        "missing": []
+      },
+      "countries": {
+        "allowed": [
+          "ARG",
+          "AUS",
+          "BRA",
+          "CAN",
+          "DEU",
+          "FRA",
+          "GBR",
+          "IND",
+          "MKD",
+          "SRB",
+          "SVN",
+          "USA"
+        ],
+        "present": [
+          "ARG",
+          "AUS",
+          "BRA",
+          "CAN",
+          "DEU",
+          "FRA",
+          "GBR",
+          "IND",
+          "MKD",
+          "SRB",
+          "SVN",
+          "USA"
+        ],
+        "unknown": []
+      },
+      "years": {
+        "min": 2012,
+        "max": 2025,
+        "out_of_range_rows": 0,
+        "expected_start": 2012,
+        "expected_end": 2025
+      },
+      "duplicates": {
+        "key_columns": [
+          "country_iso3",
+          "year",
+          "indicator_code"
+        ],
+        "duplicate_rows": 0
+      },
+      "non_null_ratio": {
+        "ratio": 0.7514880952380952,
+        "min_required": 0.0
+      }
+    },
+    "rows": 2016
+  },
+  "integrated": {
+    "path": "data\\raw\\integrated_raw.parquet",
+    "checksum_sha256": "0c81ebaab6489120cf2ca486fc1101b8b1cbc831fb142aea6805362731f675cc",
+    "rows": 2016,
+    "columns": [
+      "country_iso3",
+      "year",
+      "indicator_id",
+      "indicator_code",
+      "value",
+      "source",
+      "retrieved_at"
+    ]
+  }
+}

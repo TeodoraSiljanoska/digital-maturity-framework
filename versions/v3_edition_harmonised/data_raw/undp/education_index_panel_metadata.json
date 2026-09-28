@@ -1,0 +1,35 @@
+{
+  "dataset": "HDR",
+  "indicators": [
+    "EDU_INDEX"
+  ],
+  "publisher": "UNDP Human Development Report Office",
+  "source_url": "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Composite_indices_complete_time_series.csv",
+  "vintage": "HDR 2025 time series (single vintage for all years)",
+  "notes": "Years after the last HDR data year are left empty.",
+  "max_hdi_reproduction_error": 0.00049995424171978,
+  "written_at": "2026-09-28T15:22:01+00:00",
+  "rows": 168,
+  "values": 144,
+  "path": "data/raw/undp/education_index_panel.csv",
+  "provenance_sidecar": "data/raw/undp/education_index_panel_value_provenance.csv",
+  "countries": [
+    "MKD",
+    "SRB",
+    "SVN",
+    "FRA",
+    "GBR",
+    "DEU",
+    "USA",
+    "CAN",
+    "AUS",
+    "BRA",
+    "ARG",
+    "IND"
+  ],
+  "panel_years": [
+    2012,
+    2025
+  ],
+  "fabricated_values": false
+}

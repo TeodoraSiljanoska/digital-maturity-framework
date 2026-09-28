@@ -1,0 +1,10 @@
+{
+  "result_id": "descriptive_by_group",
+  "category": "descriptive",
+  "format": "csv",
+  "created_at": "2026-09-28T15:51:07.133146+00:00",
+  "artifact_path": "results\\descriptive\\descriptive_by_group.csv",
+  "meta": {
+    "sample": "by_group"
+  }
+}

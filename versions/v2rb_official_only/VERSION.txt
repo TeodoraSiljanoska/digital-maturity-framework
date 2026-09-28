@@ -1,0 +1,31 @@
+version: v2rb_official_only
+generated_by: scripts/run_track.py
+created_at: 2026-09-28T16:11:12+00:00
+code_commit: 40d8a0d+uncommitted-changes
+config_source: git:v2-frozen
+raw_data_source: git:v2-frozen
+missing_data_arm: official_only
+start_stage: DATA_VALIDATED
+period: 2012-2025
+
+cell_provenance:
+  official: 1326 (0.658)
+  carried_forward: 505 (0.250)
+  mice_imputed: 0 (0.000)
+  missing: 185 (0.092)
+reconstruction_scope: {'interior': 0, 'backcast': 0, 'forecast': 0, 'unobserved_series': 0}
+
+edition_breaks:
+  raw_flagged: [X7 2019->2020 (detected), X10 2014->2016 (detected)]
+  filtered_flagged: [X7 2019->2020 (detected), X10 2014->2016 (detected)]
+
+coverage:
+  dmi_panel_rows: 168
+  countries: 12
+  complete_10_indicator_baskets: 67 of 168
+  fixed_effects_estimation_rows: 57
+  ml_sample: 144 train / 24 test
+
+dmi: mean 60.878, sd 16.770, min 14.239, max 83.998
+audit: 24 of 24 criteria pass
+environment: python 3.12.10; scikit-learn 1.9.1; xgboost 3.4.1; lightgbm 4.7.0; catboost 1.2.10

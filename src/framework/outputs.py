@@ -227,7 +227,7 @@ def build_framework_status(project_root: Path | str, config: Any = None) -> Dict
     panel = _load_panel(root)
     status = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "project_root": str(root),
+        "project_root": root.name,
         "latest_dmi_by_country": _latest_maturity_table(panel),
         "best_model_metrics": _best_model_metrics(root),
         "top_shap_factors": _top_shap_factors(root),

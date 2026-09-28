@@ -2,7 +2,7 @@
   "result_id": "econometrics_metrics",
   "category": "econometrics",
   "format": "csv",
-  "created_at": "2026-08-11T13:21:51.455394+00:00",
-  "artifact_path": "results/econometrics/econometrics_metrics.csv",
+  "created_at": "2026-09-28T16:31:49.485295+00:00",
+  "artifact_path": "results\\econometrics\\econometrics_metrics.csv",
   "meta": {}
 }

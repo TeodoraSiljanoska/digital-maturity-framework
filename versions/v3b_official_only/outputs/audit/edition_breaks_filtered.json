@@ -1,0 +1,26 @@
+{
+  "label": "filtered",
+  "thresholds": {
+    "ratio": 3.0,
+    "share_same_sign": 0.75,
+    "min_countries": 6
+  },
+  "n_boundaries": 41,
+  "n_flagged": 1,
+  "flagged": [
+    {
+      "variable": "X10",
+      "from_year": 2014,
+      "to_year": 2016,
+      "n_countries": 12,
+      "median_change_per_year": 0.073105,
+      "reference_abs_change_per_year": 0.0222725,
+      "ratio": 3.282298799,
+      "share_same_sign": 0.8333333333,
+      "statistical_flag": true,
+      "declared_note": null,
+      "status": "detected"
+    }
+  ],
+  "csv": "outputs\\audit\\edition_breaks_filtered.csv"
+}

@@ -1,0 +1,455 @@
+{
+  "top_factors": [
+    {
+      "feature": "X4_lag1",
+      "importance": 4.992827803694083,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X2_lag1",
+      "importance": 3.150008802432657,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "C1_lag1",
+      "importance": 2.865814128978313,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X6_lag1",
+      "importance": 2.7617113764856422,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X8_lag1",
+      "importance": 2.5887566328997287,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X1_lag1",
+      "importance": 1.81371786913301,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X10_lag1",
+      "importance": 1.5737216138929797,
+      "source": "results\\xai\\xai_shap_global.csv"
+    },
+    {
+      "feature": "X3_lag1",
+      "importance": 1.250434306690401,
+      "source": "results\\xai\\xai_shap_global.csv"
+    }
+  ],
+  "framework_semantics": [
+    {
+      "indicator_id": "X1",
+      "uri": "http://purl.org/dmi-framework#Ind_X1",
+      "pillar": "infrastructure",
+      "collection_method": "official_api",
+      "source": "world_bank",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X1 \u2192 pillar infrastructure \u2192 method official_api"
+    },
+    {
+      "indicator_id": "X2",
+      "uri": "http://purl.org/dmi-framework#Ind_X2",
+      "pillar": "infrastructure",
+      "collection_method": "official_api",
+      "source": "world_bank",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X2 \u2192 pillar infrastructure \u2192 method official_api"
+    },
+    {
+      "indicator_id": "X3",
+      "uri": "http://purl.org/dmi-framework#Ind_X3",
+      "pillar": "e_government",
+      "collection_method": "curated_snapshot",
+      "source": "un_egdi",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X3 \u2192 pillar e_government \u2192 method curated_snapshot"
+    },
+    {
+      "indicator_id": "X4",
+      "uri": "http://purl.org/dmi-framework#Ind_X4",
+      "pillar": "skills",
+      "collection_method": "official_api",
+      "source": "world_bank",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X4 \u2192 pillar skills \u2192 method official_api"
+    },
+    {
+      "indicator_id": "X5",
+      "uri": "http://purl.org/dmi-framework#Ind_X5",
+      "pillar": "trust_innovation",
+      "collection_method": "curated_snapshot",
+      "source": "ncsi",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X5 \u2192 pillar trust_innovation \u2192 method curated_snapshot"
+    },
+    {
+      "indicator_id": "X6",
+      "uri": "http://purl.org/dmi-framework#Ind_X6",
+      "pillar": "trust_innovation",
+      "collection_method": "curated_snapshot",
+      "source": "gii",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X6 \u2192 pillar trust_innovation \u2192 method curated_snapshot"
+    },
+    {
+      "indicator_id": "X7",
+      "uri": "http://purl.org/dmi-framework#Ind_X7",
+      "pillar": "trust_innovation",
+      "collection_method": "curated_snapshot",
+      "source": "oxford_insights",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X7 \u2192 pillar trust_innovation \u2192 method curated_snapshot"
+    },
+    {
+      "indicator_id": "X8",
+      "uri": "http://purl.org/dmi-framework#Ind_X8",
+      "pillar": "digital_economy",
+      "collection_method": "official_api",
+      "source": "world_bank",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X8 \u2192 pillar digital_economy \u2192 method official_api"
+    },
+    {
+      "indicator_id": "X9",
+      "uri": "http://purl.org/dmi-framework#Ind_X9",
+      "pillar": "digital_economy",
+      "collection_method": "official_api",
+      "source": "world_bank",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X9 \u2192 pillar digital_economy \u2192 method official_api"
+    },
+    {
+      "indicator_id": "X10",
+      "uri": "http://purl.org/dmi-framework#Ind_X10",
+      "pillar": "digital_economy",
+      "collection_method": "curated_snapshot",
+      "source": "un_egdi",
+      "process_phases": [
+        "acquire",
+        "process",
+        "index",
+        "analyse",
+        "visualize"
+      ],
+      "role": "independent",
+      "sigma": "X10 \u2192 pillar digital_economy \u2192 method curated_snapshot"
+    },
+    {
+      "indicator_id": "C1",
+      "uri": "http://purl.org/dmi-framework#Ind_C1",
+      "pillar": "control",
+      "collection_method": "official_api",
+      "source": "world_bank",
+      "process_phases": [
+        "acquire",
+        "process",
+        "analyse",
+        "visualize"
+      ],
+      "role": "control",
+      "sigma": "C1 \u2192 pillar control \u2192 method official_api"
+    },
+    {
+      "indicator_id": "C2",
+      "uri": "http://purl.org/dmi-framework#Ind_C2",
+      "pillar": "control",
+      "collection_method": "curated_snapshot",
+      "source": "undp",
+      "process_phases": [
+        "acquire",
+        "process",
+        "analyse",
+        "visualize"
+      ],
+      "role": "control",
+      "sigma": "C2 \u2192 pillar control \u2192 method curated_snapshot"
+    },
+    {
+      "indicator_id": "DMI",
+      "uri": "http://purl.org/dmi-framework#Ind_DMI",
+      "pillar": "composite",
+      "collection_method": "constructed",
+      "source": "constructed",
+      "process_phases": [
+        "index",
+        "analyse",
+        "predict",
+        "explain",
+        "visualize"
+      ],
+      "role": "dependent",
+      "sigma": "DMI \u2192 pillar composite \u2192 method constructed"
+    }
+  ],
+  "result_explanations": [
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X4_0",
+      "indicator_id": "X4",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X4",
+      "method": "SHAP",
+      "mean_abs_shap": 4.992827803694083,
+      "rank": 1,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X2_1",
+      "indicator_id": "X2",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X2",
+      "method": "SHAP",
+      "mean_abs_shap": 3.150008802432657,
+      "rank": 2,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_C1_2",
+      "indicator_id": "C1",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_C1",
+      "method": "SHAP",
+      "mean_abs_shap": 2.865814128978313,
+      "rank": 3,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X6_3",
+      "indicator_id": "X6",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X6",
+      "method": "SHAP",
+      "mean_abs_shap": 2.7617113764856422,
+      "rank": 4,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X8_4",
+      "indicator_id": "X8",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X8",
+      "method": "SHAP",
+      "mean_abs_shap": 2.5887566328997287,
+      "rank": 5,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X1_5",
+      "indicator_id": "X1",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X1",
+      "method": "SHAP",
+      "mean_abs_shap": 1.81371786913301,
+      "rank": 6,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X10_6",
+      "indicator_id": "X10",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X10",
+      "method": "SHAP",
+      "mean_abs_shap": 1.5737216138929797,
+      "rank": 7,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X3_7",
+      "indicator_id": "X3",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X3",
+      "method": "SHAP",
+      "mean_abs_shap": 1.250434306690401,
+      "rank": 8,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X5_8",
+      "indicator_id": "X5",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X5",
+      "method": "SHAP",
+      "mean_abs_shap": 1.1199004772359986,
+      "rank": 9,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X7_9",
+      "indicator_id": "X7",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X7",
+      "method": "SHAP",
+      "mean_abs_shap": 0.9709899753157292,
+      "rank": 10,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_X9_10",
+      "indicator_id": "X9",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_X9",
+      "method": "SHAP",
+      "mean_abs_shap": 0.543557828097377,
+      "rank": 11,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    },
+    {
+      "uri": "http://purl.org/dmi-framework#Expl_SHAP_C2_11",
+      "indicator_id": "C2",
+      "indicator_uri": "http://purl.org/dmi-framework#Ind_C2",
+      "method": "SHAP",
+      "mean_abs_shap": 0.3504457470024918,
+      "rank": 12,
+      "context_uri": "http://purl.org/dmi-framework#CTX_prediction_xai"
+    }
+  ],
+  "contrasting_scenarios": [
+    {
+      "id": "balkan_north_macedonia",
+      "country_iso3": "MKD",
+      "year": 2025,
+      "DMI": 50.022361110973485,
+      "group_id": "balkan",
+      "binding_indicators": [
+        {
+          "indicator_id": "X4",
+          "value": 93.1
+        },
+        {
+          "indicator_id": "X2",
+          "value": 29.8921727758887
+        },
+        {
+          "indicator_id": "C1",
+          "value": 10.130408859167302
+        },
+        {
+          "indicator_id": "X6",
+          "value": 29.7907
+        },
+        {
+          "indicator_id": "X8",
+          "value": 0.37363
+        }
+      ],
+      "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"
+    },
+    {
+      "id": "developed_eu_germany",
+      "country_iso3": "DEU",
+      "year": 2025,
+      "DMI": 83.82198562173569,
+      "group_id": "developed_eu",
+      "binding_indicators": [
+        {
+          "indicator_id": "X4",
+          "value": 93.49999579
+        },
+        {
+          "indicator_id": "X2",
+          "value": 45.6069242965787
+        },
+        {
+          "indicator_id": "C1",
+          "value": 11.048088842362658
+        },
+        {
+          "indicator_id": "X6",
+          "value": 55.4554
+        },
+        {
+          "indicator_id": "X8",
+          "value": 3.1539
+        }
+      ],
+      "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"
+    }
+  ],
+  "n_xai_artifacts": 23,
+  "artifacts": [
+    "results\\xai\\feature_importance.csv",
+    "results\\xai\\lime_explanations.json",
+    "results\\xai\\partial_dependence.csv",
+    "results\\xai\\shap_global_importance.csv",
+    "results\\xai\\shap_local_explanations.json",
+    "results\\xai\\xai_feature_importance.csv",
+    "results\\xai\\xai_feature_importance.meta.json",
+    "results\\xai\\xai_lime.json",
+    "results\\xai\\xai_lime.meta.json",
+    "results\\xai\\xai_partial_dependence.csv",
+    "results\\xai\\xai_partial_dependence.meta.json",
+    "results\\xai\\xai_shap_global.csv",
+    "results\\xai\\xai_shap_global.meta.json",
+    "results\\xai\\xai_summary.json",
+    "results\\xai\\xai_summary.meta.json",
+    "outputs\\xai\\feature_importance.csv",
+    "outputs\\xai\\lime_explanations.json",
+    "outputs\\xai\\partial_dependence.csv",
+    "outputs\\xai\\partial_dependence.png",
+    "outputs\\xai\\shap_global_importance.csv",
+    "outputs\\xai\\shap_local_explanations.json",
+    "outputs\\xai\\shap_summary.png",
+    "outputs\\xai\\xai_summary.json"
+  ],
+  "available": true,
+  "dual": {
+    "framework": "layered TBox + \u03c3 readings + process phase + collection method",
+    "results": "reified SHAP/LIME linked to DecisionContext CTX_prediction_xai"
+  }
+}

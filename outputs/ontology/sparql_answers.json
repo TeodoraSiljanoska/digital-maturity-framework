@@ -72,15 +72,11 @@
     "answer": [
       {
         "prov": "carried_forward",
-        "n": 9
+        "n": 7
       },
       {
         "prov": "official",
-        "n": 2
-      },
-      {
-        "prov": "mice_imputed",
-        "n": 1
+        "n": 5
       },
       {
         "prov": "constructed",
@@ -105,44 +101,44 @@
     "id": "CQ4",
     "answer": [
       {
-        "id": "X2",
-        "shap": "2.5516899764311445"
-      },
-      {
-        "id": "X3",
-        "shap": "2.5331390297819816"
-      },
-      {
-        "id": "C2",
-        "shap": "1.872550726747607"
-      },
-      {
-        "id": "X6",
-        "shap": "1.7846094793368306"
-      },
-      {
         "id": "X4",
-        "shap": "1.75160215407221"
+        "shap": "4.992827803694082"
+      },
+      {
+        "id": "X2",
+        "shap": "3.1500088024326565"
       },
       {
         "id": "C1",
-        "shap": "1.4334343010138235"
+        "shap": "2.8658141289783146"
       },
       {
-        "id": "X5",
-        "shap": "1.2458249099456198"
+        "id": "X6",
+        "shap": "2.7617113764856414"
       },
       {
         "id": "X8",
-        "shap": "1.0126492870218191"
-      },
-      {
-        "id": "X10",
-        "shap": "0.8543390999414356"
+        "shap": "2.588756632899732"
       },
       {
         "id": "X1",
-        "shap": "0.8427850420338263"
+        "shap": "1.8137178691330076"
+      },
+      {
+        "id": "X10",
+        "shap": "1.5737216138929755"
+      },
+      {
+        "id": "X3",
+        "shap": "1.250434306690408"
+      },
+      {
+        "id": "X5",
+        "shap": "1.1199004772359908"
+      },
+      {
+        "id": "X7",
+        "shap": "0.9709899753157322"
       }
     ],
     "passed": true,
@@ -160,14 +156,14 @@
       },
       {
         "id": "C2",
-        "value": "0.7785119999999999",
-        "prov": "mice_imputed",
+        "value": "0.751596",
+        "prov": "carried_forward",
         "phase": "Acquire",
         "source": "undp"
       },
       {
         "id": "DMI",
-        "value": "53.515173314162446",
+        "value": "50.022361110973485",
         "prov": "constructed",
         "phase": "Index",
         "source": "constructed"
@@ -181,7 +177,7 @@
       },
       {
         "id": "X10",
-        "value": "0.6642",
+        "value": "0.66415",
         "prov": "carried_forward",
         "phase": "Acquire",
         "source": "un_egdi"
@@ -195,7 +191,7 @@
       },
       {
         "id": "X3",
-        "value": "0.707",
+        "value": "0.70704",
         "prov": "carried_forward",
         "phase": "Acquire",
         "source": "un_egdi"
@@ -203,27 +199,27 @@
       {
         "id": "X4",
         "value": "93.1",
-        "prov": "carried_forward",
+        "prov": "official",
         "phase": "Acquire",
         "source": "world_bank"
       },
       {
         "id": "X5",
-        "value": "84.17",
-        "prov": "carried_forward",
+        "value": "66.67",
+        "prov": "official",
         "phase": "Acquire",
         "source": "ncsi"
       },
       {
         "id": "X6",
-        "value": "33.0",
-        "prov": "carried_forward",
+        "value": "29.7907",
+        "prov": "official",
         "phase": "Acquire",
         "source": "gii"
       },
       {
         "id": "X7",
-        "value": "45.4",
+        "value": "45.12",
         "prov": "carried_forward",
         "phase": "Acquire",
         "source": "oxford_insights"

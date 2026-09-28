@@ -2,7 +2,7 @@
   "result_id": "convergence_summary",
   "category": "convergence",
   "format": "json",
-  "created_at": "2026-08-11T13:22:02.359543+00:00",
-  "artifact_path": "results/convergence/convergence_summary.json",
+  "created_at": "2026-09-28T16:32:34.197524+00:00",
+  "artifact_path": "results\\convergence\\convergence_summary.json",
   "meta": {}
 }

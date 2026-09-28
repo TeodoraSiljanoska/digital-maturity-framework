@@ -1,0 +1,150 @@
+{
+  "generated_at": "2026-09-28T16:02:34.543562+00:00",
+  "project_root": ".track_v2r_reproduction",
+  "latest_dmi_by_country": [
+    {
+      "year": 2025,
+      "DMI": 60.16688683225659,
+      "country_iso3": "ARG",
+      "group_id": "developing"
+    },
+    {
+      "year": 2025,
+      "DMI": 75.83229556762969,
+      "country_iso3": "AUS",
+      "group_id": "developed_non_eu"
+    },
+    {
+      "year": 2025,
+      "DMI": 57.788288670009194,
+      "country_iso3": "BRA",
+      "group_id": "developing"
+    },
+    {
+      "year": 2025,
+      "DMI": 73.55882665012467,
+      "country_iso3": "CAN",
+      "group_id": "developed_non_eu"
+    },
+    {
+      "year": 2025,
+      "DMI": 83.99789112646609,
+      "country_iso3": "DEU",
+      "group_id": "developed_eu"
+    },
+    {
+      "year": 2025,
+      "DMI": 75.8993758185406,
+      "country_iso3": "FRA",
+      "group_id": "developed_eu"
+    },
+    {
+      "year": 2025,
+      "DMI": 82.02332528601997,
+      "country_iso3": "GBR",
+      "group_id": "developed_eu"
+    },
+    {
+      "year": 2025,
+      "DMI": 45.694006083157305,
+      "country_iso3": "IND",
+      "group_id": "developing"
+    },
+    {
+      "year": 2025,
+      "DMI": 53.515173314162446,
+      "country_iso3": "MKD",
+      "group_id": "balkan"
+    },
+    {
+      "year": 2025,
+      "DMI": 65.04849505304954,
+      "country_iso3": "SRB",
+      "group_id": "balkan"
+    },
+    {
+      "year": 2025,
+      "DMI": 70.85538768278754,
+      "country_iso3": "SVN",
+      "group_id": "balkan"
+    },
+    {
+      "year": 2025,
+      "DMI": 81.75899623857697,
+      "country_iso3": "USA",
+      "group_id": "developed_non_eu"
+    }
+  ],
+  "best_model_metrics": {
+    "best_model": "xgboost",
+    "model_id": "xgboost_20260928T155109Z",
+    "rmse": 2.1213009313702123,
+    "experiment_id": "20260928T155109Z_cd8f48d7",
+    "selected_at": "20260928T155141Z",
+    "mae": 1.731018149346245,
+    "mape": 0.0267209661241806,
+    "r2": 0.9684037676249214,
+    "comparison_n_ok": 8
+  },
+  "top_shap_factors": [
+    {
+      "feature": "X6_lag1",
+      "importance": 0.2841189205646515,
+      "source": "results\\xai\\xai_feature_importance.csv"
+    },
+    {
+      "feature": "C1_lag1",
+      "importance": 0.2548406720161438,
+      "source": "results\\xai\\xai_feature_importance.csv"
+    },
+    {
+      "feature": "X3_lag1",
+      "importance": 0.1736031025648117,
+      "source": "results\\xai\\xai_feature_importance.csv"
+    },
+    {
+      "feature": "X2_lag1",
+      "importance": 0.1214002519845962,
+      "source": "results\\xai\\xai_feature_importance.csv"
+    },
+    {
+      "feature": "C2_lag1",
+      "importance": 0.0823965147137641,
+      "source": "results\\xai\\xai_feature_importance.csv"
+    },
+    {
+      "feature": "X4_lag1",
+      "importance": 0.0294525362551212,
+      "source": "results\\xai\\xai_feature_importance.csv"
+    },
+    {
+      "feature": "X8_lag1",
+      "importance": 0.0149915972724556,
+      "source": "results\\xai\\xai_feature_importance.csv"
+    },
+    {
+      "feature": "X5_lag1",
+      "importance": 0.010736908763647,
+      "source": "results\\xai\\xai_feature_importance.csv"
+    }
+  ],
+  "convergence_summary": {
+    "source": "results\\convergence\\sigma_convergence.csv",
+    "sigma_start": 18.360935858908164,
+    "sigma_end": 7.760945793799062,
+    "sigma_change": -10.599990065109102,
+    "converging": true,
+    "years": [
+      2012,
+      2025
+    ]
+  },
+  "panel_rows": 168,
+  "panel_years": [
+    2012,
+    2025
+  ],
+  "n_countries": 12,
+  "result_registry_count": 38,
+  "model_registry_count": 8
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "balkan_north_macedonia",
+    "country_iso3": "MKD",
+    "year": 2025,
+    "DMI": 53.515173314162446,
+    "group_id": "balkan",
+    "binding_indicators": [],
+    "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"
+  },
+  {
+    "id": "developed_eu_germany",
+    "country_iso3": "DEU",
+    "year": 2025,
+    "DMI": 83.99789112646609,
+    "group_id": "developed_eu",
+    "binding_indicators": [],
+    "context_uri": "http://purl.org/dmi-framework#CTX_overview_dashboard"
+  }
+]

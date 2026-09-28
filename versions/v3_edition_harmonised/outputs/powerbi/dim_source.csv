@@ -1,0 +1,8 @@
+source_id,collection_method
+world_bank,official_api
+un_egdi,curated_snapshot
+ncsi,curated_snapshot
+gii,curated_snapshot
+oxford_insights,curated_snapshot
+undp,curated_snapshot
+constructed,constructed

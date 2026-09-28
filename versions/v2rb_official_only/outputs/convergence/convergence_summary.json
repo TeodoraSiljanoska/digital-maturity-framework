@@ -1,0 +1,119 @@
+{
+  "dependent": "DMI",
+  "methods": [
+    "sigma",
+    "beta",
+    "conditional_beta"
+  ],
+  "by_group": true,
+  "min_countries": 3,
+  "control_mode": "initial",
+  "controls": [
+    "C1",
+    "C2"
+  ],
+  "seed": 42,
+  "sigma_n_rows": 70,
+  "sigma_trend": {
+    "first_year_std": 19.952517623503958,
+    "last_year_std": 11.474443309646674,
+    "declining": true
+  },
+  "beta_n_ok": 6,
+  "beta_full": {
+    "model": "beta",
+    "sample": "full",
+    "status": "ok",
+    "n": 12,
+    "beta": -0.6768156466091853,
+    "beta_pvalue": 2.0697308585323165e-08,
+    "beta_std_error": 0.04273005917252524,
+    "supports_convergence": true,
+    "r_squared": 0.9616688578178574,
+    "adj_r_squared": 0.9578357435996431,
+    "regressors": [
+      "log_DMI_0"
+    ],
+    "params": {
+      "const": 2.970209319610303,
+      "log_DMI_0": -0.6768156466091853
+    },
+    "pvalues": {
+      "const": 6.711986622483997e-09,
+      "log_DMI_0": 2.0697308585323165e-08
+    },
+    "std_errors": {
+      "const": 0.1669374577694656,
+      "log_DMI_0": 0.04273005917252524
+    }
+  },
+  "conditional_beta_full": {
+    "model": "conditional_beta",
+    "sample": "full",
+    "status": "ok",
+    "n": 12,
+    "beta": -0.6349751402407386,
+    "beta_pvalue": 0.04897120183691118,
+    "beta_std_error": 0.27377614165108055,
+    "supports_convergence": true,
+    "r_squared": 0.9630221161359956,
+    "adj_r_squared": 0.949155409686994,
+    "regressors": [
+      "log_DMI_0",
+      "C1",
+      "C2"
+    ],
+    "params": {
+      "const": 3.4078079837285644,
+      "log_DMI_0": -0.6349751402407386,
+      "C1": -0.08197780615523359,
+      "C2": 0.3085296201113743
+    },
+    "pvalues": {
+      "const": 0.01237489299338277,
+      "log_DMI_0": 0.04897120183691118,
+      "C1": 0.7095275403130226,
+      "C2": 0.6156201354104706
+    },
+    "std_errors": {
+      "const": 1.0607455015208072,
+      "log_DMI_0": 0.27377614165108055,
+      "C1": 0.21235321962854475,
+      "C2": 0.5907276856460834
+    }
+  },
+  "artifacts": {
+    "sigma": "results/convergence/sigma_convergence.csv",
+    "beta": {
+      "endpoints": "results/convergence/beta_endpoints.csv",
+      "results": "results/convergence/beta_convergence.json",
+      "coefficients": "results/convergence/beta_coefficients.csv"
+    }
+  },
+  "warnings": [
+    {
+      "method": "conditional_beta",
+      "sample": "balkan",
+      "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+    },
+    {
+      "method": "conditional_beta",
+      "sample": "developed_eu",
+      "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+    },
+    {
+      "method": "conditional_beta",
+      "sample": "developed_non_eu",
+      "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+    },
+    {
+      "method": "conditional_beta",
+      "sample": "developing",
+      "warning": "Beta-convergence sample too small: n=3, regressors=['log_DMI_0', 'C1', 'C2']"
+    }
+  ],
+  "n_produced": 2,
+  "n_countries": 12,
+  "year_min": 2012,
+  "year_max": 2025
+}

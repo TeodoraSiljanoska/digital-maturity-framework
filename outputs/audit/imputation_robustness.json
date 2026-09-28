@@ -1,24 +1,26 @@
 {
   "status": "ok",
-  "generated_at": "2026-08-11T13:22:03.601723+00:00",
+  "generated_at": "2026-09-28T16:32:37.765820+00:00",
   "seed": 42,
   "artifacts": {
-    "provenance": "results/imputation/cell_provenance_by_variable.csv",
-    "share_by_variable": "results/imputation/imputation_share_by_variable.csv",
-    "share_by_country": "results/imputation/imputation_share_by_country.csv",
-    "share_by_year": "results/imputation/imputation_share_by_year.csv",
-    "validation_raw": "results/imputation/imputation_validation_raw.csv",
-    "validation": "results/imputation/imputation_validation.csv",
-    "mi_pooled_fe": "results/imputation/mi_pooled_fe.csv",
-    "complete_case_fe": "results/imputation/complete_case_fe.csv",
-    "leakage_safe_ml": "results/imputation/leakage_safe_ml.csv",
-    "figure": "outputs/figures/imputation_diagnostics.png"
+    "provenance": "results\\imputation\\cell_provenance_by_variable.csv",
+    "share_by_variable": "results\\imputation\\imputation_share_by_variable.csv",
+    "share_by_country": "results\\imputation\\imputation_share_by_country.csv",
+    "share_by_year": "results\\imputation\\imputation_share_by_year.csv",
+    "validation_raw": "results\\imputation\\imputation_validation_raw.csv",
+    "validation": "results\\imputation\\imputation_validation.csv",
+    "validation_official_raw": "results\\imputation\\imputation_validation_official_raw.csv",
+    "validation_official": "results\\imputation\\imputation_validation_official.csv",
+    "mi_pooled_fe": "results\\imputation\\mi_pooled_fe.csv",
+    "complete_case_fe": "results\\imputation\\complete_case_fe.csv",
+    "leakage_safe_ml": "results\\imputation\\leakage_safe_ml.csv",
+    "figure": "outputs\\figures\\imputation_diagnostics.png"
   },
   "provenance": {
     "by_state_share": {
-      "official": 0.6577380952380952,
-      "carried_forward": 0.251984126984127,
-      "mice_imputed": 0.09027777777777778,
+      "official": 0.7455357142857143,
+      "carried_forward": 0.1552579365079365,
+      "mice_imputed": 0.0992063492063492,
       "missing": 0.0
     },
     "n_cells": 2016
@@ -26,56 +28,64 @@
   "most_reconstructed": [
     {
       "variable": "X5",
-      "n_imputed": 96,
+      "n_imputed": 123,
       "n_rows": 168,
-      "share_imputed": 0.5714285714285714
+      "share_imputed": 0.7321428571428571
     },
     {
       "variable": "X7",
-      "n_imputed": 60,
+      "n_imputed": 72,
       "n_rows": 168,
-      "share_imputed": 0.35714285714285715
+      "share_imputed": 0.42857142857142855
     },
     {
-      "variable": "X6",
-      "n_imputed": 12,
+      "variable": "X8",
+      "n_imputed": 5,
       "n_rows": 168,
-      "share_imputed": 0.07142857142857142
+      "share_imputed": 0.02976190476190476
     }
   ],
   "validation": {
     "overall_nrmse_by_configuration": {
-      "mice_country_aware": 0.22437283122043913,
-      "mice_group_only": 0.2486615801139053,
-      "baseline_country_mean": 0.40550559099358735,
-      "baseline_group_year_mean": 0.8226794534500127,
-      "baseline_global_median": 1.0421494521727601
+      "mice_country_aware": 0.2098141065499986,
+      "mice_group_only": 0.23682412596402883,
+      "baseline_country_mean": 0.3325898844177582,
+      "baseline_group_year_mean": 0.8179780511035959,
+      "baseline_global_median": 0.9703012081828375
     },
     "best_configuration": "mice_country_aware",
     "mask_fraction": 0.15,
     "n_repeats": 5
+  },
+  "validation_official": {
+    "overall_nrmse_by_configuration": {
+      "mice_country_aware": 0.2163475539320713,
+      "mice_group_only": 0.24048267790834807,
+      "baseline_country_mean": 0.3309285093109929,
+      "baseline_group_year_mean": 0.8165178035741438,
+      "baseline_global_median": 1.0291637490338106
+    },
+    "best_configuration": "mice_country_aware",
+    "mask_pool": "official"
   },
   "multiple_imputation": {
     "n_imputations": 10,
     "draw_type": "predictive_mean_matching_bootstrap",
     "base_seed": 42,
     "n_draws_estimated": 10,
-    "mean_fraction_missing_information": 0.17083712801026402,
+    "mean_fraction_missing_information": 0.20327109560717269,
     "significant_terms": [
       "C1_lag1",
-      "C2_lag1",
       "X2_lag1",
       "X4_lag1",
-      "X7_lag1",
       "const"
     ]
   },
   "complete_case": {
-    "nobs": 57,
+    "nobs": 30,
     "significant_terms": [
       "X4_lag1",
-      "X7_lag1",
-      "X10_lag1"
+      "X8_lag1"
     ]
   },
   "leakage_safe_ml": {
@@ -113,25 +123,25 @@
         "X2": 0,
         "X3": 0,
         "X4": 0,
-        "X5": 96,
-        "X6": 12,
-        "X7": 60,
+        "X5": 123,
+        "X6": 0,
+        "X7": 72,
         "X8": 5,
         "X9": 0,
         "X10": 0,
         "C1": 0,
-        "C2": 12
+        "C2": 0
       }
     },
     "best_ml": {
       "model_type": "catboost",
-      "rmse": 2.040058105140579
+      "rmse": 2.0496625312355863
     },
     "best_baseline": {
       "model_type": "linear_regression",
-      "rmse": 1.1686865961444874
+      "rmse": 1.2462706805118706
     },
     "status": "not_supported",
-    "relative_improvement": -0.7455989585837279
+    "relative_improvement": -0.644636725621873
   }
 }

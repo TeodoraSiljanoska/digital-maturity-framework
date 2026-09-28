@@ -1,0 +1,7 @@
+model,status,backend,group_id,code,nobs,min_observations,note
+FE,ok,linearmodels,,,,,
+RE,ok,linearmodels,,,,,
+FE_group,MODEL_NOT_APPLICABLE,,balkan,MODEL_NOT_APPLICABLE,9.0,12.0,insufficient observations for group-stratified FE
+FE_group,MODEL_NOT_APPLICABLE,,developed_eu,MODEL_NOT_APPLICABLE,8.0,12.0,insufficient observations for group-stratified FE
+FE_group,MODEL_NOT_APPLICABLE,,developed_non_eu,MODEL_NOT_APPLICABLE,8.0,12.0,insufficient observations for group-stratified FE
+FE_group,MODEL_NOT_APPLICABLE,,developing,MODEL_NOT_APPLICABLE,5.0,12.0,insufficient observations for group-stratified FE
