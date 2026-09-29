@@ -6,7 +6,7 @@
     {"name": "Siljanoska Taskovska, Teodora", "orcid": "0009-0008-9147-7408", "affiliation": "University St. Kliment Ohridski, Bitola"},
     {"name": "Savoska, Snezana", "orcid": "0000-0002-0539-1771", "affiliation": "University St. Kliment Ohridski, Bitola"}
   ],
-  "license": "MIT",
+  "license": "mit",
   "keywords": ["digital maturity", "data provenance", "data preprocessing", "edition harmonisation", "imputation", "visual data analytics"],
   "grants": [],
   "notes": "This work is based upon work from COST Action HiTEc, CA21163, supported by COST (European Cooperation in Science and Technology)."

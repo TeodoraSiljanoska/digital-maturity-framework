@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.1 — release metadata (29 September 2026)
+
+- Citation metadata only: release date and repository address in
+  `CITATION.cff`, licence identifier in `.zenodo.json` (`mit`). Code, data
+  and results are identical to v3.0.0.
+
 ## v3.0.0 — edition-aware re-harmonisation (September 2026)
 
 Data
