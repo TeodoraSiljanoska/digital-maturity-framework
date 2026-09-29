@@ -5,6 +5,14 @@ version: 3.0.1
 date-released: 2026-09-29
 license: MIT
 repository-code: "https://github.com/TeodoraSiljanoska/digital-maturity-framework"
+doi: 10.5281/zenodo.23043842
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23043842
+    description: "Concept DOI: all versions, resolves to the latest"
+  - type: doi
+    value: 10.5281/zenodo.23043843
+    description: "Version 3.0.0: code, data and results reported in the AIIT 2026 paper"
 authors:
   - family-names: Siljanoska Taskovska
     given-names: Teodora

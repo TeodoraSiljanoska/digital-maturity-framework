@@ -1,5 +1,9 @@
 # Digital Maturity Framework
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23043842.svg)](https://doi.org/10.5281/zenodo.23043842)
+
+Archived on Zenodo: concept DOI [10.5281/zenodo.23043842](https://doi.org/10.5281/zenodo.23043842) (all versions); version 3.0.0, the state reported in the AIIT 2026 paper: [10.5281/zenodo.23043843](https://doi.org/10.5281/zenodo.23043843).
+
 Intelligent AI framework for **visual analytics, monitoring, and prediction** of digital transformation (Digital Maturity Index — DMI).
 
 The project builds a multi-country panel (2012–2025), constructs a composite DMI, runs descriptive / econometric / ML analyses, evaluates research hypotheses, and exposes results through figures, reports, and a Streamlit dashboard.
