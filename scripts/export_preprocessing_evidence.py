@@ -530,8 +530,8 @@ def figure_provenance_and_breaks() -> Path:
 
     v2 = keyed(processed("v2r_reproduction", "panel_wide.parquet"))["X7"].unstack()
     v3x = keyed(processed("v3_edition_harmonised", "panel_wide.parquet"))["X7"].unstack()
-    for frame, color, style, label in ((v2, ORANGE, (0, (3, 1.5)), "v2: 2019 edition rescaled ×10"),
-                                       (v3x, BLUE, "solid", "v3: 2020–2024 family only")):
+    for frame, color, style, label in ((v2, ORANGE, (0, (3, 1.5)), "baseline (2019 ×10)"),
+                                       (v3x, BLUE, "solid", "edition-aware")):
         med = frame.median(axis=0)
         ax2.plot(med.index, med.values, color=color, linestyle=style, linewidth=1.6, label=label)
         ax2.fill_between(med.index, frame.quantile(0.25, axis=0), frame.quantile(0.75, axis=0),
@@ -541,9 +541,10 @@ def figure_provenance_and_breaks() -> Path:
     ax2.set_xlim(2012, 2025)
     ax2.set_xticks([2012, 2015, 2018, 2021, 2024])
     ax2.set_ylabel("AI Readiness (X7), median and IQR")
-    ax2.set_title("(b) X7 series before and after edition filtering", fontsize=7, loc="left", color=INK)
+    ax2.set_title("(b) AI Readiness (X7), baseline vs edition-aware", fontsize=7, loc="left", color=INK)
     ax2.grid(axis="y", color=GRID, linewidth=0.5)
-    ax2.legend(frameon=False, fontsize=5.8, loc="upper right")
+    ax2.legend(frameon=False, fontsize=5.8, loc="upper center", bbox_to_anchor=(0.45, -0.12), ncol=2,
+               handlelength=1.8, columnspacing=1.0)
     path = OUT / "figures" / "fig2_provenance_breaks.png"
     fig.savefig(path, dpi=300, bbox_inches="tight", facecolor="white")
     plt.close(fig)
