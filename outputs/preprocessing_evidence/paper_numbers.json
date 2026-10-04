@@ -48,6 +48,15 @@
     },
     "source": "versions/v3_edition_harmonised/data_processed/cell_reconstruction_scope.parquet"
   },
+  "official_change_by_indicator": {
+    "value": {
+      "X5": -3,
+      "X6": 96,
+      "X7": 12,
+      "C2": 72
+    },
+    "source": "tables/provenance_by_indicator.csv (v3 minus corrected v2)"
+  },
   "retrieval_sources": {
     "value": [
       {
@@ -368,6 +377,23 @@
     "value": 6,
     "source": "v3 vif_predictors.csv"
   },
+  "v3_vif_by_term": {
+    "value": {
+      "X1": 2.7609133916855555,
+      "X2": 9.592767898121824,
+      "X3": 35.9098492383531,
+      "X4": 10.784983120162844,
+      "X5": 3.591394773328214,
+      "X6": 14.314186211227865,
+      "X7": 14.505480554159185,
+      "X8": 7.482645263298752,
+      "X9": 5.2945225672068,
+      "X10": 8.959330794140866,
+      "C1": 43.41381076688384,
+      "C2": 17.03834150366907
+    },
+    "source": "v3 vif_predictors.csv"
+  },
   "fe_v2r_v3": {
     "value": {
       "const": {
@@ -679,6 +705,59 @@
     ],
     "source": "results/imputation/imputation_validation*_raw.csv"
   },
+  "v3_benchmark_official_by_indicator": {
+    "value": {
+      "C1": {
+        "nrmse": 0.12298727991614104,
+        "n_masked_per_repeat": 25.0
+      },
+      "C2": {
+        "nrmse": 0.09307046963080282,
+        "n_masked_per_repeat": 21.0
+      },
+      "X1": {
+        "nrmse": 0.2314895457254688,
+        "n_masked_per_repeat": 23.0
+      },
+      "X10": {
+        "nrmse": 0.3087424924544363,
+        "n_masked_per_repeat": 12.0
+      },
+      "X2": {
+        "nrmse": 0.16124241541819828,
+        "n_masked_per_repeat": 23.0
+      },
+      "X3": {
+        "nrmse": 0.2266795064741202,
+        "n_masked_per_repeat": 12.0
+      },
+      "X4": {
+        "nrmse": 0.19634769379078046,
+        "n_masked_per_repeat": 23.0
+      },
+      "X5": {
+        "nrmse": 0.4436122638961586,
+        "n_masked_per_repeat": 3.0
+      },
+      "X6": {
+        "nrmse": 0.21255115777913347,
+        "n_masked_per_repeat": 25.0
+      },
+      "X7": {
+        "nrmse": 0.2834181529285812,
+        "n_masked_per_repeat": 9.0
+      },
+      "X8": {
+        "nrmse": 0.18092438213624457,
+        "n_masked_per_repeat": 20.0
+      },
+      "X9": {
+        "nrmse": 0.13510528703478974,
+        "n_masked_per_repeat": 25.0
+      }
+    },
+    "source": "v3 imputation_validation_official_raw.csv (mice_country_aware)"
+  },
   "protocol_rmse": {
     "value": [
       {
@@ -799,6 +878,80 @@
       2025
     ],
     "source": "leakage_safe_ml_verdict.json"
+  },
+  "protocol_n_test": {
+    "value": 24,
+    "source": "v3 ml_model_comparison.csv"
+  },
+  "protocol_leakage_safe_models": {
+    "value": [
+      "catboost",
+      "linear_regression",
+      "random_forest",
+      "ridge",
+      "svr",
+      "xgboost"
+    ],
+    "source": "v3 leakage_safe_ml.csv"
+  },
+  "v3_powerbi_fact_rows": {
+    "value": 2184,
+    "source": "v3 outputs/powerbi/fact_indicator_value.csv"
+  },
+  "v3_powerbi_provenance_counts": {
+    "value": {
+      "official": 1503,
+      "carried_forward": 313,
+      "mice_imputed": 200,
+      "constructed": 168
+    },
+    "source": "v3 outputs/powerbi/fact_indicator_value.csv"
+  },
+  "v3_competency_questions": {
+    "value": {
+      "n": 6,
+      "passed": 6
+    },
+    "source": "v3 outputs/ontology/competency_answers.json"
+  },
+  "v3_cq2_answer": {
+    "value": {
+      "country_iso3": "MKD",
+      "year": 2025,
+      "counts": {
+        "carried_forward": 7,
+        "constructed": 1,
+        "official": 5
+      }
+    },
+    "source": "v3 outputs/ontology/competency_answers.json (CQ2)"
+  },
+  "v3_last_year_provenance": {
+    "value": {
+      "year": 2025,
+      "carried_forward": 92,
+      "official": 50,
+      "mice_imputed": 2
+    },
+    "source": "v3 data_processed/cell_provenance.parquet"
+  },
+  "v3_retrieved_values": {
+    "value": {
+      "total": 1515,
+      "gii": 168,
+      "ncsi": 21,
+      "oxford_insights": 72,
+      "un_egdi": 168,
+      "undp": 144,
+      "world_bank": 942
+    },
+    "source": "v3 data_raw/integrated_raw.parquet (non-null, inside the window)"
+  },
+  "v3_edition_filter_removed": {
+    "value": {
+      "X7": 12
+    },
+    "source": "v3 integrated_raw.parquet vs cell_provenance.parquet"
   },
   "figure_1": {
     "value": "outputs\\preprocessing_evidence\\figures\\fig1_pipeline.png",

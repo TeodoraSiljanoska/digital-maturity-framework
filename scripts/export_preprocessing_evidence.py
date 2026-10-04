@@ -139,6 +139,9 @@ def provenance_section() -> pd.DataFrame:
         )
     table = pd.DataFrame(rows)
     table.to_csv(OUT / "tables" / "provenance_by_indicator.csv", index=False)
+    put("official_change_by_indicator",
+        {r.indicator: int(r.official - r.v2_official) for r in table.itertuples() if r.official != r.v2_official},
+        "tables/provenance_by_indicator.csv (v3 minus corrected v2)")
     return table
 
 
@@ -275,6 +278,7 @@ def dmi_section() -> pd.DataFrame:
     vif = pd.read_csv(track("v3_edition_harmonised") / "results" / "descriptive" / "vif_predictors.csv")
     put("v3_vif_range", [float(vif["vif"].min()), float(vif["vif"].max())], "v3 vif_predictors.csv")
     put("v3_vif_above_10", int((vif["vif"] > 10).sum()), "v3 vif_predictors.csv")
+    put("v3_vif_by_term", {r.variable.replace("_lag1", ""): float(r.vif) for r in vif.itertuples()}, "v3 vif_predictors.csv")
 
     coef = {}
     for name in ("v2r_reproduction", "v3_edition_harmonised"):
@@ -313,6 +317,15 @@ def benchmark_section() -> pd.DataFrame:
     table = pd.concat(frames, ignore_index=True)
     table.to_csv(OUT / "tables" / "masked_cell_benchmark.csv", index=False)
     put("masked_cell_benchmark", table.to_dict("records"), "results/imputation/imputation_validation*_raw.csv")
+
+    # Per-indicator error of the primary configuration on published values only (v3).
+    raw = pd.read_csv(track("v3_edition_harmonised") / "results" / "imputation" / "imputation_validation_official_raw.csv")
+    per = (raw.loc[raw["configuration"] == "mice_country_aware"]
+              .groupby("variable").agg(nrmse=("nrmse_sd", "mean"), n_masked=("n_masked", "mean")))
+    per.to_csv(OUT / "tables" / "masked_cell_benchmark_by_indicator_v3_official.csv")
+    put("v3_benchmark_official_by_indicator",
+        {v: {"nrmse": float(r.nrmse), "n_masked_per_repeat": float(r.n_masked)} for v, r in per.iterrows()},
+        "v3 imputation_validation_official_raw.csv (mice_country_aware)")
     return table
 
 
@@ -352,7 +365,40 @@ def protocol_section() -> pd.DataFrame:
                              "leakage_safe": int(verdict.get("n_train", 0)),
                              "official_only": int(official["n_train"].iloc[0])}, "same files")
     put("protocol_test_years", verdict.get("test_years"), "leakage_safe_ml_verdict.json")
+    put("protocol_n_test", int(point["n_test"].iloc[0]), "v3 ml_model_comparison.csv")
+    put("protocol_leakage_safe_models", sorted(frames["v3"]["leakage_safe"]["model_type"].tolist()),
+        "v3 leakage_safe_ml.csv")
     return table
+
+
+def publication_section() -> None:
+    """Provenance as delivered to the VDA consumers of the v3 run (Power BI, RDF graph)."""
+    out = track("v3_edition_harmonised") / "outputs"
+    fact = pd.read_csv(out / "powerbi" / "fact_indicator_value.csv")
+    put("v3_powerbi_fact_rows", int(len(fact)), "v3 outputs/powerbi/fact_indicator_value.csv")
+    put("v3_powerbi_provenance_counts", {k: int(v) for k, v in fact["provenance"].value_counts().items()},
+        "v3 outputs/powerbi/fact_indicator_value.csv")
+    answers = json.loads((out / "ontology" / "competency_answers.json").read_text(encoding="utf-8"))
+    put("v3_competency_questions", {"n": len(answers), "passed": sum(bool(a.get("passed")) for a in answers.values())},
+        "v3 outputs/ontology/competency_answers.json")
+    put("v3_cq2_answer", answers["CQ2"]["answer"], "v3 outputs/ontology/competency_answers.json (CQ2)")
+
+    labels = processed("v3_edition_harmonised", "cell_provenance.parquet")
+    last = int(labels["year"].max())
+    counts = labels.loc[labels["year"] == last, INDICATORS].stack().value_counts()
+    put("v3_last_year_provenance", {"year": last, **{k: int(v) for k, v in counts.items()}},
+        "v3 data_processed/cell_provenance.parquet")
+
+    raw = pd.read_parquet(track("v3_edition_harmonised") / "data_raw" / "integrated_raw.parquet")
+    raw = raw.dropna(subset=["value"])
+    raw = raw.loc[raw["year"].between(int(labels["year"].min()), last)]
+    official = labels[INDICATORS].eq("official").sum()
+    retrieved = raw.groupby("indicator_id").size()
+    removed = {k: int(retrieved.get(k, 0) - official.get(k, 0)) for k in INDICATORS
+               if retrieved.get(k, 0) != official.get(k, 0)}
+    put("v3_retrieved_values", {"total": int(len(raw)), **{k: int(v) for k, v in raw.groupby("source").size().items()}},
+        "v3 data_raw/integrated_raw.parquet (non-null, inside the window)")
+    put("v3_edition_filter_removed", removed, "v3 integrated_raw.parquet vs cell_provenance.parquet")
 
 
 def _rmse(frame: pd.DataFrame, model: str):
@@ -513,6 +559,7 @@ def main() -> int:
     dmi_section()
     benchmark_section()
     protocol_section()
+    publication_section()
     put("figure_1", str(figure_architecture().relative_to(ROOT)), "generated")
     put("figure_2", str(figure_provenance_and_breaks().relative_to(ROOT)), "generated")
     (OUT / "paper_numbers.json").write_text(json.dumps(NUMBERS, indent=2, ensure_ascii=False), encoding="utf-8")
