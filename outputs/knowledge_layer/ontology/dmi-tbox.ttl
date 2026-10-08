@@ -1,0 +1,870 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://purl.org/dmi-framework#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+ns1: a owl:Ontology ;
+    rdfs:label "Digital Maturity Index Framework Ontology" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:source <https://doi.org/10.5281/zenodo.23043842> ;
+    rdfs:comment "Process-oriented reusable-indicator ontology for cross-country digital maturity assessment and visual data analysis." ;
+    owl:versionInfo "2.0.0" .
+
+ns1:BackcastEntry a owl:Class ;
+    rdfs:label "Backcast cell" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:ScoreEntry [ a owl:Restriction ;
+                        owl:onProperty ns1:hasReconstructionScope ;
+                        owl:someValuesFrom ns1:BackcastScope ] ) ] .
+
+ns1:BalkanEntry a owl:Class ;
+    rdfs:label "Cell of a Balkan country" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:ScoreEntry [ a owl:Restriction ;
+                        owl:onProperty ns1:entryGroup ;
+                        owl:someValuesFrom ns1:BalkanGroup ] ) ] .
+
+ns1:CTX_hypothesis_confirmation a ns1:DecisionContext ;
+    rdfs:label "Hypothesis confirmation" ;
+    rdfs:comment "UL_HC analogue: FE coefficients, VIF process, SHAP ranking." .
+
+ns1:CTX_overview_dashboard a ns1:DecisionContext ;
+    rdfs:label "Data overview for monitoring" ;
+    rdfs:comment "UL_DO analogue: country/group DMI overview → dashboards, line charts, sliders." .
+
+ns1:CTX_prediction_xai a ns1:DecisionContext ;
+    rdfs:label "Prediction and explanation" ;
+    rdfs:comment "Hold-out prediction plus SHAP/LIME/PDP." .
+
+ns1:CarriedEntry a owl:Class ;
+    rdfs:label "Carried cell" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:ScoreEntry [ a owl:Restriction ;
+                        owl:onProperty ns1:hasProvenance ;
+                        owl:someValuesFrom ns1:CarriedState ] ) ] .
+
+ns1:ComponentEntry a owl:Class ;
+    rdfs:label "Composite-component cell" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:ScoreEntry [ a owl:Restriction ;
+                        owl:onProperty ns1:entryPillar ;
+                        owl:someValuesFrom ns1:CompositePillar ] ) ] .
+
+ns1:CompositeComponent a owl:Class ;
+    rdfs:label "Composite component" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:Indicator [ a owl:Restriction ;
+                        owl:onProperty ns1:belongsToPillar ;
+                        owl:someValuesFrom ns1:CompositePillar ] ) ] .
+
+ns1:ConstructedEntry a owl:Class ;
+    rdfs:label "Constructed cell" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:ScoreEntry [ a owl:Restriction ;
+                        owl:onProperty ns1:hasProvenance ;
+                        owl:someValuesFrom ns1:ConstructedState ] ) ] .
+
+ns1:ContextEntry a owl:Class ;
+    rdfs:label "Context cell" ;
+    owl:disjointWith ns1:ReconstructedEntry ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:ScoreEntry [ a owl:Restriction ;
+                        owl:onProperty ns1:entryIndicator ;
+                        owl:someValuesFrom ns1:ContextIndicator ] ) ] .
+
+ns1:DigitalMaturityAssessmentProcess a owl:Class ;
+    rdfs:label "Digital maturity assessment process" ;
+    rdfs:comment "Occurrent covering acquire → validate → process → index → analyse → predict → explain → visualize." .
+
+ns1:Group_balkan a ns1:BalkanGroup .
+
+ns1:Kind_functional a ns1:HiTEcDataKind ;
+    rdfs:label "Functional data" ;
+    rdfs:comment "HiTEc MoU: functions, continuously recorded curves. Unused in this study." .
+
+ns1:Kind_text a ns1:HiTEcDataKind ;
+    rdfs:label "Text data" ;
+    rdfs:comment "HiTEc MoU: newspapers, articles, opinions. Unused in this study." .
+
+ns1:Method_constructed a ns1:CollectionMethod ;
+    rdfs:label "Constructed composite" ;
+    rdfs:comment "Derived inside the framework (DMI), not an external HiTEc source kind." .
+
+ns1:Method_curated_snapshot a ns1:CollectionMethod ;
+    rdfs:label "Curated published snapshot" ;
+    ns1:realizesKind ns1:Kind_traditional ;
+    rdfs:comment "Retrieval procedure for traditional published indices archived as versioned CSV." .
+
+ns1:Method_official_api a ns1:CollectionMethod ;
+    rdfs:label "Official statistical API" ;
+    ns1:realizesKind ns1:Kind_traditional ;
+    rdfs:comment "Retrieval procedure for traditional official series (World Bank WDI HTTP API)." .
+
+ns1:Method_primary_survey a ns1:CollectionMethod ;
+    rdfs:label "Primary field survey" ;
+    ns1:realizesKind ns1:Kind_perceptions ;
+    rdfs:comment "Not used. Closest HiTEc kind: perceptions/imprecise data." .
+
+ns1:Method_sensor_automated a ns1:CollectionMethod ;
+    rdfs:label "Automated / sensor capture" ;
+    ns1:realizesKind ns1:Kind_sensor ;
+    rdfs:comment "Not used. HiTEc MoU emphasises sensor data; this panel has none." .
+
+ns1:OfficialEntry a owl:Class ;
+    rdfs:label "Published cell" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:ScoreEntry [ a owl:Restriction ;
+                        owl:onProperty ns1:hasProvenance ;
+                        owl:someValuesFrom ns1:OfficialState ] ) ] .
+
+ns1:Phase_Acquire a ns1:ProcessPhase ;
+    rdfs:label "Acquire" ;
+    ns1:precedes ns1:Phase_Validate .
+
+ns1:PillarScheme a owl:NamedIndividual,
+        skos:ConceptScheme ;
+    skos:prefLabel "Pillars of the Digital Maturity Index"@en,
+        "Столбови на Индексот на дигитална зрелост"@mk .
+
+ns1:Pillar_composite a ns1:NonCompositePillar,
+        ns1:Pillar ;
+    rdfs:label "Composite DMI" ;
+    ns1:pillarWeight 1.00 .
+
+ns1:Pillar_control a ns1:NonCompositePillar,
+        ns1:Pillar ;
+    rdfs:label "Control (not in DMI)" ;
+    ns1:pillarWeight 0.00 .
+
+ns1:Pillar_digital_economy a ns1:CompositePillar,
+        ns1:Pillar ;
+    rdfs:label "Digital economy" ;
+    ns1:pillarWeight 0.20 .
+
+ns1:Pillar_e_government a ns1:CompositePillar,
+        ns1:Pillar ;
+    rdfs:label "E-government" ;
+    ns1:pillarWeight 0.20 .
+
+ns1:Pillar_infrastructure a ns1:CompositePillar,
+        ns1:Pillar ;
+    rdfs:label "Infrastructure" ;
+    ns1:pillarWeight 0.20 .
+
+ns1:Pillar_skills a ns1:CompositePillar,
+        ns1:Pillar ;
+    rdfs:label "Skills" ;
+    ns1:pillarWeight 0.20 .
+
+ns1:Pillar_trust_innovation a ns1:CompositePillar,
+        ns1:Pillar ;
+    rdfs:label "Trust and innovation" ;
+    ns1:pillarWeight 0.20 .
+
+ns1:Prov_carried_forward a ns1:CarriedState,
+        ns1:ProvenanceState ;
+    rdfs:label "carried_forward" .
+
+ns1:Prov_constructed a ns1:ConstructedState,
+        ns1:ProvenanceState ;
+    rdfs:label "constructed" .
+
+ns1:Prov_mice_imputed a ns1:ProvenanceState,
+        ns1:ReconstructedState ;
+    rdfs:label "mice_imputed" .
+
+ns1:Prov_missing a ns1:MissingState,
+        ns1:ProvenanceState ;
+    rdfs:label "missing" .
+
+ns1:Prov_official a ns1:OfficialState,
+        ns1:ProvenanceState ;
+    rdfs:label "official" .
+
+ns1:Scope_backcast a ns1:BackcastScope,
+        owl:NamedIndividual ;
+    rdfs:label "backcast" .
+
+ns1:Scope_forecast a ns1:ForecastScope,
+        owl:NamedIndividual ;
+    rdfs:label "forecast" .
+
+ns1:Scope_interior a ns1:InteriorScope,
+        owl:NamedIndividual ;
+    rdfs:label "interior" .
+
+ns1:SignificantEstimate a owl:Class ;
+    rdfs:label "Estimate significant at 5%" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:Estimate [ a owl:Restriction ;
+                        owl:onProperty ns1:pValue ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:decimal ;
+                                owl:withRestrictions ( [ xsd:maxExclusive 0.05 ] ) ] ] ) ] .
+
+ns1:SparseSeries a owl:Class ;
+    rdfs:label "Sparse series (fewer than 7 published years)" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:TimeSeries [ a owl:Restriction ;
+                        owl:onProperty ns1:nOfficial ;
+                        owl:someValuesFrom [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:integer ;
+                                owl:withRestrictions ( [ xsd:maxExclusive 7 ] ) ] ] ) ] .
+
+ns1:Task_compare a ns1:VisualTask,
+        owl:NamedIndividual ;
+    rdfs:label "Compare" .
+
+ns1:Task_details a ns1:VisualTask,
+        owl:NamedIndividual ;
+    rdfs:label "Details on demand" .
+
+ns1:Task_filter a ns1:VisualTask,
+        owl:NamedIndividual ;
+    rdfs:label "Filter" .
+
+ns1:Task_overview a ns1:VisualTask,
+        owl:NamedIndividual ;
+    rdfs:label "Overview" .
+
+ns1:Task_provenance a ns1:VisualTask,
+        owl:NamedIndividual ;
+    rdfs:label "Inspect the provenance of a value" .
+
+ns1:Task_trend a ns1:VisualTask,
+        owl:NamedIndividual ;
+    rdfs:label "Follow a trend over time" .
+
+ns1:UnobservedSeries a owl:Class ;
+    rdfs:label "Unobserved series" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:TimeSeries [ a owl:Restriction ;
+                        owl:hasValue 0 ;
+                        owl:onProperty ns1:nOfficial ] ) ] .
+
+ns1:aboutIndicator a owl:ObjectProperty ;
+    rdfs:domain ns1:Explanation ;
+    rdfs:range ns1:Indicator .
+
+ns1:assignedToPhase a owl:ObjectProperty ;
+    rdfs:domain ns1:ModelOutput ;
+    rdfs:range ns1:ProcessPhase .
+
+ns1:ciHigh a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:decimal .
+
+ns1:ciLow a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:decimal .
+
+ns1:coefficient a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:Estimate ;
+    rdfs:range xsd:decimal .
+
+ns1:coefficientOfVariation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:DispersionReading ;
+    rdfs:range xsd:decimal .
+
+ns1:deltaRmseVsPersistence a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:ForecastScore ;
+    rdfs:range xsd:decimal .
+
+ns1:edition a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "Publisher edition from which an official value was read." ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range xsd:string .
+
+ns1:entryPhase a owl:ObjectProperty ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range ns1:ProcessPhase ;
+    rdfs:subPropertyOf prov:wasGeneratedBy .
+
+ns1:entrySource a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range ns1:DataSource ;
+    rdfs:subPropertyOf prov:wasDerivedFrom .
+
+ns1:estimateFor a owl:ObjectProperty ;
+    rdfs:domain ns1:Estimate ;
+    rdfs:range ns1:Indicator .
+
+ns1:estimationArm a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:string .
+
+ns1:estimator a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:string .
+
+ns1:evaluatedWith a owl:ObjectProperty ;
+    rdfs:domain ns1:EvaluationRun ;
+    rdfs:range ns1:ValidationQuery .
+
+ns1:evaluates a owl:ObjectProperty ;
+    rdfs:domain ns1:EvaluationRun ;
+    rdfs:range ns1:CompetencyQuestion .
+
+ns1:expectedAnswerText a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+ns1:explainsOutput a owl:ObjectProperty ;
+    rdfs:domain ns1:Explanation ;
+    rdfs:range ns1:ModelOutput .
+
+ns1:firstOfficialYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:TimeSeries ;
+    rdfs:range xsd:integer .
+
+ns1:forecastTarget a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:ForecastScore ;
+    rdfs:range xsd:string .
+
+ns1:hasContext a owl:ObjectProperty ;
+    rdfs:domain ns1:Recommendation ;
+    rdfs:range ns1:DecisionContext .
+
+ns1:hasSource a owl:ObjectProperty ;
+    rdfs:domain ns1:Indicator ;
+    rdfs:range ns1:DataSource .
+
+ns1:inSeries a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range ns1:TimeSeries .
+
+ns1:indicatorCode a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:string .
+
+ns1:indicatorId a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+ns1:iso3 a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+ns1:lastOfficialYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:TimeSeries ;
+    rdfs:range xsd:integer .
+
+ns1:longestGap a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "Longest run of consecutive years without a published value." ;
+    rdfs:domain ns1:TimeSeries ;
+    rdfs:range xsd:integer .
+
+ns1:mae a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:ForecastScore ;
+    rdfs:range xsd:decimal .
+
+ns1:matrixValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:decimal .
+
+ns1:meanAbsShap a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+ns1:obtainedBy a owl:ObjectProperty ;
+    rdfs:domain ns1:Indicator ;
+    rdfs:range ns1:CollectionMethod .
+
+ns1:officialShare a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:TimeSeries ;
+    rdfs:range xsd:decimal .
+
+ns1:pillarWeight a owl:DatatypeProperty ;
+    rdfs:range xsd:decimal .
+
+ns1:polarity a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+ns1:precedes a owl:ObjectProperty ;
+    rdfs:domain ns1:ProcessPhase ;
+    rdfs:range ns1:ProcessPhase .
+
+ns1:primaryPublisher a owl:ObjectProperty ;
+    rdfs:comment "Organisation that compiles the series behind the distributor (e.g. UNESCO UIS behind WDI)." ;
+    rdfs:domain ns1:Indicator ;
+    rdfs:range ns1:Publisher .
+
+ns1:publishedBy a owl:ObjectProperty ;
+    rdfs:domain ns1:DataSource ;
+    rdfs:range ns1:Publisher ;
+    rdfs:subPropertyOf prov:wasAttributedTo .
+
+ns1:queryText a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+ns1:questionText a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+ns1:realizesKind a owl:ObjectProperty ;
+    rdfs:domain ns1:CollectionMethod ;
+    rdfs:range ns1:HiTEcDataKind .
+
+ns1:relatedPillar a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:comment "Thematic link of a context indicator; unlike dmi:belongsToPillar it does not enter the index." ;
+    rdfs:domain ns1:ContextIndicator ;
+    rdfs:range ns1:Pillar .
+
+ns1:retrievalMethod a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment "api, html, pdf, csv or xlsx." ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range xsd:string .
+
+ns1:retrievedAt a owl:DatatypeProperty ;
+    rdfs:comment "UTC time at which the stored vintage of an API source was retrieved (xsd:date is outside the OWL 2 datatype map)." ;
+    rdfs:domain ns1:DataSource ;
+    rdfs:range xsd:dateTime .
+
+ns1:rmse a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:ForecastScore ;
+    rdfs:range xsd:decimal .
+
+ns1:role a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+ns1:scoredModel a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:ForecastScore ;
+    rdfs:range ns1:ModelOutput .
+
+ns1:seriesCountry a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:TimeSeries ;
+    rdfs:range ns1:Country .
+
+ns1:seriesIndicator a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:TimeSeries ;
+    rdfs:range ns1:Indicator .
+
+ns1:servesContext a owl:ObjectProperty ;
+    rdfs:domain ns1:AnalyticView ;
+    rdfs:range ns1:DecisionContext .
+
+ns1:showsIndicator a owl:ObjectProperty ;
+    rdfs:domain ns1:AnalyticView ;
+    rdfs:range ns1:Indicator .
+
+ns1:sigmaReading a owl:DatatypeProperty ;
+    rdfs:comment "Superseded in 2.0.0 by dmi:DispersionReading individuals." ;
+    rdfs:range xsd:string ;
+    owl:deprecated true .
+
+ns1:slicerField a owl:DatatypeProperty ;
+    rdfs:domain ns1:AnalyticView ;
+    rdfs:range xsd:string .
+
+ns1:stdError a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:Estimate ;
+    rdfs:range xsd:decimal .
+
+ns1:supportsTask a owl:ObjectProperty ;
+    rdfs:domain ns1:AnalyticView ;
+    rdfs:range ns1:VisualTask .
+
+ns1:unit a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+ns1:usedInPhase a owl:ObjectProperty ;
+    rdfs:domain ns1:Indicator ;
+    rdfs:range ns1:ProcessPhase .
+
+ns1:usesValidationQuery a owl:ObjectProperty ;
+    rdfs:domain ns1:CompetencyQuestion ;
+    rdfs:range ns1:ValidationQuery .
+
+ns1:validationPassed a owl:DatatypeProperty ;
+    rdfs:range xsd:boolean .
+
+ns1:verification a owl:DatatypeProperty ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range xsd:string .
+
+qb:DataSet a owl:Class .
+
+qb:dataSet a owl:ObjectProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+skos:inScheme a owl:ObjectProperty .
+
+skos:prefLabel a owl:AnnotationProperty .
+
+ns1:CompositeIndex a owl:Class ;
+    rdfs:label "Composite index" ;
+    rdfs:comment "The constructed dependent variable (DMI)." ;
+    rdfs:subClassOf ns1:Indicator .
+
+ns1:ControlIndicator a owl:Class ;
+    rdfs:label "Control indicator" ;
+    rdfs:comment "Control C1 or C2; analysed, never part of the composite." ;
+    rdfs:subClassOf ns1:Indicator .
+
+ns1:CoreIndicator a owl:Class ;
+    rdfs:label "Core indicator" ;
+    rdfs:comment "Determinant X1–X10; enters the DMI through exactly one pillar." ;
+    rdfs:subClassOf ns1:Indicator .
+
+ns1:Kind_perceptions a ns1:HiTEcDataKind ;
+    rdfs:label "Perceptions / imprecise data" ;
+    rdfs:comment "HiTEc MoU: polls, perceptions, non-precise values. Unused as primary collection." .
+
+ns1:Kind_sensor a ns1:HiTEcDataKind ;
+    rdfs:label "Sensor data" ;
+    rdfs:comment "HiTEc MoU emphasis (environmental/health streams). Unused in this study." .
+
+ns1:Phase_Analyse a ns1:ProcessPhase ;
+    rdfs:label "Analyse" ;
+    ns1:precedes ns1:Phase_Predict .
+
+ns1:Phase_Explain a ns1:ProcessPhase ;
+    rdfs:label "Explain" ;
+    ns1:precedes ns1:Phase_Visualize .
+
+ns1:Phase_Index a ns1:ProcessPhase ;
+    rdfs:label "Index" ;
+    ns1:precedes ns1:Phase_Analyse .
+
+ns1:Phase_Predict a ns1:ProcessPhase ;
+    rdfs:label "Predict" ;
+    ns1:precedes ns1:Phase_Explain .
+
+ns1:Phase_Process a ns1:ProcessPhase ;
+    rdfs:label "Process" ;
+    ns1:precedes ns1:Phase_Index .
+
+ns1:Phase_Validate a ns1:ProcessPhase ;
+    rdfs:label "Validate" ;
+    ns1:precedes ns1:Phase_Process .
+
+ns1:Phase_Visualize a ns1:ProcessPhase ;
+    rdfs:label "Visualize" .
+
+ns1:Recommendation a owl:Class ;
+    rdfs:comment "Cdec slot for a policy recommendation. Unused in this study: VDA is filter and slider, not a recommender, so no Recommendation individuals are asserted." ;
+    rdfs:subClassOf ns1:Cdec .
+
+ns1:ReconstructedEntry a owl:Class ;
+    rdfs:label "Reconstructed cell" ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ns1:ScoreEntry [ a owl:Restriction ;
+                        owl:onProperty ns1:hasProvenance ;
+                        owl:someValuesFrom ns1:ReconstructedState ] ) ] .
+
+ns1:entryGroup a owl:ObjectProperty ;
+    rdfs:comment "Inferred: the country group of the cell." ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range ns1:CountryGroup ;
+    owl:propertyChainAxiom ( ns1:entryCountry ns1:memberOf ) .
+
+ns1:entryPillar a owl:ObjectProperty ;
+    rdfs:comment "Inferred: the DMI pillar of the cell." ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range ns1:Pillar ;
+    owl:propertyChainAxiom ( ns1:entryIndicator ns1:belongsToPillar ) .
+
+ns1:hasReconstructionScope a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range ns1:ReconstructionScope .
+
+ns1:memberOf a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:Country ;
+    rdfs:range ns1:CountryGroup .
+
+ns1:pValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:Estimate ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:onDatatype xsd:decimal ;
+            owl:withRestrictions ( [ xsd:minInclusive 0.0 ] [ xsd:maxInclusive 1.0 ] ) ] .
+
+qb:Observation a owl:Class .
+
+skos:Concept a owl:Class .
+
+skos:ConceptScheme a owl:Class .
+
+dcat:Dataset a owl:Class .
+
+prov:Activity a owl:Class .
+
+prov:Agent a owl:Class .
+
+prov:Organization a owl:Class ;
+    rdfs:subClassOf prov:Agent .
+
+prov:wasAttributedTo a owl:ObjectProperty .
+
+prov:wasDerivedFrom a owl:ObjectProperty .
+
+prov:wasGeneratedBy a owl:ObjectProperty .
+
+ns1:BalkanGroup a owl:Class ;
+    rdfs:label "Balkan country group" ;
+    rdfs:subClassOf ns1:CountryGroup .
+
+ns1:CompetencyQuestion a owl:Class ;
+    rdfs:subClassOf ns1:Ceval .
+
+ns1:DispersionReading a owl:Class ;
+    rdfs:label "Dispersion reading" ;
+    rdfs:comment "Cross-country coefficient of variation of the DMI in one year (sigma convergence)." ;
+    rdfs:subClassOf ns1:ModelOutput .
+
+ns1:EvaluationRun a owl:Class ;
+    rdfs:comment "One rdflib SPARQL execution of a competency question. Not a DL reasoner run." ;
+    rdfs:subClassOf ns1:Ceval .
+
+ns1:Explanation a owl:Class ;
+    rdfs:comment "Reified SHAP/LIME/PDP attribution linked to a model output." ;
+    rdfs:subClassOf ns1:Cdec .
+
+ns1:ForecastScope a owl:Class ;
+    rdfs:subClassOf ns1:ReconstructionScope .
+
+ns1:InteriorScope a owl:Class ;
+    rdfs:subClassOf ns1:ReconstructionScope .
+
+ns1:Kind_traditional a ns1:HiTEcDataKind ;
+    rdfs:label "Traditional official series" ;
+    rdfs:comment "HiTEc MoU: traditional data combined with complex sources. Used in this study." .
+
+ns1:MissingState a owl:Class ;
+    rdfs:label "No value" ;
+    rdfs:subClassOf ns1:ProvenanceState .
+
+ns1:NonCompositePillar a owl:Class ;
+    rdfs:label "Grouping outside the composite (controls, the composite itself)" ;
+    rdfs:subClassOf ns1:Pillar ;
+    owl:disjointWith ns1:CompositePillar .
+
+ns1:ValidationQuery a owl:Class ;
+    rdfs:subClassOf ns1:Ceval .
+
+ns1:entryCountry a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range ns1:Country .
+
+ns1:nOfficial a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain ns1:TimeSeries ;
+    rdfs:range xsd:integer .
+
+ns1:year a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:integer .
+
+prov:Entity a owl:Class .
+
+ns1:BackcastScope a owl:Class ;
+    rdfs:subClassOf ns1:ReconstructionScope .
+
+ns1:CarriedState a owl:Class ;
+    rdfs:label "Carried from the nearest publication (at most two years)" ;
+    rdfs:subClassOf ns1:ProvenanceState .
+
+ns1:Ceval a owl:Class ;
+    rdfs:label "Evaluation class" .
+
+ns1:ConstructedState a owl:Class ;
+    rdfs:label "Constructed by the framework" ;
+    rdfs:subClassOf ns1:ProvenanceState .
+
+ns1:ContextIndicator a owl:Class ;
+    rdfs:label "Context indicator" ;
+    rdfs:comment "Official series Z1–Z6 kept outside the composite; linked to a pillar only thematically (dmi:relatedPillar) and never reconstructed by imputation." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:complementOf [ a owl:Restriction ;
+                    owl:onProperty ns1:belongsToPillar ;
+                    owl:someValuesFrom ns1:CompositePillar ] ],
+        ns1:Indicator .
+
+ns1:OfficialState a owl:Class ;
+    rdfs:label "Published by the source" ;
+    rdfs:subClassOf ns1:ProvenanceState .
+
+ns1:Publisher a owl:Class ;
+    rdfs:label "Publisher" ;
+    rdfs:comment "Organisation that publishes an official series or index." ;
+    rdfs:subClassOf prov:Organization .
+
+ns1:ReconstructedState a owl:Class ;
+    rdfs:label "Reconstructed by chained-equation imputation" ;
+    rdfs:subClassOf ns1:ProvenanceState .
+
+ns1:belongsToPillar a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:Indicator ;
+    rdfs:range ns1:Pillar .
+
+ns1:entryIndicator a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range ns1:Indicator .
+
+ns1:CountryGroup a owl:Class ;
+    rdfs:label "Country group" ;
+    rdfs:subClassOf ns1:Ctax .
+
+ns1:AnalyticView a owl:Class ;
+    rdfs:label "Analytic view" ;
+    rdfs:comment "Page of the visual-analytics layer (Power BI report page or Streamlit section) that serves one decision context." ;
+    rdfs:subClassOf ns1:Cdec .
+
+ns1:Country a owl:Class ;
+    rdfs:label "Country" ;
+    rdfs:subClassOf ns1:Ctax .
+
+ns1:DataSource a owl:Class ;
+    rdfs:label "Data source" ;
+    rdfs:subClassOf ns1:Ctax,
+        dcat:Dataset,
+        prov:Entity .
+
+ns1:DecisionContext a owl:Class ;
+    rdfs:comment "Typed tuple: research question × phase × country-set × method family × VDA task." ;
+    rdfs:subClassOf ns1:Cdec .
+
+ns1:ReconstructionScope a owl:Class ;
+    rdfs:label "Reconstruction scope" ;
+    rdfs:comment "Position of a reconstructed cell in its series: interior, backcast or forecast." ;
+    rdfs:subClassOf ns1:Ctax .
+
+ns1:hasProvenance a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain ns1:ScoreEntry ;
+    rdfs:range ns1:ProvenanceState .
+
+ns1:Estimate a owl:Class ;
+    rdfs:label "Estimate" ;
+    rdfs:comment "Coefficient of a panel model attached to one indicator, with standard error and p-value." ;
+    rdfs:subClassOf ns1:ModelOutput .
+
+ns1:ForecastScore a owl:Class ;
+    rdfs:label "Forecast score" ;
+    rdfs:comment "Accuracy of one model under the rolling-origin protocol, relative to persistence." ;
+    rdfs:subClassOf ns1:ModelOutput .
+
+ns1:HiTEcDataKind a owl:Class ;
+    rdfs:label "HiTEc CA21163 data kind" ;
+    rdfs:comment "Data kinds named in the HiTEc MoU (COST Action CA21163): text, functional, perceptions/imprecise, traditional; sensor data is an additional emphasis." ;
+    rdfs:subClassOf ns1:Ctax .
+
+ns1:Cdec a owl:Class ;
+    rdfs:label "Decision-support class" .
+
+ns1:ModelOutput a owl:Class ;
+    rdfs:subClassOf ns1:Cdec .
+
+ns1:VisualTask a owl:Class ;
+    rdfs:label "Visual analytics task" ;
+    rdfs:subClassOf ns1:Cdec .
+
+ns1:CollectionMethod a owl:Class ;
+    rdfs:label "Collection method" ;
+    rdfs:subClassOf ns1:Ctax .
+
+ns1:CompositePillar a owl:Class ;
+    rdfs:label "Composite pillar" ;
+    rdfs:comment "One of the five equally weighted pillars of the DMI." ;
+    rdfs:subClassOf ns1:Pillar .
+
+ns1:Ctax a owl:Class ;
+    rdfs:label "Taxonomy backbone class" .
+
+ns1:TimeSeries a owl:Class ;
+    rdfs:label "Time series" ;
+    rdfs:comment "Annual series of one indicator for one country, 2012–2025; the unit of temporal diagnostics." ;
+    rdfs:subClassOf ns1:Ctax .
+
+ns1:Pillar a owl:Class ;
+    rdfs:label "Pillar" ;
+    rdfs:subClassOf ns1:Ctax,
+        skos:Concept .
+
+ns1:ProvenanceState a owl:Class ;
+    rdfs:label "Provenance state" ;
+    rdfs:subClassOf ns1:Ctax .
+
+ns1:ProcessPhase a owl:Class ;
+    rdfs:label "Process phase" ;
+    rdfs:comment "Occurrent stage of DigitalMaturityAssessmentProcess." ;
+    rdfs:subClassOf ns1:Ctax,
+        prov:Activity .
+
+ns1:Indicator a owl:Class ;
+    rdfs:label "Indicator" ;
+    rdfs:comment "Reusable measured or constructed variable with a project IRI (http://purl.org/dmi-framework#Ind_*), not a registered PURL." ;
+    rdfs:subClassOf ns1:Ctax .
+
+ns1:ScoreEntry a owl:Class ;
+    rdfs:comment "Reified cell of M : Indicator × Phase × Country × Source → Value." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ns1:entryIndicator ;
+            owl:someValuesFrom ns1:Indicator ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:entryCountry ;
+            owl:someValuesFrom ns1:Country ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:hasProvenance ;
+            owl:someValuesFrom ns1:ProvenanceState ],
+        [ a owl:Restriction ;
+            owl:onProperty ns1:year ;
+            owl:someValuesFrom xsd:integer ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:onDatatype xsd:integer ;
+                    owl:withRestrictions ( [ xsd:minInclusive 2012 ] [ xsd:maxInclusive 2025 ] ) ] ;
+            owl:onProperty ns1:year ],
+        ns1:Cdec,
+        qb:Observation,
+        prov:Entity .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( ns1:OfficialState ns1:CarriedState ns1:ReconstructedState ns1:MissingState ns1:ConstructedState ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( ns1:InteriorScope ns1:BackcastScope ns1:ForecastScope ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( ns1:Indicator ns1:Pillar ns1:Country ns1:CountryGroup ns1:DataSource ns1:CollectionMethod ns1:ProcessPhase ns1:ProvenanceState ns1:TimeSeries ns1:ScoreEntry ns1:ModelOutput ns1:Publisher ns1:ReconstructionScope ns1:AnalyticView ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( ns1:CoreIndicator ns1:ControlIndicator ns1:CompositeIndex ns1:ContextIndicator ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( ns1:Estimate ns1:ForecastScore ns1:DispersionReading ) .
+

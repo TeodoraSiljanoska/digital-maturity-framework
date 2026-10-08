@@ -1,0 +1,64 @@
+# Context indicators Z1–Z6: official World Bank WDI series that describe the
+# environment of digital maturity. They are kept outside the DMI composite, so
+# their association with the index is not arithmetic, and they are never
+# reconstructed by imputation: a cell is official, carried from the same
+# country's nearest publication (at most two years, as for X1–X10) or missing.
+vintage:
+  # Serve the vintage retrieved on 2026-10-08 so re-runs reproduce the same
+  # values. Set to false to fetch a new vintage from the API.
+  use_cached_raw: true
+  cached_raw_path: data/raw/world_bank_context/wdi_context_vintage_20261008.parquet
+  base_url: https://api.worldbank.org/v2
+  timeout_seconds: 60
+  retry: 3
+years: [2012, 2025]
+carry_max_years: 2
+indicators:
+  Z1:
+    code: IT.NET.SECR.P6
+    name: Secure Internet servers
+    name_mk: Безбедни интернет-сервери
+    unit: per 1 million people
+    related_pillar: trust_innovation
+    theme: trust and security
+    primary_publisher: Netcraft (Secure Server Survey)
+  Z2:
+    code: TX.VAL.ICTG.ZS.UN
+    name: ICT goods exports
+    name_mk: Извоз на ИКТ-стоки
+    unit: "% of total goods exports"
+    related_pillar: digital_economy
+    theme: digital trade
+    primary_publisher: UNCTAD (UNCTADstat)
+  Z3:
+    code: TX.VAL.TECH.MF.ZS
+    name: High-technology exports
+    name_mk: Извоз на високотехнолошки производи
+    unit: "% of manufactured exports"
+    related_pillar: trust_innovation
+    theme: innovation output
+    primary_publisher: United Nations (UN Comtrade)
+  Z4:
+    code: SE.TER.ENRR
+    name: Tertiary school enrollment
+    name_mk: Запишани во терциерно образование
+    unit: "% gross"
+    related_pillar: skills
+    theme: human capital
+    primary_publisher: UNESCO Institute for Statistics
+  Z5:
+    code: SP.POP.SCIE.RD.P6
+    name: Researchers in R&D
+    name_mk: Истражувачи во И&Р
+    unit: per million people
+    related_pillar: digital_economy
+    theme: research capacity
+    primary_publisher: UNESCO Institute for Statistics
+  Z6:
+    code: IQ.SPI.OVRL
+    name: Statistical Performance Indicators, overall score
+    name_mk: Статистички перформанси (SPI), вкупна оценка
+    unit: score 0-100
+    related_pillar: e_government
+    theme: data governance
+    primary_publisher: World Bank (Statistical Performance Indicators)

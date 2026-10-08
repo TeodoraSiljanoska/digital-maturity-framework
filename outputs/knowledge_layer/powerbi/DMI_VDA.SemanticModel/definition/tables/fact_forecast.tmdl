@@ -1,0 +1,132 @@
+table fact_forecast
+	lineageTag: 3f79526f-0311-5b60-8800-7f4ccb439d61
+
+	measure 'Mean RMSE' = AVERAGE(fact_forecast[rmse])
+		formatString: 0.000
+		lineageTag: 9af6fa87-fdee-575a-a3d4-66e62148ae38
+
+	measure 'Mean RMSE change vs persistence' = AVERAGE(fact_forecast[delta_rmse])
+		formatString: 0.000
+		lineageTag: edc2f340-1914-594a-b057-238cf00e7c5c
+
+	column target
+		dataType: string
+		lineageTag: b6ebfbc8-ed58-5024-8c7a-ecbea7d3e639
+		summarizeBy: none
+		sourceColumn: target
+
+		annotation SummarizationSetBy = Automatic
+
+	column model
+		dataType: string
+		lineageTag: 04dd845d-5a86-5ffa-af23-9ebb122bd59a
+		summarizeBy: none
+		sourceColumn: model
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_forecasts
+		dataType: int64
+		lineageTag: fecc3386-ea2b-55ca-bc38-3b241f4edca7
+		summarizeBy: sum
+		sourceColumn: n_forecasts
+
+		annotation SummarizationSetBy = Automatic
+
+	column rmse
+		dataType: double
+		formatString: 0.000
+		lineageTag: 32b64d63-28e6-5071-b001-54a82a09d076
+		summarizeBy: sum
+		sourceColumn: rmse
+
+		annotation SummarizationSetBy = Automatic
+
+	column mae
+		dataType: double
+		formatString: 0.000
+		lineageTag: b73ea623-f7a4-5fe6-bdba-973952531581
+		summarizeBy: sum
+		sourceColumn: mae
+
+		annotation SummarizationSetBy = Automatic
+
+	column delta_rmse
+		dataType: double
+		formatString: 0.000
+		lineageTag: 79208a17-ce0b-53fd-a074-5b17eeea84aa
+		summarizeBy: sum
+		sourceColumn: delta_rmse
+
+		annotation SummarizationSetBy = Automatic
+
+	column ci_low
+		dataType: double
+		formatString: 0.000
+		lineageTag: 8e3e6091-1c83-5239-a19d-b20935fcbf7b
+		summarizeBy: sum
+		sourceColumn: ci_low
+
+		annotation SummarizationSetBy = Automatic
+
+	column ci_high
+		dataType: double
+		formatString: 0.000
+		lineageTag: 0ada05ad-ebb9-5d4d-a078-6e607613ffe8
+		summarizeBy: sum
+		sourceColumn: ci_high
+
+		annotation SummarizationSetBy = Automatic
+
+	column origins_beating_persistence
+		dataType: int64
+		lineageTag: ec0a02de-818b-56e7-8095-d2cc86a29e22
+		summarizeBy: sum
+		sourceColumn: origins_beating_persistence
+
+		annotation SummarizationSetBy = Automatic
+
+	column rmse_txt
+		dataType: string
+		lineageTag: c79ff17f-4849-5e96-803a-3c049b80a3cc
+		summarizeBy: none
+		sourceColumn: rmse_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	column mae_txt
+		dataType: string
+		lineageTag: 3e93bb1c-b886-577a-9a6b-9e6d84ec7087
+		summarizeBy: none
+		sourceColumn: mae_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	column delta_rmse_txt
+		dataType: string
+		lineageTag: 5a914baa-d83f-57e7-87cb-8f5f82dfe907
+		summarizeBy: none
+		sourceColumn: delta_rmse_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ci_txt
+		dataType: string
+		lineageTag: c91b520b-0f37-5de7-adda-d295e2418264
+		summarizeBy: none
+		sourceColumn: ci_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_forecast = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "fact_forecast.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"target", type text}, {"model", type text}, {"n_forecasts", Int64.Type}, {"rmse", type number}, {"mae", type number}, {"delta_rmse", type number}, {"ci_low", type number}, {"ci_high", type number}, {"origins_beating_persistence", Int64.Type}, {"rmse_txt", type text}, {"mae_txt", type text}, {"delta_rmse_txt", type text}, {"ci_txt", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,47 @@
+table dim_source
+	lineageTag: 2c59baf1-222a-5c6e-8844-8a783224d6bd
+
+	column source_id
+		dataType: string
+		lineageTag: a0094b2c-2c34-56b8-b3ef-866e693aca2e
+		summarizeBy: none
+		sourceColumn: source_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_label
+		dataType: string
+		lineageTag: baaa80e6-4550-5321-a077-239c32381002
+		summarizeBy: none
+		sourceColumn: source_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column publisher
+		dataType: string
+		lineageTag: f75b1277-8f3c-518c-90dd-a908896afe62
+		summarizeBy: none
+		sourceColumn: publisher
+
+		annotation SummarizationSetBy = Automatic
+
+	column retrieved_at
+		dataType: string
+		lineageTag: e4ffa1ba-9fa5-5466-812a-a51d9afe315e
+		summarizeBy: none
+		sourceColumn: retrieved_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_source = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "dim_source.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"source_id", type text}, {"source_label", type text}, {"publisher", type text}, {"retrieved_at", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

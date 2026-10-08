@@ -1,0 +1,1085 @@
+{
+  "version": "3.1.0",
+  "context": {
+    "n_values": 814,
+    "provenance": {
+      "Z1": {
+        "official": 156,
+        "carried_forward": 12
+      },
+      "Z2": {
+        "official": 156,
+        "carried_forward": 12
+      },
+      "Z3": {
+        "official": 143,
+        "missing": 14,
+        "carried_forward": 11
+      },
+      "Z4": {
+        "official": 143,
+        "carried_forward": 23,
+        "missing": 2
+      },
+      "Z5": {
+        "official": 108,
+        "missing": 35,
+        "carried_forward": 25
+      },
+      "Z6": {
+        "official": 108,
+        "carried_forward": 36,
+        "missing": 24
+      }
+    }
+  },
+  "association": {
+    "association": [
+      {
+        "indicator_id": "Z1",
+        "n_obs": 156,
+        "n_countries": 12,
+        "beta_per_sd": -1.739212458269158,
+        "se_driscoll_kraay": 0.10946998646236794,
+        "p_driscoll_kraay": 0.0,
+        "se_cluster_country": 1.0636530934113462,
+        "p_cluster_country": 0.10442219515593787,
+        "within_r2": -0.2478459431399631,
+        "fd_n": 144,
+        "fd_pearson_r": -0.035786719230607646,
+        "fd_p": 0.6702285722975615
+      },
+      {
+        "indicator_id": "Z2",
+        "n_obs": 156,
+        "n_countries": 12,
+        "beta_per_sd": 6.998244157666097,
+        "se_driscoll_kraay": 1.0572892022787987,
+        "p_driscoll_kraay": 8.444716037558919e-10,
+        "se_cluster_country": 1.2284403068703518,
+        "p_cluster_country": 7.674653224043482e-08,
+        "within_r2": 0.08574659800308237,
+        "fd_n": 144,
+        "fd_pearson_r": 0.13915254259363555,
+        "fd_p": 0.09623638164496359
+      },
+      {
+        "indicator_id": "Z3",
+        "n_obs": 143,
+        "n_countries": 11,
+        "beta_per_sd": 0.22513152791459967,
+        "se_driscoll_kraay": 0.8758443473032694,
+        "p_driscoll_kraay": 0.7975878439052342,
+        "se_cluster_country": 3.431125518785504,
+        "p_cluster_country": 0.9477948614976683,
+        "within_r2": 0.0036150687034076645,
+        "fd_n": 132,
+        "fd_pearson_r": -0.051284532960808565,
+        "fd_p": 0.5592238244058264
+      },
+      {
+        "indicator_id": "Z4",
+        "n_obs": 142,
+        "n_countries": 12,
+        "beta_per_sd": -0.3665875502742581,
+        "se_driscoll_kraay": 0.8401327530255366,
+        "p_driscoll_kraay": 0.6633907135048438,
+        "se_cluster_country": 2.345430040022389,
+        "p_cluster_country": 0.8760669901625859,
+        "within_r2": -0.020225201415921212,
+        "fd_n": 128,
+        "fd_pearson_r": -0.015546810926646233,
+        "fd_p": 0.861726247199943
+      },
+      {
+        "indicator_id": "Z5",
+        "n_obs": 108,
+        "n_countries": 11,
+        "beta_per_sd": -4.811785618570438,
+        "se_driscoll_kraay": 1.7316292288798367,
+        "p_driscoll_kraay": 0.006730709617139619,
+        "se_cluster_country": 2.0845632425136666,
+        "p_cluster_country": 0.023440566049252043,
+        "within_r2": -0.2708763354954711,
+        "fd_n": 95,
+        "fd_pearson_r": -0.009243702414022748,
+        "fd_p": 0.929156906545115
+      },
+      {
+        "indicator_id": "Z6",
+        "n_obs": 108,
+        "n_countries": 12,
+        "beta_per_sd": 2.325747906416711,
+        "se_driscoll_kraay": 0.7083327292084151,
+        "p_driscoll_kraay": 0.0014781381160611229,
+        "se_cluster_country": 1.0184537321780465,
+        "p_cluster_country": 0.024830556285106997,
+        "within_r2": 0.3696774320530135,
+        "fd_n": 96,
+        "fd_pearson_r": -0.04973575128867386,
+        "fd_p": 0.6303577749959192
+      }
+    ],
+    "dmi_plus": {
+      "pearson_r": 0.9911408603384064,
+      "mean_abs_diff": 6.414823831849883,
+      "max_abs_diff": 12.123216783316849,
+      "min_spearman_by_year": 0.9090909090909092,
+      "years_with_rank_change": 13,
+      "max_abs_rank_shift": 4,
+      "group_means": {
+        "balkan": {
+          "DMI": 51.355,
+          "DMI_plus": 45.12
+        },
+        "developed_eu": {
+          "DMI": 75.634,
+          "DMI_plus": 68.42
+        },
+        "developed_non_eu": {
+          "DMI": 72.483,
+          "DMI_plus": 66.881
+        },
+        "developing": {
+          "DMI": 41.74,
+          "DMI_plus": 35.184
+        }
+      }
+    }
+  },
+  "graph": {
+    "triples": 43919,
+    "tbox_triples": 830,
+    "classes": 78,
+    "object_properties": 38,
+    "datatype_properties": 37,
+    "individuals": 3541,
+    "score_entries": 3117,
+    "time_series": 228,
+    "estimates": 30,
+    "forecast_scores": 18,
+    "dispersion_readings": 14,
+    "explanations": 12,
+    "analytic_views": 4,
+    "provenance": {
+      "official": 2317,
+      "carried_forward": 432,
+      "mice_imputed": 200,
+      "constructed": 168
+    },
+    "cells_by_family": {
+      "core": 1680,
+      "control": 336,
+      "composite": 168,
+      "context": 933
+    },
+    "official_without_edition": 0,
+    "builder_stats": {
+      "tbox_triples": 830,
+      "score_entries": 3117,
+      "series": 228,
+      "estimates": 30,
+      "forecast_scores": 18,
+      "dispersion_readings": 14,
+      "explanations": 12,
+      "shap_model": "ridge",
+      "views": 4
+    }
+  },
+  "hermit": {
+    "consistent": true,
+    "error": null,
+    "load_s": 0.6,
+    "reason_s": 20.07,
+    "inferred_counts": {
+      "OfficialEntry": 2317,
+      "CarriedEntry": 432,
+      "ReconstructedEntry": 200,
+      "ConstructedEntry": 168,
+      "BackcastEntry": 195,
+      "ContextEntry": 933,
+      "ComponentEntry": 1680,
+      "BalkanEntry": 778,
+      "CompositeComponent": 10,
+      "UnobservedSeries": 2,
+      "SparseSeries": 30,
+      "SignificantEstimate": 12
+    },
+    "expected_counts": {
+      "OfficialEntry": 2317,
+      "CarriedEntry": 432,
+      "ReconstructedEntry": 200,
+      "ConstructedEntry": 168,
+      "BackcastEntry": 195,
+      "ContextEntry": 933,
+      "ComponentEntry": 1680,
+      "BalkanEntry": 778,
+      "CompositeComponent": 10,
+      "UnobservedSeries": 2,
+      "SparseSeries": 30
+    },
+    "agreement": {
+      "OfficialEntry": true,
+      "CarriedEntry": true,
+      "ReconstructedEntry": true,
+      "ConstructedEntry": true,
+      "BackcastEntry": true,
+      "ContextEntry": true,
+      "ComponentEntry": true,
+      "BalkanEntry": true,
+      "CompositeComponent": true,
+      "UnobservedSeries": true,
+      "SparseSeries": true
+    }
+  },
+  "shacl": {
+    "conforms": true,
+    "n_results": 0,
+    "by_component": {},
+    "seconds": 190.38,
+    "text": ""
+  },
+  "qb_integrity": {
+    "IC-1 unique data set": {
+      "violated": false,
+      "ms": 13.0
+    },
+    "IC-2 unique DSD": {
+      "violated": false,
+      "ms": 13.0
+    },
+    "IC-3 DSD includes measure": {
+      "violated": false,
+      "ms": 6.2
+    },
+    "IC-4 dimensions have range": {
+      "violated": false,
+      "ms": 7.2
+    },
+    "IC-11 all dimensions required": {
+      "violated": false,
+      "ms": 1671.8
+    },
+    "IC-12 no duplicate observations": {
+      "violated": false,
+      "ms": 1151.0
+    },
+    "IC-14 all measures present": {
+      "violated": false,
+      "ms": 697.3
+    }
+  },
+  "competency_questions": {
+    "CQ1": {
+      "question": "By which collection method is each indicator obtained?",
+      "passed": true,
+      "n_rows": 19,
+      "ms": 17.8,
+      "answer": [
+        [
+          "C1",
+          "official_api"
+        ],
+        [
+          "C2",
+          "curated_snapshot"
+        ],
+        [
+          "DMI",
+          "constructed"
+        ],
+        [
+          "X1",
+          "official_api"
+        ],
+        [
+          "X10",
+          "curated_snapshot"
+        ],
+        [
+          "X2",
+          "official_api"
+        ],
+        [
+          "X3",
+          "curated_snapshot"
+        ],
+        [
+          "X4",
+          "official_api"
+        ],
+        [
+          "X5",
+          "curated_snapshot"
+        ],
+        [
+          "X6",
+          "curated_snapshot"
+        ],
+        [
+          "X7",
+          "curated_snapshot"
+        ],
+        [
+          "X8",
+          "official_api"
+        ],
+        [
+          "X9",
+          "official_api"
+        ],
+        [
+          "Z1",
+          "official_api"
+        ],
+        [
+          "Z2",
+          "official_api"
+        ],
+        [
+          "Z3",
+          "official_api"
+        ],
+        [
+          "Z4",
+          "official_api"
+        ],
+        [
+          "Z5",
+          "official_api"
+        ],
+        [
+          "Z6",
+          "official_api"
+        ]
+      ]
+    },
+    "CQ2": {
+      "question": "Which provenance states do the cells of North Macedonia in 2025 have?",
+      "passed": true,
+      "n_rows": 3,
+      "ms": 24.1,
+      "answer": [
+        [
+          "carried_forward",
+          "13"
+        ],
+        [
+          "constructed",
+          "1"
+        ],
+        [
+          "official",
+          "5"
+        ]
+      ]
+    },
+    "CQ3": {
+      "question": "In which process phase is each forecasting model assigned?",
+      "passed": true,
+      "n_rows": 9,
+      "ms": 11.1,
+      "answer": [
+        [
+          "catboost",
+          "Predict"
+        ],
+        [
+          "catboost_arx",
+          "Predict"
+        ],
+        [
+          "ols",
+          "Predict"
+        ],
+        [
+          "persistence",
+          "Predict"
+        ],
+        [
+          "random_forest",
+          "Predict"
+        ],
+        [
+          "ridge",
+          "Predict"
+        ],
+        [
+          "ridge_arx",
+          "Predict"
+        ],
+        [
+          "svr",
+          "Predict"
+        ],
+        [
+          "xgboost",
+          "Predict"
+        ]
+      ]
+    },
+    "CQ4": {
+      "question": "Which five indicators have the highest mean |SHAP|, and for which model?",
+      "passed": true,
+      "n_rows": 5,
+      "ms": 12.4,
+      "answer": [
+        [
+          "X4",
+          "ridge"
+        ],
+        [
+          "X2",
+          "ridge"
+        ],
+        [
+          "C1",
+          "ridge"
+        ],
+        [
+          "X6",
+          "ridge"
+        ],
+        [
+          "X8",
+          "ridge"
+        ]
+      ]
+    },
+    "CQ5": {
+      "question": "What are the values, provenance, edition and source of the cells of North Macedonia in 2025?",
+      "passed": true,
+      "n_rows": 19,
+      "ms": 23.3,
+      "answer": [
+        [
+          "C1",
+          "10.130408859167302",
+          "official"
+        ],
+        [
+          "C2",
+          "0.751596",
+          "carried_forward"
+        ],
+        [
+          "DMI",
+          "50.022361110973485",
+          "constructed"
+        ],
+        [
+          "X1",
+          "108.38712260883",
+          "carried_forward"
+        ],
+        [
+          "X10",
+          "0.66415",
+          "carried_forward"
+        ],
+        [
+          "X2",
+          "29.8921727758887",
+          "carried_forward"
+        ],
+        [
+          "X3",
+          "0.70704",
+          "carried_forward"
+        ],
+        [
+          "X4",
+          "93.1",
+          "official"
+        ],
+        [
+          "X5",
+          "66.67",
+          "official"
+        ],
+        [
+          "X6",
+          "29.7907",
+          "official"
+        ],
+        [
+          "X7",
+          "45.12",
+          "carried_forward"
+        ],
+        [
+          "X8",
+          "0.37363",
+          "carried_forward"
+        ],
+        [
+          "X9",
+          "21.5247930087355",
+          "official"
+        ],
+        [
+          "Z1",
+          "2068.12365329412",
+          "carried_forward"
+        ],
+        [
+          "Z2",
+          "0.65",
+          "carried_forward"
+        ],
+        [
+          "Z3",
+          "6.3599119716616",
+          "carried_forward"
+        ],
+        [
+          "Z4",
+          "55.0082015991211",
+          "carried_forward"
+        ],
+        [
+          "Z5",
+          "888.07078",
+          "carried_forward"
+        ],
+        [
+          "Z6",
+          "87.1729166666667",
+          "carried_forward"
+        ]
+      ]
+    },
+    "CQ6": {
+      "question": "How many countries, indicators and cells does the graph hold?",
+      "passed": true,
+      "n_rows": 1,
+      "ms": 11.1,
+      "answer": [
+        [
+          "12",
+          "19"
+        ]
+      ]
+    },
+    "CQ7": {
+      "question": "Which country series have no published value at all?",
+      "passed": true,
+      "n_rows": 2,
+      "ms": 8.7,
+      "answer": [
+        [
+          "Z3",
+          "SRB"
+        ],
+        [
+          "Z5",
+          "AUS"
+        ]
+      ]
+    },
+    "CQ8": {
+      "question": "What share of the composite-component cells of the Balkan group is published in each year?",
+      "passed": true,
+      "n_rows": 14,
+      "ms": 194.4,
+      "answer": [
+        [
+          "2012",
+          "24",
+          "30"
+        ],
+        [
+          "2013",
+          "18",
+          "30"
+        ],
+        [
+          "2014",
+          "24",
+          "30"
+        ],
+        [
+          "2015",
+          "18",
+          "30"
+        ],
+        [
+          "2016",
+          "24",
+          "30"
+        ],
+        [
+          "2017",
+          "18",
+          "30"
+        ],
+        [
+          "2018",
+          "24",
+          "30"
+        ],
+        [
+          "2019",
+          "18",
+          "30"
+        ],
+        [
+          "2020",
+          "27",
+          "30"
+        ],
+        [
+          "2021",
+          "21",
+          "30"
+        ],
+        [
+          "2022",
+          "27",
+          "30"
+        ],
+        [
+          "2023",
+          "22",
+          "30"
+        ],
+        [
+          "2024",
+          "28",
+          "30"
+        ],
+        [
+          "2025",
+          "10",
+          "30"
+        ]
+      ]
+    },
+    "CQ9": {
+      "question": "What is the latest published value of each context indicator for North Macedonia, and to which pillar is it related?",
+      "passed": true,
+      "n_rows": 6,
+      "ms": 776.3,
+      "answer": [
+        [
+          "Z1",
+          "trust_innovation",
+          "2024",
+          "2068.12365329412"
+        ],
+        [
+          "Z2",
+          "digital_economy",
+          "2024",
+          "0.65"
+        ],
+        [
+          "Z3",
+          "trust_innovation",
+          "2024",
+          "6.3599119716616"
+        ],
+        [
+          "Z4",
+          "skills",
+          "2023",
+          "55.0082015991211"
+        ],
+        [
+          "Z5",
+          "digital_economy",
+          "2024",
+          "888.07078"
+        ],
+        [
+          "Z6",
+          "e_government",
+          "2024",
+          "87.1729166666667"
+        ]
+      ]
+    },
+    "CQ10": {
+      "question": "Which lagged indicators are significant at 5% in the single-imputation and in the pooled fixed-effects estimates?",
+      "passed": true,
+      "n_rows": 12,
+      "ms": 16.9,
+      "answer": [
+        [
+          "context_official_only",
+          "Z1"
+        ],
+        [
+          "context_official_only",
+          "Z2"
+        ],
+        [
+          "context_official_only",
+          "Z5"
+        ],
+        [
+          "context_official_only",
+          "Z6"
+        ],
+        [
+          "mi_pooled",
+          "C1"
+        ],
+        [
+          "mi_pooled",
+          "X2"
+        ],
+        [
+          "mi_pooled",
+          "X4"
+        ],
+        [
+          "single_imputation",
+          "C1"
+        ],
+        [
+          "single_imputation",
+          "X2"
+        ],
+        [
+          "single_imputation",
+          "X3"
+        ],
+        [
+          "single_imputation",
+          "X4"
+        ],
+        [
+          "single_imputation",
+          "X6"
+        ]
+      ]
+    },
+    "CQ11": {
+      "question": "How did the cross-country coefficient of variation of the DMI change between 2012 and 2025?",
+      "passed": true,
+      "n_rows": 2,
+      "ms": 14.1,
+      "answer": [
+        [
+          "2012",
+          "0.3596481963565446"
+        ],
+        [
+          "2025",
+          "0.1894638435741741"
+        ]
+      ]
+    },
+    "CQ12": {
+      "question": "Which models beat the persistence forecast with a bootstrap interval entirely below zero?",
+      "passed": true,
+      "n_rows": 1,
+      "ms": 14.8,
+      "answer": [
+        [
+          "DMI_mice",
+          "ridge_arx"
+        ]
+      ]
+    },
+    "CQ13": {
+      "question": "From which editions were the published values of the AI Readiness Index read?",
+      "passed": true,
+      "n_rows": 5,
+      "ms": 15.7,
+      "answer": [
+        [
+          "Government AI Readiness Index 2020",
+          "12"
+        ],
+        [
+          "Government AI Readiness Index 2021",
+          "12"
+        ],
+        [
+          "Government AI Readiness Index 2022",
+          "12"
+        ],
+        [
+          "Government AI Readiness Index 2023",
+          "12"
+        ],
+        [
+          "Government AI Readiness Index 2024",
+          "12"
+        ]
+      ]
+    },
+    "CQ14": {
+      "question": "Which analytic views show context indicators, and which slicer fields do they offer?",
+      "passed": true,
+      "n_rows": 7,
+      "ms": 28.5,
+      "answer": [
+        [
+          "Context indicators",
+          "dim_country.group_name"
+        ],
+        [
+          "Context indicators",
+          "dim_indicator.indicator_label"
+        ],
+        [
+          "Context indicators",
+          "dim_year.year"
+        ],
+        [
+          "Provenance",
+          "dim_country.group_name"
+        ],
+        [
+          "Provenance",
+          "dim_indicator.family"
+        ],
+        [
+          "Provenance",
+          "dim_provenance.state"
+        ],
+        [
+          "Provenance",
+          "dim_source.publisher"
+        ]
+      ]
+    }
+  },
+  "metadata": {
+    "path": "outputs\\knowledge_layer\\metadata\\dataset.jsonld",
+    "triples": 230,
+    "variables": 19,
+    "distributions": 5
+  },
+  "timing_s": {
+    "context": 0.19,
+    "timeseries": 46.23,
+    "association": 0.83,
+    "graph_build": 1.28,
+    "serialise": 2.78,
+    "hermit_total": 21.09,
+    "shacl": 190.61,
+    "competency_questions": 1.24
+  },
+  "rolling_origin": [
+    {
+      "target": "DMI_mice",
+      "model": "ridge_arx",
+      "n_forecasts": 96,
+      "rmse": 1.7513480930167178,
+      "mae": 1.3134539598381183,
+      "delta_rmse_vs_persistence": -0.28328367827343937,
+      "delta_ci_low": -0.4172885190355597,
+      "delta_ci_high": -0.1353473379998308,
+      "origins_beating_persistence": 6,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_mice",
+      "model": "ols",
+      "n_forecasts": 96,
+      "rmse": 1.9446013667265758,
+      "mae": 1.4932612363822646,
+      "delta_rmse_vs_persistence": -0.09003040456358136,
+      "delta_ci_low": -0.3168288325507715,
+      "delta_ci_high": 0.20214281584471686,
+      "origins_beating_persistence": 5,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_mice",
+      "model": "ridge",
+      "n_forecasts": 96,
+      "rmse": 1.9478409552637515,
+      "mae": 1.5266256238039226,
+      "delta_rmse_vs_persistence": -0.0867908160264057,
+      "delta_ci_low": -0.256942592093629,
+      "delta_ci_high": 0.12778670110586485,
+      "origins_beating_persistence": 4,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_mice",
+      "model": "persistence",
+      "n_forecasts": 96,
+      "rmse": 2.034631771290157,
+      "mae": 1.5017643851890075,
+      "delta_rmse_vs_persistence": 0.0,
+      "delta_ci_low": 0.0,
+      "delta_ci_high": 0.0,
+      "origins_beating_persistence": 0,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_mice",
+      "model": "catboost_arx",
+      "n_forecasts": 96,
+      "rmse": 2.257811814587194,
+      "mae": 1.69484414578107,
+      "delta_rmse_vs_persistence": 0.22318004329703678,
+      "delta_ci_low": 0.03337342728855581,
+      "delta_ci_high": 0.409829763260204,
+      "origins_beating_persistence": 4,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_mice",
+      "model": "catboost",
+      "n_forecasts": 96,
+      "rmse": 2.4917279292577708,
+      "mae": 1.8941827184901474,
+      "delta_rmse_vs_persistence": 0.4570961579676136,
+      "delta_ci_low": 0.18858674055016933,
+      "delta_ci_high": 0.6779557709670391,
+      "origins_beating_persistence": 3,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_mice",
+      "model": "svr",
+      "n_forecasts": 96,
+      "rmse": 2.5190434852390977,
+      "mae": 1.9622417988781313,
+      "delta_rmse_vs_persistence": 0.48441171394894056,
+      "delta_ci_low": 0.03836943969871727,
+      "delta_ci_high": 0.9512972521818155,
+      "origins_beating_persistence": 0,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_mice",
+      "model": "xgboost",
+      "n_forecasts": 96,
+      "rmse": 2.6379214693160704,
+      "mae": 2.0436655295834023,
+      "delta_rmse_vs_persistence": 0.6032896980259133,
+      "delta_ci_low": 0.3706147749089737,
+      "delta_ci_high": 0.8660879706762085,
+      "origins_beating_persistence": 0,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_mice",
+      "model": "random_forest",
+      "n_forecasts": 96,
+      "rmse": 3.0638821634635,
+      "mae": 2.48859979303978,
+      "delta_rmse_vs_persistence": 1.029250392173343,
+      "delta_ci_low": 0.6557745410976527,
+      "delta_ci_high": 1.3843816817723118,
+      "origins_beating_persistence": 0,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_official_only",
+      "model": "ridge_arx",
+      "n_forecasts": 96,
+      "rmse": 1.9882276695430867,
+      "mae": 1.5215152811019632,
+      "delta_rmse_vs_persistence": -0.19072251732724976,
+      "delta_ci_low": -0.39014464257505393,
+      "delta_ci_high": 0.06341558208799261,
+      "origins_beating_persistence": 6,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_official_only",
+      "model": "persistence",
+      "n_forecasts": 96,
+      "rmse": 2.1789501868703365,
+      "mae": 1.6160314705409882,
+      "delta_rmse_vs_persistence": 0.0,
+      "delta_ci_low": 0.0,
+      "delta_ci_high": 0.0,
+      "origins_beating_persistence": 0,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_official_only",
+      "model": "ols",
+      "n_forecasts": 96,
+      "rmse": 2.2343485631202875,
+      "mae": 1.7132857642234063,
+      "delta_rmse_vs_persistence": 0.05539837624995103,
+      "delta_ci_low": -0.2848632973261859,
+      "delta_ci_high": 0.4821153734153106,
+      "origins_beating_persistence": 5,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_official_only",
+      "model": "ridge",
+      "n_forecasts": 96,
+      "rmse": 2.2552343188859423,
+      "mae": 1.7616882484025407,
+      "delta_rmse_vs_persistence": 0.0762841320156058,
+      "delta_ci_low": -0.1321817630936209,
+      "delta_ci_high": 0.3538097779590522,
+      "origins_beating_persistence": 3,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_official_only",
+      "model": "catboost_arx",
+      "n_forecasts": 96,
+      "rmse": 2.3678328677769467,
+      "mae": 1.735103817827001,
+      "delta_rmse_vs_persistence": 0.1888826809066102,
+      "delta_ci_low": -0.1209616691638241,
+      "delta_ci_high": 0.4624299332057872,
+      "origins_beating_persistence": 3,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_official_only",
+      "model": "svr",
+      "n_forecasts": 96,
+      "rmse": 2.5926587257644855,
+      "mae": 2.019185806704488,
+      "delta_rmse_vs_persistence": 0.41370853889414905,
+      "delta_ci_low": 0.18285554034045684,
+      "delta_ci_high": 0.6723759296393735,
+      "origins_beating_persistence": 1,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_official_only",
+      "model": "catboost",
+      "n_forecasts": 96,
+      "rmse": 2.719624127886775,
+      "mae": 1.99030040118034,
+      "delta_rmse_vs_persistence": 0.5406739410164385,
+      "delta_ci_low": 0.12776499627711135,
+      "delta_ci_high": 0.9032923570675983,
+      "origins_beating_persistence": 3,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_official_only",
+      "model": "xgboost",
+      "n_forecasts": 96,
+      "rmse": 2.766558215400143,
+      "mae": 2.041774569886083,
+      "delta_rmse_vs_persistence": 0.5876080285298064,
+      "delta_ci_low": 0.2343815156459153,
+      "delta_ci_high": 0.9451713482718018,
+      "origins_beating_persistence": 1,
+      "n_origins": 8
+    },
+    {
+      "target": "DMI_official_only",
+      "model": "random_forest",
+      "n_forecasts": 96,
+      "rmse": 3.125575450864545,
+      "mae": 2.366686383385774,
+      "delta_rmse_vs_persistence": 0.9466252639942083,
+      "delta_ci_low": 0.27551408846484954,
+      "delta_ci_high": 1.5662680727367988,
+      "origins_beating_persistence": 0,
+      "n_origins": 8
+    }
+  ]
+}

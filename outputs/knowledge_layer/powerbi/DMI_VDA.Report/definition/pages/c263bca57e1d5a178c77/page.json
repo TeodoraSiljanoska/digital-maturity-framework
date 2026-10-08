@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "c263bca57e1d5a178c77",
+  "displayName": "Monitoring",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

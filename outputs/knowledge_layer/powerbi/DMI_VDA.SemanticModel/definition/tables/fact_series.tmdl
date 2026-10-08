@@ -1,0 +1,115 @@
+table fact_series
+	lineageTag: aadc6ed3-e8ae-511e-81ac-e507557b7937
+
+	column indicator_id
+		dataType: string
+		lineageTag: 3fa88842-f7e6-5162-a95c-3c757caf7f5b
+		summarizeBy: none
+		sourceColumn: indicator_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_iso3
+		dataType: string
+		lineageTag: dea4e30e-2294-5017-bdba-de4bb7f81996
+		summarizeBy: none
+		sourceColumn: country_iso3
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_years
+		dataType: int64
+		lineageTag: 46acdad4-f3de-52d5-b006-6584a3fae534
+		summarizeBy: sum
+		sourceColumn: n_years
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_official
+		dataType: int64
+		lineageTag: 41ea7803-84f0-54a5-acce-7e97b159559e
+		summarizeBy: sum
+		sourceColumn: n_official
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_carried
+		dataType: int64
+		lineageTag: 6675407c-7dbb-558a-9442-797334816d6e
+		summarizeBy: sum
+		sourceColumn: n_carried
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_reconstructed
+		dataType: int64
+		lineageTag: 03e68de7-3f7c-5e70-9a51-a7162f666f1e
+		summarizeBy: sum
+		sourceColumn: n_reconstructed
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_missing
+		dataType: int64
+		lineageTag: 2ab5c168-8ec4-542b-8131-cf38b1da8472
+		summarizeBy: sum
+		sourceColumn: n_missing
+
+		annotation SummarizationSetBy = Automatic
+
+	column official_share
+		dataType: double
+		formatString: 0.000
+		lineageTag: 01442db3-73a6-53ae-866b-ac142afb4265
+		summarizeBy: sum
+		sourceColumn: official_share
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_official_year
+		dataType: double
+		formatString: 0.000
+		lineageTag: 4da6441c-f784-51c3-bdd9-3c1fc1c9845e
+		summarizeBy: sum
+		sourceColumn: first_official_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_official_year
+		dataType: double
+		formatString: 0.000
+		lineageTag: 2bbb357c-04a7-551c-a0f6-6c97691aafcf
+		summarizeBy: sum
+		sourceColumn: last_official_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column publication_lag_years
+		dataType: double
+		formatString: 0.000
+		lineageTag: fd8cf587-c5ee-5ae8-b745-95b2e5fde192
+		summarizeBy: sum
+		sourceColumn: publication_lag_years
+
+		annotation SummarizationSetBy = Automatic
+
+	column longest_non_official_run
+		dataType: int64
+		lineageTag: f74265f4-8cc5-52f1-a19b-38c4428a626d
+		summarizeBy: sum
+		sourceColumn: longest_non_official_run
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_series = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "fact_series.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"indicator_id", type text}, {"country_iso3", type text}, {"n_years", Int64.Type}, {"n_official", Int64.Type}, {"n_carried", Int64.Type}, {"n_reconstructed", Int64.Type}, {"n_missing", Int64.Type}, {"official_share", type number}, {"first_official_year", type number}, {"last_official_year", type number}, {"publication_lag_years", type number}, {"longest_non_official_run", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

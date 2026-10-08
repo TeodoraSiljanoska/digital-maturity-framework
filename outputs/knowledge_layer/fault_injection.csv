@@ -1,0 +1,11 @@
+fault,kind,hermit_detects,shacl_detects,shacl_results,hermit_s,shacl_s
+F1 duplicate cell with a different value,key,False,True,3,21.83,354.57
+F2 year outside 2012-2025,range,True,True,1,8.47,280.11
+F3 cell without provenance,completeness,False,True,2,21.58,233.98
+F4 context cell marked as reconstructed,policy,True,True,2,5.41,255.57
+F5 context indicator placed in a DMI pillar,policy,True,True,1,5.56,239.4
+F6 series count disagrees with its cells,aggregate,False,True,1,30.66,265.7
+"F7 p-value outside [0, 1]",range,True,True,1,5.56,217.21
+F8 country also typed as indicator,typing,True,True,3,3.57,183.31
+F9 cell with two provenance states,functional,True,True,1,4.25,204.64
+F10 cell linked to another country's series,cross-reference,False,True,3,26.22,224.43

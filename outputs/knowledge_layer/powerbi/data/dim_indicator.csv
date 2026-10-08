@@ -1,0 +1,20 @@
+indicator_id,indicator_label,name_mk,family,pillar,pillar_mk,in_composite,unit,source_id,primary_publisher,sort_order
+X1,X1 Mobile cellular subscriptions,Мобилни претплати,Core (X),Infrastructure,Инфраструктура,True,per_100_people,world_bank,International Telecommunication Union,1
+X2,X2 Fixed broadband subscriptions,Фиксни широкопојасни претплати,Core (X),Infrastructure,Инфраструктура,True,per_100_people,world_bank,International Telecommunication Union,2
+X3,X3 E-Government Development Index,Индекс на развој на е-влада (EGDI),Core (X),E-government,Е-влада,True,index_0_1,un_egdi,United Nations Department of Economic and Social Affairs,3
+X4,X4 Digital skills proxy (Internet users),Корисници на интернет (прокси за вештини),Core (X),Skills,Вештини,True,percent,world_bank,International Telecommunication Union,4
+X5,X5 National Cyber Security Index,Национален индекс за сајбер-безбедност (NCSI),Core (X),Trust and innovation,Доверба и иновации,True,score_0_100,ncsi,e-Governance Academy,5
+X6,X6 Global Innovation Index,Глобален индекс на иновации (GII),Core (X),Trust and innovation,Доверба и иновации,True,score,gii,World Intellectual Property Organization,6
+X7,X7 Government AI Readiness Index,Индекс на подготвеност на владите за ВИ,Core (X),Trust and innovation,Доверба и иновации,True,score,oxford_insights,Oxford Insights,7
+X8,X8 Research and development expenditure,Расходи за истражување и развој,Core (X),Digital economy,Дигитална економија,True,percent_gdp,world_bank,UNESCO Institute for Statistics,8
+X9,X9 ICT service exports,Извоз на ИКТ-услуги,Core (X),Digital economy,Дигитална економија,True,percent,world_bank,International Monetary Fund,9
+X10,X10 Online Service Index,Индекс на онлајн-услуги (OSI),Core (X),Digital economy,Дигитална економија,True,index_0_1,un_egdi,United Nations Department of Economic and Social Affairs,10
+C1,C1 GDP per capita PPP,"БДП по жител, ППП (лог.)",Control (C),Control (not in DMI),Контролни (надвор од DMI),False,constant_ppp_usd,world_bank,World Bank,11
+C2,C2 Education Index,Индекс на образование,Control (C),Control (not in DMI),Контролни (надвор од DMI),False,index_0_1,undp,UNDP Human Development Report Office,12
+DMI,DMI Digital Maturity Index,Индекс на дигитална зрелост,Composite (DMI),Composite DMI,Композитен DMI,False,index_0_100,constructed,Digital Maturity Framework,13
+Z1,Z1 Secure Internet servers,Безбедни интернет-сервери,Context (Z),Trust and innovation,Доверба и иновации,False,per 1 million people,world_bank_context,Netcraft,100
+Z2,Z2 ICT goods exports,Извоз на ИКТ-стоки,Context (Z),Digital economy,Дигитална економија,False,% of total goods exports,world_bank_context,United Nations Conference on Trade and Development,101
+Z3,Z3 High-technology exports,Извоз на високотехнолошки производи,Context (Z),Trust and innovation,Доверба и иновации,False,% of manufactured exports,world_bank_context,United Nations Statistics Division,102
+Z4,Z4 Tertiary school enrollment,Запишани во терциерно образование,Context (Z),Skills,Вештини,False,% gross,world_bank_context,UNESCO Institute for Statistics,103
+Z5,Z5 Researchers in R&D,Истражувачи во И&Р,Context (Z),Digital economy,Дигитална економија,False,per million people,world_bank_context,UNESCO Institute for Statistics,104
+Z6,"Z6 Statistical Performance Indicators, overall score","Статистички перформанси (SPI), вкупна оценка",Context (Z),E-government,Е-влада,False,score 0-100,world_bank_context,World Bank,105

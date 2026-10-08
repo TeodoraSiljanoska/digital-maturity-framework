@@ -1,0 +1,6 @@
+state,label,label_mk,sort
+official,Published,Објавена,1
+carried_forward,Carried (<= 2 years),Пренесена,2
+mice_imputed,Reconstructed (MICE),Реконструирана,3
+constructed,Constructed (DMI),Конструирана,4
+missing,Missing,Недостасува,5

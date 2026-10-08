@@ -1,0 +1,333 @@
+@prefix dmi:     <http://purl.org/dmi-framework#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix qb:      <http://purl.org/linked-data/cube#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# Extension 2.0.0 of the Digital Maturity Framework ontology.
+# It keeps every term of dmi-framework.ttl (1.0.0) and adds
+#   (1) alignment with RDF Data Cube, PROV-O, SKOS and DCAT through
+#       rdfs:subClassOf / rdfs:subPropertyOf only (no owl:imports, so the
+#       ontology stays in OWL 2 DL and loads without network access);
+#   (2) OWL 2 axioms that a DL reasoner can use: disjoint backbone classes,
+#       functional keys of a cell, a closed set of provenance states, property
+#       chains and defined classes that classify cells, series and indicators;
+#   (3) the time-series layer (dmi:TimeSeries), context indicators kept outside
+#       the composite, model outputs stored in the graph, and the analytic views
+#       of the visual-analytics layer.
+# The qb:DimensionProperty / qb:MeasureProperty typing of the cube components
+# is published separately in dmi-qb-structure.ttl, because typing a property as
+# an individual (punning) is not needed for reasoning.
+
+# ---------------------------------------------------------------------------
+# External terms (declared so that the file is self-contained OWL 2 DL)
+# ---------------------------------------------------------------------------
+
+qb:Observation a owl:Class .
+qb:DataSet a owl:Class .
+qb:dataSet a owl:ObjectProperty .
+prov:Entity a owl:Class .
+prov:Activity a owl:Class .
+prov:Agent a owl:Class .
+prov:Organization a owl:Class ; rdfs:subClassOf prov:Agent .
+prov:wasGeneratedBy a owl:ObjectProperty .
+prov:wasDerivedFrom a owl:ObjectProperty .
+prov:wasAttributedTo a owl:ObjectProperty .
+skos:Concept a owl:Class .
+skos:ConceptScheme a owl:Class .
+skos:inScheme a owl:ObjectProperty .
+skos:prefLabel a owl:AnnotationProperty .
+skos:definition a owl:AnnotationProperty .
+dcat:Dataset a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+dcterms:source a owl:AnnotationProperty .
+
+# ---------------------------------------------------------------------------
+# Alignment of the backbone with W3C vocabularies
+# ---------------------------------------------------------------------------
+
+dmi:ScoreEntry rdfs:subClassOf qb:Observation , prov:Entity .
+dmi:DataSource rdfs:subClassOf dcat:Dataset , prov:Entity .
+dmi:ProcessPhase rdfs:subClassOf prov:Activity .
+dmi:Pillar rdfs:subClassOf skos:Concept .
+dmi:entryPhase rdfs:subPropertyOf prov:wasGeneratedBy .
+dmi:entrySource rdfs:subPropertyOf prov:wasDerivedFrom .
+
+dmi:PillarScheme a skos:ConceptScheme , owl:NamedIndividual ;
+    skos:prefLabel "Pillars of the Digital Maturity Index"@en , "Столбови на Индексот на дигитална зрелост"@mk .
+
+# ---------------------------------------------------------------------------
+# New classes
+# ---------------------------------------------------------------------------
+
+dmi:CoreIndicator a owl:Class ; rdfs:subClassOf dmi:Indicator ;
+    rdfs:label "Core indicator" ;
+    rdfs:comment "Determinant X1–X10; enters the DMI through exactly one pillar." .
+dmi:ControlIndicator a owl:Class ; rdfs:subClassOf dmi:Indicator ;
+    rdfs:label "Control indicator" ;
+    rdfs:comment "Control C1 or C2; analysed, never part of the composite." .
+dmi:CompositeIndex a owl:Class ; rdfs:subClassOf dmi:Indicator ;
+    rdfs:label "Composite index" ;
+    rdfs:comment "The constructed dependent variable (DMI)." .
+dmi:ContextIndicator a owl:Class ; rdfs:subClassOf dmi:Indicator ;
+    rdfs:label "Context indicator" ;
+    rdfs:comment "Official series Z1–Z6 kept outside the composite; linked to a pillar only thematically (dmi:relatedPillar) and never reconstructed by imputation." .
+
+dmi:Publisher a owl:Class ; rdfs:subClassOf prov:Organization ;
+    rdfs:label "Publisher" ;
+    rdfs:comment "Organisation that publishes an official series or index." .
+
+dmi:TimeSeries a owl:Class ; rdfs:subClassOf dmi:Ctax ;
+    rdfs:label "Time series" ;
+    rdfs:comment "Annual series of one indicator for one country, 2012–2025; the unit of temporal diagnostics." .
+
+dmi:ReconstructionScope a owl:Class ; rdfs:subClassOf dmi:Ctax ;
+    rdfs:label "Reconstruction scope" ;
+    rdfs:comment "Position of a reconstructed cell in its series: interior, backcast or forecast." .
+
+dmi:Estimate a owl:Class ; rdfs:subClassOf dmi:ModelOutput ;
+    rdfs:label "Estimate" ;
+    rdfs:comment "Coefficient of a panel model attached to one indicator, with standard error and p-value." .
+dmi:ForecastScore a owl:Class ; rdfs:subClassOf dmi:ModelOutput ;
+    rdfs:label "Forecast score" ;
+    rdfs:comment "Accuracy of one model under the rolling-origin protocol, relative to persistence." .
+dmi:DispersionReading a owl:Class ; rdfs:subClassOf dmi:ModelOutput ;
+    rdfs:label "Dispersion reading" ;
+    rdfs:comment "Cross-country coefficient of variation of the DMI in one year (sigma convergence)." .
+
+dmi:AnalyticView a owl:Class ; rdfs:subClassOf dmi:Cdec ;
+    rdfs:label "Analytic view" ;
+    rdfs:comment "Page of the visual-analytics layer (Power BI report page or Streamlit section) that serves one decision context." .
+dmi:VisualTask a owl:Class ; rdfs:subClassOf dmi:Cdec ;
+    rdfs:label "Visual analytics task" .
+
+# ---------------------------------------------------------------------------
+# New object properties
+# ---------------------------------------------------------------------------
+
+dmi:inSeries a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:ScoreEntry ; rdfs:range dmi:TimeSeries .
+dmi:seriesIndicator a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:TimeSeries ; rdfs:range dmi:Indicator .
+dmi:seriesCountry a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:TimeSeries ; rdfs:range dmi:Country .
+dmi:relatedPillar a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:ContextIndicator ; rdfs:range dmi:Pillar ;
+    rdfs:comment "Thematic link of a context indicator; unlike dmi:belongsToPillar it does not enter the index." .
+dmi:publishedBy a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasAttributedTo ;
+    rdfs:domain dmi:DataSource ; rdfs:range dmi:Publisher .
+dmi:primaryPublisher a owl:ObjectProperty ;
+    rdfs:domain dmi:Indicator ; rdfs:range dmi:Publisher ;
+    rdfs:comment "Organisation that compiles the series behind the distributor (e.g. UNESCO UIS behind WDI)." .
+dmi:hasReconstructionScope a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:ScoreEntry ; rdfs:range dmi:ReconstructionScope .
+dmi:entryGroup a owl:ObjectProperty ;
+    rdfs:domain dmi:ScoreEntry ; rdfs:range dmi:CountryGroup ;
+    owl:propertyChainAxiom ( dmi:entryCountry dmi:memberOf ) ;
+    rdfs:comment "Inferred: the country group of the cell." .
+dmi:entryPillar a owl:ObjectProperty ;
+    rdfs:domain dmi:ScoreEntry ; rdfs:range dmi:Pillar ;
+    owl:propertyChainAxiom ( dmi:entryIndicator dmi:belongsToPillar ) ;
+    rdfs:comment "Inferred: the DMI pillar of the cell." .
+dmi:estimateFor a owl:ObjectProperty ;
+    rdfs:domain dmi:Estimate ; rdfs:range dmi:Indicator .
+dmi:scoredModel a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:ForecastScore ; rdfs:range dmi:ModelOutput .
+dmi:servesContext a owl:ObjectProperty ;
+    rdfs:domain dmi:AnalyticView ; rdfs:range dmi:DecisionContext .
+dmi:supportsTask a owl:ObjectProperty ;
+    rdfs:domain dmi:AnalyticView ; rdfs:range dmi:VisualTask .
+dmi:showsIndicator a owl:ObjectProperty ;
+    rdfs:domain dmi:AnalyticView ; rdfs:range dmi:Indicator .
+
+dmi:entryIndicator a owl:FunctionalProperty .
+dmi:entryCountry a owl:FunctionalProperty .
+dmi:entrySource a owl:FunctionalProperty .
+dmi:hasProvenance a owl:FunctionalProperty .
+dmi:memberOf a owl:FunctionalProperty .
+dmi:belongsToPillar a owl:FunctionalProperty .
+
+# ---------------------------------------------------------------------------
+# New data properties
+# ---------------------------------------------------------------------------
+
+dmi:year a owl:FunctionalProperty .
+dmi:matrixValue a owl:FunctionalProperty .
+dmi:indicatorCode a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:range xsd:string .
+dmi:edition a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:ScoreEntry ; rdfs:range xsd:string ;
+    rdfs:comment "Publisher edition from which an official value was read." .
+dmi:retrievalMethod a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:ScoreEntry ; rdfs:range xsd:string ;
+    rdfs:comment "api, html, pdf, csv or xlsx." .
+dmi:verification a owl:DatatypeProperty ;
+    rdfs:domain dmi:ScoreEntry ; rdfs:range xsd:string .
+dmi:retrievedAt a owl:DatatypeProperty ;
+    rdfs:domain dmi:DataSource ; rdfs:range xsd:dateTime ;
+    rdfs:comment "UTC time at which the stored vintage of an API source was retrieved (xsd:date is outside the OWL 2 datatype map)." .
+dmi:nOfficial a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:TimeSeries ; rdfs:range xsd:integer .
+dmi:officialShare a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:TimeSeries ; rdfs:range xsd:decimal .
+dmi:firstOfficialYear a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:TimeSeries ; rdfs:range xsd:integer .
+dmi:lastOfficialYear a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:TimeSeries ; rdfs:range xsd:integer .
+dmi:longestGap a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain dmi:TimeSeries ; rdfs:range xsd:integer ;
+    rdfs:comment "Longest run of consecutive years without a published value." .
+dmi:coefficient a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain dmi:Estimate ; rdfs:range xsd:decimal .
+dmi:stdError a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain dmi:Estimate ; rdfs:range xsd:decimal .
+dmi:pValue a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain dmi:Estimate ;
+    rdfs:range [ a rdfs:Datatype ; owl:onDatatype xsd:decimal ;
+                 owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:decimal ] [ xsd:maxInclusive "1"^^xsd:decimal ] ) ] .
+dmi:estimator a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:range xsd:string .
+dmi:estimationArm a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:range xsd:string .
+dmi:forecastTarget a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain dmi:ForecastScore ; rdfs:range xsd:string .
+dmi:rmse a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain dmi:ForecastScore ; rdfs:range xsd:decimal .
+dmi:mae a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain dmi:ForecastScore ; rdfs:range xsd:decimal .
+dmi:deltaRmseVsPersistence a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain dmi:ForecastScore ; rdfs:range xsd:decimal .
+dmi:ciLow a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:range xsd:decimal .
+dmi:ciHigh a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:range xsd:decimal .
+dmi:coefficientOfVariation a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain dmi:DispersionReading ; rdfs:range xsd:decimal .
+dmi:slicerField a owl:DatatypeProperty ; rdfs:domain dmi:AnalyticView ; rdfs:range xsd:string .
+dmi:sigmaReading owl:deprecated true ;
+    rdfs:comment "Superseded in 2.0.0 by dmi:DispersionReading individuals." .
+
+# ---------------------------------------------------------------------------
+# Value partitions and disjointness
+# Provenance states, reconstruction scopes, composite pillars and the Balkan
+# group are modelled as classes with one member each instead of owl:oneOf /
+# owl:hasValue nominals; the defined classes below then use someValuesFrom,
+# which keeps realisation of a few thousand cells tractable for HermiT.
+# ---------------------------------------------------------------------------
+
+dmi:OfficialState a owl:Class ; rdfs:subClassOf dmi:ProvenanceState ; rdfs:label "Published by the source" .
+dmi:CarriedState a owl:Class ; rdfs:subClassOf dmi:ProvenanceState ; rdfs:label "Carried from the nearest publication (at most two years)" .
+dmi:ReconstructedState a owl:Class ; rdfs:subClassOf dmi:ProvenanceState ; rdfs:label "Reconstructed by chained-equation imputation" .
+dmi:MissingState a owl:Class ; rdfs:subClassOf dmi:ProvenanceState ; rdfs:label "No value" .
+dmi:ConstructedState a owl:Class ; rdfs:subClassOf dmi:ProvenanceState ; rdfs:label "Constructed by the framework" .
+[] a owl:AllDisjointClasses ;
+    owl:members ( dmi:OfficialState dmi:CarriedState dmi:ReconstructedState dmi:MissingState dmi:ConstructedState ) .
+dmi:Prov_official a dmi:OfficialState .
+dmi:Prov_carried_forward a dmi:CarriedState .
+dmi:Prov_mice_imputed a dmi:ReconstructedState .
+dmi:Prov_missing a dmi:MissingState .
+dmi:Prov_constructed a dmi:ConstructedState .
+
+dmi:InteriorScope a owl:Class ; rdfs:subClassOf dmi:ReconstructionScope .
+dmi:BackcastScope a owl:Class ; rdfs:subClassOf dmi:ReconstructionScope .
+dmi:ForecastScope a owl:Class ; rdfs:subClassOf dmi:ReconstructionScope .
+[] a owl:AllDisjointClasses ; owl:members ( dmi:InteriorScope dmi:BackcastScope dmi:ForecastScope ) .
+dmi:Scope_interior a dmi:InteriorScope , owl:NamedIndividual ; rdfs:label "interior" .
+dmi:Scope_backcast a dmi:BackcastScope , owl:NamedIndividual ; rdfs:label "backcast" .
+dmi:Scope_forecast a dmi:ForecastScope , owl:NamedIndividual ; rdfs:label "forecast" .
+
+dmi:CompositePillar a owl:Class ; rdfs:subClassOf dmi:Pillar ;
+    rdfs:label "Composite pillar" ;
+    rdfs:comment "One of the five equally weighted pillars of the DMI." .
+dmi:NonCompositePillar a owl:Class ; rdfs:subClassOf dmi:Pillar ; owl:disjointWith dmi:CompositePillar ;
+    rdfs:label "Grouping outside the composite (controls, the composite itself)" .
+dmi:Pillar_infrastructure a dmi:CompositePillar .
+dmi:Pillar_e_government a dmi:CompositePillar .
+dmi:Pillar_skills a dmi:CompositePillar .
+dmi:Pillar_trust_innovation a dmi:CompositePillar .
+dmi:Pillar_digital_economy a dmi:CompositePillar .
+dmi:Pillar_control a dmi:NonCompositePillar .
+dmi:Pillar_composite a dmi:NonCompositePillar .
+
+dmi:BalkanGroup a owl:Class ; rdfs:subClassOf dmi:CountryGroup ; rdfs:label "Balkan country group" .
+dmi:Group_balkan a dmi:BalkanGroup .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( dmi:Indicator dmi:Pillar dmi:Country dmi:CountryGroup dmi:DataSource dmi:CollectionMethod
+                  dmi:ProcessPhase dmi:ProvenanceState dmi:TimeSeries dmi:ScoreEntry dmi:ModelOutput
+                  dmi:Publisher dmi:ReconstructionScope dmi:AnalyticView ) .
+[] a owl:AllDisjointClasses ;
+    owl:members ( dmi:CoreIndicator dmi:ControlIndicator dmi:CompositeIndex dmi:ContextIndicator ) .
+[] a owl:AllDisjointClasses ;
+    owl:members ( dmi:Estimate dmi:ForecastScore dmi:DispersionReading ) .
+
+# Every cell has an indicator, a country, a provenance state and a year inside
+# the panel window. Uniqueness of the (indicator, country, year) key is checked
+# by SHACL and by the RDF Data Cube constraint IC-12 (owl:hasKey is kept out of
+# the reasoning profile because it made realisation prohibitively slow).
+dmi:ScoreEntry rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty dmi:entryIndicator ; owl:someValuesFrom dmi:Indicator ] ,
+    [ a owl:Restriction ; owl:onProperty dmi:entryCountry ; owl:someValuesFrom dmi:Country ] ,
+    [ a owl:Restriction ; owl:onProperty dmi:hasProvenance ; owl:someValuesFrom dmi:ProvenanceState ] ,
+    [ a owl:Restriction ; owl:onProperty dmi:year ; owl:someValuesFrom xsd:integer ] ,
+    [ a owl:Restriction ; owl:onProperty dmi:year ; owl:allValuesFrom
+        [ a rdfs:Datatype ; owl:onDatatype xsd:integer ;
+          owl:withRestrictions ( [ xsd:minInclusive "2012"^^xsd:integer ] [ xsd:maxInclusive "2025"^^xsd:integer ] ) ] ] .
+
+# A context indicator is never a member of a composite pillar.
+dmi:ContextIndicator rdfs:subClassOf
+    [ a owl:Class ; owl:complementOf [ a owl:Restriction ; owl:onProperty dmi:belongsToPillar ; owl:someValuesFrom dmi:CompositePillar ] ] .
+
+# ---------------------------------------------------------------------------
+# Defined classes (classified by the reasoner, used as slicers in the VDA layer)
+# ---------------------------------------------------------------------------
+
+dmi:CompositeComponent a owl:Class ;
+    rdfs:label "Composite component" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:Indicator
+        [ a owl:Restriction ; owl:onProperty dmi:belongsToPillar ; owl:someValuesFrom dmi:CompositePillar ] ) ] .
+
+dmi:OfficialEntry a owl:Class ; rdfs:label "Published cell" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:ScoreEntry
+        [ a owl:Restriction ; owl:onProperty dmi:hasProvenance ; owl:someValuesFrom dmi:OfficialState ] ) ] .
+dmi:CarriedEntry a owl:Class ; rdfs:label "Carried cell" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:ScoreEntry
+        [ a owl:Restriction ; owl:onProperty dmi:hasProvenance ; owl:someValuesFrom dmi:CarriedState ] ) ] .
+dmi:ReconstructedEntry a owl:Class ; rdfs:label "Reconstructed cell" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:ScoreEntry
+        [ a owl:Restriction ; owl:onProperty dmi:hasProvenance ; owl:someValuesFrom dmi:ReconstructedState ] ) ] .
+dmi:ConstructedEntry a owl:Class ; rdfs:label "Constructed cell" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:ScoreEntry
+        [ a owl:Restriction ; owl:onProperty dmi:hasProvenance ; owl:someValuesFrom dmi:ConstructedState ] ) ] .
+dmi:BackcastEntry a owl:Class ; rdfs:label "Backcast cell" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:ScoreEntry
+        [ a owl:Restriction ; owl:onProperty dmi:hasReconstructionScope ; owl:someValuesFrom dmi:BackcastScope ] ) ] .
+dmi:ContextEntry a owl:Class ; rdfs:label "Context cell" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:ScoreEntry
+        [ a owl:Restriction ; owl:onProperty dmi:entryIndicator ; owl:someValuesFrom dmi:ContextIndicator ] ) ] .
+dmi:ContextEntry owl:disjointWith dmi:ReconstructedEntry .
+
+dmi:ComponentEntry a owl:Class ; rdfs:label "Composite-component cell" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:ScoreEntry
+        [ a owl:Restriction ; owl:onProperty dmi:entryPillar ; owl:someValuesFrom dmi:CompositePillar ] ) ] .
+dmi:BalkanEntry a owl:Class ; rdfs:label "Cell of a Balkan country" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:ScoreEntry
+        [ a owl:Restriction ; owl:onProperty dmi:entryGroup ; owl:someValuesFrom dmi:BalkanGroup ] ) ] .
+
+dmi:UnobservedSeries a owl:Class ; rdfs:label "Unobserved series" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:TimeSeries
+        [ a owl:Restriction ; owl:onProperty dmi:nOfficial ; owl:hasValue "0"^^xsd:integer ] ) ] .
+dmi:SparseSeries a owl:Class ; rdfs:label "Sparse series (fewer than 7 published years)" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:TimeSeries
+        [ a owl:Restriction ; owl:onProperty dmi:nOfficial ; owl:someValuesFrom
+            [ a rdfs:Datatype ; owl:onDatatype xsd:integer ; owl:withRestrictions ( [ xsd:maxExclusive "7"^^xsd:integer ] ) ] ] ) ] .
+dmi:SignificantEstimate a owl:Class ; rdfs:label "Estimate significant at 5%" ;
+    owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( dmi:Estimate
+        [ a owl:Restriction ; owl:onProperty dmi:pValue ; owl:someValuesFrom
+            [ a rdfs:Datatype ; owl:onDatatype xsd:decimal ; owl:withRestrictions ( [ xsd:maxExclusive "0.05"^^xsd:decimal ] ) ] ] ) ] .
+
+# ---------------------------------------------------------------------------
+# Visual analytics tasks
+# ---------------------------------------------------------------------------
+
+dmi:Task_overview a dmi:VisualTask , owl:NamedIndividual ; rdfs:label "Overview" .
+dmi:Task_filter a dmi:VisualTask , owl:NamedIndividual ; rdfs:label "Filter" .
+dmi:Task_compare a dmi:VisualTask , owl:NamedIndividual ; rdfs:label "Compare" .
+dmi:Task_trend a dmi:VisualTask , owl:NamedIndividual ; rdfs:label "Follow a trend over time" .
+dmi:Task_provenance a dmi:VisualTask , owl:NamedIndividual ; rdfs:label "Inspect the provenance of a value" .
+dmi:Task_details a dmi:VisualTask , owl:NamedIndividual ; rdfs:label "Details on demand" .

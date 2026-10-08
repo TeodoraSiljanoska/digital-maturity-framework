@@ -1,0 +1,138 @@
+@prefix dmi:  <http://purl.org/dmi-framework#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix qb:   <http://purl.org/linked-data/cube#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# Closed-world data contract of the knowledge graph. The OWL axioms say what
+# may be inferred; these shapes say what must be present in every generated
+# graph before it is published to the visual-analytics layer.
+
+dmi:prefixes sh:declare
+    [ sh:prefix "dmi" ; sh:namespace "http://purl.org/dmi-framework#"^^xsd:anyURI ] ,
+    [ sh:prefix "rdf" ; sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ] .
+
+dmi:ScoreEntryShape a sh:NodeShape ;
+    sh:targetClass dmi:ScoreEntry ;
+    sh:property [ sh:path dmi:entryIndicator ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dmi:Indicator ] ;
+    sh:property [ sh:path dmi:entryCountry ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dmi:Country ] ;
+    sh:property [ sh:path dmi:year ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ;
+                  sh:minInclusive 2012 ; sh:maxInclusive 2025 ] ;
+    sh:property [ sh:path dmi:matrixValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:decimal ] ;
+    sh:property [ sh:path dmi:hasProvenance ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( dmi:Prov_official dmi:Prov_carried_forward dmi:Prov_mice_imputed dmi:Prov_constructed ) ] ;
+    sh:property [ sh:path dmi:entrySource ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dmi:DataSource ] ;
+    sh:property [ sh:path dmi:inSeries ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dmi:TimeSeries ] ;
+    sh:property [ sh:path qb:dataSet ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Two cells share indicator, country and year." ;
+        sh:prefixes dmi:prefixes ;
+        sh:select """
+            SELECT $this ?other WHERE {
+              $this dmi:entryIndicator ?i ; dmi:entryCountry ?c ; dmi:year ?y .
+              ?other dmi:entryIndicator ?i ; dmi:entryCountry ?c ; dmi:year ?y .
+              FILTER (?other != $this)
+            }""" ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A context indicator cell is marked as reconstructed; context cells are never imputed." ;
+        sh:prefixes dmi:prefixes ;
+        sh:select """
+            SELECT $this WHERE {
+              $this dmi:entryIndicator ?i ; dmi:hasProvenance dmi:Prov_mice_imputed .
+              ?i a dmi:ContextIndicator .
+            }""" ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A reconstructed cell has no reconstruction scope, or a non-reconstructed cell has one." ;
+        sh:prefixes dmi:prefixes ;
+        sh:select """
+            SELECT $this WHERE {
+              { $this dmi:hasProvenance dmi:Prov_mice_imputed . FILTER NOT EXISTS { $this dmi:hasReconstructionScope ?s } }
+              UNION
+              { $this dmi:hasReconstructionScope ?s . FILTER NOT EXISTS { $this dmi:hasProvenance dmi:Prov_mice_imputed } }
+            }""" ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "The cell and its series disagree on indicator or country." ;
+        sh:prefixes dmi:prefixes ;
+        sh:select """
+            SELECT $this WHERE {
+              $this dmi:inSeries ?s ; dmi:entryIndicator ?i ; dmi:entryCountry ?c .
+              FILTER NOT EXISTS { ?s dmi:seriesIndicator ?i ; dmi:seriesCountry ?c }
+            }""" ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A published cell has no edition or retrieval method." ;
+        sh:prefixes dmi:prefixes ;
+        sh:select """
+            SELECT $this WHERE {
+              $this dmi:hasProvenance dmi:Prov_official .
+              FILTER NOT EXISTS { $this dmi:edition ?e ; dmi:retrievalMethod ?m }
+            }""" ] .
+
+dmi:CoreIndicatorShape a sh:NodeShape ;
+    sh:targetClass dmi:CoreIndicator ;
+    sh:property [ sh:path dmi:belongsToPillar ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:in ( dmi:Pillar_infrastructure dmi:Pillar_e_government dmi:Pillar_skills
+                          dmi:Pillar_trust_innovation dmi:Pillar_digital_economy ) ] .
+
+dmi:ContextIndicatorShape a sh:NodeShape ;
+    sh:targetClass dmi:ContextIndicator ;
+    sh:property [ sh:path dmi:belongsToPillar ; sh:maxCount 0 ;
+                  sh:message "A context indicator must not enter the composite." ] ;
+    sh:property [ sh:path dmi:relatedPillar ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dmi:Pillar ] .
+
+dmi:IndicatorShape a sh:NodeShape ;
+    sh:targetClass dmi:Indicator ;
+    sh:property [ sh:path dmi:indicatorId ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path rdfs:label ; sh:minCount 2 ; sh:languageIn ( "en" "mk" ) ; sh:uniqueLang true ] ;
+    sh:property [ sh:path dmi:hasSource ; sh:minCount 1 ; sh:class dmi:DataSource ] ;
+    sh:property [ sh:path dmi:obtainedBy ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dmi:CollectionMethod ] .
+
+dmi:PillarShape a sh:NodeShape ;
+    sh:targetClass dmi:Pillar ;
+    sh:property [ sh:path skos:prefLabel ; sh:minCount 2 ; sh:languageIn ( "en" "mk" ) ; sh:uniqueLang true ] ;
+    sh:property [ sh:path skos:inScheme ; sh:hasValue dmi:PillarScheme ] .
+
+dmi:TimeSeriesShape a sh:NodeShape ;
+    sh:targetClass dmi:TimeSeries ;
+    sh:property [ sh:path dmi:seriesIndicator ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path dmi:seriesCountry ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path dmi:nOfficial ; sh:maxCount 1 ; sh:datatype xsd:integer ; sh:minInclusive 0 ; sh:maxInclusive 14 ] ;
+    sh:property [ sh:path dmi:officialShare ; sh:maxCount 1 ; sh:minInclusive 0 ; sh:maxInclusive 1 ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "dmi:nOfficial differs from the number of published cells in the series." ;
+        sh:prefixes dmi:prefixes ;
+        sh:select """
+            SELECT $this ?n (COUNT(?e) AS ?k) WHERE {
+              $this dmi:nOfficial ?n .
+              OPTIONAL { ?e dmi:inSeries $this ; dmi:hasProvenance dmi:Prov_official . }
+            } GROUP BY $this ?n
+              HAVING (?n != COUNT(?e))""" ] .
+
+dmi:EstimateShape a sh:NodeShape ;
+    sh:targetClass dmi:Estimate ;
+    sh:property [ sh:path dmi:estimateFor ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dmi:Indicator ] ;
+    sh:property [ sh:path dmi:coefficient ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:decimal ] ;
+    sh:property [ sh:path dmi:stdError ; sh:minCount 1 ; sh:maxCount 1 ; sh:minInclusive 0 ] ;
+    sh:property [ sh:path dmi:pValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:minInclusive 0 ; sh:maxInclusive 1 ] ;
+    sh:property [ sh:path dmi:estimationArm ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+dmi:ForecastScoreShape a sh:NodeShape ;
+    sh:targetClass dmi:ForecastScore ;
+    sh:property [ sh:path dmi:scoredModel ; sh:minCount 1 ; sh:maxCount 1 ; sh:class dmi:ModelOutput ] ;
+    sh:property [ sh:path dmi:rmse ; sh:minCount 1 ; sh:maxCount 1 ; sh:minInclusive 0 ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "The bootstrap interval does not contain the point estimate." ;
+        sh:prefixes dmi:prefixes ;
+        sh:select """
+            SELECT $this WHERE {
+              $this dmi:deltaRmseVsPersistence ?d ; dmi:ciLow ?lo ; dmi:ciHigh ?hi .
+              FILTER (?d < ?lo - 0.000001 || ?d > ?hi + 0.000001)
+            }""" ] .

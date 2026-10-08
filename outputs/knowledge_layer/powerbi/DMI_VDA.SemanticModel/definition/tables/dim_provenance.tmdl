@@ -1,0 +1,48 @@
+table dim_provenance
+	lineageTag: 64d158e5-6725-5c96-be6f-a66cc6b1775b
+
+	column state
+		dataType: string
+		lineageTag: 400d6701-fd67-57aa-a769-5311c4e8465d
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column label
+		dataType: string
+		lineageTag: b90ed737-8755-5a87-9d52-465139f3399e
+		summarizeBy: none
+		sourceColumn: label
+		sortByColumn: sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column label_mk
+		dataType: string
+		lineageTag: 033ba111-dd2f-5d50-b0a0-28bd74b366fd
+		summarizeBy: none
+		sourceColumn: label_mk
+
+		annotation SummarizationSetBy = Automatic
+
+	column sort
+		dataType: int64
+		lineageTag: 99dc1008-3313-5b7c-b44e-dde3b001fe3f
+		summarizeBy: none
+		sourceColumn: sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_provenance = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "dim_provenance.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"state", type text}, {"label", type text}, {"label_mk", type text}, {"sort", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

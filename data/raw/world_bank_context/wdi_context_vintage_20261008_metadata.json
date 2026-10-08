@@ -1,0 +1,74 @@
+[
+  {
+    "indicator_id": "Z1",
+    "indicator_code": "IT.NET.SECR.P6",
+    "wdi_name": "Secure Internet servers (per 1 million people)",
+    "wdi_source": "World Development Indicators",
+    "source_organization": "Secure Server Survey, Netcraft, uri: http://www.netcraft.com/;\nWorld Bank population estimates, World Bank (WB)",
+    "lastupdated": "2026-10-08",
+    "request_url": "https://api.worldbank.org/v2/country/MKD;SRB;SVN;FRA;GBR;DEU;USA;CAN;AUS;BRA;ARG;IND/indicator/IT.NET.SECR.P6?date=2012:2025&format=json&per_page=1000",
+    "retrieved_at": "2026-10-08T20:09:01+00:00",
+    "response_sha256": "f073d8116e01f45d9ee34e8e16fc56ff97cf8c668d25193634dde7088e050726",
+    "n_records": 168
+  },
+  {
+    "indicator_id": "Z2",
+    "indicator_code": "TX.VAL.ICTG.ZS.UN",
+    "wdi_name": "ICT goods exports (% of total goods exports)",
+    "wdi_source": "World Development Indicators",
+    "source_organization": "UNCTADstat database, UN Conference on Trade and Development (UNCTAD), uri: http://unctadstat.unctad.org/ReportFolders/reportFolders.aspx",
+    "lastupdated": "2026-10-08",
+    "request_url": "https://api.worldbank.org/v2/country/MKD;SRB;SVN;FRA;GBR;DEU;USA;CAN;AUS;BRA;ARG;IND/indicator/TX.VAL.ICTG.ZS.UN?date=2012:2025&format=json&per_page=1000",
+    "retrieved_at": "2026-10-08T20:09:02+00:00",
+    "response_sha256": "e9489b96a5c221cccf2e265301bf69f53b8c5e529e2da89882dd35ed03ffdfd0",
+    "n_records": 168
+  },
+  {
+    "indicator_id": "Z3",
+    "indicator_code": "TX.VAL.TECH.MF.ZS",
+    "wdi_name": "High-technology exports (% of manufactured exports)",
+    "wdi_source": "World Development Indicators",
+    "source_organization": "Comtrade database, United Nations (UN), uri: comtrade.un.org, publisher: UN Statistics Division;\nWorld Integrated Trade Solution system (WITS), World Bank (WB), uri: https://wits.worldbank.org/",
+    "lastupdated": "2026-10-08",
+    "request_url": "https://api.worldbank.org/v2/country/MKD;SRB;SVN;FRA;GBR;DEU;USA;CAN;AUS;BRA;ARG;IND/indicator/TX.VAL.TECH.MF.ZS?date=2012:2025&format=json&per_page=1000",
+    "retrieved_at": "2026-10-08T20:09:03+00:00",
+    "response_sha256": "e8d5cfd47d0a030c3598eaba5f3927476cc50860ee246fcf8906e895c5ef5fb5",
+    "n_records": 168
+  },
+  {
+    "indicator_id": "Z4",
+    "indicator_code": "SE.TER.ENRR",
+    "wdi_name": "School enrollment, tertiary (% gross)",
+    "wdi_source": "World Development Indicators",
+    "source_organization": "Data API, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources, note: The data are obtained through the UIS API.  Detailed documentation is available at: https://api.uis.unesco.org/api/public/documentation/, publisher: UNESCO Institute for Statistics (UIS), type: Bulk file (csv), date accessed: 2026-03-19, date published: 2026-02",
+    "lastupdated": "2026-10-08",
+    "request_url": "https://api.worldbank.org/v2/country/MKD;SRB;SVN;FRA;GBR;DEU;USA;CAN;AUS;BRA;ARG;IND/indicator/SE.TER.ENRR?date=2012:2025&format=json&per_page=1000",
+    "retrieved_at": "2026-10-08T20:09:05+00:00",
+    "response_sha256": "b01077a6459501ce9186362023261d84ee164159e160760fc2ff62223737fb52",
+    "n_records": 168
+  },
+  {
+    "indicator_id": "Z5",
+    "indicator_code": "SP.POP.SCIE.RD.P6",
+    "wdi_name": "Researchers in R&D (per million people)",
+    "wdi_source": "World Development Indicators",
+    "source_organization": "Stat Bulk Data Download Service, UN Educational, Scientific and Cultural Organization (UNESCO), uri: https://databrowser.uis.unesco.org/resources/bulk, publisher: UNESCO Institute for Statistics (UIS), date accessed: 2025-03-26, date published: 2025-02",
+    "lastupdated": "2026-10-08",
+    "request_url": "https://api.worldbank.org/v2/country/MKD;SRB;SVN;FRA;GBR;DEU;USA;CAN;AUS;BRA;ARG;IND/indicator/SP.POP.SCIE.RD.P6?date=2012:2025&format=json&per_page=1000",
+    "retrieved_at": "2026-10-08T20:09:06+00:00",
+    "response_sha256": "9c729f13f356f4e2ceabc8054ba2a9356de81ecd6f63928a569a794cf4a82cf6",
+    "n_records": 168
+  },
+  {
+    "indicator_id": "Z6",
+    "indicator_code": "IQ.SPI.OVRL",
+    "wdi_name": "Statistical performance indicators (SPI): Overall score (scale 0-100)",
+    "wdi_source": "World Development Indicators",
+    "source_organization": "Statistical Performance Indicators, World Bank (WB), uri: https://datacatalog.worldbank.org/dataset/statistical-performance-indicators",
+    "lastupdated": "2026-10-08",
+    "request_url": "https://api.worldbank.org/v2/country/MKD;SRB;SVN;FRA;GBR;DEU;USA;CAN;AUS;BRA;ARG;IND/indicator/IQ.SPI.OVRL?date=2012:2025&format=json&per_page=1000",
+    "retrieved_at": "2026-10-08T20:09:08+00:00",
+    "response_sha256": "7c24232e2e22420f4460397ecdeb056d1a0febb2adfd5f7464d0ac41f6ceda20",
+    "n_records": 168
+  }
+]

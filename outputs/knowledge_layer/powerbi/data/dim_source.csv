@@ -1,0 +1,9 @@
+source_id,source_label,publisher,retrieved_at
+world_bank,"World Bank WDI API, vintage 2026-08-09",World Bank,2026-08-09T20:18:24+00:00
+world_bank_context,"World Bank WDI API, vintage 2026-10-08 (context indicators)",World Bank,2026-10-08T20:09:01+00:00
+un_egdi,UN E-Government Survey country pages,United Nations Department of Economic and Social Affairs,
+ncsi,NCSI 3.0 dated country pages,e-Governance Academy,
+gii,Global Innovation Index reports and data files,World Intellectual Property Organization,
+oxford_insights,Government AI Readiness Index reports and data file,Oxford Insights,
+undp,Human Development Report 2025 time series,UNDP Human Development Report Office,
+constructed,Digital Maturity Framework (constructed index),Digital Maturity Framework,

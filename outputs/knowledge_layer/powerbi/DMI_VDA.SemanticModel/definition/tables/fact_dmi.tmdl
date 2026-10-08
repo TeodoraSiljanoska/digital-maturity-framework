@@ -1,0 +1,121 @@
+table fact_dmi
+	lineageTag: 2cf4a196-c86c-5d6b-906f-9227fa665878
+
+	measure 'Average DMI' = AVERAGE(fact_dmi[DMI])
+		formatString: 0.00
+		lineageTag: f48c5af9-4156-51e0-91bb-1319001cbbf5
+
+	measure 'Average DMI (published cells only)' = AVERAGE(fact_dmi[DMI_official_only])
+		formatString: 0.00
+		lineageTag: 8c02466f-05b4-503a-bff3-79a55ccd0b23
+
+	measure 'Average DMI+' = AVERAGE(fact_dmi[DMI_plus])
+		formatString: 0.00
+		lineageTag: 70638260-b408-5eae-9435-b83f5ca2743c
+
+	measure 'Average DMI (en)' = IF(ISBLANK([Average DMI]), BLANK(), FORMAT([Average DMI], "0.00", "en-US"))
+		lineageTag: 05cb08a0-56e4-5595-9328-24866b8bb7a5
+
+	measure 'Average DMI, published cells only (en)' = IF(ISBLANK([Average DMI (published cells only)]), BLANK(), FORMAT([Average DMI (published cells only)], "0.00", "en-US"))
+		lineageTag: 85e84503-5ee8-5a35-9884-439fce27a2ef
+
+	column country_iso3
+		dataType: string
+		lineageTag: fbb60fdf-90e2-5e05-ab97-e483bd4c8c4a
+		summarizeBy: none
+		sourceColumn: country_iso3
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		lineageTag: 9f44d4cb-92ac-50a9-ab66-7d01b692cbcd
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column DMI
+		dataType: double
+		formatString: 0.000
+		lineageTag: 06f5ec62-0196-5be0-b953-90070a8f109f
+		summarizeBy: sum
+		sourceColumn: DMI
+
+		annotation SummarizationSetBy = Automatic
+
+	column pillar_infrastructure
+		dataType: double
+		formatString: 0.000
+		lineageTag: 90d13f7b-752b-5e4a-a16d-52fd9c891655
+		summarizeBy: sum
+		sourceColumn: pillar_infrastructure
+
+		annotation SummarizationSetBy = Automatic
+
+	column pillar_e_government
+		dataType: double
+		formatString: 0.000
+		lineageTag: fad6e43f-3f52-5e5a-be59-db1e23517f2c
+		summarizeBy: sum
+		sourceColumn: pillar_e_government
+
+		annotation SummarizationSetBy = Automatic
+
+	column pillar_skills
+		dataType: double
+		formatString: 0.000
+		lineageTag: e7939e6e-cdca-5724-a85f-66478387fb83
+		summarizeBy: sum
+		sourceColumn: pillar_skills
+
+		annotation SummarizationSetBy = Automatic
+
+	column pillar_trust_innovation
+		dataType: double
+		formatString: 0.000
+		lineageTag: e64d43fa-e06f-564a-bf46-2ce724de66de
+		summarizeBy: sum
+		sourceColumn: pillar_trust_innovation
+
+		annotation SummarizationSetBy = Automatic
+
+	column pillar_digital_economy
+		dataType: double
+		formatString: 0.000
+		lineageTag: 646bf50c-c16f-5a3c-afce-dad2fec2d78f
+		summarizeBy: sum
+		sourceColumn: pillar_digital_economy
+
+		annotation SummarizationSetBy = Automatic
+
+	column DMI_official_only
+		dataType: double
+		formatString: 0.000
+		lineageTag: fcdd4c7c-1eac-5081-a131-e77128f4fddb
+		summarizeBy: sum
+		sourceColumn: DMI_official_only
+
+		annotation SummarizationSetBy = Automatic
+
+	column DMI_plus
+		dataType: double
+		formatString: 0.000
+		lineageTag: d337f02d-2efb-5a51-8786-cb2acb43b096
+		summarizeBy: sum
+		sourceColumn: DMI_plus
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_dmi = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "fact_dmi.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"country_iso3", type text}, {"year", Int64.Type}, {"DMI", type number}, {"pillar_infrastructure", type number}, {"pillar_e_government", type number}, {"pillar_skills", type number}, {"pillar_trust_innovation", type number}, {"pillar_digital_economy", type number}, {"DMI_official_only", type number}, {"DMI_plus", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

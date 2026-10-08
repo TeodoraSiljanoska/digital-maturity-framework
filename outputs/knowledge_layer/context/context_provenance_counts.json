@@ -1,0 +1,30 @@
+{
+  "Z1": {
+    "official": 156,
+    "carried_forward": 12
+  },
+  "Z2": {
+    "official": 156,
+    "carried_forward": 12
+  },
+  "Z3": {
+    "official": 143,
+    "missing": 14,
+    "carried_forward": 11
+  },
+  "Z4": {
+    "official": 143,
+    "carried_forward": 23,
+    "missing": 2
+  },
+  "Z5": {
+    "official": 108,
+    "missing": 35,
+    "carried_forward": 25
+  },
+  "Z6": {
+    "official": 108,
+    "carried_forward": 36,
+    "missing": 24
+  }
+}

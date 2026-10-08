@@ -1,0 +1,5 @@
+expression DataFolder = "D:\Teodora\Downloads\wetransfer_od-rabota-zip_2026-09-10_2003\digital-maturity-framework\digital-maturity-framework\outputs\knowledge_layer\powerbi\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 601f1dfe-94f3-53f3-8d75-4a688ec30db5
+
+	annotation PBI_ResultType = Text
+

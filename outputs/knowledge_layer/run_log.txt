@@ -1,0 +1,376 @@
+{
+ "version": "3.1.0",
+ "context": {
+  "n_values": 814,
+  "provenance": {
+   "Z1": {
+    "official": 156,
+    "carried_forward": 12
+   },
+   "Z2": {
+    "official": 156,
+    "carried_forward": 12
+   },
+   "Z3": {
+    "official": 143,
+    "missing": 14,
+    "carried_forward": 11
+   },
+   "Z4": {
+    "official": 143,
+    "carried_forward": 23,
+    "missing": 2
+   },
+   "Z5": {
+    "official": 108,
+    "missing": 35,
+    "carried_forward": 25
+   },
+   "Z6": {
+    "official": 108,
+    "carried_forward": 36,
+    "missing": 24
+   }
+  }
+ },
+ "graph": {
+  "triples": 43919,
+  "tbox_triples": 830,
+  "classes": 78,
+  "object_properties": 38,
+  "datatype_properties": 37,
+  "individuals": 3541,
+  "score_entries": 3117,
+  "time_series": 228,
+  "estimates": 30,
+  "forecast_scores": 18,
+  "dispersion_readings": 14,
+  "explanations": 12,
+  "analytic_views": 4,
+  "provenance": {
+   "official": 2317,
+   "carried_forward": 432,
+   "mice_imputed": 200,
+   "constructed": 168
+  },
+  "cells_by_family": {
+   "core": 1680,
+   "control": 336,
+   "composite": 168,
+   "context": 933
+  },
+  "official_without_edition": 0,
+  "builder_stats": {
+   "tbox_triples": 830,
+   "score_entries": 3117,
+   "series": 228,
+   "estimates": 30,
+   "forecast_scores": 18,
+   "dispersion_readings": 14,
+   "explanations": 12,
+   "shap_model": "ridge",
+   "views": 4
+  }
+ },
+ "hermit": {
+  "consistent": true,
+  "error": null,
+  "load_s": 0.6,
+  "reason_s": 20.07,
+  "inferred_counts": {
+   "OfficialEntry": 2317,
+   "CarriedEntry": 432,
+   "ReconstructedEntry": 200,
+   "ConstructedEntry": 168,
+   "BackcastEntry": 195,
+   "ContextEntry": 933,
+   "ComponentEntry": 1680,
+   "BalkanEntry": 778,
+   "CompositeComponent": 10,
+   "UnobservedSeries": 2,
+   "SparseSeries": 30,
+   "SignificantEstimate": 12
+  },
+  "expected_counts": {
+   "OfficialEntry": 2317,
+   "CarriedEntry": 432,
+   "ReconstructedEntry": 200,
+   "ConstructedEntry": 168,
+   "BackcastEntry": 195,
+   "ContextEntry": 933,
+   "ComponentEntry": 1680,
+   "BalkanEntry": 778,
+   "CompositeComponent": 10,
+   "UnobservedSeries": 2,
+   "SparseSeries": 30
+  },
+  "agreement": {
+   "OfficialEntry": true,
+   "CarriedEntry": true,
+   "ReconstructedEntry": true,
+   "ConstructedEntry": true,
+   "BackcastEntry": true,
+   "ContextEntry": true,
+   "ComponentEntry": true,
+   "BalkanEntry": true,
+   "CompositeComponent": true,
+   "UnobservedSeries": true,
+   "SparseSeries": true
+  }
+ },
+ "shacl": {
+  "conforms": true,
+  "n_results": 0,
+  "by_component": {},
+  "seconds": 190.38,
+  "text": ""
+ },
+ "qb_integrity": {
+  "IC-1 unique data set": {
+   "violated": false,
+   "ms": 13.0
+  },
+  "IC-2 unique DSD": {
+   "violated": false,
+   "ms": 13.0
+  },
+  "IC-3 DSD includes measure": {
+   "violated": false,
+   "ms": 6.2
+  },
+  "IC-4 dimensions have range": {
+   "violated": false,
+   "ms": 7.2
+  },
+  "IC-11 all dimensions required": {
+   "violated": false,
+   "ms": 1671.8
+  },
+  "IC-12 no duplicate observations": {
+   "violated": false,
+   "ms": 1151.0
+  },
+  "IC-14 all measures present": {
+   "violated": false,
+   "ms": 697.3
+  }
+ },
+ "competency_questions": {
+  "CQ1": {
+   "question": "By which collection method is each indicator obtained?",
+   "passed": true,
+   "n_rows": 19,
+   "ms": 17.8,
+   "answer": [
+    [
+     "C1",
+     "official_api"
+    ],
+    [
+     "C2",
+     "curated_snapshot"
+    ],
+    [
+     "DMI",
+     "constructed"
+    ],
+    [
+     "X1",
+     "official_api"
+    ],
+    [
+     "X10",
+     "curated_snapshot"
+    ],
+    [
+     "X2",
+     "official_api"
+    ],
+    [
+     "X3",
+     "curated_snapshot"
+    ],
+    [
+     "X4",
+     "official_api"
+    ],
+    [
+     "X5",
+     "curated_snapshot"
+    ],
+    [
+     "X6",
+     "curated_snapshot"
+    ],
+    [
+     "X7",
+     "curated_snapshot"
+    ],
+    [
+     "X8",
+     "official_api"
+    ],
+    [
+     "X9",
+     "official_api"
+    ],
+    [
+     "Z1",
+     "official_api"
+    ],
+    [
+     "Z2",
+     "official_api"
+    ],
+    [
+     "Z3",
+     "official_api"
+    ],
+    [
+     "Z4",
+     "official_api"
+    ],
+    [
+     "Z5",
+     "official_api"
+    ],
+    [
+     "Z6",
+     "official_api"
+    ]
+   ]
+  },
+  "CQ2": {
+   "question": "Which provenance states do the cells of North Macedonia in 2025 have?",
+   "passed": true,
+   "n_rows": 3,
+   "ms": 24.1,
+   "answer": [
+    [
+     "carried_forward",
+     "13"
+    ],
+    [
+     "constructed",
+     "1"
+    ],
+    [
+     "official",
+     "5"
+    ]
+   ]
+  },
+  "CQ3": {
+   "question": "In which process phase is each forecasting model assigned?",
+   "passed": true,
+   "n_rows": 9,
+   "ms": 11.1,
+   "answer": [
+    [
+     "catboost",
+     "Predict"
+    ],
+    [
+     "catboost_arx",
+     "Predict"
+    ],
+    [
+     "ols",
+     "Predict"
+    ],
+    [
+     "persistence",
+     "Predict"
+    ],
+    [
+     "random_forest",
+     "Predict"
+    ],
+    [
+     "ridge",
+     "Predict"
+    ],
+    [
+     "ridge_arx",
+     "Predict"
+    ],
+    [
+     "svr",
+     "Predict"
+    ],
+    [
+     "xgboost",
+     "Predict"
+    ]
+   ]
+  },
+  "CQ4": {
+   "question": "Which five indicators have the highest mean |SHAP|, and for which model?",
+   "passed": true,
+   "n_rows": 5,
+   "ms": 12.4,
+   "answer": [
+    [
+     "X4",
+     "ridge"
+    ],
+    [
+     "X2",
+     "ridge"
+    ],
+    [
+     "C1",
+     "ridge"
+    ],
+    [
+     "X6",
+     "ridge"
+    ],
+    [
+     "X8",
+     "ridge"
+    ]
+   ]
+  },
+  "CQ5": {
+   "question": "What are the values, provenance, edition and source of the cells of North Macedonia in 2025?",
+   "passed": true,
+   "n_rows": 19,
+   "ms": 23.3,
+   "answer": [
+    [
+     "C1",
+     "10.130408859167302",
+     "official"
+    ],
+    [
+     "C2",
+     "0.751596",
+     "carried_forward"
+    ],
+    [
+     "DMI",
+     "50.022361110973485",
+     "constructed"
+    ],
+    [
+     "X1",
+     "108.38712260883",
+     "carried_forward"
+    ],
+    [
+     "X10",
+     "0.66415",
+     "carried_forward"
+    ],
+    [
+     "X2",
+     "29.8921727758887",
+     "carried_forward"
+    ],
+    [
+     "X3",
+     "0.70704",
+     "carried_forward"
+    ],
+    

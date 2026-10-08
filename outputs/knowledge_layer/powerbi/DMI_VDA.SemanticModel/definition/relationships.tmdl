@@ -1,0 +1,44 @@
+relationship 76cebdc4-de4d-549e-92a5-063f96711a19
+	fromColumn: fact_cell.indicator_id
+	toColumn: dim_indicator.indicator_id
+
+relationship 082e9f21-9edb-5eeb-88c6-737de63e79a9
+	fromColumn: fact_cell.country_iso3
+	toColumn: dim_country.country_iso3
+
+relationship 8abaafae-e036-5afb-8bd8-11fcc5def665
+	fromColumn: fact_cell.year
+	toColumn: dim_year.year
+
+relationship 4873571d-086f-5252-92d4-376eea1fd1bc
+	fromColumn: fact_cell.provenance
+	toColumn: dim_provenance.state
+
+relationship 99ca4c74-fe95-5ab2-bd8c-71e26d24ac3e
+	fromColumn: fact_cell.source_id
+	toColumn: dim_source.source_id
+
+relationship 9ac619c1-deca-5945-b99b-6970b3a1a0ed
+	fromColumn: fact_dmi.country_iso3
+	toColumn: dim_country.country_iso3
+
+relationship 1a29eee6-5764-5416-bd48-1822a4ecc084
+	fromColumn: fact_dmi.year
+	toColumn: dim_year.year
+
+relationship 21404992-4c1d-5759-b374-d526205ac20c
+	fromColumn: fact_estimate.indicator_id
+	toColumn: dim_indicator.indicator_id
+
+relationship 0f011144-20a2-5358-8d4d-a802b13a76f2
+	fromColumn: fact_shap.indicator_id
+	toColumn: dim_indicator.indicator_id
+
+relationship 3bdfbbde-ee9a-5c1e-9baa-075c2d23d185
+	fromColumn: fact_series.indicator_id
+	toColumn: dim_indicator.indicator_id
+
+relationship f50426fc-8823-5dac-ad8b-2f0ae8de8009
+	fromColumn: fact_series.country_iso3
+	toColumn: dim_country.country_iso3
+

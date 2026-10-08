@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "2cb2ced907e95cfdad50",
+  "position": {
+    "x": 900,
+    "y": 10,
+    "z": 6,
+    "height": 700,
+    "width": 370,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_indicator"
+                    }
+                  },
+                  "Property": "indicator_id"
+                }
+              },
+              "queryRef": "dim_indicator.indicator_id",
+              "nativeQueryRef": "Indicator",
+              "displayName": "Indicator"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_estimate"
+                    }
+                  },
+                  "Property": "arm"
+                }
+              },
+              "queryRef": "fact_estimate.arm",
+              "nativeQueryRef": "Specification",
+              "displayName": "Specification"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_estimate"
+                    }
+                  },
+                  "Property": "coefficient_txt"
+                }
+              },
+              "queryRef": "fact_estimate.coefficient_txt",
+              "nativeQueryRef": "Coefficient",
+              "displayName": "Coefficient"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_estimate"
+                    }
+                  },
+                  "Property": "p_txt"
+                }
+              },
+              "queryRef": "fact_estimate.p_txt",
+              "nativeQueryRef": "p",
+              "displayName": "p"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Panel estimates'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

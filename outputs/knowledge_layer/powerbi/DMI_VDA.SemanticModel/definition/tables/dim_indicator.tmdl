@@ -1,0 +1,104 @@
+table dim_indicator
+	lineageTag: 184717df-96b0-517c-a2a2-568ef0be8571
+
+	column indicator_id
+		dataType: string
+		lineageTag: 144751ba-91e2-5e2e-b2f0-40b81b0b20af
+		summarizeBy: none
+		sourceColumn: indicator_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column indicator_label
+		dataType: string
+		lineageTag: 10490d7c-766d-5183-be86-e798fed7f751
+		summarizeBy: none
+		sourceColumn: indicator_label
+		sortByColumn: sort_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column name_mk
+		dataType: string
+		lineageTag: a692be41-1111-5575-83a6-38b0a4d94c67
+		summarizeBy: none
+		sourceColumn: name_mk
+
+		annotation SummarizationSetBy = Automatic
+
+	column family
+		dataType: string
+		lineageTag: 92d7c929-4afe-55dc-a1ec-1b5e5465ef86
+		summarizeBy: none
+		sourceColumn: family
+
+		annotation SummarizationSetBy = Automatic
+
+	column pillar
+		dataType: string
+		lineageTag: 9cf52710-9880-5b78-8092-8cff13afd378
+		summarizeBy: none
+		sourceColumn: pillar
+
+		annotation SummarizationSetBy = Automatic
+
+	column pillar_mk
+		dataType: string
+		lineageTag: 54e8774d-49b9-52b8-b8dd-64fd3bb9791c
+		summarizeBy: none
+		sourceColumn: pillar_mk
+
+		annotation SummarizationSetBy = Automatic
+
+	column in_composite
+		dataType: boolean
+		lineageTag: 5c69acbb-8828-5739-9c5f-130761c35c4d
+		summarizeBy: none
+		sourceColumn: in_composite
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit
+		dataType: string
+		lineageTag: 8254b327-4a58-5049-b4e5-2a4756c6991e
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_id
+		dataType: string
+		lineageTag: a8a9c029-ebfb-58e6-8bb3-5b762914ba35
+		summarizeBy: none
+		sourceColumn: source_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_publisher
+		dataType: string
+		lineageTag: c6ecd668-7540-55a8-86dc-f5afe2fa7235
+		summarizeBy: none
+		sourceColumn: primary_publisher
+
+		annotation SummarizationSetBy = Automatic
+
+	column sort_order
+		dataType: int64
+		lineageTag: dfc582c0-1649-5f22-a960-3b53f09d2a49
+		summarizeBy: none
+		sourceColumn: sort_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_indicator = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "dim_indicator.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"indicator_id", type text}, {"indicator_label", type text}, {"name_mk", type text}, {"family", type text}, {"pillar", type text}, {"pillar_mk", type text}, {"in_composite", type logical}, {"unit", type text}, {"source_id", type text}, {"primary_publisher", type text}, {"sort_order", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

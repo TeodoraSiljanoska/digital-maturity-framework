@@ -1,0 +1,36 @@
+@prefix dmi: <http://purl.org/dmi-framework#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dmi:Dataset_panel qb:structure dmi:DSD_panel .
+
+dmi:DSD_panel a qb:DataStructureDefinition ;
+    qb:component [ qb:dimension dmi:year ;
+            qb:order 3 ],
+        [ qb:dimension dmi:entryCountry ;
+            qb:order 2 ],
+        [ qb:attribute dmi:edition ;
+            qb:componentRequired false ],
+        [ qb:attribute dmi:hasProvenance ;
+            qb:componentRequired true ],
+        [ qb:measure dmi:matrixValue ],
+        [ qb:dimension dmi:entryIndicator ;
+            qb:order 1 ] .
+
+dmi:edition a qb:AttributeProperty .
+
+dmi:entryCountry a qb:DimensionProperty ;
+    rdfs:range dmi:Country .
+
+dmi:entryIndicator a qb:DimensionProperty ;
+    rdfs:range dmi:Indicator .
+
+dmi:hasProvenance a qb:AttributeProperty .
+
+dmi:matrixValue a qb:MeasureProperty ;
+    rdfs:range xsd:decimal .
+
+dmi:year a qb:DimensionProperty ;
+    rdfs:range xsd:integer .
+

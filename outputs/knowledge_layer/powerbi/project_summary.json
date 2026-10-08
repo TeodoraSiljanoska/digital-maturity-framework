@@ -1,0 +1,19 @@
+{
+  "tables": {
+    "dim_country": 12,
+    "dim_indicator": 19,
+    "dim_year": 14,
+    "dim_provenance": 5,
+    "dim_source": 8,
+    "fact_cell": 3192,
+    "fact_dmi": 168,
+    "fact_estimate": 30,
+    "fact_forecast": 18,
+    "fact_shap": 12,
+    "fact_series": 216
+  },
+  "pages": 4,
+  "visuals": 24,
+  "measures": 13,
+  "relationships": 11
+}

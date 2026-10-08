@@ -1,0 +1,124 @@
+table fact_cell
+	lineageTag: 69927e8f-ec84-57a1-87f1-e6b1be0c01ac
+
+	measure Cells = COUNTROWS(fact_cell)
+		formatString: 0
+		lineageTag: 8b5d79c7-13b8-565c-8678-45fcd2ca0ca3
+
+	measure 'Published cells' = CALCULATE(COUNTROWS(fact_cell), fact_cell[provenance] = "official") + 0
+		formatString: 0
+		lineageTag: 95f295b7-3fd0-54c2-9f29-4af82c2e9a47
+
+	measure 'Published share' = DIVIDE([Published cells], [Cells])
+		formatString: 0.0%
+		lineageTag: 5b5b9a3f-a901-5fb3-abbc-58ea137b08f3
+
+	measure 'Mean scaled value' = AVERAGE(fact_cell[value_norm])
+		formatString: 0.0
+		lineageTag: 824c8c80-bb7e-5261-89bd-52c5aab73792
+
+	measure 'Published share (en)' = IF(ISBLANK([Published share]), BLANK(), FORMAT([Published share], "0.0%", "en-US"))
+		lineageTag: 770a5afd-c51b-5c2c-a979-8a6c5bee1be1
+
+	column cell_iri
+		dataType: string
+		lineageTag: 4a3cca51-15da-5ef9-aefc-08c75af331aa
+		summarizeBy: none
+		sourceColumn: cell_iri
+
+		annotation SummarizationSetBy = Automatic
+
+	column indicator_id
+		dataType: string
+		lineageTag: 841bfb8b-98bd-5523-8cd2-510475848226
+		summarizeBy: none
+		sourceColumn: indicator_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_iso3
+		dataType: string
+		lineageTag: ce26a8f2-0617-5b6d-8fa5-14df0050a18c
+		summarizeBy: none
+		sourceColumn: country_iso3
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		lineageTag: c61059e4-b8ef-506f-8b00-7bdecc299db0
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		formatString: 0.000
+		lineageTag: 14700f0d-331e-59bf-b139-a27540e8d84a
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_norm
+		dataType: double
+		formatString: 0.000
+		lineageTag: 34232ff4-e368-57de-9fac-ab668404862b
+		summarizeBy: sum
+		sourceColumn: value_norm
+
+		annotation SummarizationSetBy = Automatic
+
+	column provenance
+		dataType: string
+		lineageTag: de9ce0d4-28cc-5d90-8b6d-bd0b190cf238
+		summarizeBy: none
+		sourceColumn: provenance
+
+		annotation SummarizationSetBy = Automatic
+
+	column reconstruction_scope
+		dataType: string
+		lineageTag: 3997867b-f928-54db-b862-dc5642c7b966
+		summarizeBy: none
+		sourceColumn: reconstruction_scope
+
+		annotation SummarizationSetBy = Automatic
+
+	column edition
+		dataType: string
+		lineageTag: 8f5e7396-a751-5256-a9d2-cc41bae37647
+		summarizeBy: none
+		sourceColumn: edition
+
+		annotation SummarizationSetBy = Automatic
+
+	column retrieval_method
+		dataType: string
+		lineageTag: 7ca8c2d4-c2a7-5817-9138-57ab0655de3f
+		summarizeBy: none
+		sourceColumn: retrieval_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_id
+		dataType: string
+		lineageTag: c425bf0a-a83c-5c2a-acb5-133cee29ac26
+		summarizeBy: none
+		sourceColumn: source_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_cell = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "fact_cell.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"cell_iri", type text}, {"indicator_id", type text}, {"country_iso3", type text}, {"year", Int64.Type}, {"value", type number}, {"value_norm", type number}, {"provenance", type text}, {"reconstruction_scope", type text}, {"edition", type text}, {"retrieval_method", type text}, {"source_id", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,13 @@
+country_iso3,country_name,country_name_mk,group_id,group_name,group_name_mk,group_order
+MKD,North Macedonia,Северна Македонија,balkan,Balkan countries,Балкански земји,1
+SRB,Serbia,Србија,balkan,Balkan countries,Балкански земји,1
+SVN,Slovenia,Словенија,balkan,Balkan countries,Балкански земји,1
+FRA,France,Франција,developed_eu,Developed European countries,Развиени европски земји,2
+GBR,United Kingdom,Велика Британија,developed_eu,Developed European countries,Развиени европски земји,2
+DEU,Germany,Германија,developed_eu,Developed European countries,Развиени европски земји,2
+USA,United States,САД,developed_non_eu,Developed non-European countries,Развиени воневропски земји,3
+CAN,Canada,Канада,developed_non_eu,Developed non-European countries,Развиени воневропски земји,3
+AUS,Australia,Австралија,developed_non_eu,Developed non-European countries,Развиени воневропски земји,3
+BRA,Brazil,Бразил,developing,Developing countries,Земји во развој,4
+ARG,Argentina,Аргентина,developing,Developing countries,Земји во развој,4
+IND,India,Индија,developing,Developing countries,Земји во развој,4

@@ -1,0 +1,82 @@
+table fact_estimate
+	lineageTag: 1a88b975-4791-5389-ad4e-394c7e63a9fe
+
+	column indicator_id
+		dataType: string
+		lineageTag: 159513fc-2b03-57a8-b8a4-374705358fe0
+		summarizeBy: none
+		sourceColumn: indicator_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column arm
+		dataType: string
+		lineageTag: 798ec713-fcea-5029-a905-37f1f0ed6e0c
+		summarizeBy: none
+		sourceColumn: arm
+
+		annotation SummarizationSetBy = Automatic
+
+	column coefficient
+		dataType: double
+		formatString: 0.000
+		lineageTag: 4d65a20c-ddc3-57ab-bbc5-56366b51a5f6
+		summarizeBy: sum
+		sourceColumn: coefficient
+
+		annotation SummarizationSetBy = Automatic
+
+	column std_error
+		dataType: double
+		formatString: 0.000
+		lineageTag: 414afeca-e5aa-58db-a5a6-e8e854e63ec4
+		summarizeBy: sum
+		sourceColumn: std_error
+
+		annotation SummarizationSetBy = Automatic
+
+	column pvalue
+		dataType: double
+		formatString: 0.000
+		lineageTag: 6561fe57-2814-5f52-8285-eac97cc9393e
+		summarizeBy: sum
+		sourceColumn: pvalue
+
+		annotation SummarizationSetBy = Automatic
+
+	column significant_5pct
+		dataType: boolean
+		lineageTag: 1265ccff-e2c9-5605-bc98-2242a7bcd506
+		summarizeBy: none
+		sourceColumn: significant_5pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column coefficient_txt
+		dataType: string
+		lineageTag: f69397d2-c283-59c4-9917-223bbe77a3ed
+		summarizeBy: none
+		sourceColumn: coefficient_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	column p_txt
+		dataType: string
+		lineageTag: 16ea7acc-ebc1-5937-9874-7d6740c706fb
+		summarizeBy: none
+		sourceColumn: p_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_estimate = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "fact_estimate.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"indicator_id", type text}, {"arm", type text}, {"coefficient", type number}, {"std_error", type number}, {"pvalue", type number}, {"significant_5pct", type logical}, {"coefficient_txt", type text}, {"p_txt", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,112 @@
+{
+  "pearson_r": 0.9911408603384064,
+  "mean_abs_diff": 6.414823831849883,
+  "max_abs_diff": 12.123216783316849,
+  "min_spearman_by_year": 0.9090909090909092,
+  "years_with_rank_change": 13,
+  "max_abs_rank_shift": 4,
+  "group_means": {
+    "balkan": {
+      "DMI": 51.355,
+      "DMI_plus": 45.12
+    },
+    "developed_eu": {
+      "DMI": 75.634,
+      "DMI_plus": 68.42
+    },
+    "developed_non_eu": {
+      "DMI": 72.483,
+      "DMI_plus": 66.881
+    },
+    "developing": {
+      "DMI": 41.74,
+      "DMI_plus": 35.184
+    }
+  },
+  "per_year": [
+    {
+      "year": 2012,
+      "spearman_rho": 0.965034965034965,
+      "n_rank_changes": 7,
+      "max_abs_rank_shift": 2
+    },
+    {
+      "year": 2013,
+      "spearman_rho": 0.9720279720279721,
+      "n_rank_changes": 5,
+      "max_abs_rank_shift": 2
+    },
+    {
+      "year": 2014,
+      "spearman_rho": 0.9090909090909092,
+      "n_rank_changes": 5,
+      "max_abs_rank_shift": 4
+    },
+    {
+      "year": 2015,
+      "spearman_rho": 0.9230769230769231,
+      "n_rank_changes": 5,
+      "max_abs_rank_shift": 3
+    },
+    {
+      "year": 2016,
+      "spearman_rho": 0.9790209790209792,
+      "n_rank_changes": 3,
+      "max_abs_rank_shift": 2
+    },
+    {
+      "year": 2017,
+      "spearman_rho": 0.965034965034965,
+      "n_rank_changes": 4,
+      "max_abs_rank_shift": 2
+    },
+    {
+      "year": 2018,
+      "spearman_rho": 0.9930069930069931,
+      "n_rank_changes": 2,
+      "max_abs_rank_shift": 1
+    },
+    {
+      "year": 2019,
+      "spearman_rho": 0.9790209790209792,
+      "n_rank_changes": 3,
+      "max_abs_rank_shift": 2
+    },
+    {
+      "year": 2020,
+      "spearman_rho": 0.965034965034965,
+      "n_rank_changes": 7,
+      "max_abs_rank_shift": 2
+    },
+    {
+      "year": 2021,
+      "spearman_rho": 0.9860139860139862,
+      "n_rank_changes": 4,
+      "max_abs_rank_shift": 1
+    },
+    {
+      "year": 2022,
+      "spearman_rho": 0.9930069930069931,
+      "n_rank_changes": 2,
+      "max_abs_rank_shift": 1
+    },
+    {
+      "year": 2023,
+      "spearman_rho": 1.0,
+      "n_rank_changes": 0,
+      "max_abs_rank_shift": 0
+    },
+    {
+      "year": 2024,
+      "spearman_rho": 0.9790209790209792,
+      "n_rank_changes": 6,
+      "max_abs_rank_shift": 1
+    },
+    {
+      "year": 2025,
+      "spearman_rho": 0.9720279720279721,
+      "n_rank_changes": 8,
+      "max_abs_rank_shift": 1
+    }
+  ]
+}

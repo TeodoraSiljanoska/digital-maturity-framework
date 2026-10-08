@@ -1,0 +1,36 @@
+table fact_shap
+	lineageTag: 1b72ad52-53ad-55e5-9868-6d0312573826
+
+	measure 'Mean |SHAP|' = SUM(fact_shap[mean_abs_shap])
+		formatString: 0.000
+		lineageTag: ed037b6f-8074-52c4-a3fc-8673209de98e
+
+	column indicator_id
+		dataType: string
+		lineageTag: d37ff821-5688-5c40-bf41-f33804b6a8d0
+		summarizeBy: none
+		sourceColumn: indicator_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_abs_shap
+		dataType: double
+		formatString: 0.000
+		lineageTag: 5c5aa97e-7ebd-5135-b962-5e7917848b86
+		summarizeBy: sum
+		sourceColumn: mean_abs_shap
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_shap = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "fact_shap.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"indicator_id", type text}, {"mean_abs_shap", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,167 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "dcb979171b6a59de8c11",
+  "position": {
+    "x": 330,
+    "y": 370,
+    "z": 4,
+    "height": 340,
+    "width": 940,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_forecast"
+                    }
+                  },
+                  "Property": "model"
+                }
+              },
+              "queryRef": "fact_forecast.model",
+              "nativeQueryRef": "Model",
+              "displayName": "Model"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_forecast"
+                    }
+                  },
+                  "Property": "rmse_txt"
+                }
+              },
+              "queryRef": "fact_forecast.rmse_txt",
+              "nativeQueryRef": "RMSE",
+              "displayName": "RMSE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_forecast"
+                    }
+                  },
+                  "Property": "mae_txt"
+                }
+              },
+              "queryRef": "fact_forecast.mae_txt",
+              "nativeQueryRef": "MAE",
+              "displayName": "MAE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_forecast"
+                    }
+                  },
+                  "Property": "delta_rmse_txt"
+                }
+              },
+              "queryRef": "fact_forecast.delta_rmse_txt",
+              "nativeQueryRef": "RMSE minus persistence",
+              "displayName": "RMSE minus persistence"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_forecast"
+                    }
+                  },
+                  "Property": "ci_txt"
+                }
+              },
+              "queryRef": "fact_forecast.ci_txt",
+              "nativeQueryRef": "95% bootstrap CI",
+              "displayName": "95% bootstrap CI"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_forecast"
+                    }
+                  },
+                  "Property": "origins_beating_persistence"
+                }
+              },
+              "queryRef": "fact_forecast.origins_beating_persistence",
+              "nativeQueryRef": "Origins better than persistence",
+              "displayName": "Origins better than persistence"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_forecast"
+                  }
+                },
+                "Property": "rmse_txt"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Forecast accuracy against the persistence forecast'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

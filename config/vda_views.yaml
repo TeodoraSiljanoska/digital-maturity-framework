@@ -1,0 +1,39 @@
+# Analytic views of the visual-analytics layer. The same definitions are
+# written into the knowledge graph (dmi:AnalyticView) and used to generate the
+# Power BI project, so every page, slicer and field has one source of truth.
+views:
+  monitoring:
+    title: Monitoring
+    title_mk: Мониторинг на дигиталната зрелост
+    context: CTX_overview_dashboard
+    tasks: [overview, trend, compare, filter]
+    indicators: [DMI]
+    slicers: [dim_country.group_name, dim_country.country_name, dim_year.year]
+  provenance:
+    title: Provenance
+    title_mk: Потекло на вредностите
+    context: CTX_provenance_audit
+    tasks: [provenance, filter, details]
+    indicators: [X1, X2, X3, X4, X5, X6, X7, X8, X9, X10, C1, C2, Z1, Z2, Z3, Z4, Z5, Z6]
+    slicers: [dim_indicator.family, dim_source.publisher, dim_provenance.state, dim_country.group_name]
+  context:
+    title: Context indicators
+    title_mk: Контекстни индикатори
+    context: CTX_context_screening
+    tasks: [trend, compare, filter]
+    indicators: [Z1, Z2, Z3, Z4, Z5, Z6, DMI]
+    slicers: [dim_indicator.indicator_label, dim_country.group_name, dim_year.year]
+  models:
+    title: Models and explanations
+    title_mk: Модели и објаснувања
+    context: CTX_prediction_xai
+    tasks: [compare, details]
+    indicators: [X1, X2, X3, X4, X5, X6, X7, X8, X9, X10, C1, C2]
+    slicers: [fact_forecast.target, fact_estimate.arm]
+contexts:
+  CTX_provenance_audit:
+    label: Provenance audit
+    comment: Which cells of a selection are published, carried or reconstructed, and from which edition.
+  CTX_context_screening:
+    label: Context screening
+    comment: How official series outside the composite move with the DMI.

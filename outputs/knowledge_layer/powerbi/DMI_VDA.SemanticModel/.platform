@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DMI_VDA"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c401a6ee-9cc3-51d3-90a6-ce7caadec9b4"
+  }
+}

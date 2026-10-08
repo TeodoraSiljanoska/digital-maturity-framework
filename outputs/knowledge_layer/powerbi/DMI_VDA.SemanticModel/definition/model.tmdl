@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table dim_country
+ref table dim_indicator
+ref table dim_year
+ref table dim_provenance
+ref table dim_source
+ref table fact_cell
+ref table fact_dmi
+ref table fact_estimate
+ref table fact_forecast
+ref table fact_shap
+ref table fact_series
