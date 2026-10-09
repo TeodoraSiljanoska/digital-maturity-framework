@@ -1,5 +1,32 @@
 # Changelog
 
+## v3.1.0 — knowledge layer and visual analytics (9 October 2026)
+
+The data layer, the DMI and all v3.0.0 results are unchanged; everything new
+sits in `src/knowledge_layer/`, `ontology/`, `config/context_indicators.yaml`,
+`config/vda_views.yaml` and `outputs/knowledge_layer/`.
+
+- Context indicators Z1–Z6 from the WDI API (vintage 2026-10-08) with per-cell
+  provenance (official / carried forward ≤ 2 years / missing); never imputed.
+- Rolling-origin evaluation, 2017–2024 origins, 96 forecasts per model, against
+  persistence; country-cluster bootstrap (2,000 draws). Ridge with the lagged DMI
+  is the only model whose interval lies below zero on the reconstructed panel
+  (ΔRMSE −0.283 [−0.417, −0.135]).
+- Two-way fixed-effects association of Z1–Z6 with the DMI and the extended
+  index DMI+.
+- Ontology 2.0 (OWL 2 DL) aligned with RDF Data Cube, PROV-O, SKOS and DCAT;
+  nominals replaced by value partitions and `owl:hasKey` moved to SHACL so that
+  HermiT realises the 43,919-triple graph in about 20 s. SHACL shapes, seven
+  Data Cube integrity constraints, 14 competency questions and a fault-injection
+  test (SHACL detects 10 of 10 faults, HermiT 6 of 10).
+- Power BI project (TMDL + PBIR) generated from `config/vda_views.yaml`; the
+  views are also written to the graph as `dmi:AnalyticView`. The published
+  project's `DataFolder` parameter is `C:\digital-maturity-framework\...`
+  (`build_powerbi_project.py --data-folder`).
+- `scripts/export_knowledge_figures.py`; record of the Windows re-run of
+  v3.0.0 (`outputs/knowledge_layer/reproduction_v3.0.0_windows.json`).
+- Dependencies: `owlready2`, `pyshacl`.
+
 ## v3.0.1 — release metadata (29 September 2026)
 
 - Citation metadata only: release date and repository address in

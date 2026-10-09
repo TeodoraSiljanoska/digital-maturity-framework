@@ -39,6 +39,41 @@ python scripts/export_preprocessing_evidence.py  # tables, figures and quoted nu
 python -m pytest
 ```
 
+## Version 3.1: knowledge layer and Power BI project
+
+- Six context indicators from the World Bank WDI API (Z1–Z6: secure Internet
+  servers, ICT goods exports, high-technology exports, tertiary enrolment,
+  researchers in R&D, Statistical Performance Indicators overall score), frozen
+  vintage of 2026-10-08 (`config/context_indicators.yaml`,
+  `data/raw/world_bank_context/`). They stay outside the DMI and are never imputed.
+- Rolling-origin evaluation (origins 2017–2024, 96 forecasts per model) against the
+  persistence forecast, with country-cluster bootstrap intervals, for the DMI of the
+  reconstructed panel and the DMI of published cells only
+  (`src/knowledge_layer/timeseries.py`).
+- Within-country association of the context indicators with the DMI (two-way fixed
+  effects, Driscoll–Kraay and country-clustered errors) and the extended index DMI+
+  (`src/knowledge_layer/association.py`).
+- Ontology 2.0 in OWL 2 DL, aligned with RDF Data Cube, PROV-O, SKOS and DCAT
+  (`ontology/dmi-framework-ext.ttl`); the populated graph
+  (`outputs/knowledge_layer/ontology/dmi-kg.ttl`, `dmi-kg.owl`); SHACL shapes
+  (`ontology/shapes/dmi-shapes.ttl`); Data Cube integrity constraints, 14 competency
+  questions and a ten-fault injection test (`src/knowledge_layer/validate.py`, `cq.py`).
+  HermiT runs through Owlready2 and needs Java; set `DMF_JAVA` if `java` is not on PATH.
+- A Power BI project (PBIP: TMDL semantic model and PBIR report, four pages)
+  generated from `config/vda_views.yaml` (`src/knowledge_layer/powerbi.py`).
+
+```bash
+python scripts/run_knowledge_layer.py            # context, evaluation, association, graph and checks
+python scripts/build_powerbi_project.py --data-folder "<repository>\outputs\knowledge_layer\powerbi\data"
+python scripts/export_knowledge_figures.py
+```
+
+Results: `outputs/knowledge_layer/knowledge_layer_summary.json`. Open
+`outputs/knowledge_layer/powerbi/DMI_VDA.pbip` in Power BI Desktop and select
+Refresh. The published project expects the repository at
+`C:\digital-maturity-framework`; elsewhere, change the `DataFolder` parameter
+(Transform data → Edit parameters) or rebuild the project as above.
+
 ### Licence and citation
 
 Code: MIT (`LICENSE`). Derived data: CC BY 4.0 (`LICENSE-DATA`); third-party

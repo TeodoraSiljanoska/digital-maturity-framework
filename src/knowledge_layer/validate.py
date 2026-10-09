@@ -22,7 +22,8 @@ from rdflib.namespace import RDF, XSD
 
 from knowledge_layer.graph import DMI, QB, dec
 
-JAVA = os.environ.get("DMF_JAVA", r"C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin\java.exe")
+_JDK = r"C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin\java.exe"
+JAVA = os.environ.get("DMF_JAVA") or (_JDK if os.path.exists(_JDK) else shutil.which("java") or "java")
 
 DEFINED = [
     "OfficialEntry", "CarriedEntry", "ReconstructedEntry", "ConstructedEntry", "BackcastEntry",

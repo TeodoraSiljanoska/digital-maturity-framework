@@ -7,10 +7,12 @@ linearmodels==7.0
 matplotlib==3.11.1
 numpy==1.26.4
 openpyxl==3.1.5
+owlready2==0.51
 pandas==2.2.3
 plotly==7.0.0
 pyarrow==25.0.1
 pydantic==2.13.5
+pyshacl==0.40.1
 pymupdf==1.28.2
 pytest==9.1.1
 PyYAML==6.0.3

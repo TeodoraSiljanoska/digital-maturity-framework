@@ -189,7 +189,8 @@ SORT_BY = {("dim_country", "group_name"): "group_order", ("dim_indicator", "indi
            ("dim_provenance", "label"): "sort"}
 
 
-def write_semantic_model(proj: Path, tables: Dict[str, pd.DataFrame], data_dir: Path) -> None:
+def write_semantic_model(proj: Path, tables: Dict[str, pd.DataFrame], data_dir: Path,
+                         data_folder: Optional[str] = None) -> None:
     sm = proj / f"{NAME}.SemanticModel"
     d = sm / "definition"
     (d / "tables").mkdir(parents=True, exist_ok=True)
@@ -205,7 +206,8 @@ def write_semantic_model(proj: Path, tables: Dict[str, pd.DataFrame], data_dir: 
              "annotation __PBI_TimeIntelligenceEnabled = 0", ""]
     model += [f"ref table {_q(t)}" for t in tables]
     (d / "model.tmdl").write_text("\n".join(model) + "\n", encoding="utf-8")
-    folder = str(data_dir.resolve()).rstrip("\\") + "\\"
+    # Power Query needs an absolute folder; --data-folder sets a portable value for the published copy.
+    folder = (data_folder or str(data_dir.resolve())).rstrip("\\") + "\\"
     (d / "expressions.tmdl").write_text(
         f'expression DataFolder = "{folder}" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]\n'
         f"\tlineageTag: {_guid('param-DataFolder')}\n\n\tannotation PBI_ResultType = Text\n\n", encoding="utf-8")
@@ -438,11 +440,12 @@ def write_report(proj: Path, theme_src: Optional[Path], active: str = "monitorin
         "$schema": f"{SCHEMA}/item/report/definition/pagesMetadata/1.0.0/schema.json", "pageOrder": order, "activePageName": act}, indent=2), encoding="utf-8")
 
 
-def write_project(root: Path, cells: pd.DataFrame, theme_src: Optional[Path] = None, active: str = "monitoring") -> Dict[str, Any]:
+def write_project(root: Path, cells: pd.DataFrame, theme_src: Optional[Path] = None, active: str = "monitoring",
+                  data_folder: Optional[str] = None) -> Dict[str, Any]:
     proj = root / "outputs" / "knowledge_layer" / "powerbi"
     data_dir = proj / "data"
     tables = star_schema(root, cells, data_dir)
-    write_semantic_model(proj, tables, data_dir)
+    write_semantic_model(proj, tables, data_dir, data_folder)
     write_report(proj, theme_src, active)
     (proj / f"{NAME}.pbip").write_text(json.dumps({
         "$schema": f"{SCHEMA}/pbip/pbipProperties/1.0.0/schema.json", "version": "1.0",
