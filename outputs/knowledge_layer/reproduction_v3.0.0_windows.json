@@ -1,0 +1,68 @@
+{
+  "tag": "v3.0.0",
+  "run_utc": [
+    "2026-10-08T20:06:43Z",
+    "2026-10-08T20:16:40Z"
+  ],
+  "machine": "Intel Core i5-7200U, 7.9 GB RAM, Windows 10 Pro 19045, Python 3.12.10",
+  "stages": [
+    {
+      "stage": "RAW_DATA_ACQUIRED",
+      "seconds": 1.0
+    },
+    {
+      "stage": "DATA_VALIDATED",
+      "seconds": 0.0
+    },
+    {
+      "stage": "DATA_PROCESSED",
+      "seconds": 6.0
+    },
+    {
+      "stage": "INDEX_CREATED",
+      "seconds": 0.0
+    },
+    {
+      "stage": "STATISTICS_COMPLETED",
+      "seconds": 1.0
+    },
+    {
+      "stage": "ECONOMETRICS_COMPLETED",
+      "seconds": 2.0
+    },
+    {
+      "stage": "ML_COMPLETED",
+      "seconds": 32.0
+    },
+    {
+      "stage": "XAI_COMPLETED",
+      "seconds": 11.0
+    },
+    {
+      "stage": "CONVERGENCE_COMPLETED",
+      "seconds": 1.0
+    },
+    {
+      "stage": "VISUALIZATION_COMPLETED",
+      "seconds": 3.0
+    },
+    {
+      "stage": "REPORTING_COMPLETED",
+      "seconds": 536.0
+    },
+    {
+      "stage": "FRAMEWORK_VALIDATED",
+      "seconds": 0.0
+    }
+  ],
+  "audit": "24 pass / 0 fail",
+  "agreement_with_tag": {
+    "dmi_panel_max_abs_diff": 3.2e-14,
+    "cell_provenance": "identical",
+    "fe_coefficients_max_abs_diff": 2.2e-08,
+    "mi_pooled_fe_max_abs_diff": 0.0,
+    "ml_rmse_max_abs_diff": 0.0045,
+    "leakage_safe_rmse_max_abs_diff": 0.001,
+    "shap_max_abs_diff": 5.1e-14
+  }
+}
